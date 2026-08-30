@@ -2,6 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="1_sxw3t"]
 
+[sub_resource type="Environment" id="Environment_sxw3t"]
+
 [node name="World" type="Node3D" unique_id=544101125]
 
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=386290549]
+environment = SubResource("Environment_sxw3t")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=162237918]
+transform = Transform3D(48.79, 0, 0, 0, 48.79, 0, 0, 0, 48.79, 0, -2.1090522, 0)
+size = Vector3(1, 0.001, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2057461236]
+transform = Transform3D(1, 0, 0, 0, 0.4442903, 0.89588284, 0, -0.89588284, 0.4442903, 0, 0, 0)
+sky_mode = 1
