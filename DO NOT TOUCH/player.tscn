@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bethqdmmxvec7"]
+
+[ext_resource type="Script" uid="uid://rtndhytpyadp" path="res://DO NOT TOUCH/Script/player.gd" id="1_bdb3e"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_aygv5"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1089965781]
+script = ExtResource("1_bdb3e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=285315915]
+shape = SubResource("SphereShape3D_aygv5")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1568266058]
