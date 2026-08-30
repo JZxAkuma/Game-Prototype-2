@@ -4,6 +4,18 @@
 
 [sub_resource type="Environment" id="Environment_sxw3t"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lkmv"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvbv0"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nw6u7"]
+albedo_color = Color(0, 1, 0, 1)
+
 [node name="World" type="Node3D" unique_id=544101125]
 
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
@@ -18,3 +30,19 @@ size = Vector3(1, 0.001, 1)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2057461236]
 transform = Transform3D(1, 0, 0, 0, 0.4442903, 0.89588284, 0, -0.89588284, 0.4442903, 0, 0, 0)
 sky_mode = 1
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=460861054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3319263, 2.0172596, -6.7488613)
+material = SubResource("StandardMaterial3D_sxw3t")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="." unique_id=1380041568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9745626, 2.0172596, -6.7488613)
+material = SubResource("StandardMaterial3D_1lkmv")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="." unique_id=269631982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.138918, 2.0172596, -6.7488613)
+material = SubResource("StandardMaterial3D_tvbv0")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="." unique_id=1919049076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.281209, 2.0172596, -6.7488613)
+material = SubResource("StandardMaterial3D_nw6u7")

@@ -19,6 +19,16 @@ var state = states.driving
 @export var pitch_limit_deg: float = 80.0
 @export var handling: float = 0.8
 
+@onready var main_camera = $Camera3D
+@onready var viewfinder_viewport = $PhotoUI/SubViewportContainer/SubViewport
+@onready var viewfinder_camera = $PhotoUI/SubViewportContainer/SubViewport/ViewFinderCamera
+@onready var photo_ui = $PhotoUI
+@onready var gallery_ui = $GalleryUI
+@onready var gallery_grid = $GalleryUI/PhotoGrid
+
+var camera_equipped = false
+var photos:Array[ImageTexture] = []
+
 var stick_input: Vector2 = Vector2.ZERO
 
 var current_yaw_rate: float = 0.0
@@ -47,21 +57,62 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED  
 	current_yaw = rotation.y
 	current_pitch = rotation.x
+	
+	viewfinder_viewport.world_3d = get_viewport().world_3d
+	photo_ui.visible = false
+	gallery_ui.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		get_tree().quit()
+	
 
 
 func _physics_process(delta: float) -> void:
 	_debug_display()
 	match state:
 		states.driving:
+			_camera_control()
 			_update_stick()
 			_sub_pitch_yaw(delta)
 			_throttle_input_handler()
 			_propeller(delta)
 
+func _camera_control():
+	if camera_equipped:
+		viewfinder_camera.global_transform = main_camera.global_transform
+	if Input.is_action_just_pressed("camera equip"):
+		_toggle_camera()
+	if Input.is_action_just_pressed("take picture") and camera_equipped:
+		_take_picture()
+	if Input.is_action_just_pressed("gallery"):
+		_toggle_gallery()
+
+func _toggle_camera() -> void:
+	camera_equipped = !camera_equipped
+	photo_ui.visible = camera_equipped
+
+func _take_picture() -> void:
+	var img : Image = viewfinder_viewport.get_texture().get_image()
+	var photo_tex : ImageTexture = ImageTexture.create_from_image(img)
+	photos.append(photo_tex)
+
+func _toggle_gallery() -> void:
+	gallery_ui.visible = !gallery_ui.visible
+	if gallery_ui.visible:
+		_refresh_gallery()
+
+func _refresh_gallery() -> void:
+	for child in gallery_grid.get_children():
+		child.queue_free()
+		
+	for photo in photos:
+		var rect = TextureRect.new()
+		rect.texture = photo
+		rect.custom_minimum_size = Vector2(160,120)
+		rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		gallery_grid.add_child(rect)
 
 func _update_stick() -> void:
 	var viewport_size = get_viewport().get_visible_rect().size
