@@ -50,7 +50,7 @@ var current_pitch: float = 0.0
 
 func _debug_display():
 	$"Debug Display/VBoxContainer/Speed".text = "Velocity: " + str(velocity) + " target: "
-	$"Debug Display/VBoxContainer/Throttle".text = "Throttle Power: " + str(throttle_power)
+	$"Debug Display/VBoxContainer/Throttle".text = "Throttle Power: " + str(throttle_power) + "\n" + "fps: " + str(Engine.get_frames_per_second())
 
 
 func _ready() -> void:

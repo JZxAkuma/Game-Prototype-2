@@ -6,9 +6,31 @@
 [ext_resource type="Texture2D" uid="uid://bd314k311bqsw" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_BaseColor.png" id="4_thp0b"]
 [ext_resource type="Texture2D" uid="uid://c1l05arxychxc" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_Normal.png" id="5_net3x"]
 
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ysyqv"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a4xb3"]
+lifetime_randomness = 0.25
+emission_shape_scale = Vector3(3.17, 3.305, 3.605)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 4, 0)
+color_ramp = SubResource("GradientTexture1D_ysyqv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iymom"]
+shading_mode = 0
+billboard_mode = 1
+billboard_keep_scale = true
+proximity_fade_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_thp0b"]
+material = SubResource("StandardMaterial3D_iymom")
+size = Vector2(0.1, 0.1)
+
 [sub_resource type="Environment" id="Environment_sxw3t"]
 fog_enabled = true
-fog_light_color = Color(0, 0.24292225, 0.4549455, 1)
+fog_light_color = Color(0, 0.14166677, 0.28135785, 1)
+fog_light_energy = 1.31
+fog_density = 0.0388
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -105,6 +127,12 @@ texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_
 
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.547958, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player" unique_id=766337587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7874325)
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_a4xb3")
+draw_pass_1 = SubResource("QuadMesh_thp0b")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=386290549]
 environment = SubResource("Environment_sxw3t")
