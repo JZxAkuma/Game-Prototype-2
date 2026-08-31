@@ -35,6 +35,14 @@ layout_mode = 2
 [node name="PhotoUI" type="CanvasLayer" parent="." unique_id=331502082]
 visible = false
 
+[node name="ColorRect" type="ColorRect" parent="PhotoUI" unique_id=1198273289]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.52156866)
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="PhotoUI" unique_id=1151391802]
 anchors_preset = 7
 anchor_left = 0.5
@@ -56,11 +64,16 @@ render_target_update_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3175789, -0.5940024)
 fov = 22.500002
 
-[node name="TextureRect" type="TextureRect" parent="PhotoUI/SubViewportContainer" unique_id=1060883097]
-layout_mode = 2
-
 [node name="GalleryUI" type="CanvasLayer" parent="." unique_id=1184099945]
 visible = false
+
+[node name="ColorRect2" type="ColorRect" parent="GalleryUI" unique_id=1120791936]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.52156866)
 
 [node name="PhotoGrid" type="GridContainer" parent="GalleryUI" unique_id=635037453]
 anchors_preset = 15

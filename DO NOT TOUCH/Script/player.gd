@@ -118,15 +118,12 @@ func _update_stick() -> void:
 	var viewport_size = get_viewport().get_visible_rect().size
 	var center = viewport_size / 2.0
 	var mouse_pos = get_viewport().get_mouse_position()
-
 	var half_size = center * stick_range
 	var raw = Vector2(
 		(mouse_pos.x - center.x) / half_size.x,
-		(mouse_pos.y - center.y) / half_size.y
+		-(mouse_pos.y - center.y) / half_size.y 
 	)
-
 	var mag = raw.length()
-
 	if mag < deadzone:
 		stick_input = Vector2.ZERO
 	else:
@@ -134,13 +131,14 @@ func _update_stick() -> void:
 		rescaled_mag = clamp(rescaled_mag, 0.0, 1.0)
 		stick_input = raw.normalized() * rescaled_mag
 
+
 func _sub_pitch_yaw(delta: float) -> void:
 	var speed_fraction = clamp(velocity.length() / max_speed, 0.0, 1.0)
 	var turn_penalty = clamp(speed_fraction * handling, 0.0, 1.0)
 	var current_max_turn_rate = deg_to_rad(max_turn_rate_deg) * (1.0 - turn_penalty)
 
 	var target_yaw_rate = -stick_input.x * current_max_turn_rate
-	var target_pitch_rate = -stick_input.y * current_max_turn_rate
+	var target_pitch_rate = stick_input.y * current_max_turn_rate 
 
 	var t: float = 1.0 - exp(-turn_response * delta)
 	current_yaw_rate = lerp(current_yaw_rate, target_yaw_rate, t)
