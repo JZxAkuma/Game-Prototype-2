@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c1l05arxychxc" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_Normal.png" id="5_net3x"]
 
 [sub_resource type="Environment" id="Environment_sxw3t"]
+fog_enabled = true
+fog_light_color = Color(0, 0.24292225, 0.4549455, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -102,7 +104,7 @@ texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_
 [node name="World" type="Node3D" unique_id=544101125]
 
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 53.5925, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.547958, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=386290549]
 environment = SubResource("Environment_sxw3t")
@@ -125,11 +127,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9745626, 2.0172596, -6.748
 material = SubResource("StandardMaterial3D_1lkmv")
 
 [node name="CSGSphere3D3" type="CSGSphere3D" parent="." unique_id=269631982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.138918, 2.0172596, -6.7488613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.138918, 11.055941, -6.7488613)
 material = SubResource("StandardMaterial3D_tvbv0")
 
 [node name="CSGSphere3D4" type="CSGSphere3D" parent="." unique_id=1919049076]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.281209, 2.0172596, -6.7488613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.281209, 7.8113165, -1.6803551)
 material = SubResource("StandardMaterial3D_nw6u7")
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=547959199]
