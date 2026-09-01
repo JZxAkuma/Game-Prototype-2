@@ -1,11 +1,8 @@
 [gd_scene format=3 uid="uid://un0mhjmil311"]
 
 [ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="1_sxw3t"]
-[ext_resource type="Texture2D" uid="uid://deljhnm41li2o" path="res://DO NOT TOUCH/Terrain test textures/sand/TilingCanvas_lambert1_BaseColor.png" id="2_ysyqv"]
-[ext_resource type="Texture2D" uid="uid://cto0nyw3b6xcn" path="res://DO NOT TOUCH/Terrain test textures/sand/TilingCanvas_lambert1_Normal.png" id="3_iymom"]
 [ext_resource type="Texture2D" uid="uid://dwjtt7ltgdryu" path="res://EnvironmentalAssets/2dSprites/BubbleSpriteSheet.png" id="3_net3x"]
-[ext_resource type="Texture2D" uid="uid://bd314k311bqsw" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_BaseColor.png" id="4_thp0b"]
-[ext_resource type="Texture2D" uid="uid://c1l05arxychxc" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_Normal.png" id="5_net3x"]
+[ext_resource type="Terrain3DAssets" uid="uid://c1r0ee4blljby" path="res://DO NOT TOUCH/dd/new_terrain_3d_assets.tres" id="3_ysyqv"]
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="6_iymom"]
 [ext_resource type="PackedScene" uid="uid://dlh76gwqfm6wp" path="res://CreatureAssets/Larvae/larvae_rig.tscn" id="8_net3x"]
 
@@ -37,9 +34,10 @@ size = Vector2(0.2, 0.2)
 
 [sub_resource type="Environment" id="Environment_sxw3t"]
 fog_enabled = true
-fog_light_color = Color(0, 0.14166677, 0.28135785, 1)
-fog_light_energy = 1.31
-fog_density = 0.0388
+fog_light_color = Color(0.08971351, 0.30293083, 0.36605564, 1)
+fog_density = 0.0196
+fog_depth_end = 958.5
+adjustment_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -95,43 +93,6 @@ _shader_parameters = {
 }
 world_background = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysyqv"]
-transparency = 4
-cull_mode = 2
-vertex_color_use_as_albedo = true
-backlight_enabled = true
-backlight = Color(0.5, 0.5, 0.5, 1)
-distance_fade_mode = 1
-distance_fade_min_distance = 128.0
-distance_fade_max_distance = 96.0
-
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_iymom"]
-generated_type = 1
-height_offset = 0.5
-material_override = SubResource("StandardMaterial3D_ysyqv")
-last_lod = 0
-last_shadow_lod = 0
-lod0_range = 128.0
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_fy66a"]
-name = "TilingCanvas_lambert1_BaseColor"
-albedo_texture = ExtResource("2_ysyqv")
-normal_texture = ExtResource("3_iymom")
-detiling_rotation = 0.06
-detiling_shift = 0.105
-
-[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_mgki3"]
-name = "TilingCanvas_lambert1_BaseColor"
-id = 1
-albedo_texture = ExtResource("4_thp0b")
-normal_texture = ExtResource("5_net3x")
-detiling_rotation = 0.105
-detiling_shift = 0.123
-
-[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_thp0b"]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_iymom")])
-texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_fy66a"), SubResource("Terrain3DTextureAsset_mgki3")])
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thp0b"]
 shader = ExtResource("6_iymom")
 shader_parameter/pixel_size = 4.0
@@ -140,7 +101,7 @@ shader_parameter/color_levels = 16.0
 [node name="World" type="Node3D" unique_id=544101125]
 
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.547958, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.61551, -12.924995, 58.053497)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player" unique_id=766337587]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7874325)
@@ -157,7 +118,7 @@ visible = false
 size = Vector3(1, 0.001, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2057461236]
-transform = Transform3D(1, 0, 0, 0, 0.4442903, 0.89588284, 0, -0.89588284, 0.4442903, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.063174725, 0.9980025, 0, -0.9980025, -0.063174725, 0, 0, 0)
 sky_mode = 1
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=460861054]
@@ -179,7 +140,7 @@ material = SubResource("StandardMaterial3D_nw6u7")
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=547959199]
 data_directory = "res://DO NOT TOUCH/dd"
 material = SubResource("Terrain3DMaterial_gomvp")
-assets = SubResource("Terrain3DAssets_thp0b")
+assets = ExtResource("3_ysyqv")
 top_level = true
 metadata/_edit_lock_ = true
 
@@ -194,4 +155,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="LarvaeRig" parent="." unique_id=2084018930 instance=ExtResource("8_net3x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1488657, -24.853367)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.946608, -55.20617)

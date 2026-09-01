@@ -7,8 +7,8 @@ enum states{
 var state = states.driving
 
 @export var mouse_sensitivity: float = 0.15
-@export var acceleration: float = 0.1
-@export var deceleration: float = 0.1
+@export var acceleration: float = 0.02
+@export var deceleration: float = 0.02
 
 @export var look_smoothness: float = 1.0
 
@@ -25,6 +25,7 @@ var state = states.driving
 @onready var photo_ui = $PhotoUI
 @onready var gallery_ui = $GalleryUI
 @onready var gallery_grid = $GalleryUI/PhotoGrid
+
 
 var camera_equipped = false
 var photos:Array[ImageTexture] = []
@@ -49,8 +50,8 @@ var current_yaw: float = 0.0
 var current_pitch: float = 0.0
 
 func _debug_display():
-	$"Debug Display/VBoxContainer/Speed".text = "Velocity: " + str(velocity) + " target: "
-	$"Debug Display/VBoxContainer/Throttle".text = "Throttle Power: " + str(throttle_power) + "\n" + "fps: " + str(Engine.get_frames_per_second())
+	$"Debug/Debug Display/VBoxContainer/Speed".text = "Velocity: " + str(velocity) + " target: "
+	$"Debug/Debug Display/VBoxContainer/Throttle".text = "Throttle Power: " + str(throttle_power) + "\n" + "fps: " + str(Engine.get_frames_per_second()) + "\n" + "Global Pos: " + str(global_position) 
 
 
 func _ready() -> void:
@@ -72,6 +73,7 @@ func _physics_process(delta: float) -> void:
 	_debug_display()
 	match state:
 		states.driving:
+			_surface()
 			_camera_control()
 			_update_stick()
 			_sub_pitch_yaw(delta)
@@ -131,6 +133,8 @@ func _update_stick() -> void:
 		rescaled_mag = clamp(rescaled_mag, 0.0, 1.0)
 		stick_input = raw.normalized() * rescaled_mag
 
+func _surface():
+	self.global_position.y = clamp(global_position.y,-1000000,0)
 
 func _sub_pitch_yaw(delta: float) -> void:
 	var speed_fraction = clamp(velocity.length() / max_speed, 0.0, 1.0)
@@ -171,7 +175,8 @@ func _propeller(delta: float) -> void:
 		velocity -= forward * throttle_power * acceleration * delta
 		
 	else:
-		velocity = lerp(velocity,Vector3.ZERO,0.1*delta)
+		var t = 1.0 - exp(-deceleration * delta)
+		velocity = velocity.lerp(Vector3.ZERO, t)
 		
 	var current_max_speed = (abs(throttle_power) / 100.0) * max_speed
 	if velocity.length() > current_max_speed:

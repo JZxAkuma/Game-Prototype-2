@@ -12,26 +12,6 @@ shape = SubResource("SphereShape3D_aygv5")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1568266058]
 
-[node name="Debug Display" type="Control" parent="." unique_id=1940312000]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Debug Display" unique_id=523858979]
-layout_mode = 1
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Speed" type="Label" parent="Debug Display/VBoxContainer" unique_id=1595391361]
-layout_mode = 2
-
-[node name="Throttle" type="Label" parent="Debug Display/VBoxContainer" unique_id=504819910]
-layout_mode = 2
-
 [node name="PhotoUI" type="CanvasLayer" parent="." unique_id=331502082]
 visible = false
 
@@ -64,7 +44,13 @@ render_target_update_mode = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3175789, -0.5940024)
 fov = 22.500002
 
+[node name="SpotLight3D" type="SpotLight3D" parent="PhotoUI/SubViewportContainer/SubViewport/ViewFinderCamera" unique_id=1157273968]
+light_energy = 4.168
+shadow_enabled = true
+spot_angle = 23.906246
+
 [node name="GalleryUI" type="CanvasLayer" parent="." unique_id=1184099945]
+layer = 100
 visible = false
 
 [node name="ColorRect2" type="ColorRect" parent="GalleryUI" unique_id=1120791936]
@@ -81,3 +67,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Debug" type="CanvasLayer" parent="." unique_id=1267654573]
+layer = 100
+
+[node name="Debug Display" type="Control" parent="Debug" unique_id=1940312000]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Debug/Debug Display" unique_id=523858979]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Speed" type="Label" parent="Debug/Debug Display/VBoxContainer" unique_id=1595391361]
+layout_mode = 2
+
+[node name="Throttle" type="Label" parent="Debug/Debug Display/VBoxContainer" unique_id=504819910]
+layout_mode = 2
