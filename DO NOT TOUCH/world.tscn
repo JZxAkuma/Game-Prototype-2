@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="1_sxw3t"]
 [ext_resource type="Texture2D" uid="uid://deljhnm41li2o" path="res://DO NOT TOUCH/Terrain test textures/sand/TilingCanvas_lambert1_BaseColor.png" id="2_ysyqv"]
 [ext_resource type="Texture2D" uid="uid://cto0nyw3b6xcn" path="res://DO NOT TOUCH/Terrain test textures/sand/TilingCanvas_lambert1_Normal.png" id="3_iymom"]
+[ext_resource type="Texture2D" uid="uid://dwjtt7ltgdryu" path="res://EnvironmentalAssets/2dSprites/BubbleSpriteSheet.png" id="3_net3x"]
 [ext_resource type="Texture2D" uid="uid://bd314k311bqsw" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_BaseColor.png" id="4_thp0b"]
 [ext_resource type="Texture2D" uid="uid://c1l05arxychxc" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_Normal.png" id="5_net3x"]
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://Pixelation.gdshader" id="6_iymom"]
@@ -16,16 +17,22 @@ emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
 gravity = Vector3(0, 4, 0)
 color_ramp = SubResource("GradientTexture1D_ysyqv")
+anim_speed_min = 1.93
+anim_speed_max = 6.1099997
+anim_offset_min = 0.49789998
+anim_offset_max = 0.49789998
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iymom"]
-shading_mode = 0
-billboard_mode = 1
-billboard_keep_scale = true
-proximity_fade_enabled = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_net3x"]
+transparency = 1
+albedo_texture = ExtResource("3_net3x")
+billboard_mode = 3
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_thp0b"]
-material = SubResource("StandardMaterial3D_iymom")
-size = Vector2(0.1, 0.1)
+material = SubResource("StandardMaterial3D_net3x")
+size = Vector2(0.2, 0.2)
 
 [sub_resource type="Environment" id="Environment_sxw3t"]
 fog_enabled = true
