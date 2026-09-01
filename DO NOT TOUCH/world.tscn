@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dwjtt7ltgdryu" path="res://EnvironmentalAssets/2dSprites/BubbleSpriteSheet.png" id="3_net3x"]
 [ext_resource type="Texture2D" uid="uid://bd314k311bqsw" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_BaseColor.png" id="4_thp0b"]
 [ext_resource type="Texture2D" uid="uid://c1l05arxychxc" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_Normal.png" id="5_net3x"]
-[ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://Pixelation.gdshader" id="6_iymom"]
+[ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="6_iymom"]
+[ext_resource type="PackedScene" uid="uid://dlh76gwqfm6wp" path="res://CreatureAssets/Larvae/larvae_rig.tscn" id="8_net3x"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ysyqv"]
 
@@ -191,3 +192,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="LarvaeRig" parent="." unique_id=2084018930 instance=ExtResource("8_net3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.1488657, -24.853367)
