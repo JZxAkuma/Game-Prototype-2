@@ -9,10 +9,41 @@ alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 albedo_texture = ExtResource("2_35b4q")
 
+[sub_resource type="Animation" id="Animation_35b4q"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton3D:joint2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 2.067976e-24, -0.004854198, 1.7770423e-15, 0.9999882)
+
+[sub_resource type="Animation" id="Animation_un5mp"]
+resource_name = "Test"
+length = 3.3
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton3D:joint2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0009999999, 1, 2.067976e-24, -0.004854198, 1.7770423e-15, 0.9999882, 1.0666667, 1, -0.0019119653, -0.0044617546, 0.39387143, 0.91915274, 2.1, 1, 0.0023002198, -0.0042746686, -0.47385293, 0.8805906, 3.26, 1, 2.067976e-24, -0.004854198, 1.7770423e-15, 0.9999882)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8y55"]
+_data = {
+&"RESET": SubResource("Animation_35b4q"),
+&"Test": SubResource("Animation_un5mp")
+}
+
 [node name="LarvaeRig" unique_id=2084018930 instance=ExtResource("1_qx0nu")]
 
 [node name="Skeleton3D" parent="." index="1" unique_id=31210410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3053155, 0.15946102, 0)
+bones/1/position = Vector3(0.886385, 3.4121287e-24, 1.9082006e-17)
+bones/1/rotation = Quaternion(-2.398824e-22, -0.004854198, 1.7770425e-15, 0.99998826)
+bones/1/scale = Vector3(0.9999997, 0.99999976, 0.99999934)
 
 [node name="Body" parent="Skeleton3D" index="0" unique_id=1828343687]
 surface_material_override/0 = SubResource("StandardMaterial3D_35b4q")
@@ -129,3 +160,5 @@ settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=432771678]
+libraries/ = SubResource("AnimationLibrary_k8y55")
+autoplay = &"Test"
