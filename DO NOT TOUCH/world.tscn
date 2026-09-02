@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dwjtt7ltgdryu" path="res://EnvironmentalAssets/2dSprites/BubbleSpriteSheet.png" id="3_net3x"]
 [ext_resource type="Terrain3DAssets" uid="uid://c1r0ee4blljby" path="res://DO NOT TOUCH/dd/new_terrain_3d_assets.tres" id="3_ysyqv"]
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="6_iymom"]
+[ext_resource type="PackedScene" uid="uid://cd6166yylgbtx" path="res://EnvironmentalAssets/SubmarinePrototype/submarine_prototype.tscn" id="6_thp0b"]
 [ext_resource type="PackedScene" uid="uid://dlh76gwqfm6wp" path="res://CreatureAssets/Larvae/larvae_rig.tscn" id="8_net3x"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ysyqv"]
@@ -101,7 +102,7 @@ shader_parameter/color_levels = 16.0
 [node name="World" type="Node3D" unique_id=544101125]
 
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.61551, -12.924995, 58.053497)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009418488, -0.3845423, 0.29768348)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player" unique_id=766337587]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7874325)
@@ -156,3 +157,6 @@ grow_vertical = 2
 
 [node name="LarvaeRig" parent="." unique_id=2084018930 instance=ExtResource("8_net3x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.946608, -55.20617)
+
+[node name="SubmarinePrototype" parent="." unique_id=948966299 instance=ExtResource("6_thp0b")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.029897213, -1.706917, -0.19607723)
