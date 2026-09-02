@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cd6166yylgbtx"]
+
+[ext_resource type="PackedScene" uid="uid://cpw1av134e1rl" path="res://EnvironmentalAssets/SubmarinePrototype/SubmarinePrototype.fbx" id="1_70vri"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jodau"]
+transparency = 1
+albedo_color = Color(0.3764706, 0.7607843, 0.47058824, 0.43529412)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rcyqn"]
+albedo_color = Color(0.5836706, 0.5265871, 0.4159914, 1)
+metallic = 1.0
+roughness = 0.5
+
+[node name="SubmarinePrototype" unique_id=948966299 instance=ExtResource("1_70vri")]
+
+[node name="pCube2" parent="." index="0" unique_id=289344400]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2.828, 0, 1.4962385, 0)
+
+[node name="polySurface1" parent="pCube2" index="0" unique_id=1302950945]
+surface_material_override/0 = SubResource("StandardMaterial3D_jodau")
+
+[node name="polySurface2" parent="pCube2" index="1" unique_id=293486472]
+surface_material_override/0 = SubResource("StandardMaterial3D_jodau")
+
+[node name="polySurface3" parent="pCube2" index="2" unique_id=517127252]
+surface_material_override/0 = SubResource("StandardMaterial3D_rcyqn")
