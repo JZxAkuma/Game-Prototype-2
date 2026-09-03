@@ -850,9 +850,10 @@ settings/0/exclude_collision_count = 0
 script = ExtResource("4_5pywq")
 
 [node name="Ray Front" type="RayCast3D" parent="Nav Rays" unique_id=1518544630]
-target_position = Vector3(0, 0, 2.99)
+target_position = Vector3(0, 0, -3)
 
 [node name="Ray Left" type="RayCast3D" parent="Nav Rays" unique_id=2058549724]
+target_position = Vector3(-3.125, -1, 0)
 
 [node name="Ray Right" type="RayCast3D" parent="Nav Rays" unique_id=2141342450]
 

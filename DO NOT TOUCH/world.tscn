@@ -171,12 +171,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.946608, -55.20617)
 
 [node name="SubmarinePrototype" parent="." unique_id=948966299 instance=ExtResource("6_thp0b")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.029897213, -1.706917, -0.19607723)
+visible = false
 
 [node name="OnlookerRig" parent="." unique_id=1973527818 instance=ExtResource("7_thp0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5437582, -4.0284176)
 visible = false
 
 [node name="OnLooker" parent="." unique_id=1705718784 instance=ExtResource("8_irgoa")]
-transform = Transform3D(-0.054068457, 0, 0.99853724, 0, 1, 0, -0.99853724, 0, -0.054068457, 0, -34.529602, 0)
+transform = Transform3D(-0.97635704, 0, -0.21616393, 0, 1, 0, 0.21616393, 0, -0.97635704, 0, -34.529602, 0)
 
 [editable path="Player"]
