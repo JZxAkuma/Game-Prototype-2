@@ -14,5 +14,5 @@ func _ready() -> void:
 	$"Ray Up".target_position = Vector3(0,-ray_cast_lenght,0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+	#pass

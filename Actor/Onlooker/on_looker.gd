@@ -32,7 +32,7 @@ func _setup_rays() -> void:
 	for ray in [ray_forward,ray_left,ray_right,ray_up,ray_down]:
 		ray.enabled = true
 		ray.target_position = Vector3.ZERO
-	
+
 func _physics_process(delta: float) -> void:
 	match state:
 		states.wandering:
@@ -42,13 +42,13 @@ func _wandering(delta:float):
 	wander_timer -= delta
 	if wander_timer <= 0.0:
 		_pick_new_wander_direction()
-	
+
 	var steer_dir = target_direction + _get_avoidance_vector() * avoid_strength
 	steer_dir = steer_dir.normalized()
-	
+
 	_apply_steering(steer_dir,swim_speed,delta)
 	move_and_slide()
-	
+
 func _apply_steering(desired_dir: Vector3, speed: float, delta: float) -> void:
 	var t = 1.0 - exp(-turn_response * delta)
 	var current_dir = -global_transform.basis.z
@@ -65,7 +65,7 @@ func _apply_steering(desired_dir: Vector3, speed: float, delta: float) -> void:
 
 	velocity = -global_transform.basis.z * speed
 	move_and_slide()
-	
+
 func _get_avoidance_vector() -> Vector3:
 	var avoid = Vector3.ZERO
 	var rays = [ray_forward,ray_left,ray_right,ray_up,ray_down]
@@ -76,9 +76,9 @@ func _get_avoidance_vector() -> Vector3:
 			var away = (global_position - hit_point).normalized()
 			var closeness = 1.0 - (global_position.distance_to(hit_point)/avoid_ray_length)
 			avoid += away * closeness
-	
+
 	return avoid
-	
+
 func _pick_new_wander_direction():
 	wander_timer = wander_change_interval
 	var random_offset := Vector3(
@@ -86,6 +86,7 @@ func _pick_new_wander_direction():
 		randf_range(-1.0, 1.0) * vertical_wander_bias,
 		randf_range(-1.0, 1.0)
 	).normalized() * randf_range(0.0, wander_radius)
+
 	var target_point: Vector3 = home_position + random_offset
 	target_direction = (target_point - global_position).normalized()
 	
