@@ -26,7 +26,12 @@ var state = states.driving
 @onready var gallery_ui = $GalleryUI
 @onready var gallery_grid = $GalleryUI/PhotoGrid
 
+@onready var sub_mesh = $Sub_mesh
 
+var shake_threshold: float = 0.5
+var max_shake_strength: float = 0.01
+
+var sub_mesh_base_pos: Vector3
 var camera_equipped = false
 var photos:Array[ImageTexture] = []
 
@@ -62,6 +67,8 @@ func _ready() -> void:
 	viewfinder_viewport.world_3d = get_viewport().world_3d
 	photo_ui.visible = false
 	gallery_ui.visible = false
+	
+	sub_mesh_base_pos = sub_mesh.position
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
@@ -74,6 +81,7 @@ func _physics_process(delta: float) -> void:
 	match state:
 		states.driving:
 			_surface()
+			_handle_shake()
 			_camera_control()
 			_update_stick()
 			_sub_pitch_yaw(delta)
@@ -164,22 +172,38 @@ func _throttle_input_handler() -> void:
 			
 	mnk_throttle_step = clamp(mnk_throttle_step,-1,mnk_max_throttle_step)
 	throttle_power = 100 * (mnk_throttle_step/mnk_max_throttle_step)
-	throttle_power = clamp(throttle_power,-1,100)
+	throttle_power = clamp(throttle_power, -100, 100)
 
 func _propeller(delta: float) -> void:
 	var forward = -global_transform.basis.z
+	
 	if throttle_power > 0:
 		velocity += forward * throttle_power * acceleration * delta
-		
-	elif throttle_power < 0 :
-		velocity -= forward * throttle_power * acceleration * delta
-		
-	else:
-		var t = 1.0 - exp(-deceleration * delta)
-		velocity = velocity.lerp(Vector3.ZERO, t)
-		
-	var current_max_speed = (abs(throttle_power) / 100.0) * max_speed
-	if velocity.length() > current_max_speed:
-		velocity = velocity.normalized() * current_max_speed
+	elif throttle_power < 0:
+		velocity += forward * throttle_power * acceleration * delta
+	
+	if throttle_power != 0:
+		var current_max_speed = (abs(throttle_power) / 100.0) * max_speed
+		if velocity.length() > current_max_speed:
+			velocity = velocity.normalized() * current_max_speed
 	
 	move_and_slide()
+
+func _handle_shake() -> void:
+	var speed_fraction = clamp(velocity.length() / max_speed, 0.0, 1.0)
+
+	if speed_fraction < shake_threshold:
+		sub_mesh.position = sub_mesh_base_pos
+		return
+
+
+	var shake_t = (speed_fraction - shake_threshold) / (1.0 - shake_threshold)
+	var strength = shake_t * max_shake_strength
+
+	var offset = Vector3(
+		randf_range(-strength, strength),
+		randf_range(-strength, strength),
+		randf_range(-strength, strength)
+	)
+
+	sub_mesh.position = sub_mesh_base_pos + offset
