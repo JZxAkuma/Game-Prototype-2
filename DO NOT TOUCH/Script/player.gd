@@ -207,3 +207,6 @@ func _handle_shake() -> void:
 	)
 
 	sub_mesh.position = sub_mesh_base_pos + offset
+
+func _pass_camera():
+	return $PhotoUI/SubViewportContainer/SubViewport/ViewFinderCamera

@@ -3,6 +3,68 @@
 [ext_resource type="Script" uid="uid://bqnnvu1k8tpds" path="res://Actor/Onlooker/on_looker.gd" id="1_5s3a4"]
 [ext_resource type="Texture2D" uid="uid://5myfcse5ujft" path="res://CreatureAssets/Onlooker/Textures/OnlookerRig_standardSurface1_BaseColor.png" id="1_pt0wp"]
 [ext_resource type="Texture2D" uid="uid://dg8jnmrcsdbic" path="res://CreatureAssets/Onlooker/Textures/OnlookerRig_standardSurface1_Roughness.png" id="2_5s3a4"]
+[ext_resource type="Script" uid="uid://bqr4ayq471pam" path="res://Actor/Actor components/script/nav_rays.gd" id="4_5pywq"]
+
+[sub_resource type="Animation" id="Animation_n6rr4"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh skelly/Skeleton3D:joint1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.985742, -0.58208346)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mesh skelly:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ajq3p"]
+resource_name = "Test"
+length = 3.0000000000000004
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh skelly/Skeleton3D:joint1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.985742, -0.58208346, 1, 1, 0.79674006, 2.985742, -0.58208346, 2, 1, -0.99416184, 2.985742, -0.58208346, 3, 1, 0, 2.985742, -0.58208346)
+
+[sub_resource type="Animation" id="Animation_5pywq"]
+resource_name = "test swim"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh skelly:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0), Vector3(0, 0, 0), Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hdbt"]
+_data = {
+&"RESET": SubResource("Animation_n6rr4"),
+&"Test": SubResource("Animation_ajq3p"),
+&"test swim": SubResource("Animation_5pywq")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_55n43"]
+radius = 1.3555725
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aey0t"]
 resource_name = "standardSurface1"
@@ -566,42 +628,21 @@ bind/8/name = &"joint13"
 bind/8/bone = -1
 bind/8/pose = Transform3D(-0.9979904, -0.063364476, 9.443479e-16, -5.7470245e-15, 7.5612205e-14, -1, 0.063364476, -0.9979904, -7.582442e-14, 0.7604372, 0.5743111, 2.7906108)
 
-[sub_resource type="Animation" id="Animation_n6rr4"]
-length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton3D:joint1")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.985742, -0.58208346)
-
-[sub_resource type="Animation" id="Animation_ajq3p"]
-resource_name = "Test"
-length = 3.0000000000000004
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton3D:joint1")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 2.985742, -0.58208346, 1, 1, 0.79674006, 2.985742, -0.58208346, 2, 1, -0.99416184, 2.985742, -0.58208346, 3, 1, 0, 2.985742, -0.58208346)
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hdbt"]
-_data = {
-&"RESET": SubResource("Animation_n6rr4"),
-&"Test": SubResource("Animation_ajq3p")
-}
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_55n43"]
-radius = 1.3555725
-
 [node name="OnLooker" type="CharacterBody3D" unique_id=1705718784]
 script = ExtResource("1_5s3a4")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="." unique_id=45008672]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.3876023, 0)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1215992542]
+libraries/ = SubResource("AnimationLibrary_5hdbt")
+autoplay = &"test swim"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2111454314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2448951, -0.34707433)
+shape = SubResource("SphereShape3D_55n43")
+
+[node name="Mesh skelly" type="Node3D" parent="." unique_id=2012378762]
+
+[node name="Skeleton3D" type="Skeleton3D" parent="Mesh skelly" unique_id=45008672]
+transform = Transform3D(-1, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -1, -0.13483906, -2.9519734, 0)
 bones/0/name = "joint1"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0, -1, 0, -0.063364506, 0, -0.9979904, 0.9979904, 0, -0.063364506, 0, 2.985742, -0.58208346)
@@ -701,79 +742,80 @@ bones/13/position = Vector3(0.009666854, 0.574311, 0.15224549)
 bones/13/rotation = Quaternion(0, 1, 0, 6.123032e-17)
 bones/13/scale = Vector3(1, 1, 1)
 
-[node name="Body" type="MeshInstance3D" parent="Skeleton3D" unique_id=380300559]
+[node name="Body" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=380300559]
 mesh = SubResource("ArrayMesh_npm48")
 skin = SubResource("Skin_feswe")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Eye" type="MeshInstance3D" parent="Skeleton3D" unique_id=738223519]
+[node name="Eye" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=738223519]
 mesh = SubResource("ArrayMesh_acd3s")
 skin = SubResource("Skin_6ef0h")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Fin" type="MeshInstance3D" parent="Skeleton3D" unique_id=2031071348]
+[node name="Fin" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=2031071348]
 mesh = SubResource("ArrayMesh_60ob4")
 skin = SubResource("Skin_3jhb3")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Arm" type="MeshInstance3D" parent="Skeleton3D" unique_id=1177826945]
+[node name="Arm" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=1177826945]
 mesh = SubResource("ArrayMesh_t7mec")
 skin = SubResource("Skin_5tpff")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Fin1" type="MeshInstance3D" parent="Skeleton3D" unique_id=602123893]
+[node name="Fin1" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=602123893]
 mesh = SubResource("ArrayMesh_y2jnp")
 skin = SubResource("Skin_3bt3a")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Arm1" type="MeshInstance3D" parent="Skeleton3D" unique_id=576497972]
+[node name="Arm1" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=576497972]
 mesh = SubResource("ArrayMesh_dpcb1")
 skin = SubResource("Skin_076lk")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Arm3" type="MeshInstance3D" parent="Skeleton3D" unique_id=713994969]
+[node name="Arm3" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=713994969]
 mesh = SubResource("ArrayMesh_78wdm")
 skin = SubResource("Skin_v138j")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Arm2" type="MeshInstance3D" parent="Skeleton3D" unique_id=411087529]
+[node name="Arm2" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=411087529]
 mesh = SubResource("ArrayMesh_ou3bg")
 skin = SubResource("Skin_tyyfl")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Fin2" type="MeshInstance3D" parent="Skeleton3D" unique_id=85352620]
+[node name="Fin2" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=85352620]
 mesh = SubResource("ArrayMesh_pb8c7")
 skin = SubResource("Skin_tyyfl")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Eye4" type="MeshInstance3D" parent="Skeleton3D" unique_id=730601905]
+[node name="Eye4" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=730601905]
 mesh = SubResource("ArrayMesh_at00m")
 skin = SubResource("Skin_6gtj8")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Eye3" type="MeshInstance3D" parent="Skeleton3D" unique_id=246361186]
+[node name="Eye3" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=246361186]
 mesh = SubResource("ArrayMesh_vmqr0")
 skin = SubResource("Skin_ttvxf")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="Eye2" type="MeshInstance3D" parent="Skeleton3D" unique_id=203843743]
+[node name="Eye2" type="MeshInstance3D" parent="Mesh skelly/Skeleton3D" unique_id=203843743]
 mesh = SubResource("ArrayMesh_as3du")
 skin = SubResource("Skin_a05o7")
 skeleton = NodePath("..")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0uuc")
 
-[node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Skeleton3D" unique_id=857414206]
+[node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Mesh skelly/Skeleton3D" unique_id=857414206]
+mutable_bone_axes = false
 setting_count = 1
 settings/0/root_bone_name = "joint1"
 settings/0/root_bone = 0
@@ -781,30 +823,39 @@ settings/0/end_bone_name = "joint6"
 settings/0/end_bone = 7
 settings/0/extend_end_bone = false
 settings/0/center_from = 0
-settings/0/individual_config = false
-settings/0/rotation_axis = 3
-settings/0/radius/value = 0.01
-settings/0/radius/damping_curve = null
-settings/0/stiffness/value = 2.0
-settings/0/stiffness/damping_curve = null
-settings/0/drag/value = 1.0
-settings/0/drag/damping_curve = null
-settings/0/gravity/value = 0.0
-settings/0/gravity/damping_curve = null
-settings/0/gravity/direction = Vector3(0, -1, 0)
-settings/0/joints/0/bone_name = "joint1"
-settings/0/joints/0/bone = 0
-settings/0/joints/1/bone_name = "joint5"
-settings/0/joints/1/bone = 6
-settings/0/joints/2/bone_name = "joint6"
-settings/0/joints/2/bone = 7
+settings/0/individual_config = true
+settings/0/joint_count = 3
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/radius = 0.01
+settings/0/joints/0/stiffness = 2.0
+settings/0/joints/0/drag = 1.0
+settings/0/joints/0/gravity = 0.0
+settings/0/joints/0/gravity_direction = Vector3(0, -1, 0)
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/radius = 0.01
+settings/0/joints/1/stiffness = 2.0
+settings/0/joints/1/drag = 1.0
+settings/0/joints/1/gravity = 0.0
+settings/0/joints/1/gravity_direction = Vector3(0, -1, 0)
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/radius = 0.01
+settings/0/joints/2/stiffness = 2.0
+settings/0/joints/2/drag = 1.0
+settings/0/joints/2/gravity = 0.0
+settings/0/joints/2/gravity_direction = Vector3(0, -1, 0)
 settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1215992542]
-libraries/ = SubResource("AnimationLibrary_5hdbt")
-autoplay = &"Test"
+[node name="Nav Rays" type="Node3D" parent="." unique_id=584611649]
+script = ExtResource("4_5pywq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2111454314]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8092662, -0.34707433)
-shape = SubResource("SphereShape3D_55n43")
+[node name="Ray Front" type="RayCast3D" parent="Nav Rays" unique_id=1518544630]
+target_position = Vector3(0, 0, 2.99)
+
+[node name="Ray Left" type="RayCast3D" parent="Nav Rays" unique_id=2058549724]
+
+[node name="Ray Right" type="RayCast3D" parent="Nav Rays" unique_id=2141342450]
+
+[node name="Ray Down" type="RayCast3D" parent="Nav Rays" unique_id=1254760905]
+
+[node name="Ray Up" type="RayCast3D" parent="Nav Rays" unique_id=150406894]

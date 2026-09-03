@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="6_iymom"]
 [ext_resource type="PackedScene" uid="uid://cd6166yylgbtx" path="res://EnvironmentalAssets/SubmarinePrototype/submarine_prototype.tscn" id="6_thp0b"]
 [ext_resource type="PackedScene" uid="uid://pdv0q3egfkcj" path="res://CreatureAssets/Onlooker/onlooker_rig.tscn" id="7_thp0b"]
+[ext_resource type="PackedScene" uid="uid://cv5jlwch18ufq" path="res://Actor/Onlooker/on_looker.tscn" id="8_irgoa"]
 [ext_resource type="PackedScene" uid="uid://dlh76gwqfm6wp" path="res://CreatureAssets/Larvae/larvae_rig.tscn" id="8_net3x"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ysyqv"]
@@ -105,6 +106,15 @@ shader_parameter/color_levels = 16.0
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009418488, -0.3845423, 0.29768348)
 
+[node name="polySurface1" parent="Player/Sub_mesh" parent_id_path=PackedInt32Array(1089965781, 1357711974) index="0" unique_id=365548295]
+surface_material_override/0 = null
+
+[node name="polySurface2" parent="Player/Sub_mesh" parent_id_path=PackedInt32Array(1089965781, 1357711974) index="1" unique_id=172063501]
+surface_material_override/0 = null
+
+[node name="polySurface3" parent="Player/Sub_mesh" parent_id_path=PackedInt32Array(1089965781, 1357711974) index="2" unique_id=1237003081]
+surface_material_override/0 = null
+
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Player" unique_id=766337587]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7874325)
 amount = 10
@@ -164,3 +174,9 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.0
 
 [node name="OnlookerRig" parent="." unique_id=1973527818 instance=ExtResource("7_thp0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5437582, -4.0284176)
+visible = false
+
+[node name="OnLooker" parent="." unique_id=1705718784 instance=ExtResource("8_irgoa")]
+transform = Transform3D(-0.054068457, 0, 0.99853724, 0, 1, 0, -0.99853724, 0, -0.054068457, 0, -34.529602, 0)
+
+[editable path="Player"]

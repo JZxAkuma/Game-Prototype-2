@@ -8,6 +8,8 @@ signal provoked
 @export var detection_fov_deg: float = 30.0
 @export var agitation_time: float = 1.0
 
+@onready var player: Node3D = get_tree().get_first_node_in_group("player")
+
 var is_being_watched: bool = false
 var agitation_timer: float = 0.0
 var has_provoked: bool = false
@@ -16,12 +18,12 @@ var player_camera: Camera3D
 
 
 func _ready() -> void:
-	player_camera = get_viewport().get_camera_3d()
+	_get_player_camera()
 
 
 func _physics_process(delta: float) -> void:
 	if not player_camera:
-		player_camera = get_viewport().get_camera_3d()
+		_get_player_camera()
 		return
 
 	var watched_now = _check_watched()
@@ -53,3 +55,6 @@ func _check_watched() -> bool:
 	var angle = rad_to_deg(cam_forward.angle_to(to_self.normalized()))
 
 	return angle < detection_fov_deg
+
+func _get_player_camera():
+	player_camera = player._pass_camera()
