@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d38eweqn75dr"]
+
+[ext_resource type="Script" uid="uid://bc0qobvoenwg5" path="res://Actor/Actor components/script/actor_in_frame_detection.gd" id="1_dfyvy"]
+
+[node name="Actor_in_frame_detection" type="Node3D" unique_id=381063919]
+script = ExtResource("1_dfyvy")

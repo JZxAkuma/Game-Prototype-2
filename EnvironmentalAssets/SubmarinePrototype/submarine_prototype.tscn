@@ -13,14 +13,14 @@ roughness = 0.5
 
 [node name="SubmarinePrototype" unique_id=948966299 instance=ExtResource("1_70vri")]
 
-[node name="pCube2" parent="." index="0" unique_id=289344400]
+[node name="pCube2" parent="." index="0" unique_id=1908052638]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2.828, 0, 1.4962385, 0)
 
-[node name="polySurface1" parent="pCube2" index="0" unique_id=1302950945]
+[node name="polySurface1" parent="pCube2" index="0" unique_id=1962209475]
 surface_material_override/0 = SubResource("StandardMaterial3D_jodau")
 
-[node name="polySurface2" parent="pCube2" index="1" unique_id=293486472]
+[node name="polySurface2" parent="pCube2" index="1" unique_id=1872723700]
 surface_material_override/0 = SubResource("StandardMaterial3D_jodau")
 
-[node name="polySurface3" parent="pCube2" index="2" unique_id=517127252]
+[node name="polySurface3" parent="pCube2" index="2" unique_id=1686980879]
 surface_material_override/0 = SubResource("StandardMaterial3D_rcyqn")

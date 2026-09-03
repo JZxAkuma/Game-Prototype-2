@@ -43,47 +43,47 @@ _data = {
 [node name="OnlookerRig" unique_id=1973527818 instance=ExtResource("1_bdyqy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5437582, 0)
 
-[node name="Eye1" parent="." index="0" unique_id=1101082915]
+[node name="Eye1" parent="." index="0" unique_id=552830535]
 visible = false
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Skeleton3D" parent="." index="2" unique_id=213087634]
+[node name="Skeleton3D" parent="." index="2" unique_id=1410540138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1679008, 0)
 
-[node name="Body" parent="Skeleton3D" index="0" unique_id=134062350]
+[node name="Body" parent="Skeleton3D" index="0" unique_id=601675148]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Eye" parent="Skeleton3D" index="1" unique_id=1213162263]
+[node name="Eye" parent="Skeleton3D" index="1" unique_id=75692580]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Fin" parent="Skeleton3D" index="2" unique_id=210505686]
+[node name="Fin" parent="Skeleton3D" index="2" unique_id=1256012123]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Arm" parent="Skeleton3D" index="3" unique_id=1154659231]
+[node name="Arm" parent="Skeleton3D" index="3" unique_id=1049933523]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Fin1" parent="Skeleton3D" index="4" unique_id=674254876]
+[node name="Fin1" parent="Skeleton3D" index="4" unique_id=1697581992]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Arm1" parent="Skeleton3D" index="5" unique_id=942723534]
+[node name="Arm1" parent="Skeleton3D" index="5" unique_id=1615506796]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Arm3" parent="Skeleton3D" index="6" unique_id=611975539]
+[node name="Arm3" parent="Skeleton3D" index="6" unique_id=223465845]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Arm2" parent="Skeleton3D" index="7" unique_id=739444555]
+[node name="Arm2" parent="Skeleton3D" index="7" unique_id=688909356]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Fin2" parent="Skeleton3D" index="8" unique_id=1632151001]
+[node name="Fin2" parent="Skeleton3D" index="8" unique_id=559682213]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Eye4" parent="Skeleton3D" index="9" unique_id=1030758337]
+[node name="Eye4" parent="Skeleton3D" index="9" unique_id=1462643857]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Eye3" parent="Skeleton3D" index="10" unique_id=1586830555]
+[node name="Eye3" parent="Skeleton3D" index="10" unique_id=77877389]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
-[node name="Eye2" parent="Skeleton3D" index="11" unique_id=2069008126]
+[node name="Eye2" parent="Skeleton3D" index="11" unique_id=2023748975]
 surface_material_override/0 = SubResource("StandardMaterial3D_bdyqy")
 
 [node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Skeleton3D" index="12" unique_id=1677389399]
