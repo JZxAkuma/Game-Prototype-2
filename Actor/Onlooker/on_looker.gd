@@ -9,7 +9,7 @@ var wander_change_interval: float = 1.0
 var wander_radius: float = 10.0
 var home_position: Vector3
 var avoid_ray_length: float = 3.0
-var avoid_strength: float = 2.0
+var avoid_strength: float = 5.0
 var target_direction: Vector3 = Vector3.FORWARD
 var wander_timer: float = 5.0
 var agitation_timer: float = 0.0
@@ -76,7 +76,6 @@ func _get_avoidance_vector() -> Vector3:
 			var away = (global_position - hit_point).normalized()
 			var closeness = 1.0 - (global_position.distance_to(hit_point)/avoid_ray_length)
 			avoid += away * closeness
-
 	return avoid
 
 func _pick_new_wander_direction():

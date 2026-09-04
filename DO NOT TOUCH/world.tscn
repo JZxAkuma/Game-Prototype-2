@@ -1,39 +1,12 @@
 [gd_scene format=3 uid="uid://un0mhjmil311"]
 
 [ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="1_sxw3t"]
-[ext_resource type="Texture2D" uid="uid://dwjtt7ltgdryu" path="res://EnvironmentalAssets/2dSprites/BubbleSpriteSheet.png" id="3_net3x"]
 [ext_resource type="Terrain3DAssets" uid="uid://c1r0ee4blljby" path="res://DO NOT TOUCH/dd/new_terrain_3d_assets.tres" id="3_ysyqv"]
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="6_iymom"]
 [ext_resource type="PackedScene" uid="uid://cd6166yylgbtx" path="res://EnvironmentalAssets/SubmarinePrototype/submarine_prototype.tscn" id="6_thp0b"]
 [ext_resource type="PackedScene" uid="uid://pdv0q3egfkcj" path="res://CreatureAssets/Onlooker/onlooker_rig.tscn" id="7_thp0b"]
 [ext_resource type="PackedScene" uid="uid://cv5jlwch18ufq" path="res://Actor/Onlooker/on_looker.tscn" id="8_irgoa"]
 [ext_resource type="PackedScene" uid="uid://dlh76gwqfm6wp" path="res://CreatureAssets/Larvae/larvae_rig.tscn" id="8_net3x"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ysyqv"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a4xb3"]
-lifetime_randomness = 0.25
-emission_shape_scale = Vector3(3.17, 3.305, 3.605)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-gravity = Vector3(0, 4, 0)
-color_ramp = SubResource("GradientTexture1D_ysyqv")
-anim_speed_min = 1.93
-anim_speed_max = 6.1099997
-anim_offset_min = 0.49789998
-anim_offset_max = 0.49789998
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_net3x"]
-transparency = 1
-albedo_texture = ExtResource("3_net3x")
-billboard_mode = 3
-particles_anim_h_frames = 2
-particles_anim_v_frames = 1
-particles_anim_loop = true
-
-[sub_resource type="QuadMesh" id="QuadMesh_thp0b"]
-material = SubResource("StandardMaterial3D_net3x")
-size = Vector2(0.2, 0.2)
 
 [sub_resource type="Environment" id="Environment_sxw3t"]
 fog_enabled = true
@@ -103,24 +76,6 @@ shader_parameter/color_levels = 16.0
 
 [node name="World" type="Node3D" unique_id=544101125]
 
-[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.009418488, -0.3845423, 0.29768348)
-
-[node name="polySurface1" parent="Player/Sub_mesh" parent_id_path=PackedInt32Array(1089965781, 1357711974) index="0" unique_id=365548295]
-surface_material_override/0 = null
-
-[node name="polySurface2" parent="Player/Sub_mesh" parent_id_path=PackedInt32Array(1089965781, 1357711974) index="1" unique_id=172063501]
-surface_material_override/0 = null
-
-[node name="polySurface3" parent="Player/Sub_mesh" parent_id_path=PackedInt32Array(1089965781, 1357711974) index="2" unique_id=1237003081]
-surface_material_override/0 = null
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Player" unique_id=766337587]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.7874325)
-amount = 10
-process_material = SubResource("ParticleProcessMaterial_a4xb3")
-draw_pass_1 = SubResource("QuadMesh_thp0b")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=386290549]
 environment = SubResource("Environment_sxw3t")
 
@@ -157,6 +112,7 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="PixelShader" type="CanvasLayer" parent="." unique_id=1059177105]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PixelShader" unique_id=655868027]
 material = SubResource("ShaderMaterial_thp0b")
@@ -180,4 +136,4 @@ visible = false
 [node name="OnLooker" parent="." unique_id=1705718784 instance=ExtResource("8_irgoa")]
 transform = Transform3D(-0.97635704, 0, -0.21616393, 0, 1, 0, 0.21616393, 0, -0.97635704, 0, -34.529602, 0)
 
-[editable path="Player"]
+[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]

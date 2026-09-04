@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bethqdmmxvec7"]
 
 [ext_resource type="Script" uid="uid://rtndhytpyadp" path="res://DO NOT TOUCH/Script/player.gd" id="1_bdb3e"]
+[ext_resource type="Material" uid="uid://domwpsbch6xxu" path="res://Materials/Subs/sub screen.tres" id="2_fu28x"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aygv5"]
 
@@ -46,10 +47,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vqwwq")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fu28x"]
-transparency = 1
-albedo_color = Color(0.3764706, 0.7607843, 0.47058824, 0.43529412)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3xwlg"]
 _surfaces = [{
@@ -165,6 +162,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3175789, -0.5940024)
 fov = 22.500002
 
 [node name="SpotLight3D" type="SpotLight3D" parent="PhotoUI/SubViewportContainer/SubViewport/ViewFinderCamera" unique_id=1157273968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25644225)
+visible = false
 light_energy = 4.168
 shadow_enabled = true
 spot_range = 48.871925
@@ -216,14 +215,13 @@ layout_mode = 2
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="polySurface1" type="MeshInstance3D" parent="Sub_mesh" unique_id=365548295]
-visible = false
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_bdb3e")
-surface_material_override/0 = SubResource("StandardMaterial3D_fu28x")
+surface_material_override/0 = ExtResource("2_fu28x")
 
 [node name="polySurface2" type="MeshInstance3D" parent="Sub_mesh" unique_id=172063501]
-visible = false
 mesh = SubResource("ArrayMesh_aypgk")
-surface_material_override/0 = SubResource("StandardMaterial3D_fu28x")
+surface_material_override/0 = ExtResource("2_fu28x")
 
 [node name="polySurface3" type="MeshInstance3D" parent="Sub_mesh" unique_id=1237003081]
 mesh = SubResource("ArrayMesh_52dsr")

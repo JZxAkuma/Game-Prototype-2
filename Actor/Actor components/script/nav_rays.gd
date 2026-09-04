@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var ray_cast_lenght:float = 3
+@export var ray_cast_lenght:float = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
