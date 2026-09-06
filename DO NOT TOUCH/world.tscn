@@ -21,11 +21,11 @@ albedo_color = Color(1, 1, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nw6u7"]
 albedo_color = Color(0, 1, 0, 1)
 
-[sub_resource type="Gradient" id="Gradient_irgoa"]
+[sub_resource type="Gradient" id="Gradient_net3x"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4ft3g"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_irgoa"]
 noise_type = 2
 frequency = 0.03
 cellular_jitter = 3.0
@@ -37,29 +37,29 @@ domain_warp_fractal_type = 2
 domain_warp_fractal_lacunarity = 1.5
 domain_warp_fractal_gain = 1.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aac0w"]
-noise = SubResource("FastNoiseLite_4ft3g")
-color_ramp = SubResource("Gradient_irgoa")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4ft3g"]
+noise = SubResource("FastNoiseLite_irgoa")
+color_ramp = SubResource("Gradient_net3x")
 seamless = true
 
 [sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_gomvp"]
 _shader_parameters = {
-&"bias_distance": null,
-&"blend_sharpness": 0.0490000023275,
-&"depth_blur": null,
-&"enable_macro_variation": null,
-&"enable_projection": null,
-&"flat_terrain_normals": null,
-&"macro_variation1": null,
-&"macro_variation2": null,
-&"macro_variation_slope": null,
-&"mipmap_bias": null,
-&"noise1_angle": null,
-&"noise1_offset": null,
-&"noise1_scale": null,
-&"noise2_scale": null,
-&"noise_texture": SubResource("NoiseTexture2D_aac0w"),
-&"projection_threshold": null
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_4ft3g"),
+&"projection_threshold": 0.8
 }
 world_background = 0
 

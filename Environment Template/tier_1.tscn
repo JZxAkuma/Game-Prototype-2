@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cdhvy01n5jnmn"]
+
+[ext_resource type="Environment" uid="uid://do2yni1fg8i4n" path="res://Environment Template/Tier1 environment.tres" id="1_2y6eo"]
+[ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="3_k2tpb"]
+
+[node name="Tier_1" type="Node3D" unique_id=731700411]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1588085547]
+environment = ExtResource("1_2y6eo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1978561495]
+transform = Transform3D(1, 0, 0, 0, -0.063174725, 0.9980025, 0, -0.9980025, -0.063174725, 0, 0, 0)
+sky_mode = 1
+
+[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("3_k2tpb")]

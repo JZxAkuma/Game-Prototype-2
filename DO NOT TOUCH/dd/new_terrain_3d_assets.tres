@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bd314k311bqsw" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_BaseColor.png" id="3_fsw5j"]
 [ext_resource type="Texture2D" uid="uid://c1l05arxychxc" path="res://DO NOT TOUCH/Terrain test textures/grass/TilingCanvas_lambert1_Normal.png" id="4_gcgqb"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysyqv"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2msv"]
 transparency = 4
 cull_mode = 2
 vertex_color_use_as_albedo = true
@@ -15,10 +15,10 @@ distance_fade_mode = 1
 distance_fade_min_distance = 128.0
 distance_fade_max_distance = 96.0
 
-[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_iymom"]
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_4x24i"]
 generated_type = 1
 height_offset = 0.5
-material_override = SubResource("StandardMaterial3D_ysyqv")
+material_override = SubResource("StandardMaterial3D_m2msv")
 last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
@@ -39,5 +39,5 @@ detiling_rotation = 0.105
 detiling_shift = 0.123
 
 [resource]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_iymom")])
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_4x24i")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_fy66a"), SubResource("Terrain3DTextureAsset_mgki3")])

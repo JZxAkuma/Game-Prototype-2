@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://31ys1d2hq5l0"]
+
+[ext_resource type="Environment" uid="uid://4yqsg0fh12ec" path="res://Environment Template/Tier2 environment.tres" id="1_nouey"]
+[ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="2_abahe"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_abahe"]
+emission_shape_scale = Vector3(10.285, 6.535, 9.895)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, 1, 1)
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.099999994
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhuwb"]
+shading_mode = 0
+albedo_color = Color(0.47397572, 0.47397572, 0.47397572, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_w48dp"]
+material = SubResource("StandardMaterial3D_nhuwb")
+size = Vector2(0.04, 0.04)
+
+[node name="Tier_2" type="Node3D" unique_id=877012609]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=917941250]
+environment = ExtResource("1_nouey")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2017383491]
+transform = Transform3D(1, 0, 0, 0, -0.063174725, 0.9980025, 0, -0.9980025, -0.063174725, 0, 0, 0)
+sky_mode = 1
+
+[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("2_abahe")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Player" unique_id=1341152080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42409325, -7.655178)
+amount = 30
+lifetime = 5.05
+process_material = SubResource("ParticleProcessMaterial_abahe")
+draw_pass_1 = SubResource("QuadMesh_w48dp")
