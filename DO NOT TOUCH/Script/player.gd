@@ -80,7 +80,6 @@ func _physics_process(delta: float) -> void:
 	_debug_display()
 	match state:
 		states.driving:
-			_surface()
 			_handle_shake()
 			_camera_control()
 			_update_stick()
@@ -140,9 +139,6 @@ func _update_stick() -> void:
 		var rescaled_mag = (mag - deadzone) / (1.0 - deadzone)
 		rescaled_mag = clamp(rescaled_mag, 0.0, 1.0)
 		stick_input = raw.normalized() * rescaled_mag
-
-func _surface():
-	self.global_position.y = clamp(global_position.y,-1000000,0)
 
 func _sub_pitch_yaw(delta: float) -> void:
 	var speed_fraction = clamp(velocity.length() / max_speed, 0.0, 1.0)

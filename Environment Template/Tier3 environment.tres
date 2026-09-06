@@ -1,0 +1,12 @@
+[gd_resource type="Environment" format=3 uid="uid://bemrk15i2i5u6"]
+
+[resource]
+glow_enabled = true
+glow_bloom = 0.2
+fog_enabled = true
+fog_light_color = Color(0.005562785, 0.05186709, 0.07044842, 1)
+fog_light_energy = 0.54
+fog_density = 0.0388
+fog_depth_end = 958.5
+adjustment_enabled = true
+adjustment_saturation = 0.58

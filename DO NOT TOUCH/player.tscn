@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://domwpsbch6xxu" path="res://Materials/Subs/sub screen.tres" id="2_fu28x"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aygv5"]
+radius = 1.056446
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mpxc"]
 resource_name = "standardSurface1"
@@ -127,6 +128,13 @@ script = ExtResource("1_bdb3e")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=285315915]
 shape = SubResource("SphereShape3D_aygv5")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="CollisionShape3D" unique_id=1157273968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63997424, -0.28287554)
+light_energy = 4.168
+shadow_enabled = true
+spot_range = 48.871925
+spot_angle = 23.906246
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1568266058]
 
 [node name="PhotoUI" type="CanvasLayer" parent="." unique_id=331502082]
@@ -160,14 +168,6 @@ render_target_update_mode = 0
 [node name="ViewFinderCamera" type="Camera3D" parent="PhotoUI/SubViewportContainer/SubViewport" unique_id=1458681821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3175789, -0.5940024)
 fov = 22.500002
-
-[node name="SpotLight3D" type="SpotLight3D" parent="PhotoUI/SubViewportContainer/SubViewport/ViewFinderCamera" unique_id=1157273968]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25644225)
-visible = false
-light_energy = 4.168
-shadow_enabled = true
-spot_range = 48.871925
-spot_angle = 23.906246
 
 [node name="GalleryUI" type="CanvasLayer" parent="." unique_id=1184099945]
 layer = 100

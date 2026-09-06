@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://bcs0av8ug24ik"]
+
+[ext_resource type="Texture2D" uid="uid://deljhnm41li2o" path="res://DO NOT TOUCH/Terrain test textures/sand/TilingCanvas_lambert1_BaseColor.png" id="1_3mji2"]
+[ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="1_osb7k"]
+[ext_resource type="Environment" uid="uid://bemrk15i2i5u6" path="res://Environment Template/Tier3 environment.tres" id="1_qg5k5"]
+[ext_resource type="Texture2D" uid="uid://cto0nyw3b6xcn" path="res://DO NOT TOUCH/Terrain test textures/sand/TilingCanvas_lambert1_Normal.png" id="2_iyvjh"]
+
+[sub_resource type="Gradient" id="Gradient_qq5cs"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xheea"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qg5k5"]
+noise = SubResource("FastNoiseLite_xheea")
+color_ramp = SubResource("Gradient_qq5cs")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_3mji2"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": null,
+&"depth_blur": null,
+&"enable_macro_variation": null,
+&"enable_projection": null,
+&"flat_terrain_normals": null,
+&"macro_variation1": null,
+&"macro_variation2": null,
+&"macro_variation_slope": null,
+&"mipmap_bias": null,
+&"noise1_angle": null,
+&"noise1_offset": null,
+&"noise1_scale": null,
+&"noise2_scale": null,
+&"noise_texture": SubResource("NoiseTexture2D_qg5k5"),
+&"projection_threshold": null
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iyvjh"]
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+backlight_enabled = true
+backlight = Color(0.5, 0.5, 0.5, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 128.0
+distance_fade_max_distance = 96.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_jx82q"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("StandardMaterial3D_iyvjh")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_xheea"]
+name = "TilingCanvas_lambert1_BaseColor"
+albedo_texture = ExtResource("1_3mji2")
+normal_texture = ExtResource("2_iyvjh")
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_m2al5"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_jx82q")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_xheea")])
+
+[node name="Tier3" type="Node3D" unique_id=2137532603]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1646100509]
+environment = ExtResource("1_qg5k5")
+
+[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_osb7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.906728, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=433035154]
+transform = Transform3D(1, 0, 0, 0, -0.063174725, 0.9980025, 0, -0.9980025, -0.063174725, 0, 0, 0)
+light_energy = 0.11
+sky_mode = 1
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=554786088]
+data_directory = "res://Terrain DD/Terrain_3_1 dd"
+material = SubResource("Terrain3DMaterial_3mji2")
+assets = SubResource("Terrain3DAssets_m2al5")
+top_level = true
+metadata/_edit_lock_ = true
