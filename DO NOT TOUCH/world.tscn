@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://pdv0q3egfkcj" path="res://CreatureAssets/Onlooker/onlooker_rig.tscn" id="7_thp0b"]
 [ext_resource type="PackedScene" uid="uid://cv5jlwch18ufq" path="res://Actor/Onlooker/on_looker.tscn" id="8_irgoa"]
 [ext_resource type="PackedScene" uid="uid://dlh76gwqfm6wp" path="res://CreatureAssets/Larvae/larvae_rig.tscn" id="8_net3x"]
+[ext_resource type="PackedScene" uid="uid://dh2sc2o40tdqo" path="res://EnvironmentalAssets/Assets1/assetpack1.tscn" id="9_irgoa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -106,7 +107,6 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="PixelShader" type="CanvasLayer" parent="." unique_id=1059177105]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PixelShader" unique_id=655868027]
 material = SubResource("ShaderMaterial_thp0b")
@@ -131,3 +131,6 @@ visible = false
 transform = Transform3D(-0.97635704, 0, -0.21616393, 0, 1, 0, 0.21616393, 0, -0.97635704, 0, -34.529602, 0)
 
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
+
+[node name="AssetPack1A2Meshes" parent="." unique_id=1960405358 instance=ExtResource("9_irgoa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.695112, 0)
