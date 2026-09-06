@@ -115,6 +115,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="LarvaeRig" parent="." unique_id=2084018930 instance=ExtResource("8_net3x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123300076, -8.946608, -55.20617)

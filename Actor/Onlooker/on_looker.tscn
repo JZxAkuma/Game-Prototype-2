@@ -636,7 +636,7 @@ libraries/ = SubResource("AnimationLibrary_5hdbt")
 autoplay = &"test swim"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2111454314]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2448951, -0.34707433)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2448951, 0.10022974)
 shape = SubResource("SphereShape3D_55n43")
 
 [node name="Mesh skelly" type="Node3D" parent="." unique_id=2012378762]

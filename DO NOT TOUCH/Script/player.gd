@@ -28,6 +28,12 @@ var state = states.driving
 
 @onready var sub_mesh = $Sub_mesh
 
+var freelook_sens = 0.005
+
+var freelook_active = false
+var freelook_yaw = 0.0
+var freelook_pitch = 0.0
+
 var shake_threshold: float = 0.5
 var max_shake_strength: float = 0.01
 
@@ -71,6 +77,14 @@ func _ready() -> void:
 	sub_mesh_base_pos = sub_mesh.position
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("toggle freelook"):
+		_toggle_freelook()
+
+	if freelook_active and event is InputEventMouseMotion:
+		freelook_yaw -= event.relative.x * freelook_sens
+		freelook_pitch -= event.relative.y * freelook_sens
+		freelook_pitch = clamp(freelook_pitch, deg_to_rad(-80.0), deg_to_rad(80.0))
+
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		get_tree().quit()
 	
@@ -82,12 +96,17 @@ func _physics_process(delta: float) -> void:
 		states.driving:
 			_handle_shake()
 			_camera_control()
-			_update_stick()
+			if not freelook_active:
+				_update_stick()
 			_sub_pitch_yaw(delta)
 			_throttle_input_handler()
 			_propeller(delta)
 
 func _camera_control():
+	if freelook_active:
+		main_camera.rotation.y = freelook_yaw
+		main_camera.rotation.x = freelook_pitch
+		
 	if camera_equipped:
 		viewfinder_camera.global_transform = main_camera.global_transform
 	if Input.is_action_just_pressed("camera equip"):
@@ -206,3 +225,20 @@ func _handle_shake() -> void:
 
 func _pass_camera():
 	return $PhotoUI/SubViewportContainer/SubViewport/ViewFinderCamera
+	
+func _toggle_freelook():
+	freelook_active = !freelook_active
+	
+	if freelook_active:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+		var center = get_viewport().get_visible_rect().size / 2.0
+		Input.warp_mouse(center)
+		freelook_yaw = 0.0
+		freelook_pitch = 0.0
+		main_camera.rotation = Vector3.ZERO
+	
+	
+	
+	
