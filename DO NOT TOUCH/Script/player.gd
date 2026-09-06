@@ -91,6 +91,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("change scene test"):
+		WorldChanger.goto_scene("res://Underwater Template/tier_3.tscn")
+	
 	_debug_display()
 	match state:
 		states.driving:
