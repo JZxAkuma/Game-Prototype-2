@@ -45,7 +45,7 @@ shape = SubResource("BoxShape3D_aygv5")
 
 [node name="Camera3D" type="Camera3D" parent="Player Boat" unique_id=777651671]
 transform = Transform3D(1, 0, 0, 0, 0.5982528, 0.8013075, 0, -0.8013075, 0.5982528, 0, 17.361263, 13.030164)
-fov = 46.9
+fov = 52.48052
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Player Boat" unique_id=1171193604]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76518583, 0)
