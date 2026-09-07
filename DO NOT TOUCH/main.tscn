@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c7xuhthhlp8mf" path="res://DO NOT TOUCH/world_changer.gd" id="1_tjysi"]
 [ext_resource type="Script" uid="uid://b7mucuf2r5kgl" path="res://DO NOT TOUCH/Script/main.gd" id="1_wcydr"]
-[ext_resource type="PackedScene" uid="uid://un0mhjmil311" path="res://DO NOT TOUCH/world.tscn" id="2_bag58"]
+[ext_resource type="PackedScene" uid="uid://crnm1wsykjfox" path="res://DO NOT TOUCH/overworld.tscn" id="3_b73pl"]
+[ext_resource type="Script" uid="uid://bgvobehrjm0gl" path="res://DO NOT TOUCH/Script/day_night_cycle.gd" id="4_b73pl"]
 
 [node name="Main" type="Node3D" unique_id=389891087]
 script = ExtResource("1_wcydr")
@@ -12,4 +13,7 @@ script = ExtResource("1_tjysi")
 
 [node name="World Container" type="Node3D" parent="." unique_id=2138499079]
 
-[node name="World" parent="World Container" unique_id=544101125 instance=ExtResource("2_bag58")]
+[node name="Overworld" parent="World Container" unique_id=24951533 instance=ExtResource("3_b73pl")]
+
+[node name="Day_Night_Cycle" type="Node3D" parent="." unique_id=820228148 groups=["day_night_cycle"]]
+script = ExtResource("4_b73pl")

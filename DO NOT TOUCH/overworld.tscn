@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crnm1wsykjfox"]
 
 [ext_resource type="Script" uid="uid://51mbsxxsg40p" path="res://DO NOT TOUCH/Script/player_boat.gd" id="1_4v3sy"]
+[ext_resource type="Script" uid="uid://cx0o2sesi3fh2" path="res://DO NOT TOUCH/Script/overworld.gd" id="1_by16b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jt3qg"]
 albedo_color = Color(1, 1, 0, 1)
@@ -16,7 +17,6 @@ size = Vector3(1, 1, 1.9931641)
 size = Vector2(100, 100)
 
 [sub_resource type="Environment" id="Environment_jt3qg"]
-background_mode = 1
 background_color = Color(0.63229096, 0.75375175, 1, 1)
 glow_enabled = true
 glow_bloom = 0.1
@@ -30,6 +30,7 @@ albedo_color = Color(1, 0, 1, 1)
 material = SubResource("StandardMaterial3D_n5003")
 
 [node name="Overworld" type="Node3D" unique_id=24951533]
+script = ExtResource("1_by16b")
 
 [node name="Player Boat" type="CharacterBody3D" parent="." unique_id=677552127]
 script = ExtResource("1_4v3sy")
@@ -46,6 +47,11 @@ shape = SubResource("BoxShape3D_aygv5")
 transform = Transform3D(1, 0, 0, 0, 0.5982528, 0.8013075, 0, -0.8013075, 0.5982528, 0, 17.361263, 13.030164)
 fov = 46.9
 
+[node name="OmniLight3D" type="OmniLight3D" parent="Player Boat" unique_id=1171193604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76518583, 0)
+light_color = Color(1, 0.56078434, 0, 1)
+omni_range = 1.9212486
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1119691803]
 mesh = SubResource("PlaneMesh_n5003")
 
@@ -53,7 +59,7 @@ mesh = SubResource("PlaneMesh_n5003")
 environment = SubResource("Environment_jt3qg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1400530340]
-transform = Transform3D(0.73116636, 0.3607643, -0.57900333, 0.6821992, -0.38665938, 0.62056327, 0, -0.84873056, -0.5288255, 0.16538048, 6.314716, -4.7683716e-07)
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0.16538048, 6.314716, -4.7683716e-07)
 shadow_enabled = true
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1145930764]

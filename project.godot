@@ -31,6 +31,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
+[global_group]
+
+day_night_cycle="allow scenes to look for it"
+
 [input]
 
 "Throttle up"={
