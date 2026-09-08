@@ -7,6 +7,7 @@
 
 [node name="Main" type="Node3D" unique_id=389891087]
 script = ExtResource("1_wcydr")
+overworld = ExtResource("3_b73pl")
 
 [node name="World changer" type="Node" parent="." unique_id=766273552]
 script = ExtResource("1_tjysi")
@@ -19,3 +20,5 @@ sun_color_sunset = Color(0.7361284, 0.26567173, 0.16743669, 1)
 
 [node name="Day_Night_Cycle" type="Node3D" parent="." unique_id=820228148 groups=["day_night_cycle"]]
 script = ExtResource("4_b73pl")
+
+[node name="Ui" type="CanvasLayer" parent="." unique_id=882385790]

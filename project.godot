@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Settings="*uid://dsl7pdtk22lw"
 WorldChanger="*uid://c7xuhthhlp8mf"
 GameEvents="*uid://d1o8opem3cgo2"
+Transition="*uid://n6qu63kabjeb"
 
 [display]
 
