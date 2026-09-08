@@ -1,6 +1,6 @@
 extends Node3D
 
-
+#
 signal time_changed(hour:float)
 signal new_day(day_count:int)
 

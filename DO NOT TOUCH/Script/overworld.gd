@@ -10,6 +10,13 @@ var day_night_cycle: Node
 @export var sun_energy_day: float = 1.2
 @export var sun_energy_night: float = 0.0
 
+enum states{
+	focused,
+	not_focused
+}
+
+var state = states.not_focused
+
 # Keyframes: (hour, color). Must stay sorted by hour.
 var color_keyframes = [
 	[0.0, sun_color_night],

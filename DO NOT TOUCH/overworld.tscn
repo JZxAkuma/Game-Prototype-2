@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://51mbsxxsg40p" path="res://DO NOT TOUCH/Script/player_boat.gd" id="1_4v3sy"]
 [ext_resource type="Script" uid="uid://cx0o2sesi3fh2" path="res://DO NOT TOUCH/Script/overworld.gd" id="1_by16b"]
 [ext_resource type="PackedScene" uid="uid://doa7fiwf02ehh" path="res://DO NOT TOUCH/Overworld/sector_button.tscn" id="3_j6u1a"]
+[ext_resource type="PackedScene" uid="uid://ccjihror4sq8y" path="res://DO NOT TOUCH/island.tscn" id="4_rwgfh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jt3qg"]
 albedo_color = Color(1, 1, 0, 1)
@@ -71,3 +72,36 @@ mesh = SubResource("SphereMesh_aygv5")
 
 [node name="SectorButton" parent="." unique_id=1771916065 instance=ExtResource("3_j6u1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.976944, 0, 32.094357)
+
+[node name="Island" parent="." unique_id=150471320 instance=ExtResource("4_rwgfh")]
+transform = Transform3D(22.20924, 0, 0, 0, 22.20924, 0, 0, 0, 22.20924, 14.896746, 0, 14.676098)
+
+[node name="ui" type="CanvasLayer" parent="." unique_id=906038561]
+
+[node name="Control" type="Control" parent="ui" unique_id=1321807796]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/Control" unique_id=1526708827]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="ui/Control/VBoxContainer" unique_id=1363057139]
+layout_mode = 2
+text = "Back"
+
+[node name="Button2" type="Button" parent="ui/Control/VBoxContainer" unique_id=1833632055]
+layout_mode = 2
+text = "Dive"

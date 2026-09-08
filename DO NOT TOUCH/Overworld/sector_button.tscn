@@ -1,13 +1,10 @@
 [gd_scene format=3 uid="uid://doa7fiwf02ehh"]
 
 [ext_resource type="Script" uid="uid://cjudhyex8jhfb" path="res://DO NOT TOUCH/Script/sector_button.gd" id="1_jasug"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jasug"]
-transparency = 1
-albedo_color = Color(0, 8.384999, 8.384999, 1)
+[ext_resource type="Material" uid="uid://n153qf6qn1yn" path="res://DO NOT TOUCH/Shader/highlight.tres" id="2_qe45b"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jasug"]
-material = SubResource("StandardMaterial3D_jasug")
+material = ExtResource("2_qe45b")
 size = Vector3(20, 20, 20)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jasug"]
@@ -23,3 +20,6 @@ mesh = SubResource("BoxMesh_jasug")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1971934033]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.042409, -5.976734, 10.044235)
 shape = SubResource("ConvexPolygonShape3D_jasug")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=985469421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.958658, 0, 10.672918)

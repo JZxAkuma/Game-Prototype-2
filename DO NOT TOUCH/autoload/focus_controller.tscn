@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://f8vvg46u0inc"]
+
+[ext_resource type="Script" uid="uid://baqlfp8lm5ddl" path="res://DO NOT TOUCH/Script/focus_controller.gd" id="1_4ytab"]
+
+[node name="FocusController" type="Node" unique_id=1485275671]
+script = ExtResource("1_4ytab")
