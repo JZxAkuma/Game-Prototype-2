@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://doa7fiwf02ehh"]
+
+[ext_resource type="Script" uid="uid://cjudhyex8jhfb" path="res://DO NOT TOUCH/Script/sector_button.gd" id="1_jasug"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jasug"]
+transparency = 1
+albedo_color = Color(0, 8.384999, 8.384999, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jasug"]
+material = SubResource("StandardMaterial3D_jasug")
+size = Vector3(20, 20, 20)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jasug"]
+points = PackedVector3Array(10, 10, 10, 10, 10, -10, -10, 10, 10, 10, -10, 10, 10, -10, -10, -10, 10, -10, -10, -10, 10, -10, -10, -10)
+
+[node name="SectorButton" type="Area3D" unique_id=1771916065]
+script = ExtResource("1_jasug")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=935321318]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.042409, -5.976734, 10.044235)
+mesh = SubResource("BoxMesh_jasug")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1971934033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.042409, -5.976734, 10.044235)
+shape = SubResource("ConvexPolygonShape3D_jasug")
