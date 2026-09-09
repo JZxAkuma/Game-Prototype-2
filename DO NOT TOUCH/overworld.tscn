@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cx0o2sesi3fh2" path="res://DO NOT TOUCH/Script/overworld.gd" id="1_by16b"]
 [ext_resource type="PackedScene" uid="uid://doa7fiwf02ehh" path="res://DO NOT TOUCH/Overworld/sector_button.tscn" id="3_j6u1a"]
 [ext_resource type="PackedScene" uid="uid://ccjihror4sq8y" path="res://DO NOT TOUCH/island.tscn" id="4_rwgfh"]
+[ext_resource type="Script" uid="uid://bg2qasgq82kfk" path="res://DO NOT TOUCH/Script/overworld_ui.gd" id="5_r1dg4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jt3qg"]
 albedo_color = Color(1, 1, 0, 1)
@@ -35,8 +36,8 @@ material = SubResource("StandardMaterial3D_n5003")
 script = ExtResource("1_by16b")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=777651671]
-transform = Transform3D(1, 0, 0, 0, 0.4116935, 0.9113224, 0, -0.9113224, 0.4116935, 51.614113, 66.84678, 80.2772)
-fov = 54.3
+transform = Transform3D(1, 0, 0, 0, 0.24704406, 0.9690043, 0, -0.9690043, 0.24704406, 51.614113, 82.38916, 75.63558)
+fov = 70.0
 
 [node name="Player Boat" type="CharacterBody3D" parent="." unique_id=677552127]
 visible = false
@@ -71,12 +72,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5235, 7.6293945e-06, 41.96
 mesh = SubResource("SphereMesh_aygv5")
 
 [node name="SectorButton" parent="." unique_id=1771916065 instance=ExtResource("3_j6u1a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.976944, 0, 32.094357)
+visible = false
 
 [node name="Island" parent="." unique_id=150471320 instance=ExtResource("4_rwgfh")]
-transform = Transform3D(22.20924, 0, 0, 0, 22.20924, 0, 0, 0, 22.20924, 14.896746, 0, 14.676098)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.289194, 0, 19.12141)
+
+[node name="Island2" parent="." unique_id=826368841 instance=ExtResource("4_rwgfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.18459, 0, 16.284977)
+
+[node name="Island3" parent="." unique_id=1374050627 instance=ExtResource("4_rwgfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.675621, 0, 79.374626)
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=906038561]
+script = ExtResource("5_r1dg4")
 
 [node name="Control" type="Control" parent="ui" unique_id=1321807796]
 layout_mode = 3
@@ -98,10 +106,96 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Button" type="Button" parent="ui/Control/VBoxContainer" unique_id=1363057139]
+[node name="Back Button" type="Button" parent="ui/Control/VBoxContainer" unique_id=1363057139]
 layout_mode = 2
 text = "Back"
 
-[node name="Button2" type="Button" parent="ui/Control/VBoxContainer" unique_id=1833632055]
+[node name="Dive Button" type="Button" parent="ui/Control/VBoxContainer" unique_id=1833632055]
 layout_mode = 2
 text = "Dive"
+
+[node name="SectorButton2" parent="." unique_id=156705536 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
+visible = false
+
+[node name="SectorButton3" parent="." unique_id=1675855648 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+
+[node name="SectorButton4" parent="." unique_id=502792057 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 0)
+visible = false
+
+[node name="SectorButton5" parent="." unique_id=1644490286 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 0)
+visible = false
+
+[node name="SectorButton6" parent="." unique_id=1983239956 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+visible = false
+
+[node name="SectorButton7" parent="." unique_id=588520249 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 20)
+visible = false
+
+[node name="SectorButton8" parent="." unique_id=964844661 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 20)
+
+[node name="SectorButton9" parent="." unique_id=1655499749 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 20)
+visible = false
+
+[node name="SectorButton10" parent="." unique_id=319033033 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 20)
+visible = false
+
+[node name="SectorButton11" parent="." unique_id=1385298845 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+
+[node name="SectorButton12" parent="." unique_id=511469372 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 40)
+
+[node name="SectorButton13" parent="." unique_id=1878394456 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 40)
+
+[node name="SectorButton14" parent="." unique_id=846586658 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 40)
+
+[node name="SectorButton15" parent="." unique_id=28118765 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 40)
+
+[node name="SectorButton16" parent="." unique_id=1411282752 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60)
+visible = false
+
+[node name="SectorButton17" parent="." unique_id=1132745523 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 60)
+visible = false
+
+[node name="SectorButton18" parent="." unique_id=1430933943 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 60)
+
+[node name="SectorButton19" parent="." unique_id=1064381226 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 60)
+
+[node name="SectorButton20" parent="." unique_id=789637816 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 60)
+
+[node name="SectorButton21" parent="." unique_id=811767168 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 80)
+visible = false
+
+[node name="SectorButton22" parent="." unique_id=1555473070 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 80)
+visible = false
+
+[node name="SectorButton23" parent="." unique_id=220221541 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 80)
+
+[node name="SectorButton24" parent="." unique_id=336739116 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 80)
+
+[node name="SectorButton25" parent="." unique_id=253655348 instance=ExtResource("3_j6u1a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 80)
+
+[connection signal="pressed" from="ui/Control/VBoxContainer/Back Button" to="ui" method="_on_back_button_pressed"]
+[connection signal="pressed" from="ui/Control/VBoxContainer/Dive Button" to="ui" method="_on_dive_button_pressed"]

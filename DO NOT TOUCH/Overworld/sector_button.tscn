@@ -10,16 +10,16 @@ size = Vector3(20, 20, 20)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jasug"]
 points = PackedVector3Array(10, 10, 10, 10, 10, -10, -10, 10, 10, 10, -10, 10, 10, -10, -10, -10, 10, -10, -10, -10, 10, -10, -10, -10)
 
-[node name="SectorButton" type="Area3D" unique_id=1771916065]
+[node name="SectorButton" type="Area3D" unique_id=1771916065 groups=["sector"]]
 script = ExtResource("1_jasug")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=935321318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.042409, -5.976734, 10.044235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
 mesh = SubResource("BoxMesh_jasug")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1971934033]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.042409, -5.976734, 10.044235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
 shape = SubResource("ConvexPolygonShape3D_jasug")
 
 [node name="Marker3D" type="Marker3D" parent="." unique_id=985469421]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.958658, 0, 10.672918)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 29.99223)

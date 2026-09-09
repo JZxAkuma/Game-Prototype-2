@@ -85,8 +85,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		freelook_pitch -= event.relative.y * freelook_sens
 		freelook_pitch = clamp(freelook_pitch, deg_to_rad(-80.0), deg_to_rad(80.0))
 
-	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		get_tree().quit()
+	#if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		#get_tree().quit()
 	
 
 
