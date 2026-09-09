@@ -23,3 +23,5 @@ shape = SubResource("ConvexPolygonShape3D_jasug")
 
 [node name="Camera Marker" type="Marker3D" parent="." unique_id=985469421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 29.99223)
+
+[node name="boatmarker" type="Marker3D" parent="." unique_id=1586905932]

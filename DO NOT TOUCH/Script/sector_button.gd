@@ -7,6 +7,7 @@ extends Area3D
 @onready var mesh = $MeshInstance3D
 var base_material : Material
 @onready var marker = $"Camera Marker"
+@onready var boatmarker = $boatmarker
 
 var overworld
 

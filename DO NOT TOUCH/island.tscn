@@ -35,3 +35,5 @@ shape = SubResource("ConvexPolygonShape3D_7gxji")
 
 [node name="CameraMarker" type="Marker3D" parent="." unique_id=723935301]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017006874, 0, 19.522161)
+
+[node name="boatmarker" type="Marker3D" parent="." unique_id=793691286]
