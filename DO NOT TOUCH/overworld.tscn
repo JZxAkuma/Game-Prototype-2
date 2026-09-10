@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://51mbsxxsg40p" path="res://DO NOT TOUCH/Script/player_boat.gd" id="1_4v3sy"]
 [ext_resource type="Script" uid="uid://cx0o2sesi3fh2" path="res://DO NOT TOUCH/Script/overworld.gd" id="1_by16b"]
+[ext_resource type="PackedScene" uid="uid://cmtdntuvuddi4" path="res://DO NOT TOUCH/mission_card.tscn" id="2_cxe7l"]
 [ext_resource type="PackedScene" uid="uid://doa7fiwf02ehh" path="res://DO NOT TOUCH/Overworld/sector_button.tscn" id="3_j6u1a"]
 [ext_resource type="PackedScene" uid="uid://ccjihror4sq8y" path="res://DO NOT TOUCH/island.tscn" id="4_rwgfh"]
 [ext_resource type="Script" uid="uid://bg2qasgq82kfk" path="res://DO NOT TOUCH/Script/overworld_ui.gd" id="5_r1dg4"]
@@ -35,6 +36,7 @@ material = SubResource("StandardMaterial3D_n5003")
 
 [node name="Overworld" type="Node3D" unique_id=24951533]
 script = ExtResource("1_by16b")
+mission_card_scene = ExtResource("2_cxe7l")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=777651671]
 transform = Transform3D(1, 0, 0, 0, 0.24704406, 0.9690043, 0, -0.9690043, 0.24704406, 51.614113, 82.38916, 75.63558)
@@ -116,6 +118,31 @@ text = "Back"
 [node name="Dive Button" type="Button" parent="ui/Control/VBoxContainer" unique_id=1833632055]
 layout_mode = 2
 text = "Dive"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ui/Control" unique_id=1328909290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/Control/ScrollContainer" unique_id=357811823]
+layout_mode = 2
+
+[node name="MissionCard" parent="ui/Control/ScrollContainer/VBoxContainer" unique_id=1532075163 instance=ExtResource("2_cxe7l")]
+layout_mode = 2
+
+[node name="Mission List" type="Control" parent="ui" unique_id=1022304335]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [node name="SectorButton" parent="." unique_id=1771916065 instance=ExtResource("3_j6u1a")]
 visible = false

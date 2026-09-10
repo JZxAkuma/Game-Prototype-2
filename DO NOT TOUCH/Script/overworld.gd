@@ -8,6 +8,10 @@ var day_night_cycle: Node
 @onready var camera = $Camera3D
 @onready var ui = $ui
 
+@export var mission_card_scene: PackedScene
+@onready var mission_list = $ui/Control/ScrollContainer/VBoxContainer
+@onready var mission_list_panel = $ui/Control/ScrollContainer
+
 @export var sun_color_day: Color = Color(1.0, 0.95, 0.85)
 @export var sun_color_sunset: Color = Color(1.0, 0.5, 0.3)
 @export var sun_color_night: Color = Color(0.2, 0.25, 0.4)
@@ -126,7 +130,7 @@ func _unfocus() -> void:
 	tween.tween_property(camera,"fov",default_cam_fov,2)
 	_update_ui(null)
 
-func _update_ui(target:Area3D) -> void:
+func _update_ui(target: Area3D) -> void:
 	if focusing:
 		ui.show()
 	else:
@@ -136,10 +140,29 @@ func _update_ui(target:Area3D) -> void:
 		if target.is_in_group("sector"):
 			depth_ui.show()
 			dive_button.show()
+			mission_list_panel.hide()
 		else:
 			depth_ui.hide()
 			dive_button.hide()
+			mission_list_panel.show()
+			_show_mission_list(target.island_name)
 
 func _dive() -> void:
 	if focusing_on:
 		GameEvents.sector_selected.emit(focusing_on)
+
+func _show_mission_list(island:String) -> void:
+	for child in mission_list.get_children():
+		child.queue_free()
+	
+	var available = QuestManager._get_available_mission_for_island(island)
+	
+	for mission in available:
+		var card = mission_card_scene.instantiate()
+		mission_list.add_child(card)
+		card.setup(mission)
+		card.accept_pressed.connect(_on_mission_accept)
+
+func _on_mission_accept(mission:Mission) -> void:
+	QuestManager._accept_mission(mission)
+	_show_mission_list(mission.giver_island)

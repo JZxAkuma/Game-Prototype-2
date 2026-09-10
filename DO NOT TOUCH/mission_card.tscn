@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cmtdntuvuddi4"]
+
+[ext_resource type="Script" uid="uid://cgcvwmy46koh2" path="res://DO NOT TOUCH/Script/mission_card.gd" id="1_trcnx"]
+
+[node name="MissionCard" type="Control" unique_id=1532075163]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_trcnx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1274716974]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="namelabel" type="Label" parent="VBoxContainer" unique_id=366062235]
+layout_mode = 2
+text = "placeholder"
+
+[node name="Desclabel" type="Label" parent="VBoxContainer" unique_id=516744009]
+layout_mode = 2
+text = "placeholder"
+
+[node name="Type label" type="Label" parent="VBoxContainer" unique_id=274009530]
+layout_mode = 2
+text = "placeholder"
+
+[node name="Sector" type="Label" parent="VBoxContainer" unique_id=472674186]
+layout_mode = 2
+text = "placeholder"
+
+[node name="acceptbutton" type="Button" parent="VBoxContainer" unique_id=2120483921]
+layout_mode = 2
+text = "Accept Mission"
