@@ -21,9 +21,12 @@ Settings="*uid://dsl7pdtk22lw"
 WorldChanger="*uid://c7xuhthhlp8mf"
 GameEvents="*uid://d1o8opem3cgo2"
 Transition="*uid://n6qu63kabjeb"
+QuestManager="*uid://cbkt8coowmxjy"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

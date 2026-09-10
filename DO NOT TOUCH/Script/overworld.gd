@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var sun = $DirectionalLight3D
 @onready var player_light = $"Player Boat/OmniLight3D"
+@onready var player_boat = $"Player Boat"
 var day_night_cycle: Node
 
 @onready var camera = $Camera3D
@@ -22,6 +23,8 @@ var focusing = false
 var focusing_on = null
 
 @onready var dive_button = $"ui/Control/VBoxContainer/Dive Button"
+@onready var sector_id_ui = $ui/Control/VBoxContainer/sectoridlabel
+@onready var depth_ui = $ui/Control/VBoxContainer/Depthlabel
 
 # Keyframes: (hour, color). Must stay sorted by hour.
 var color_keyframes = [
@@ -91,10 +94,15 @@ func _update_player_light(hour: float) -> void:
 	var is_night = hour < 6.0 or hour >= 19.0
 	player_light.visible = is_night
 
-func _focus(target:Area3D,marker:Marker3D) -> void:
+func _focus(target:Area3D,marker:Marker3D,sector:String,depth:String) -> void:
 	if !target:
 		return
 	
+	sector_id_ui.text = sector
+	depth_ui.text = depth
+	if target.is_in_group("sector"):
+		sector_id_ui.text = "Sector: " + sector_id_ui.text
+		depth_ui.text = "Depth: " + depth_ui.text
 	focusing = true
 	focusing_on = target
 	var target_pos = camera.global_position
@@ -126,8 +134,10 @@ func _update_ui(target:Area3D) -> void:
 	
 	if target:
 		if target.is_in_group("sector"):
+			depth_ui.show()
 			dive_button.show()
 		else:
+			depth_ui.hide()
 			dive_button.hide()
 
 func _dive() -> void:

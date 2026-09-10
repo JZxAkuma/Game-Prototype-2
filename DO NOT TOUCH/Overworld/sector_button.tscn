@@ -14,14 +14,15 @@ points = PackedVector3Array(10, 10, 10, 10, 10, -10, -10, 10, 10, 10, -10, 10, 1
 script = ExtResource("1_jasug")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=935321318]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -9.606903, 10)
 mesh = SubResource("BoxMesh_jasug")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1971934033]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -9.502649, 10)
 shape = SubResource("ConvexPolygonShape3D_jasug")
 
 [node name="Camera Marker" type="Marker3D" parent="." unique_id=985469421]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 29.99223)
 
-[node name="boatmarker" type="Marker3D" parent="." unique_id=1586905932]
+[node name="BoatMarker" type="Marker3D" parent="." unique_id=683661409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.318657, 0, 10.005964)

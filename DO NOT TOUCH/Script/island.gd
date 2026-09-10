@@ -7,7 +7,11 @@ extends Area3D
 @onready var mesh = $MeshInstance3D2
 var base_material : Material
 @onready var marker = $CameraMarker
-@onready var boatmarker = $boatmarker
+
+@onready var boat_start_marker = $boatstart
+@onready var boat_end_marker = $boatend
+
+@export var island_name : String = "Island Name"
 
 var overworld
 
@@ -30,7 +34,7 @@ func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _norm
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if overworld.has_method("_focus"):
 			#mesh.hide()
-			overworld._focus(self, marker)
+			overworld._focus(self, marker,island_name,"0")
 
 func _on_mouse_entered() -> void:
 	if !overworld.focusing:
