@@ -2,6 +2,8 @@ extends Node3D
 @onready var world_container = $"World Container"
 @export var overworld : PackedScene
 
+@export var missions:Array[Mission]
+
 enum states{
 	diving,
 	overworld
@@ -10,6 +12,10 @@ var state = states.overworld
 var selected_sector
 
 func _ready():
+	for i in missions:
+		QuestManager._register_mission(i)
+	for m in QuestManager.missions:
+		QuestManager._accept_mission(m)
 	WorldChanger.register_container(world_container)
 	get_viewport().physics_object_picking = true
 	GameEvents.sector_selected.connect(_on_sector_selected)

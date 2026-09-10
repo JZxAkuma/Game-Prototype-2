@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c7xuhthhlp8mf" path="res://DO NOT TOUCH/world_changer.gd" id="1_tjysi"]
 [ext_resource type="Script" uid="uid://b7mucuf2r5kgl" path="res://DO NOT TOUCH/Script/main.gd" id="1_wcydr"]
+[ext_resource type="Script" uid="uid://h1lvd4xosgos" path="res://DO NOT TOUCH/Script/mission.gd" id="3_0bfyh"]
+[ext_resource type="Resource" uid="uid://35my7ugl3ppc" path="res://Missions/test_mission.tres" id="3_11upd"]
 [ext_resource type="PackedScene" uid="uid://crnm1wsykjfox" path="res://DO NOT TOUCH/overworld.tscn" id="3_b73pl"]
 [ext_resource type="Script" uid="uid://bgvobehrjm0gl" path="res://DO NOT TOUCH/Script/day_night_cycle.gd" id="4_b73pl"]
 
 [node name="Main" type="Node3D" unique_id=389891087]
 script = ExtResource("1_wcydr")
 overworld = ExtResource("3_b73pl")
+missions = Array[ExtResource("3_0bfyh")]([ExtResource("3_11upd")])
 
 [node name="World changer" type="Node" parent="." unique_id=766273552]
 script = ExtResource("1_tjysi")

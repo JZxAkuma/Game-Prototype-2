@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://doa7fiwf02ehh" path="res://DO NOT TOUCH/Overworld/sector_button.tscn" id="3_j6u1a"]
 [ext_resource type="PackedScene" uid="uid://ccjihror4sq8y" path="res://DO NOT TOUCH/island.tscn" id="4_rwgfh"]
 [ext_resource type="Script" uid="uid://bg2qasgq82kfk" path="res://DO NOT TOUCH/Script/overworld_ui.gd" id="5_r1dg4"]
+[ext_resource type="PackedScene" uid="uid://6xxd08bscpgm" path="res://Sectors/3_4.tscn" id="6_uufee"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jt3qg"]
 albedo_color = Color(1, 1, 0, 1)
@@ -178,6 +179,7 @@ sector_name = "3-3"
 
 [node name="SectorButton14" parent="." unique_id=846586658 instance=ExtResource("3_j6u1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 40)
+underwater_scene = ExtResource("6_uufee")
 scene_depth = 1
 sector_name = "3-4"
 

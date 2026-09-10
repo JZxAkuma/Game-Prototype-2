@@ -122,6 +122,24 @@ albedo_color = Color(0.5836706, 0.5265871, 0.4159914, 1)
 metallic = 1.0
 roughness = 0.5
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fu28x"]
+emission_shape_scale = Vector3(10.285, 6.535, 9.895)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(1, 1, 1)
+initial_velocity_min = 0.099999994
+initial_velocity_max = 0.099999994
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhuwb"]
+shading_mode = 0
+albedo_color = Color(0.47397572, 0.47397572, 0.47397572, 1)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_aypgk"]
+material = SubResource("StandardMaterial3D_nhuwb")
+size = Vector2(0.04, 0.04)
+
 [node name="Player" type="CharacterBody3D" unique_id=1089965781]
 script = ExtResource("1_bdb3e")
 
@@ -226,3 +244,10 @@ surface_material_override/0 = ExtResource("2_fu28x")
 [node name="polySurface3" type="MeshInstance3D" parent="Sub_mesh" unique_id=1237003081]
 mesh = SubResource("ArrayMesh_52dsr")
 surface_material_override/0 = SubResource("StandardMaterial3D_juf51")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=727832365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42409325, -7.655178)
+amount = 30
+lifetime = 5.05
+process_material = SubResource("ParticleProcessMaterial_fu28x")
+draw_pass_1 = SubResource("QuadMesh_aypgk")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7k0sudd06o4w"]
+
+[ext_resource type="Script" uid="uid://x2ofdpp3x4wu" path="res://DO NOT TOUCH/Script/underwater_mission_objective_spawner.gd" id="1_tuhu0"]
+
+[node name="Underwater_mission_objective_spawner" type="Node3D" unique_id=1448853271]
+script = ExtResource("1_tuhu0")

@@ -135,3 +135,5 @@ transform = Transform3D(-0.97635704, 0, -0.21616393, 0, 1, 0, 0.21616393, 0, -0.
 
 [node name="AssetPack1A2Meshes" parent="." unique_id=1960405358 instance=ExtResource("9_irgoa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.695112, 0)
+
+[editable path="Player"]

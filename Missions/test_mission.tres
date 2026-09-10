@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Mission" format=3 uid="uid://35my7ugl3ppc"]
+
+[ext_resource type="PackedScene" uid="uid://cv5jlwch18ufq" path="res://Actor/Onlooker/on_looker.tscn" id="1_etrdi"]
+[ext_resource type="Script" uid="uid://h1lvd4xosgos" path="res://DO NOT TOUCH/Script/mission.gd" id="1_uyed8"]
+
+[resource]
+script = ExtResource("1_uyed8")
+mission_name = "This is a mission test"
+description = "This is a test for the quest system"
+sector_name = "3-4"
+objective_scene = ExtResource("1_etrdi")
+giver_island = "Island Name"
+metadata/_custom_type_script = "uid://h1lvd4xosgos"
