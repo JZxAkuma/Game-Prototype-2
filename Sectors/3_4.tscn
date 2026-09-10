@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://6xxd08bscpgm"]
 
 [ext_resource type="Terrain3DAssets" uid="uid://c1r0ee4blljby" path="res://DO NOT TOUCH/dd/new_terrain_3d_assets.tres" id="1_lyrfv"]
+[ext_resource type="Environment" uid="uid://4yqsg0fh12ec" path="res://Environment Template/Tier2 environment.tres" id="2_adfms"]
 [ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="3_vjclc"]
 [ext_resource type="PackedScene" uid="uid://7k0sudd06o4w" path="res://DO NOT TOUCH/underwater_mission_objective_spawner.tscn" id="4_oi8op"]
 
@@ -59,6 +60,7 @@ top_level = true
 metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2110715953]
+environment = ExtResource("2_adfms")
 
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("3_vjclc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6263833, 0)
