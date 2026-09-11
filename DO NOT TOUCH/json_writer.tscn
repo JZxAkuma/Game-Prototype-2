@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cxxfaxv5tudq0"]
+
+[ext_resource type="Script" uid="uid://c7a3q4lx7v78o" path="res://DO NOT TOUCH/Script/json_writer.gd" id="1_l4tmm"]
+
+[node name="JSON Writer" type="Node3D" unique_id=1778225212]
+script = ExtResource("1_l4tmm")
