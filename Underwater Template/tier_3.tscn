@@ -2,30 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="1_osb7k"]
 [ext_resource type="Environment" uid="uid://bemrk15i2i5u6" path="res://Environment Template/Tier3 environment.tres" id="1_qg5k5"]
-[ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="4_qg5k5"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a4xb3"]
-emission_shape_scale = Vector3(10.285, 6.535, 9.895)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-direction = Vector3(1, 1, 1)
-initial_velocity_min = 0.099999994
-initial_velocity_max = 0.099999994
-gravity = Vector3(0, 0, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhuwb"]
-shading_mode = 0
-albedo_color = Color(0.47397572, 0.47397572, 0.47397572, 1)
-billboard_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_ttwwx"]
-material = SubResource("StandardMaterial3D_nhuwb")
-size = Vector2(0.04, 0.04)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mji2"]
-shader = ExtResource("4_qg5k5")
-shader_parameter/pixel_size = 4.0
-shader_parameter/color_levels = 16.0
 
 [node name="Tier3" type="Node3D" unique_id=2137532603]
 
@@ -35,24 +11,7 @@ environment = ExtResource("1_qg5k5")
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_osb7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.906728, 0)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Player" unique_id=78203218]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42409325, -7.655178)
-amount = 70
-lifetime = 5.05
-process_material = SubResource("ParticleProcessMaterial_a4xb3")
-draw_pass_1 = SubResource("QuadMesh_ttwwx")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=433035154]
 transform = Transform3D(1, 0, 0, 0, -0.063174725, 0.9980025, 0, -0.9980025, -0.063174725, 0, 0, 0)
 light_energy = 0.11
 sky_mode = 1
-
-[node name="PixelShader" type="CanvasLayer" parent="." unique_id=130239270]
-
-[node name="ColorRect" type="ColorRect" parent="PixelShader" unique_id=1620435516]
-material = SubResource("ShaderMaterial_3mji2")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2

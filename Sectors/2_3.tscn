@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dq3wgnfaq0p14"]
+
+[ext_resource type="Terrain3DAssets" uid="uid://c1r0ee4blljby" path="res://DO NOT TOUCH/dd/new_terrain_3d_assets.tres" id="1_ibsy8"]
+[ext_resource type="Environment" uid="uid://do2yni1fg8i4n" path="res://Environment Template/Tier1 environment.tres" id="2_8b2o4"]
+[ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="3_7w5qe"]
+[ext_resource type="PackedScene" uid="uid://7k0sudd06o4w" path="res://DO NOT TOUCH/underwater_mission_objective_spawner.tscn" id="4_8b2o4"]
+
+[sub_resource type="Gradient" id="Gradient_f851w"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_14tpp"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d5x51"]
+noise = SubResource("FastNoiseLite_14tpp")
+color_ramp = SubResource("Gradient_f851w")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_l6o7w"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": null,
+&"depth_blur": null,
+&"enable_macro_variation": null,
+&"enable_projection": null,
+&"flat_terrain_normals": null,
+&"macro_variation1": null,
+&"macro_variation2": null,
+&"macro_variation_slope": null,
+&"mipmap_bias": null,
+&"noise1_angle": null,
+&"noise1_offset": null,
+&"noise1_scale": null,
+&"noise2_scale": null,
+&"noise_texture": SubResource("NoiseTexture2D_d5x51"),
+&"projection_threshold": null
+}
+
+[node name="2_3" type="Node3D" unique_id=452293919]
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=759362089]
+data_directory = "res://Sectors/Terrain DD/2_3"
+material = SubResource("Terrain3DMaterial_l6o7w")
+assets = ExtResource("1_ibsy8")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2113357325]
+environment = ExtResource("2_8b2o4")
+
+[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("3_7w5qe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 86.13449, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=366926330]
+transform = Transform3D(1, 0, 0, 0, 0.083802365, 0.9964824, 0, -0.9964824, 0.083802365, 0, 31.228859, 0)
+
+[node name="Underwater_mission_objective_spawner" parent="." unique_id=1448853271 instance=ExtResource("4_8b2o4")]

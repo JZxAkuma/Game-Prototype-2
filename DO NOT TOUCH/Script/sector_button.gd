@@ -2,7 +2,7 @@ extends Area3D
 
 @export var underwater_scene : PackedScene
 @export var fallback_scene_path: String = "res://DO NOT TOUCH/world.tscn"
-@export var highlight_material:Material
+var highlight_material:Material
 
 @onready var mesh = $MeshInstance3D
 var base_material : Material

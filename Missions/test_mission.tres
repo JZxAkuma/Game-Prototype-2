@@ -7,7 +7,7 @@
 script = ExtResource("1_uyed8")
 mission_name = "This is a mission test"
 description = "This is a test for the quest system"
-sector_name = "3-4"
-objective_scene = ExtResource("1_etrdi")
+sector_name = "3_5"
 giver_island = "Island Name"
+objective_scene = ExtResource("1_etrdi")
 metadata/_custom_type_script = "uid://h1lvd4xosgos"

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://lbu6272s573s"]
+
+[ext_resource type="PackedScene" uid="uid://7k0sudd06o4w" path="res://DO NOT TOUCH/underwater_mission_objective_spawner.tscn" id="1_6ctfr"]
+[ext_resource type="Environment" uid="uid://bemrk15i2i5u6" path="res://Environment Template/Tier3 environment.tres" id="2_c12ic"]
+[ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="3_ethy2"]
+
+[node name="4_5" type="Node3D" unique_id=2137532603]
+
+[node name="Underwater_mission_objective_spawner" parent="." unique_id=1448853271 instance=ExtResource("1_6ctfr")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1646100509]
+environment = ExtResource("2_c12ic")
+
+[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("3_ethy2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.906728, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=433035154]
+transform = Transform3D(1, 0, 0, 0, -0.063174725, 0.9980025, 0, -0.9980025, -0.063174725, 0, 0, 0)
+light_energy = 0.11
+sky_mode = 1

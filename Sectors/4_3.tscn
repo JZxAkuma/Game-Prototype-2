@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b1rf5j8vucr7q"]
+
+[ext_resource type="PackedScene" uid="uid://7k0sudd06o4w" path="res://DO NOT TOUCH/underwater_mission_objective_spawner.tscn" id="1_xufpu"]
+[ext_resource type="Terrain3DAssets" uid="uid://c1r0ee4blljby" path="res://DO NOT TOUCH/dd/new_terrain_3d_assets.tres" id="2_f8j8i"]
+[ext_resource type="Environment" uid="uid://4yqsg0fh12ec" path="res://Environment Template/Tier2 environment.tres" id="3_mjng3"]
+[ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="4_vya42"]
+
+[sub_resource type="Gradient" id="Gradient_37loi"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3ur5t"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xqeyx"]
+noise = SubResource("FastNoiseLite_3ur5t")
+color_ramp = SubResource("Gradient_37loi")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_fvxyy"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": null,
+&"depth_blur": null,
+&"enable_macro_variation": null,
+&"enable_projection": null,
+&"flat_terrain_normals": null,
+&"macro_variation1": null,
+&"macro_variation2": null,
+&"macro_variation_slope": null,
+&"mipmap_bias": null,
+&"noise1_angle": null,
+&"noise1_offset": null,
+&"noise1_scale": null,
+&"noise2_scale": null,
+&"noise_texture": SubResource("NoiseTexture2D_xqeyx"),
+&"projection_threshold": null
+}
+
+[node name="4_3" type="Node3D" unique_id=627608462]
+
+[node name="Underwater_mission_objective_spawner" parent="." unique_id=1448853271 instance=ExtResource("1_xufpu")]
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=1150168660]
+data_directory = "res://Sectors/Terrain DD/4_3"
+material = SubResource("Terrain3DMaterial_fvxyy")
+assets = ExtResource("2_f8j8i")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2110715953]
+environment = ExtResource("3_mjng3")
+
+[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("4_vya42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6263833, 0)

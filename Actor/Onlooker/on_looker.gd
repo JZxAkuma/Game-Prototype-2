@@ -26,7 +26,6 @@ var vertical_wander_bias: float = 0.15
 
 
 func _ready() -> void:
-	print("spawn")
 	home_position = global_position
 
 func _setup_rays() -> void:

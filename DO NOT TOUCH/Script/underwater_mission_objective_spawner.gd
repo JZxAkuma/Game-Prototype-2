@@ -1,12 +1,22 @@
 extends Node3D
 
-@export var sector_name:String
+@export var sector_name: String = ""
+var spawn_y_level: float = 80
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var active_missions = QuestManager._get_missions_for_sector(sector_name)
+	var resolved_sector = sector_name
+	if resolved_sector == "":
+		resolved_sector = get_parent().name
+
+	print("Resolved sector name: ", resolved_sector)
+
+	var active_missions = QuestManager._get_missions_for_sector(resolved_sector)
+	print("Active missions found: ", active_missions.size())
 
 	for mission in active_missions:
+		print("Mission: ", mission.mission_name, " type: ", mission.type, " scene: ", mission.objective_scene)
 		if mission.type == Mission.Type.CREATURE and mission.objective_scene:
 			var obj = mission.objective_scene.instantiate()
+			obj.position.y = spawn_y_level
 			add_child(obj)
+			print("Spawned: ", obj.name)

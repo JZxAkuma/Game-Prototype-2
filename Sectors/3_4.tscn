@@ -50,7 +50,6 @@ world_background = 0
 [node name="3_4" type="Node3D" unique_id=627608462]
 
 [node name="Underwater_mission_objective_spawner" parent="." unique_id=1448853271 instance=ExtResource("4_oi8op")]
-sector_name = "3-4"
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=1150168660]
 data_directory = "res://Sectors/Terrain DD/3_4"
