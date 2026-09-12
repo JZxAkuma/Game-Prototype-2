@@ -39,7 +39,7 @@ var max_shake_strength: float = 0.01
 
 var sub_mesh_base_pos: Vector3
 var camera_equipped = false
-var photos:Array[ImageTexture] = []
+var photos: Array = []
 
 var stick_input: Vector2 = Vector2.ZERO
 
@@ -125,9 +125,36 @@ func _toggle_camera() -> void:
 	photo_ui.visible = camera_equipped
 
 func _take_picture() -> void:
-	var img : Image = viewfinder_viewport.get_texture().get_image()
-	var photo_tex : ImageTexture = ImageTexture.create_from_image(img)
-	photos.append(photo_tex)
+	var img: Image = viewfinder_viewport.get_texture().get_image()
+	var captured_id = _check_creatures_in_frame()
+
+	var entry = PhotoManager.save_photo(img, captured_id)
+
+	var photo_tex = ImageTexture.create_from_image(img)
+	photos.append({"texture": photo_tex, "objective_id": captured_id, "filename": entry["filename"]})
+
+func _check_creatures_in_frame() -> String:
+	var creatures = get_tree().get_nodes_in_group("photographable")
+	var space_state = get_world_3d().direct_space_state
+
+	for creature in creatures:
+		var pos = creature.global_position
+
+		if not viewfinder_camera.is_position_in_frustum(pos):
+			continue
+
+		var distance = viewfinder_camera.global_position.distance_to(pos)
+		if distance > 20.0:
+			continue
+
+		var query = PhysicsRayQueryParameters3D.create(viewfinder_camera.global_position, pos)
+		var result = space_state.intersect_ray(query)
+		if result and result.collider != creature and not result.collider.is_ancestor_of(creature) and not creature.is_ancestor_of(result.collider):
+			continue
+
+		return creature.creature_id
+
+	return ""
 
 func _toggle_gallery() -> void:
 	gallery_ui.visible = !gallery_ui.visible

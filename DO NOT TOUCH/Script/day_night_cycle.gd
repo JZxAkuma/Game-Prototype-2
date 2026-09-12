@@ -39,10 +39,10 @@ func _process(delta: float) -> void:
 	
 	pass
 
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Throttle up"):
-		_add_5_hours()
-	
+#func _unhandled_input(event: InputEvent) -> void:
+	#if Input.is_action_just_pressed("Throttle up"):
+		#_add_5_hours()
+	#
 func _time_passage(delta:float) -> void:
 	var rate = overworld_hours_per_second
 	#var start_time = time_of_day

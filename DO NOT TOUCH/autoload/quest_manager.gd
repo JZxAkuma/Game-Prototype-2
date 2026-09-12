@@ -27,14 +27,13 @@ func _accept_mission(mission: Mission) -> void:
 	if mission.state == Mission.State.AVAILABLE:
 		mission.state = Mission.State.ACCEPTED
 
-func _submit_mission(mission: Mission, photos: Array) -> bool:
+func _submit_mission(mission: Mission) -> bool:
 	if mission.state != Mission.State.COMPLETED:
 		return false
 
-	for p in photos:
-		if p.has("objective_id") and p["objective_id"] == mission.objective_id:
-			mission.state = Mission.State.SUBMITTED
-			return true
+	if PhotoManager.has_photo_for_objective(mission.objective_id):
+		mission.state = Mission.State.SUBMITTED
+		return true
 	return false
 
 func _complete_mission(mission: Mission) -> void:

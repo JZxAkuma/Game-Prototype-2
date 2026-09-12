@@ -10,4 +10,5 @@ description = "This is a test for the quest system"
 sector_name = "3_5"
 giver_island = "Island Name"
 objective_scene = ExtResource("1_etrdi")
+objective_id = "0000"
 metadata/_custom_type_script = "uid://h1lvd4xosgos"

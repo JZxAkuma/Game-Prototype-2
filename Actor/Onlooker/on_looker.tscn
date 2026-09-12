@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5myfcse5ujft" path="res://CreatureAssets/Onlooker/Textures/OnlookerRig_standardSurface1_BaseColor.png" id="1_pt0wp"]
 [ext_resource type="Texture2D" uid="uid://dg8jnmrcsdbic" path="res://CreatureAssets/Onlooker/Textures/OnlookerRig_standardSurface1_Roughness.png" id="2_5s3a4"]
 [ext_resource type="Script" uid="uid://bqr4ayq471pam" path="res://Actor/Actor components/script/nav_rays.gd" id="4_5pywq"]
+[ext_resource type="PackedScene" uid="uid://bper3dkelmsc5" path="res://DO NOT TOUCH/quest_objective.tscn" id="5_dp6iv"]
 
 [sub_resource type="Animation" id="Animation_n6rr4"]
 length = 0.001
@@ -860,3 +861,6 @@ target_position = Vector3(-3.125, -1, 0)
 [node name="Ray Down" type="RayCast3D" parent="Nav Rays" unique_id=1254760905]
 
 [node name="Ray Up" type="RayCast3D" parent="Nav Rays" unique_id=150406894]
+
+[node name="QuestObjective" parent="." unique_id=1233120073 instance=ExtResource("5_dp6iv")]
+creature_id = "0000"

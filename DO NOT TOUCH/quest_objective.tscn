@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bper3dkelmsc5"]
+
+[ext_resource type="Script" uid="uid://d3r0wjrnxolo8" path="res://DO NOT TOUCH/Script/quest_objective.gd" id="1_0xhqe"]
+
+[node name="QuestObjective" type="Node3D" unique_id=1233120073]
+script = ExtResource("1_0xhqe")
