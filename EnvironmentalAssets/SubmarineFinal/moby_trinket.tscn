@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c4vjqy42fr2ik"]
+
+[ext_resource type="PackedScene" uid="uid://c6qn1jfqeqlpd" path="res://EnvironmentalAssets/SubmarineFinal/MobyTrinket.fbx" id="1_3eccd"]
+[ext_resource type="Texture2D" uid="uid://0wwqovffm8x5" path="res://EnvironmentalAssets/SubmarineFinal/MobyTrinket_TrinketMaterial_BaseColor.png" id="2_up0hs"]
+[ext_resource type="Texture2D" uid="uid://d10llcxkjloss" path="res://EnvironmentalAssets/SubmarineFinal/MobyTrinket_TrinketMaterial_Roughness.png" id="3_hsw4t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o07bx"]
+albedo_texture = ExtResource("2_up0hs")
+roughness_texture = ExtResource("3_hsw4t")
+
+[node name="MobyTrinket" unique_id=316308045 instance=ExtResource("1_3eccd")]
+
+[node name="Moby" parent="Skeleton3D" parent_id_path=PackedInt32Array(2039656339) index="0" unique_id=1701984574]
+surface_material_override/0 = SubResource("StandardMaterial3D_o07bx")
+
+[node name="pCylinder1" parent="Skeleton3D" parent_id_path=PackedInt32Array(2039656339) index="1" unique_id=2038255346]
+surface_material_override/0 = SubResource("StandardMaterial3D_o07bx")
+
+[node name="SpringBoneSimulator3D" type="SpringBoneSimulator3D" parent="Skeleton3D" parent_id_path=PackedInt32Array(2039656339) index="2" unique_id=895410054]
+setting_count = 1
+settings/0/root_bone_name = "joint1"
+settings/0/root_bone = 0
+settings/0/end_bone_name = "joint5"
+settings/0/end_bone = 4
+settings/0/extend_end_bone = false
+settings/0/center_from = 0
+settings/0/individual_config = false
+settings/0/rotation_axis = 3
+settings/0/radius/value = 0.02
+settings/0/radius/damping_curve = null
+settings/0/stiffness/value = 1.0
+settings/0/stiffness/damping_curve = null
+settings/0/drag/value = 0.4
+settings/0/drag/damping_curve = null
+settings/0/gravity/value = 0.0
+settings/0/gravity/damping_curve = null
+settings/0/gravity/direction = Vector3(0, -1, 0)
+settings/0/joints/0/bone_name = "joint1"
+settings/0/joints/0/bone = 0
+settings/0/joints/1/bone_name = "joint2"
+settings/0/joints/1/bone = 1
+settings/0/joints/2/bone_name = "joint3"
+settings/0/joints/2/bone = 2
+settings/0/joints/3/bone_name = "joint4"
+settings/0/joints/3/bone = 3
+settings/0/joints/4/bone_name = "joint5"
+settings/0/joints/4/bone = 4
+settings/0/enable_all_child_collisions = true
+settings/0/exclude_collision_count = 0

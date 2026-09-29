@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://qd5xemtoy0ul" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Metallic.png" id="3_hini5"]
 [ext_resource type="Texture2D" uid="uid://c7nbwxx10dswr" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Normal.png" id="4_o07bx"]
 [ext_resource type="Texture2D" uid="uid://dojqnaertypo2" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Roughness.png" id="5_6n1b8"]
+[ext_resource type="PackedScene" uid="uid://c4vjqy42fr2ik" path="res://EnvironmentalAssets/SubmarineFinal/moby_trinket.tscn" id="6_hini5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ah7pv"]
 transparency = 1
@@ -18,6 +19,7 @@ normal_enabled = true
 normal_texture = ExtResource("4_o07bx")
 
 [node name="SubmarineTextured" unique_id=1341406207 instance=ExtResource("1_82ulr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0055088997)
 
 [node name="pCube3" parent="." index="0" unique_id=288361620]
 surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
@@ -69,3 +71,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
 
 [node name="pCylinder8" parent="." index="10" unique_id=1680991202]
 surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="MobyTrinket" parent="." index="12" unique_id=316308045 instance=ExtResource("6_hini5")]
