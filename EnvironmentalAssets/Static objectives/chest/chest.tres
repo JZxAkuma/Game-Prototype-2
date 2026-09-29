@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://kt1qy6kuc33c"]
+
+[ext_resource type="Texture2D" uid="uid://bowoaj7fxbyr0" path="res://EnvironmentalAssets/Static objectives/chest/TEX/chest_openPBR_shader1_BaseColor.png" id="1_adbqd"]
+[ext_resource type="Texture2D" uid="uid://dkf2xb6apyvcv" path="res://EnvironmentalAssets/Static objectives/chest/TEX/chest_openPBR_shader1_Normal.png" id="2_te5ur"]
+
+[resource]
+albedo_texture = ExtResource("1_adbqd")
+normal_enabled = true
+normal_texture = ExtResource("2_te5ur")

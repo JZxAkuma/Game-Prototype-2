@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dh2sc2o40tdqo" path="res://EnvironmentalAssets/Assets1/assetpack1.tscn" id="9_irgoa"]
 [ext_resource type="PackedScene" uid="uid://by7fny3c6bak1" path="res://EnvironmentalAssets/Static objectives/capsized boat/caped ship.fbx" id="10_aac0w"]
 [ext_resource type="Material" uid="uid://dq4kfrp1ac3lr" path="res://EnvironmentalAssets/Static objectives/capsized boat/capsized boat.tres" id="11_gomvp"]
+[ext_resource type="PackedScene" uid="uid://dsclpcdoe1km3" path="res://EnvironmentalAssets/Static objectives/chest/chest.fbx" id="12_fy66a"]
+[ext_resource type="Material" uid="uid://kt1qy6kuc33c" path="res://EnvironmentalAssets/Static objectives/chest/chest.tres" id="13_mgki3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -120,7 +122,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="LarvaeRig" parent="." unique_id=2084018930 instance=ExtResource("8_net3x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123300076, -8.946608, -55.20617)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.64736605, -13.165991, -57.70533)
 
 [node name="SubmarinePrototype" parent="." unique_id=948966299 instance=ExtResource("6_thp0b")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.029897213, -1.706917, -0.19607723)
@@ -139,7 +141,7 @@ transform = Transform3D(-0.97635704, 0, -0.21616393, 0, 1, 0, 0.21616393, 0, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.695112, 0)
 
 [node name="caped ship" parent="." unique_id=1781094014 instance=ExtResource("10_aac0w")]
-transform = Transform3D(196.20164, 0, 0, 0, 196.20164, 0, 0, 0, 196.20164, 6.8370104, -0.32722664, 2.8551922)
+transform = Transform3D(196.20164, 0, 0, 0, 196.20164, 0, 0, 0, 196.20164, 16.167381, -20.063261, 2.8551922)
 
 [node name="pCube5" parent="caped ship/ship1" parent_id_path=PackedInt32Array(1781094014, 173320115) index="0" unique_id=1238234065]
 material_override = ExtResource("11_gomvp")
@@ -153,5 +155,18 @@ material_override = ExtResource("11_gomvp")
 [node name="pCube6" parent="caped ship/ship1" parent_id_path=PackedInt32Array(1781094014, 173320115) index="3" unique_id=717305844]
 material_override = ExtResource("11_gomvp")
 
+[node name="chest" parent="." unique_id=1167845514 instance=ExtResource("12_fy66a")]
+transform = Transform3D(87.065, 0, 0, 0, 87.065, 0, 0, 0, 87.065, 8.169064, -1.4287429, 0.78676414)
+
+[node name="pCube1" parent="chest/chest" parent_id_path=PackedInt32Array(1167845514, 1214809381) index="0" unique_id=155854562]
+material_override = ExtResource("13_mgki3")
+
+[node name="pCube2" parent="chest/chest" parent_id_path=PackedInt32Array(1167845514, 1214809381) index="1" unique_id=1645487220]
+material_override = ExtResource("13_mgki3")
+
+[node name="pCube3" parent="chest/chest" parent_id_path=PackedInt32Array(1167845514, 1214809381) index="2" unique_id=277470439]
+material_override = ExtResource("13_mgki3")
+
 [editable path="Player"]
 [editable path="caped ship"]
+[editable path="chest"]
