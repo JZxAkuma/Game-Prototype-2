@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dxdn5n4afhv3c"]
+
+[ext_resource type="PackedScene" uid="uid://du32npckq3d5x" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured.fbx" id="1_82ulr"]
+[ext_resource type="Texture2D" uid="uid://d2imu7gaxae8v" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_BaseColor.png" id="2_trld8"]
+[ext_resource type="Texture2D" uid="uid://qd5xemtoy0ul" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Metallic.png" id="3_hini5"]
+[ext_resource type="Texture2D" uid="uid://c7nbwxx10dswr" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Normal.png" id="4_o07bx"]
+[ext_resource type="Texture2D" uid="uid://dojqnaertypo2" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Roughness.png" id="5_6n1b8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ah7pv"]
+albedo_texture = ExtResource("2_trld8")
+metallic = 1.0
+metallic_texture = ExtResource("3_hini5")
+roughness_texture = ExtResource("5_6n1b8")
+normal_enabled = true
+normal_texture = ExtResource("4_o07bx")
+
+[node name="SubmarineTextured" unique_id=1341406207 instance=ExtResource("1_82ulr")]
+
+[node name="pCube3" parent="." index="0" unique_id=288361620]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="polySurface5" parent="." index="1" unique_id=1023046836]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="polySurface55" parent="Monitor" parent_id_path=PackedInt32Array(376146267) index="0" unique_id=1485789467]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="pCube103" parent="Monitor" parent_id_path=PackedInt32Array(376146267) index="1" unique_id=327202346]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="polySurface552" parent="Monitor1" parent_id_path=PackedInt32Array(1531662068) index="0" unique_id=1454851260]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="pCube1032" parent="Monitor1" parent_id_path=PackedInt32Array(1531662068) index="1" unique_id=386919497]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="polySurface1" parent="pCube104" parent_id_path=PackedInt32Array(935082438) index="0" unique_id=1637593269]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="polySurface2" parent="pCube104" parent_id_path=PackedInt32Array(935082438) index="1" unique_id=389553461]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="polySurface3" parent="pCube104" parent_id_path=PackedInt32Array(935082438) index="2" unique_id=2077725395]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="RadioBody" parent="Radio" parent_id_path=PackedInt32Array(1067857924) index="0" unique_id=1274174425]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="RadioButton" parent="Radio" parent_id_path=PackedInt32Array(1067857924) index="1" unique_id=1749096300]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="Antenna" parent="Radio" parent_id_path=PackedInt32Array(1067857924) index="2" unique_id=1042291619]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="pCylinder5" parent="." index="6" unique_id=644195398]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="SteeringWheelBottom" parent="." index="7" unique_id=1060098217]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="SteeringWheelMiddle" parent="." index="8" unique_id=649436354]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="SteeringWheelTop" parent="." index="9" unique_id=995884810]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
+
+[node name="pCylinder8" parent="." index="10" unique_id=1680991202]
+surface_material_override/0 = SubResource("StandardMaterial3D_ah7pv")
