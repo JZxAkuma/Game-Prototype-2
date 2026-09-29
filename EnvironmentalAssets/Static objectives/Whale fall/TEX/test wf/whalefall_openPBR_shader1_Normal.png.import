@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q8ua0amj73ej"
-path="res://.godot/imported/openPBR_shader1 Normal.png-9739a1704cb06de2c8dbe07a013ca9fa.ctex"
+uid="uid://cdfmklbmuqi45"
+path="res://.godot/imported/whalefall_openPBR_shader1_Normal.png-f40bd6ac9ceccd7fae1e2ae3fee85061.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EnvironmentalAssets/Static objectives/Whale fall/TEX/openPBR_shader1 Normal.png"
-dest_files=["res://.godot/imported/openPBR_shader1 Normal.png-9739a1704cb06de2c8dbe07a013ca9fa.ctex"]
+source_file="res://EnvironmentalAssets/Static objectives/Whale fall/TEX/test wf/whalefall_openPBR_shader1_Normal.png"
+dest_files=["res://.godot/imported/whalefall_openPBR_shader1_Normal.png-f40bd6ac9ceccd7fae1e2ae3fee85061.ctex"]
 
 [params]
 

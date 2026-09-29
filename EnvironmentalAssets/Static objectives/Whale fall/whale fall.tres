@@ -1,6 +1,10 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://cx7uavbk2dkfh"]
 
-[ext_resource type="Texture2D" uid="uid://1qurieb7lq55" path="res://EnvironmentalAssets/Static objectives/Whale fall/TEX/openPBR_shader1 BaseColour.png" id="1_607tc"]
+[ext_resource type="Texture2D" uid="uid://do5fru76ck8ff" path="res://EnvironmentalAssets/Static objectives/Whale fall/TEX/test wf/whalefall_openPBR_shader1_BaseColor.png" id="1_607tc"]
 
 [resource]
+transparency = 2
+alpha_scissor_threshold = 0.504
+alpha_antialiasing_mode = 0
+cull_mode = 2
 albedo_texture = ExtResource("1_607tc")
