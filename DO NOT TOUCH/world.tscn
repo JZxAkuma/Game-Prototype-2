@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cv5jlwch18ufq" path="res://Actor/Onlooker/on_looker.tscn" id="8_irgoa"]
 [ext_resource type="PackedScene" uid="uid://dlh76gwqfm6wp" path="res://CreatureAssets/Larvae/larvae_rig.tscn" id="8_net3x"]
 [ext_resource type="PackedScene" uid="uid://dh2sc2o40tdqo" path="res://EnvironmentalAssets/Assets1/assetpack1.tscn" id="9_irgoa"]
+[ext_resource type="PackedScene" uid="uid://by7fny3c6bak1" path="res://EnvironmentalAssets/Static objectives/capsized boat/caped ship.fbx" id="10_aac0w"]
+[ext_resource type="Material" uid="uid://dq4kfrp1ac3lr" path="res://EnvironmentalAssets/Static objectives/capsized boat/capsized boat.tres" id="11_gomvp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -136,4 +138,20 @@ transform = Transform3D(-0.97635704, 0, -0.21616393, 0, 1, 0, 0.21616393, 0, -0.
 [node name="AssetPack1A2Meshes" parent="." unique_id=1960405358 instance=ExtResource("9_irgoa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.695112, 0)
 
+[node name="caped ship" parent="." unique_id=1781094014 instance=ExtResource("10_aac0w")]
+transform = Transform3D(196.20164, 0, 0, 0, 196.20164, 0, 0, 0, 196.20164, 6.8370104, -0.32722664, 2.8551922)
+
+[node name="pCube5" parent="caped ship/ship1" parent_id_path=PackedInt32Array(1781094014, 173320115) index="0" unique_id=1238234065]
+material_override = ExtResource("11_gomvp")
+
+[node name="pCylinder5" parent="caped ship/ship1" parent_id_path=PackedInt32Array(1781094014, 173320115) index="1" unique_id=1128055429]
+material_override = ExtResource("11_gomvp")
+
+[node name="pCube7" parent="caped ship/ship1" parent_id_path=PackedInt32Array(1781094014, 173320115) index="2" unique_id=1284271527]
+material_override = ExtResource("11_gomvp")
+
+[node name="pCube6" parent="caped ship/ship1" parent_id_path=PackedInt32Array(1781094014, 173320115) index="3" unique_id=717305844]
+material_override = ExtResource("11_gomvp")
+
 [editable path="Player"]
+[editable path="caped ship"]

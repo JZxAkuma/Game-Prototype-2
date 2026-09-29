@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dq4kfrp1ac3lr"]
+
+[ext_resource type="Texture2D" uid="uid://bilyn0g3fhlrw" path="res://EnvironmentalAssets/Static objectives/capsized boat/TEX/caped ship_openPBR_shader1_BaseColor.png" id="1_3k4u6"]
+[ext_resource type="Texture2D" uid="uid://bxnebp3tm16fv" path="res://EnvironmentalAssets/Static objectives/capsized boat/TEX/caped ship_openPBR_shader1_Normal.png" id="2_gkvid"]
+
+[resource]
+albedo_texture = ExtResource("1_3k4u6")
+normal_enabled = true
+normal_texture = ExtResource("2_gkvid")
