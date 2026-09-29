@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dojqnaertypo2" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Roughness.png" id="5_6n1b8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ah7pv"]
+transparency = 1
+blend_mode = 4
+depth_draw_mode = 1
 albedo_texture = ExtResource("2_trld8")
 metallic = 1.0
 metallic_texture = ExtResource("3_hini5")
