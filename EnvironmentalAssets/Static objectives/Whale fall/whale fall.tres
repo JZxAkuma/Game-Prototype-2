@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cx7uavbk2dkfh"]
+
+[ext_resource type="Texture2D" uid="uid://1qurieb7lq55" path="res://EnvironmentalAssets/Static objectives/Whale fall/TEX/openPBR_shader1 BaseColour.png" id="1_607tc"]
+
+[resource]
+albedo_texture = ExtResource("1_607tc")

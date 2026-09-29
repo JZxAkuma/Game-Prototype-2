@@ -13,6 +13,8 @@
 [ext_resource type="Material" uid="uid://dq4kfrp1ac3lr" path="res://EnvironmentalAssets/Static objectives/capsized boat/capsized boat.tres" id="11_gomvp"]
 [ext_resource type="PackedScene" uid="uid://dsclpcdoe1km3" path="res://EnvironmentalAssets/Static objectives/chest/chest.fbx" id="12_fy66a"]
 [ext_resource type="Material" uid="uid://kt1qy6kuc33c" path="res://EnvironmentalAssets/Static objectives/chest/chest.tres" id="13_mgki3"]
+[ext_resource type="PackedScene" uid="uid://cjlqwi0oj0dlc" path="res://EnvironmentalAssets/Static objectives/Whale fall/whalefall.fbx" id="14_8i6vx"]
+[ext_resource type="Material" uid="uid://cx7uavbk2dkfh" path="res://EnvironmentalAssets/Static objectives/Whale fall/whale fall.tres" id="15_75j7y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -167,6 +169,148 @@ material_override = ExtResource("13_mgki3")
 [node name="pCube3" parent="chest/chest" parent_id_path=PackedInt32Array(1167845514, 1214809381) index="2" unique_id=277470439]
 material_override = ExtResource("13_mgki3")
 
+[node name="whalefall" parent="." unique_id=1054290449 instance=ExtResource("14_8i6vx")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
+
+[node name="pPlane1" parent="whalefall/whale_fall/fuzzball_thingy" parent_id_path=PackedInt32Array(1054290449, 1547411288) index="0" unique_id=1789377765]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane2" parent="whalefall/whale_fall/fuzzball_thingy" parent_id_path=PackedInt32Array(1054290449, 1547411288) index="1" unique_id=366106932]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane12" parent="whalefall/whale_fall/fuzzball_thingy1" parent_id_path=PackedInt32Array(1054290449, 142093992) index="0" unique_id=271831147]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane22" parent="whalefall/whale_fall/fuzzball_thingy1" parent_id_path=PackedInt32Array(1054290449, 142093992) index="1" unique_id=1707322188]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane13" parent="whalefall/whale_fall/fuzzball_thingy2" parent_id_path=PackedInt32Array(1054290449, 455092884) index="0" unique_id=1488593863]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane23" parent="whalefall/whale_fall/fuzzball_thingy2" parent_id_path=PackedInt32Array(1054290449, 455092884) index="1" unique_id=35891622]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane14" parent="whalefall/whale_fall/fuzzball_thingy3" parent_id_path=PackedInt32Array(1054290449, 507435013) index="0" unique_id=964468393]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane24" parent="whalefall/whale_fall/fuzzball_thingy3" parent_id_path=PackedInt32Array(1054290449, 507435013) index="1" unique_id=665984176]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane15" parent="whalefall/whale_fall/fuzzball_thingy4" parent_id_path=PackedInt32Array(1054290449, 12248995) index="0" unique_id=350139343]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane25" parent="whalefall/whale_fall/fuzzball_thingy4" parent_id_path=PackedInt32Array(1054290449, 12248995) index="1" unique_id=1747625382]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane16" parent="whalefall/whale_fall/fuzzball_thingy5" parent_id_path=PackedInt32Array(1054290449, 518836416) index="0" unique_id=162602435]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane26" parent="whalefall/whale_fall/fuzzball_thingy5" parent_id_path=PackedInt32Array(1054290449, 518836416) index="1" unique_id=1879236666]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane17" parent="whalefall/whale_fall/fuzzball_thingy6" parent_id_path=PackedInt32Array(1054290449, 98950712) index="0" unique_id=212356976]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane27" parent="whalefall/whale_fall/fuzzball_thingy6" parent_id_path=PackedInt32Array(1054290449, 98950712) index="1" unique_id=2117508190]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane18" parent="whalefall/whale_fall/fuzzball_thingy7" parent_id_path=PackedInt32Array(1054290449, 1513654321) index="0" unique_id=425483362]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane28" parent="whalefall/whale_fall/fuzzball_thingy7" parent_id_path=PackedInt32Array(1054290449, 1513654321) index="1" unique_id=1194536475]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane19" parent="whalefall/whale_fall/fuzzball_thingy8" parent_id_path=PackedInt32Array(1054290449, 1748940487) index="0" unique_id=1143094040]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane29" parent="whalefall/whale_fall/fuzzball_thingy8" parent_id_path=PackedInt32Array(1054290449, 1748940487) index="1" unique_id=1491273610]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane110" parent="whalefall/whale_fall/fuzzball_thingy9" parent_id_path=PackedInt32Array(1054290449, 1180813028) index="0" unique_id=1878777946]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane210" parent="whalefall/whale_fall/fuzzball_thingy9" parent_id_path=PackedInt32Array(1054290449, 1180813028) index="1" unique_id=575493890]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane111" parent="whalefall/whale_fall/fuzzball_thingy10" parent_id_path=PackedInt32Array(1054290449, 818028534) index="0" unique_id=250680102]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane211" parent="whalefall/whale_fall/fuzzball_thingy10" parent_id_path=PackedInt32Array(1054290449, 818028534) index="1" unique_id=872406733]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane112" parent="whalefall/whale_fall/fuzzball_thingy11" parent_id_path=PackedInt32Array(1054290449, 1302528088) index="0" unique_id=907838007]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane212" parent="whalefall/whale_fall/fuzzball_thingy11" parent_id_path=PackedInt32Array(1054290449, 1302528088) index="1" unique_id=1474455732]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane113" parent="whalefall/whale_fall/fuzzball_thingy12" parent_id_path=PackedInt32Array(1054290449, 1313338418) index="0" unique_id=1951156859]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane213" parent="whalefall/whale_fall/fuzzball_thingy12" parent_id_path=PackedInt32Array(1054290449, 1313338418) index="1" unique_id=172175005]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane114" parent="whalefall/whale_fall/fuzzball_thingy13" parent_id_path=PackedInt32Array(1054290449, 1018207789) index="0" unique_id=172989884]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane214" parent="whalefall/whale_fall/fuzzball_thingy13" parent_id_path=PackedInt32Array(1054290449, 1018207789) index="1" unique_id=698986617]
+material_override = ExtResource("15_75j7y")
+
+[node name="pCylinder4" parent="whalefall/whale_fall" parent_id_path=PackedInt32Array(1054290449, 1173697064) index="14" unique_id=621290469]
+material_override = ExtResource("15_75j7y")
+
+[node name="pCylinder3" parent="whalefall/whale_fall" parent_id_path=PackedInt32Array(1054290449, 1173697064) index="15" unique_id=1350881124]
+material_override = ExtResource("15_75j7y")
+
+[node name="pCylinder2" parent="whalefall/whale_fall" parent_id_path=PackedInt32Array(1054290449, 1173697064) index="16" unique_id=644439259]
+material_override = ExtResource("15_75j7y")
+
+[node name="pCylinder1" parent="whalefall/whale_fall" parent_id_path=PackedInt32Array(1054290449, 1173697064) index="17" unique_id=2088852492]
+material_override = ExtResource("15_75j7y")
+
+[node name="spine2_one_vert2" parent="whalefall/whale_fall" parent_id_path=PackedInt32Array(1054290449, 1173697064) index="18" unique_id=760594701]
+material_override = ExtResource("15_75j7y")
+
+[node name="pCube4" parent="whalefall/whale_fall" parent_id_path=PackedInt32Array(1054290449, 1173697064) index="19" unique_id=1999588105]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane115" parent="whalefall/whale_fall/fuzzball_thingy14" parent_id_path=PackedInt32Array(1054290449, 1323950308) index="0" unique_id=1632231973]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane215" parent="whalefall/whale_fall/fuzzball_thingy14" parent_id_path=PackedInt32Array(1054290449, 1323950308) index="1" unique_id=436019393]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane116" parent="whalefall/whale_fall/fuzzball_thingy15" parent_id_path=PackedInt32Array(1054290449, 776743097) index="0" unique_id=684628780]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane216" parent="whalefall/whale_fall/fuzzball_thingy15" parent_id_path=PackedInt32Array(1054290449, 776743097) index="1" unique_id=1911936818]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane117" parent="whalefall/whale_fall/fuzzball_thingy16" parent_id_path=PackedInt32Array(1054290449, 1848016107) index="0" unique_id=178214794]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane217" parent="whalefall/whale_fall/fuzzball_thingy16" parent_id_path=PackedInt32Array(1054290449, 1848016107) index="1" unique_id=1145241344]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane118" parent="whalefall/whale_fall/fuzzball_thingy17" parent_id_path=PackedInt32Array(1054290449, 1731392564) index="0" unique_id=1493753634]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane218" parent="whalefall/whale_fall/fuzzball_thingy17" parent_id_path=PackedInt32Array(1054290449, 1731392564) index="1" unique_id=2107404207]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane119" parent="whalefall/whale_fall/fuzzball_thingy18" parent_id_path=PackedInt32Array(1054290449, 674145034) index="0" unique_id=626170359]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane219" parent="whalefall/whale_fall/fuzzball_thingy18" parent_id_path=PackedInt32Array(1054290449, 674145034) index="1" unique_id=915379595]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane120" parent="whalefall/whale_fall/fuzzball_thingy19" parent_id_path=PackedInt32Array(1054290449, 1679692054) index="0" unique_id=1778046166]
+material_override = ExtResource("15_75j7y")
+
+[node name="pPlane220" parent="whalefall/whale_fall/fuzzball_thingy19" parent_id_path=PackedInt32Array(1054290449, 1679692054) index="1" unique_id=508532953]
+material_override = ExtResource("15_75j7y")
+
 [editable path="Player"]
 [editable path="caped ship"]
 [editable path="chest"]
+[editable path="whalefall"]
