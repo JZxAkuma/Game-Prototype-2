@@ -26,6 +26,8 @@ PhotoManager="*uid://cxxfaxv5tudq0"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

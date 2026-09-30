@@ -15,6 +15,9 @@
 [ext_resource type="Material" uid="uid://kt1qy6kuc33c" path="res://EnvironmentalAssets/Static objectives/chest/chest.tres" id="13_mgki3"]
 [ext_resource type="PackedScene" uid="uid://cjlqwi0oj0dlc" path="res://EnvironmentalAssets/Static objectives/Whale fall/whalefall.fbx" id="14_8i6vx"]
 [ext_resource type="Material" uid="uid://cx7uavbk2dkfh" path="res://EnvironmentalAssets/Static objectives/Whale fall/whale fall.tres" id="15_75j7y"]
+[ext_resource type="PackedScene" uid="uid://dbjac77f4o5i2" path="res://EnvironmentalAssets/Assets1/AdhaAssets.fbx" id="16_bu4cs"]
+[ext_resource type="PackedScene" uid="uid://5538gl2eekef" path="res://EnvironmentalAssets/Assets1/tropical corals.fbx" id="17_2x16c"]
+[ext_resource type="Material" uid="uid://cy14cwprf26b4" path="res://EnvironmentalAssets/Static objectives/Tropical corals/tropical corals.tres" id="18_4vm6m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -310,6 +313,25 @@ material_override = ExtResource("15_75j7y")
 
 [node name="Player" parent="." unique_id=1089965781 instance=ExtResource("1_sxw3t")]
 
+[node name="AdhaAssets" parent="." unique_id=1627609101 instance=ExtResource("16_bu4cs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.297552, -0.008682817, -17.059288)
+
+[node name="tropical corals" parent="." unique_id=1597119405 instance=ExtResource("17_2x16c")]
+transform = Transform3D(63.3491, 0, 0, 0, 63.3491, 0, 0, 0, 63.3491, 17.705633, -23.096746, -17.866667)
+
+[node name="Decor_Coral_1" parent="tropical corals" index="0" unique_id=804751810]
+material_override = ExtResource("18_4vm6m")
+
+[node name="Decor_Coral_2" parent="tropical corals" index="1" unique_id=354725455]
+material_override = ExtResource("18_4vm6m")
+
+[node name="Decor_Coral_3" parent="tropical corals" index="2" unique_id=1637360784]
+material_override = ExtResource("18_4vm6m")
+
+[node name="Decor_Coral_4" parent="tropical corals/group1" parent_id_path=PackedInt32Array(1597119405, 1082932889) index="0" unique_id=1193475678]
+material_override = ExtResource("18_4vm6m")
+
 [editable path="caped ship"]
 [editable path="chest"]
 [editable path="whalefall"]
+[editable path="tropical corals"]
