@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cp7hs413aydko"]
 
+[ext_resource type="Script" uid="uid://d2q1nwctmq68e" path="res://DO NOT TOUCH/main_menu.gd" id="1_3hg4i"]
 [ext_resource type="Terrain3DAssets" uid="uid://c1r0ee4blljby" path="res://DO NOT TOUCH/dd/new_terrain_3d_assets.tres" id="1_8dmm7"]
 [ext_resource type="PackedScene" uid="uid://dlgr2f1af5stf" path="res://Terrain Painting Scene/tropical_coral_4.tscn" id="2_syi5n"]
 [ext_resource type="PackedScene" uid="uid://btiaossg13ouo" path="res://Terrain Painting Scene/tropical_coral_1.tscn" id="3_tqwsh"]
@@ -74,6 +75,7 @@ shader_parameter/pixel_size = 4.0
 shader_parameter/color_levels = 16.0
 
 [node name="Main menu" type="Node3D" unique_id=1573889270]
+script = ExtResource("1_3hg4i")
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=762386485]
 data_directory = "res://Sectors/Terrain DD/Main menu"
@@ -504,16 +506,27 @@ size_flags_horizontal = 4
 texture = ExtResource("8_fma4u")
 expand_mode = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=916844296]
+[node name="start button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=916844296]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 27
 text = "Start"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=1994015409]
+[node name="world scene button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=1994015409]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 27
 text = "To World.tscn"
+
+[node name="quit button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=479138284]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 27
+text = "Quit"
+
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/start button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/world scene button" to="." method="_on_world_scene_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]
