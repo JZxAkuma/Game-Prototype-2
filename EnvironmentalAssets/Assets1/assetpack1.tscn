@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cc43kb47rqdy8" path="res://EnvironmentalAssets/Assets1/AssetPack1A2Meshes.fbx" id="1_tbofs"]
 [ext_resource type="Texture2D" uid="uid://csw15usw28eme" path="res://EnvironmentalAssets/Assets1/AssetPack1A2_standardSurface1_BaseColor.png" id="2_rav4y"]
 [ext_resource type="Texture2D" uid="uid://bd2csdwo7pmh5" path="res://EnvironmentalAssets/Assets1/AssetPack1A2_standardSurface1_Roughness.png" id="3_mjdfc"]
+[ext_resource type="ArrayMesh" uid="uid://yed3hkof2qi2" path="res://DO NOT TOUCH/particle/small fish.tres" id="4_mjdfc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2msv"]
 albedo_texture = ExtResource("2_rav4y")
@@ -10,41 +11,42 @@ roughness_texture = ExtResource("3_mjdfc")
 
 [node name="AssetPack1A2Meshes" unique_id=1960405358 instance=ExtResource("1_tbofs")]
 
-[node name="pCube3" parent="." index="0" unique_id=856653002]
+[node name="pCube3" parent="." index="0" unique_id=1191973436]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube5" parent="." index="1" unique_id=1870989098]
+[node name="pCube5" parent="." index="1" unique_id=449128023]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube7" parent="." index="2" unique_id=2087235391]
+[node name="pCube7" parent="." index="2" unique_id=1772203876]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube9" parent="." index="3" unique_id=1809876118]
+[node name="pCube9" parent="." index="3" unique_id=349052609]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube10" parent="." index="4" unique_id=1163038162]
+[node name="pCube10" parent="." index="4" unique_id=255476672]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="Fish" parent="." index="5" unique_id=1293753904]
+[node name="Fish" parent="." index="5" unique_id=484018823]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube11" parent="." index="6" unique_id=344367701]
+[node name="pCube11" parent="." index="6" unique_id=1071524834]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube12" parent="." index="7" unique_id=1618399248]
+[node name="pCube12" parent="." index="7" unique_id=1326530966]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube14" parent="." index="8" unique_id=816286453]
+[node name="pCube14" parent="." index="8" unique_id=1659744818]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube17" parent="." index="9" unique_id=488935934]
+[node name="pCube17" parent="." index="9" unique_id=597691434]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube18" parent="." index="10" unique_id=2146295331]
+[node name="pCube18" parent="." index="10" unique_id=436628392]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube20" parent="." index="11" unique_id=515808949]
+[node name="pCube20" parent="." index="11" unique_id=482678022]
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")
 
-[node name="pCube21" parent="." index="12" unique_id=1817014146]
+[node name="pCube21" parent="." index="12" unique_id=497514170]
+mesh = ExtResource("4_mjdfc")
 surface_material_override/0 = SubResource("StandardMaterial3D_m2msv")

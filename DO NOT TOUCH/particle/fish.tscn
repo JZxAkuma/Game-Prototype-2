@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://di71cd1pegwsp"]
+
+[ext_resource type="ArrayMesh" uid="uid://yed3hkof2qi2" path="res://DO NOT TOUCH/particle/small fish.tres" id="1_rnapg"]
+
+[node name="fish" type="MeshInstance3D" unique_id=1737108320]
+mesh = ExtResource("1_rnapg")
