@@ -1,6 +1,8 @@
 extends Node3D
 @onready var world_container = $"World Container"
 @export var overworld : PackedScene
+@export var worldtscn : PackedScene
+@export var mainmenu : PackedScene
 
 @export var missions:Array[Mission]
 
@@ -22,7 +24,10 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if state != states.diving:
-			get_tree().quit()
+			WorldChanger.goto_scene(mainmenu)
+		elif state == states.overworld:
+			WorldChanger.goto_scene(mainmenu)
+
 		else:
 			GameEvents.surface.emit()
 		
@@ -45,3 +50,10 @@ func _dive(sector:Node)->void:
 	if scene:
 		WorldChanger.goto_scene(scene)
 		state = states.diving
+
+func _to_overworld() -> void:
+	WorldChanger.goto_scene(overworld)
+	state = states.overworld
+
+func _to_wrld_scn() -> void:
+	WorldChanger.goto_scene(worldtscn)

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bpaw2x0hcs574"]
+
+[ext_resource type="Texture2D" uid="uid://beakk44p4pbmm" path="res://EnvironmentalAssets/Asset_Spongebob/DecorSet1_Spongebob_lambert1_BaseColor.png" id="1_sycp5"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_sycp5")

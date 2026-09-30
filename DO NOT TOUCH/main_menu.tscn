@@ -458,6 +458,7 @@ transform = Transform3D(1, 0, 0, 0, 0.083802365, 0.9964824, 0, -0.9964824, 0.083
 shadow_enabled = true
 
 [node name="PixelShader" type="CanvasLayer" parent="." unique_id=24302709]
+layer = 0
 
 [node name="ColorRect" type="ColorRect" parent="PixelShader" unique_id=1850928121]
 material = SubResource("ShaderMaterial_fma4u")
@@ -469,6 +470,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=215934209]
+layer = 0
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1875922650]
 layout_mode = 3

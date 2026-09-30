@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://dbjac77f4o5i2" path="res://EnvironmentalAssets/Assets1/AdhaAssets.fbx" id="16_bu4cs"]
 [ext_resource type="PackedScene" uid="uid://5538gl2eekef" path="res://EnvironmentalAssets/Assets1/tropical corals.fbx" id="17_2x16c"]
 [ext_resource type="Material" uid="uid://cy14cwprf26b4" path="res://EnvironmentalAssets/Static objectives/Tropical corals/tropical corals.tres" id="18_4vm6m"]
+[ext_resource type="PackedScene" uid="uid://bq3elyftkf52s" path="res://EnvironmentalAssets/Asset_Spongebob/DecorSet1_Spongebob.fbx" id="19_4vm6m"]
+[ext_resource type="Material" uid="uid://bpaw2x0hcs574" path="res://EnvironmentalAssets/Asset_Spongebob/spongebob.tres" id="20_arfae"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -331,7 +333,20 @@ material_override = ExtResource("18_4vm6m")
 [node name="Decor_Coral_4" parent="tropical corals/group1" parent_id_path=PackedInt32Array(1597119405, 1082932889) index="0" unique_id=1193475678]
 material_override = ExtResource("18_4vm6m")
 
+[node name="DecorSet1_Spongebob" parent="." unique_id=581660384 instance=ExtResource("19_4vm6m")]
+transform = Transform3D(35.16, 0, 0, 0, 35.16, 0, 0, 0, 35.16, 27.097692, -8.377249, -17.936216)
+
+[node name="Decor_Spongebob_House_1" parent="DecorSet1_Spongebob" index="0" unique_id=2071041126]
+material_override = ExtResource("20_arfae")
+
+[node name="Decor_Spongebob_House_2" parent="DecorSet1_Spongebob" index="1" unique_id=851009768]
+material_override = ExtResource("20_arfae")
+
+[node name="Decor_Spongebob_House_3" parent="DecorSet1_Spongebob" index="2" unique_id=675747803]
+material_override = ExtResource("20_arfae")
+
 [editable path="caped ship"]
 [editable path="chest"]
 [editable path="whalefall"]
 [editable path="tropical corals"]
+[editable path="DecorSet1_Spongebob"]
