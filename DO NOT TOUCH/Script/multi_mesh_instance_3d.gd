@@ -5,17 +5,21 @@ extends MultiMeshInstance3D
 @export var turn_response: float = 2.0
 @export var school_radius: float = 20.0
 @export var separation_distance: float = 2
+@export var wander_change_interval: float = 4.0
+@export var wander_strength: float = 0.6
+
 var home_position: Vector3 = Vector3.ZERO
 
 var positions: Array[Vector3] = []
 var directions: Array[Vector3] = []
+var wander_targets: Array[Vector3] = []
+var wander_timers: Array[float] = []
 
 
 func _ready() -> void:
 	home_position = Vector3.ZERO
-	multimesh.use_custom_data = true 
+	multimesh.use_custom_data = true
 	multimesh.instance_count = fish_count
-	
 
 	for i in range(fish_count):
 		var pos = home_position + Vector3(
@@ -25,15 +29,26 @@ func _ready() -> void:
 		)
 		positions.append(pos)
 		directions.append(Vector3.FORWARD)
+		wander_targets.append(Vector3.FORWARD)
+		wander_timers.append(randf_range(0.0, wander_change_interval))   # stagger initial timers
 
-		
-		multimesh.set_instance_custom_data(i, Color(randf(), 0, 0, 0))
+		multimesh.set_instance_custom_data(i, Color(randf_range(0.0, 10.0), 0, 0, 0))
 
 
 func _physics_process(delta: float) -> void:
 	for i in range(fish_count):
-		var steer = _get_boid_steering(i)
-		var desired_dir = (directions[i] + steer).normalized()
+		wander_timers[i] -= delta
+		if wander_timers[i] <= 0.0:
+			wander_timers[i] = wander_change_interval
+			wander_targets[i] = Vector3(
+				randf_range(-1.0, 1.0),
+				randf_range(-0.3, 0.3),
+				randf_range(-1.0, 1.0)
+			).normalized()
+
+		var boid_steer = _get_boid_steering(i)
+		var combined = boid_steer + wander_targets[i] * wander_strength
+		var desired_dir = (directions[i] + combined).normalized()
 
 		var t = 1.0 - exp(-turn_response * delta)
 		directions[i] = directions[i].slerp(desired_dir, t)
