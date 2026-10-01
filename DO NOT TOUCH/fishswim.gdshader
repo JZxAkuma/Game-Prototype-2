@@ -11,7 +11,8 @@ uniform float mask_black : hint_range(0.0, 1.0) = 0.0;
 uniform float mask_white : hint_range(0.0, 1.0) = 1.0;
 
 void vertex() {
-	float time = TIME * time_scale;
+	float phase_offset = INSTANCE_CUSTOM.x * 10.0;   
+	float time = TIME * time_scale + phase_offset;
 
 	VERTEX.x += cos(time) * side_to_side;
 	float pivot_angle = cos(time) * 0.1 * pivot;

@@ -1,13 +1,19 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://yed3hkof2qi2"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyt3b"]
-resource_name = "standardSurface1"
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.6651851, 0.6651851, 0.6651851, 1)
-roughness = 0.5
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.0
+[ext_resource type="Shader" uid="uid://5bughoqq4daa" path="res://DO NOT TOUCH/fishswim.gdshader" id="1_wed6s"]
+[ext_resource type="Texture2D" uid="uid://csw15usw28eme" path="res://EnvironmentalAssets/Assets1/AssetPack1A2_standardSurface1_BaseColor.png" id="2_2fjgg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_674hc"]
+render_priority = 0
+shader = ExtResource("1_wed6s")
+shader_parameter/texture_albedo = ExtResource("2_2fjgg")
+shader_parameter/time_scale = 1.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.2
+shader_parameter/twist = 0.3
+shader_parameter/mask_black = 0.0
+shader_parameter/mask_white = 1.0
 
 [resource]
 resource_name = "pCube21"
@@ -18,7 +24,7 @@ _surfaces = [{
 "index_count": 108,
 "index_data": PackedByteArray("EgAAABMAEwAMABIABAASAAwACwATAAAAAAAUAAsAFQAMABMADAAVAAQAEwALABUAFgAEABUAFwALABQAFQALABcAFAABABcAFQAPABYAFwAPABUABQAWAA8AAgAXAAEADwAXAAIAAQANAAIADwAYAAUAAgAYAA8ADgAFABgAGQACAA0ADQADABkAGgAYAAIAGAAaAA4AAgAZABoAAwAOABoAGgAZAAMAGwAIABwAEAAIABsAHAAHABsAHQAHABwAHAAGAB0AGwAKABAAEAAKABEAEQAJABAA"),
 "lods": [1.4643929, PackedByteArray("AAABAAsACwAMAAAABAAAAAwAAgALAAEAAQANAAIAAwACAA0AAgADAA4ADgAFAAIADAAPAAQABQAEAA8ADAALAA8ADwACAAUADwALAAIABgAHAAgAEAAIAAcABwAKABAAEAAKABEAEQAJABAA"), 2.1965892, PackedByteArray("AAABAAIAAQADAAIAAAACAAQAAgADAAUABAACAAUABgAHAAgACQAIAAcABwAKAAkA")],
-"material": SubResource("StandardMaterial3D_eyt3b"),
+"material": SubResource("ShaderMaterial_674hc"),
 "name": "standardSurface1",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
