@@ -162,8 +162,12 @@ func _show_mission_list(island:String) -> void:
 		var card = mission_card_scene.instantiate()
 		mission_list.add_child(card)
 		card.setup(mission)
-		card.accept_pressed.connect(_on_mission_accept)
+		card.accept_pressed.connect(_on_mission_accepted)
 
-func _on_mission_accept(mission:Mission) -> void:
+func _on_mission_accepted(mission: Mission) -> void:
 	QuestManager._accept_mission(mission)
-	_show_mission_list(mission.giver_island)
+
+	if mission.scene:
+		WorldChanger.goto_scene(mission.scene)
+	else:
+		push_warning("Mission '%s' has no scene assigned" % mission.mission_name)

@@ -13,3 +13,4 @@ enum State { AVAILABLE, ACCEPTED, COMPLETED, SUBMITTED }
 @export var objective_id: String = ""
 @export var appear_time: float = -1.0      
 var state: State = State.AVAILABLE
+var scene: PackedScene
