@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://51mbsxxsg40p" path="res://DO NOT TOUCH/Script/player_boat.gd" id="1_4v3sy"]
 [ext_resource type="Script" uid="uid://cx0o2sesi3fh2" path="res://DO NOT TOUCH/Script/overworld.gd" id="1_by16b"]
 [ext_resource type="PackedScene" uid="uid://cmtdntuvuddi4" path="res://DO NOT TOUCH/mission_card.tscn" id="2_cxe7l"]
+[ext_resource type="PackedScene" uid="uid://cp7hs413aydko" path="res://DO NOT TOUCH/main_menu.tscn" id="3_7og18"]
 [ext_resource type="PackedScene" uid="uid://doa7fiwf02ehh" path="res://DO NOT TOUCH/Overworld/sector_button.tscn" id="3_j6u1a"]
 [ext_resource type="PackedScene" uid="uid://ccjihror4sq8y" path="res://DO NOT TOUCH/island.tscn" id="4_rwgfh"]
 [ext_resource type="Script" uid="uid://bg2qasgq82kfk" path="res://DO NOT TOUCH/Script/overworld_ui.gd" id="5_r1dg4"]
@@ -49,6 +50,7 @@ material = SubResource("StandardMaterial3D_n5003")
 [node name="Overworld" type="Node3D" unique_id=24951533]
 script = ExtResource("1_by16b")
 mission_card_scene = ExtResource("2_cxe7l")
+main_menu = ExtResource("3_7og18")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=777651671]
 transform = Transform3D(1, 0, 0, 0, 0.24704406, 0.9690043, 0, -0.9690043, 0.24704406, 51.614113, 82.38916, 75.63558)
@@ -87,13 +89,15 @@ mesh = SubResource("SphereMesh_aygv5")
 
 [node name="Island" parent="." unique_id=150471320 instance=ExtResource("4_rwgfh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.289194, 0, 19.12141)
+island_name = "Island 1"
 
 [node name="Island2" parent="." unique_id=826368841 instance=ExtResource("4_rwgfh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.18459, 0, 16.284977)
-island_name = "Not Island Name"
+island_name = "Island 2"
 
 [node name="Island3" parent="." unique_id=1374050627 instance=ExtResource("4_rwgfh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.675621, 0, 79.374626)
+island_name = "Island 3"
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=906038561]
 script = ExtResource("5_r1dg4")

@@ -19,6 +19,8 @@ var day_night_cycle: Node
 @export var sun_energy_day: float = 1.2
 @export var sun_energy_night: float = 0.0
 
+@export var main_menu: PackedScene
+
 var default_cam_pos
 var default_cam_fov
 var zoom_cam_fov = 25
@@ -55,6 +57,9 @@ func _ready() -> void:
 		push_warning("Overworld: no node found in group 'day_night_cycle'")
 
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		WorldChanger.goto_scene(main_menu)
 func _on_time_changed(hour: float) -> void:
 	_update_sun_rotation(hour)
 	_update_sun_appearance(hour)
@@ -152,13 +157,16 @@ func _dive() -> void:
 	if focusing_on:
 		GameEvents.sector_selected.emit(focusing_on)
 
-func _show_mission_list(island:String) -> void:
+func _show_mission_list(island: String) -> void:
 	for child in mission_list.get_children():
 		child.queue_free()
-	
-	var available = QuestManager._get_available_mission_for_island(island)
-	
-	for mission in available:
+
+	var all_missions = QuestManager._get_all_missions_for_island(island)
+
+	for mission in all_missions:
+		if mission.state == Mission.State.COMPLETED or mission.state == Mission.State.SUBMITTED:
+			continue  
+
 		var card = mission_card_scene.instantiate()
 		mission_list.add_child(card)
 		card.setup(mission)

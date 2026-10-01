@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Mission" format=3 uid="uid://cag7etcf2klv6"]
+
+[ext_resource type="PackedScene" uid="uid://df3jrb4ftwvb1" path="res://DO NOT TOUCH/playtest mission/spongbob_mission.tscn" id="1_4vor2"]
+[ext_resource type="Script" uid="uid://h1lvd4xosgos" path="res://DO NOT TOUCH/Script/mission.gd" id="1_s54vo"]
+
+[resource]
+script = ExtResource("1_s54vo")
+mission_name = "Who live in pineapple under the sea"
+description = "Go look for pineapple under the sea"
+giver_island = "Island 2"
+objective_id = "0001"
+scene = ExtResource("1_4vor2")
+metadata/_custom_type_script = "uid://h1lvd4xosgos"

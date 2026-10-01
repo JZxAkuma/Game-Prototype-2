@@ -1,8 +1,13 @@
 [gd_scene format=4 uid="uid://bethqdmmxvec7"]
 
 [ext_resource type="Script" uid="uid://rtndhytpyadp" path="res://DO NOT TOUCH/Script/player.gd" id="1_bdb3e"]
+[ext_resource type="Script" uid="uid://cad44brc5qf1r" path="res://DO NOT TOUCH/Script/photoreview.gd" id="2_dsoe5"]
 [ext_resource type="Material" uid="uid://domwpsbch6xxu" path="res://Materials/Subs/sub screen.tres" id="2_fu28x"]
+[ext_resource type="PackedScene" uid="uid://crnm1wsykjfox" path="res://DO NOT TOUCH/overworld.tscn" id="2_pkf55"]
 [ext_resource type="Texture2D" uid="uid://d2imu7gaxae8v" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_BaseColor.png" id="3_guilt"]
+[ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="3_m0h4x"]
+[ext_resource type="Texture2D" uid="uid://cqgl3kc6nio8q" path="res://DO NOT TOUCH/photo_1790840928.png" id="3_pkf55"]
+[ext_resource type="Shader" uid="uid://dddm6lop7ye38" path="res://DO NOT TOUCH/Shader/main_menu.gdshader" id="4_767l7"]
 [ext_resource type="Texture2D" uid="uid://qd5xemtoy0ul" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Metallic.png" id="4_mwdc5"]
 [ext_resource type="Texture2D" uid="uid://c7nbwxx10dswr" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Normal.png" id="5_y7syf"]
 [ext_resource type="Texture2D" uid="uid://dojqnaertypo2" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Roughness.png" id="6_dsoe5"]
@@ -10,6 +15,16 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aygv5"]
 radius = 1.056446
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_767l7"]
+shader = ExtResource("3_m0h4x")
+shader_parameter/pixel_size = 4.0
+shader_parameter/color_levels = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cuvwe"]
+shader = ExtResource("4_767l7")
+shader_parameter/pixel_size = 4.0
+shader_parameter/color_levels = 16.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mpxc"]
 resource_name = "standardSurface1"
@@ -743,6 +758,7 @@ size = Vector2(0.04, 0.04)
 
 [node name="Player" type="CharacterBody3D" unique_id=1089965781]
 script = ExtResource("1_bdb3e")
+overworld = ExtResource("2_pkf55")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=285315915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.18219519)
@@ -757,6 +773,18 @@ spot_angle = 23.906246
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1568266058]
 
+[node name="PixelShader" type="CanvasLayer" parent="." unique_id=685292025]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="PixelShader" unique_id=181163279]
+material = SubResource("ShaderMaterial_767l7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
 [node name="PhotoUI" type="CanvasLayer" parent="." unique_id=331502082]
 visible = false
 
@@ -769,6 +797,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.52156866)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="PhotoUI" unique_id=1151391802]
+material = SubResource("ShaderMaterial_cuvwe")
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -830,6 +859,54 @@ layout_mode = 2
 
 [node name="Throttle" type="Label" parent="Debug/Debug Display/VBoxContainer" unique_id=504819910]
 layout_mode = 2
+
+[node name="Throttle2" type="Label" parent="Debug/Debug Display/VBoxContainer" unique_id=1928586577]
+layout_mode = 2
+text = "W to increase throttle
+S to decrease throttle
+E to open camera
+Esc to surface"
+
+[node name="PhotoReviewUI" type="CanvasLayer" parent="." unique_id=195338775]
+
+[node name="Control" type="Control" parent="PhotoReviewUI" unique_id=458942144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_dsoe5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PhotoReviewUI/Control" unique_id=1196567440]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PhotoReviewUI/Control/VBoxContainer" unique_id=1177090459]
+layout_mode = 2
+texture = ExtResource("3_pkf55")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PhotoReviewUI/Control/VBoxContainer" unique_id=1963339247]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="PhotoReviewUI/Control/VBoxContainer/HBoxContainer" unique_id=1822524286]
+layout_mode = 2
+text = "Retake"
+
+[node name="Button2" type="Button" parent="PhotoReviewUI/Control/VBoxContainer/HBoxContainer" unique_id=24706913]
+layout_mode = 2
+text = "Submit"
 
 [node name="Sub_mesh" type="Node3D" parent="." unique_id=1357711974]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

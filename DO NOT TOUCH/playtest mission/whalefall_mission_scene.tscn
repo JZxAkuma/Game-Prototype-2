@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://b3i6v0ixrv02t"]
+
+[ext_resource type="Terrain3DAssets" uid="uid://c1r0ee4blljby" path="res://DO NOT TOUCH/dd/new_terrain_3d_assets.tres" id="1_aq3ex"]
+[ext_resource type="PackedScene" uid="uid://b1ixqq38kh811" path="res://Actor/whalefall/whalefall.tscn" id="2_8lx20"]
+[ext_resource type="PackedScene" uid="uid://b4a5edm7myjp8" path="res://Terrain Painting Scene/square_thingy.tscn" id="3_wve4h"]
+[ext_resource type="PackedScene" uid="uid://cx6rxebumv84t" path="res://Terrain Painting Scene/arch.tscn" id="4_fx12a"]
+[ext_resource type="PackedScene" uid="uid://qqjn4jaqs5td" path="res://Terrain Painting Scene/big_arch.tscn" id="5_x0go4"]
+[ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="6_fx12a"]
+[ext_resource type="Environment" uid="uid://bemrk15i2i5u6" path="res://Environment Template/Tier3 environment.tres" id="7_x0go4"]
+[ext_resource type="ArrayMesh" uid="uid://yed3hkof2qi2" path="res://DO NOT TOUCH/particle/small fish.tres" id="8_wcaw7"]
+[ext_resource type="Script" uid="uid://nxoigd4bsral" path="res://DO NOT TOUCH/Script/multi_mesh_instance_3d.gd" id="9_qxwv1"]
+
+[sub_resource type="Gradient" id="Gradient_8lx20"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8ybb3"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mlsv5"]
+noise = SubResource("FastNoiseLite_8ybb3")
+color_ramp = SubResource("Gradient_8lx20")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_wve4h"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": null,
+&"depth_blur": null,
+&"enable_macro_variation": null,
+&"enable_projection": null,
+&"flat_terrain_normals": null,
+&"macro_variation1": null,
+&"macro_variation2": null,
+&"macro_variation_slope": null,
+&"mipmap_bias": null,
+&"noise1_angle": null,
+&"noise1_offset": null,
+&"noise1_scale": null,
+&"noise2_scale": null,
+&"noise_texture": SubResource("NoiseTexture2D_mlsv5"),
+&"projection_threshold": null,
+&"world_noise_fragment_normals": null,
+&"world_noise_height": null,
+&"world_noise_lod_distance": null,
+&"world_noise_max_octaves": null,
+&"world_noise_min_octaves": null,
+&"world_noise_offset": null,
+&"world_noise_region_blend": null,
+&"world_noise_scale": null
+}
+world_background = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x0go4"]
+size = Vector3(527.6404, 259.9137, 0.001)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qwkxn"]
+size = Vector3(537.81836, 1.0439453, 541.97485)
+
+[sub_resource type="MultiMesh" id="MultiMesh_x0go4"]
+transform_format = 1
+use_custom_data = true
+mesh = ExtResource("8_wcaw7")
+
+[node name="Whalefall mission scene" type="Node3D" unique_id=150510011]
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=2001038384]
+data_directory = "res://DO NOT TOUCH/playtest mission/whale fall dd"
+material = SubResource("Terrain3DMaterial_wve4h")
+assets = ExtResource("1_aq3ex")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Whalefall" parent="." unique_id=533454814 instance=ExtResource("2_8lx20")]
+transform = Transform3D(3.8140242, 0, 0, 0, 3.8140242, 0, 0, 0, 3.8140242, 0, 0.025148511, 0)
+
+[node name="ScenePainterInstances" type="Node3D" parent="." unique_id=342756718]
+metadata/scene_painter_container = true
+
+[node name="Square thingy" parent="ScenePainterInstances" unique_id=1674052970 instance=ExtResource("3_wve4h")]
+transform = Transform3D(0.07846275, 0, -0.3225021, 0, 0.33190966, 0, 0.3225021, 0, 0.07846275, -5.328324, -0.15, -3.0082786)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy2" parent="ScenePainterInstances" unique_id=1806132721 instance=ExtResource("3_wve4h")]
+transform = Transform3D(-0.12198707, 0, 0.37213534, 0, 0.39161915, 0, -0.37213534, 0, -0.12198707, -2.7991545, -0.15, 4.4133687)
+metadata/scene_painter_instance = true
+
+[node name="Arch" parent="ScenePainterInstances" unique_id=1821074155 instance=ExtResource("4_fx12a")]
+transform = Transform3D(0.28527287, 0, 0.045883495, 0, 0.28893927, 0, -0.045883495, 0, 0.28527287, -7.123875, -0.15, 1.8706684)
+metadata/scene_painter_instance = true
+
+[node name="Big arch" parent="ScenePainterInstances" unique_id=1349738720 instance=ExtResource("5_x0go4")]
+transform = Transform3D(-0.180108, 0, 0.32077652, 0, 0.36788106, 0, -0.32077652, 0, -0.180108, 9.705177, -0.15, 2.9172688)
+metadata/scene_painter_instance = true
+
+[node name="Big arch2" parent="ScenePainterInstances" unique_id=781233161 instance=ExtResource("5_x0go4")]
+transform = Transform3D(-0.2894999, 0, 0.1789877, 0, 0.34036273, 0, -0.1789877, 0, -0.2894999, 3.7933514, -0.15, 2.5322204)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy3" parent="ScenePainterInstances" unique_id=618899850 instance=ExtResource("3_wve4h")]
+transform = Transform3D(-0.40042117, 0, -0.042572677, 0, 0.40267795, 0, 0.042572677, 0, -0.40042117, 7.3295217, -0.15, 7.80949)
+metadata/scene_painter_instance = true
+
+[node name="Big arch3" parent="ScenePainterInstances" unique_id=1174324974 instance=ExtResource("5_x0go4")]
+transform = Transform3D(-0.37124118, 0, 0.16703998, 0, 0.40709013, 0, -0.16703998, 0, -0.37124118, 9.49168, -0.15, -4.045594)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy4" parent="ScenePainterInstances" unique_id=1708640285 instance=ExtResource("3_wve4h")]
+transform = Transform3D(-0.10969801, 0, -0.32725936, 0, 0.34515554, 0, 0.32725936, 0, -0.10969801, -7.973199, -0.15, -7.626116)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy5" parent="ScenePainterInstances" unique_id=1037819706 instance=ExtResource("3_wve4h")]
+transform = Transform3D(0.24440543, 0, 0.28150612, 0, 0.3727998, 0, -0.28150612, 0, 0.24440543, -6.6185374, -0.15, -13.601741)
+metadata/scene_painter_instance = true
+
+[node name="Arch2" parent="ScenePainterInstances" unique_id=1658877132 instance=ExtResource("4_fx12a")]
+transform = Transform3D(0.20039533, 0, 0.07665074, 0, 0.21455447, 0, -0.07665074, 0, 0.20039533, -1.194306, -0.15, -9.988526)
+metadata/scene_painter_instance = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2129260072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.46065, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=978259614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.631241, 129.45686, -257.05692)
+shape = SubResource("BoxShape3D_x0go4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=863484108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.631241, 129.45686, 258.07224)
+shape = SubResource("BoxShape3D_x0go4")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=1897870688]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -259.54587, 129.45686, -2.4222412)
+shape = SubResource("BoxShape3D_x0go4")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=263412958]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 257.0634, 129.45686, -2.4222412)
+shape = SubResource("BoxShape3D_x0go4")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=34892735]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.432099, 255.63925, -3.7847714)
+shape = SubResource("BoxShape3D_qwkxn")
+
+[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("6_fx12a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.00371, 115.17856)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=656214322]
+environment = ExtResource("7_x0go4")
+
+[node name="tropical fish 1 wander" type="MultiMeshInstance3D" parent="." unique_id=539446191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.6480904, 0)
+multimesh = SubResource("MultiMesh_x0go4")
+script = ExtResource("9_qxwv1")
+wander_strength = 10.0

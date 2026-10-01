@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Mission" format=3 uid="uid://ko07ry50cdu4"]
+
+[ext_resource type="PackedScene" uid="uid://b3i6v0ixrv02t" path="res://DO NOT TOUCH/playtest mission/whalefall_mission_scene.tscn" id="1_kewd2"]
+[ext_resource type="Script" uid="uid://h1lvd4xosgos" path="res://DO NOT TOUCH/Script/mission.gd" id="1_lod0b"]
+
+[resource]
+script = ExtResource("1_lod0b")
+mission_name = "One ends, More starts "
+description = "Last year we've found a whalefall site. We want an update on that site"
+type = 0
+giver_island = "Island 3"
+objective_id = "0002"
+scene = ExtResource("1_kewd2")
+metadata/_custom_type_script = "uid://h1lvd4xosgos"

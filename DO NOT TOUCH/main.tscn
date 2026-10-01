@@ -8,13 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://un0mhjmil311" path="res://DO NOT TOUCH/world.tscn" id="3_wt2uh"]
 [ext_resource type="Script" uid="uid://bgvobehrjm0gl" path="res://DO NOT TOUCH/Script/day_night_cycle.gd" id="4_b73pl"]
 [ext_resource type="PackedScene" uid="uid://cp7hs413aydko" path="res://DO NOT TOUCH/main_menu.tscn" id="6_nir6d"]
+[ext_resource type="Resource" uid="uid://cag7etcf2klv6" path="res://Missions/mission 2.tres" id="7_l4pnx"]
+[ext_resource type="Resource" uid="uid://ko07ry50cdu4" path="res://Missions/whalefall mission.tres" id="8_ppxj5"]
 
 [node name="Main" type="Node3D" unique_id=389891087]
 script = ExtResource("1_wcydr")
 overworld = ExtResource("3_b73pl")
 worldtscn = ExtResource("3_wt2uh")
 mainmenu = ExtResource("6_nir6d")
-missions = Array[ExtResource("3_0bfyh")]([ExtResource("3_11upd")])
+missions = Array[ExtResource("3_0bfyh")]([ExtResource("3_11upd"), ExtResource("7_l4pnx"), ExtResource("8_ppxj5")])
 
 [node name="World changer" type="Node" parent="." unique_id=766273552]
 script = ExtResource("1_tjysi")

@@ -22,14 +22,14 @@ func _ready():
 	GameEvents.surface.connect(_on_surface)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		if state != states.diving:
-			WorldChanger.goto_scene(mainmenu)
-		elif state == states.overworld:
-			WorldChanger.goto_scene(mainmenu)
-
-		else:
-			GameEvents.surface.emit()
+	#if Input.is_action_just_pressed("ui_cancel"):
+		#if state != states.diving:
+			#WorldChanger.goto_scene(mainmenu)
+		#elif state == states.overworld:
+			#WorldChanger.goto_scene(mainmenu)
+#
+		#else:
+			#GameEvents.surface.emit()
 		
 	if Input.is_action_just_pressed("change scene test"):
 		_surface()

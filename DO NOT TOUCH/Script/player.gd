@@ -18,6 +18,7 @@ var state = states.driving
 @export var turn_response: float = 4.0
 @export var pitch_limit_deg: float = 80.0
 @export var handling: float = 0.8
+@export var overworld: PackedScene
 
 @onready var main_camera = $Camera3D
 @onready var viewfinder_viewport = $PhotoUI/SubViewportContainer/SubViewport
@@ -27,6 +28,7 @@ var state = states.driving
 @onready var gallery_grid = $GalleryUI/PhotoGrid
 
 @onready var sub_mesh = $Sub_mesh
+@onready var photo_review_ui = $PhotoReviewUI/Control
 
 var freelook_sens = 0.005
 
@@ -60,6 +62,9 @@ var target_pitch: float = 0.0
 var current_yaw: float = 0.0
 var current_pitch: float = 0.0
 
+var pending_photo: Image = null
+var pending_mission: Mission = null
+
 func _debug_display():
 	$"Debug/Debug Display/VBoxContainer/Speed".text = "Velocity: " + str(velocity) + " target: "
 	$"Debug/Debug Display/VBoxContainer/Throttle".text = "Throttle Power: " + str(throttle_power) + "\n" + "fps: " + str(Engine.get_frames_per_second()) + "\n" + "Global Pos: " + str(global_position) 
@@ -73,7 +78,8 @@ func _ready() -> void:
 	viewfinder_viewport.world_3d = get_viewport().world_3d
 	photo_ui.visible = false
 	gallery_ui.visible = false
-	
+	photo_review_ui.retry_pressed.connect(_on_retry_pressed)
+	photo_review_ui.submit_pressed.connect(_on_submit_pressed)
 	sub_mesh_base_pos = sub_mesh.position
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -94,7 +100,8 @@ func _physics_process(delta: float) -> void:
 	
 	#if Input.is_action_just_pressed("change scene test"):
 		#WorldChanger.goto_scene("res://Underwater Template/tier_3.tscn")
-	
+	if Input.is_action_just_pressed("ui_cancel"):
+		WorldChanger.goto_scene(overworld)
 	_debug_display()
 	match state:
 		states.driving:
@@ -128,10 +135,46 @@ func _take_picture() -> void:
 	var img: Image = viewfinder_viewport.get_texture().get_image()
 	var captured_id = _check_creatures_in_frame()
 
-	var entry = PhotoManager.save_photo(img, captured_id)
+	var matching_mission = _find_matching_accepted_mission(captured_id)
 
+	if matching_mission:
+		pending_photo = img
+		pending_mission = matching_mission
+		photo_review_ui.show_review(img)
+	else:
+		_finalize_photo(img, captured_id)
+
+func _find_matching_accepted_mission(objective_id: String) -> Mission:
+	if objective_id == "":
+		return null
+	for mission in QuestManager.missions:
+		if mission.objective_id == objective_id and mission.state == Mission.State.ACCEPTED:
+			return mission
+	return null
+
+func _finalize_photo(img: Image, objective_id: String) -> void:
+	var entry = PhotoManager.save_photo(img, objective_id)
 	var photo_tex = ImageTexture.create_from_image(img)
-	photos.append({"texture": photo_tex, "objective_id": captured_id, "filename": entry["filename"]})
+	photos.append({"texture": photo_tex, "objective_id": objective_id, "filename": entry["filename"]})
+
+
+func _on_retry_pressed() -> void:
+	print("retry pressed")
+	pending_photo = null
+	pending_mission = null
+	photo_review_ui.hide_review()
+
+
+func _on_submit_pressed() -> void:
+	if pending_mission and pending_photo:
+		_finalize_photo(pending_photo, pending_mission.objective_id)
+		QuestManager._complete_mission(pending_mission)
+
+	pending_photo = null
+	pending_mission = null
+	photo_review_ui.hide_review()
+
+	WorldChanger.goto_scene(overworld)
 
 func _check_creatures_in_frame() -> String:
 	var creatures = get_tree().get_nodes_in_group("photographable")
@@ -144,7 +187,7 @@ func _check_creatures_in_frame() -> String:
 			continue
 
 		var distance = viewfinder_camera.global_position.distance_to(pos)
-		if distance > 20.0:
+		if distance > 30.0:
 			continue
 
 		var query = PhysicsRayQueryParameters3D.create(viewfinder_camera.global_position, pos)

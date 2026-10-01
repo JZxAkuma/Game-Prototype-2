@@ -15,6 +15,12 @@ func _get_available_mission_for_island(island_name:String) -> Array[Mission]:
 	
 	return result
 
+func _get_all_missions_for_island(island_name: String) -> Array[Mission]:
+	var result: Array[Mission] = []
+	for m in missions:
+		if m.giver_island == island_name:
+			result.append(m)
+	return result
 
 func _get_missions_for_sector(sector_name: String) -> Array[Mission]:
 	var result: Array[Mission] = []
