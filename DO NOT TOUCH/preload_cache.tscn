@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bgst0o3235g5w"]
+
+[ext_resource type="Script" uid="uid://dw6kpqjt7iti0" path="res://DO NOT TOUCH/Script/preload_cache.gd" id="1_ykv1w"]
+[ext_resource type="PackedScene" uid="uid://cv5jlwch18ufq" path="res://Actor/Onlooker/on_looker.tscn" id="2_bo4yq"]
+[ext_resource type="PackedScene" uid="uid://bhr3dq7atplxq" path="res://Actor/spongebob/spongebob.tscn" id="3_e51x5"]
+[ext_resource type="PackedScene" uid="uid://b1ixqq38kh811" path="res://Actor/whalefall/whalefall.tscn" id="4_6tcmf"]
+[ext_resource type="PackedScene" uid="uid://di71cd1pegwsp" path="res://DO NOT TOUCH/particle/fish.tscn" id="5_g471e"]
+[ext_resource type="PackedScene" uid="uid://bk8074ty1iys6" path="res://DO NOT TOUCH/particle/tropical_fish_1_school.tscn" id="6_see1p"]
+[ext_resource type="PackedScene" uid="uid://bbhu17pgwfd26" path="res://DO NOT TOUCH/particle/tropical_fish_2_school.tscn" id="7_ywxem"]
+[ext_resource type="PackedScene" uid="uid://chbvmrlf38m5i" path="res://DO NOT TOUCH/particle/tropical_fish_3_school.tscn" id="8_yder7"]
+[ext_resource type="PackedScene" uid="uid://bv4sk3i6kohxh" path="res://DO NOT TOUCH/particle/weid_fish_school.tscn" id="9_xv30y"]
+[ext_resource type="PackedScene" uid="uid://ccjihror4sq8y" path="res://DO NOT TOUCH/island.tscn" id="10_j5cn6"]
+[ext_resource type="PackedScene" uid="uid://c4vjqy42fr2ik" path="res://EnvironmentalAssets/SubmarineFinal/moby_trinket.tscn" id="11_txhf8"]
+[ext_resource type="PackedScene" uid="uid://dxdn5n4afhv3c" path="res://EnvironmentalAssets/SubmarineFinal/submarine_textured.tscn" id="12_rejiu"]
+[ext_resource type="PackedScene" uid="uid://cd6166yylgbtx" path="res://EnvironmentalAssets/SubmarinePrototype/submarine_prototype.tscn" id="13_475pp"]
+[ext_resource type="PackedScene" uid="uid://cx6rxebumv84t" path="res://Terrain Painting Scene/arch.tscn" id="14_5u83r"]
+[ext_resource type="PackedScene" uid="uid://qqjn4jaqs5td" path="res://Terrain Painting Scene/big_arch.tscn" id="15_co26a"]
+[ext_resource type="PackedScene" uid="uid://b4a5edm7myjp8" path="res://Terrain Painting Scene/square_thingy.tscn" id="16_wk18y"]
+[ext_resource type="PackedScene" uid="uid://btiaossg13ouo" path="res://Terrain Painting Scene/tropical_coral_1.tscn" id="17_a462e"]
+[ext_resource type="PackedScene" uid="uid://duf35t47mcofr" path="res://Terrain Painting Scene/tropical_coral_2.tscn" id="18_y082w"]
+[ext_resource type="PackedScene" uid="uid://bchfxlala133i" path="res://Terrain Painting Scene/tropical_coral_3.tscn" id="19_tn3sb"]
+[ext_resource type="PackedScene" uid="uid://dlgr2f1af5stf" path="res://Terrain Painting Scene/tropical_coral_4.tscn" id="20_wd1eo"]
+
+[node name="Preload cache" type="Node3D" unique_id=1991049813]
+script = ExtResource("1_ykv1w")
+scenes_to_preload = Array[PackedScene]([ExtResource("2_bo4yq"), ExtResource("3_e51x5"), ExtResource("4_6tcmf"), ExtResource("5_g471e"), ExtResource("6_see1p"), ExtResource("7_ywxem"), ExtResource("8_yder7"), ExtResource("9_xv30y"), ExtResource("10_j5cn6"), ExtResource("11_txhf8"), ExtResource("12_rejiu"), ExtResource("13_475pp"), ExtResource("14_5u83r"), ExtResource("15_co26a"), ExtResource("16_wk18y"), ExtResource("17_a462e"), ExtResource("18_y082w"), ExtResource("19_tn3sb"), ExtResource("20_wd1eo")])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=509270634]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=135740912]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=504733456]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=876813558]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
