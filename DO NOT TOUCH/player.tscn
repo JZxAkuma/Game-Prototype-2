@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://rtndhytpyadp" path="res://DO NOT TOUCH/Script/player.gd" id="1_bdb3e"]
 [ext_resource type="Script" uid="uid://cad44brc5qf1r" path="res://DO NOT TOUCH/Script/photoreview.gd" id="2_dsoe5"]
 [ext_resource type="Material" uid="uid://domwpsbch6xxu" path="res://Materials/Subs/sub screen.tres" id="2_fu28x"]
-[ext_resource type="PackedScene" uid="uid://crnm1wsykjfox" path="res://DO NOT TOUCH/overworld.tscn" id="2_pkf55"]
 [ext_resource type="Texture2D" uid="uid://d2imu7gaxae8v" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_BaseColor.png" id="3_guilt"]
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="3_m0h4x"]
 [ext_resource type="Texture2D" uid="uid://cqgl3kc6nio8q" path="res://DO NOT TOUCH/photo_1790840928.png" id="3_pkf55"]
@@ -758,7 +757,6 @@ size = Vector2(0.04, 0.04)
 
 [node name="Player" type="CharacterBody3D" unique_id=1089965781]
 script = ExtResource("1_bdb3e")
-overworld = ExtResource("2_pkf55")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=285315915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.18219519)
