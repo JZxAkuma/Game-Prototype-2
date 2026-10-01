@@ -17,6 +17,7 @@ var swim_speed: float = 2.0
 var attack_speed: float = 8.0
 var turn_response: float = 2.0
 var vertical_wander_bias: float = 0.15
+var max_distance_from_home: float = 12.0
 
 @onready var ray_forward: RayCast3D = $"Nav Rays/Ray Front"
 @onready var ray_left: RayCast3D = $"Nav Rays/Ray Left"
@@ -38,15 +39,24 @@ func _physics_process(delta: float) -> void:
 		states.wandering:
 			_wandering(delta)
 
-func _wandering(delta:float):
+func _wandering(delta: float):
 	wander_timer -= delta
+
 	if wander_timer <= 0.0:
 		_pick_new_wander_direction()
 
-	var steer_dir = target_direction + _get_avoidance_vector() * avoid_strength
+	var steer_dir = target_direction
+
+	var distance_from_home = global_position.distance_to(home_position)
+
+	if distance_from_home > wander_radius:
+		var home_pull = (home_position - global_position).normalized()
+		steer_dir += home_pull * 2.0
+
+	steer_dir += _get_avoidance_vector() * avoid_strength
 	steer_dir = steer_dir.normalized()
 
-	_apply_steering(steer_dir,swim_speed,delta)
+	_apply_steering(steer_dir, swim_speed, delta)
 	move_and_slide()
 
 func _apply_steering(desired_dir: Vector3, speed: float, delta: float) -> void:
@@ -80,13 +90,19 @@ func _get_avoidance_vector() -> Vector3:
 
 func _pick_new_wander_direction():
 	wander_timer = wander_change_interval
+	var distance_from_home = global_position.distance_to(home_position)
+
+	if distance_from_home > max_distance_from_home:
+		target_direction = (home_position - global_position).normalized()
+		return
+
 	var random_offset := Vector3(
 		randf_range(-1.0, 1.0),
 		randf_range(-1.0, 1.0) * vertical_wander_bias,
 		randf_range(-1.0, 1.0)
 	).normalized() * randf_range(0.0, wander_radius)
 
-	var target_point: Vector3 = home_position + random_offset
+	var target_point = home_position + random_offset
 	target_direction = (target_point - global_position).normalized()
 	
 	

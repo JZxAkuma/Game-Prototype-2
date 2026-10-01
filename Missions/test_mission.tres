@@ -2,13 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://cv5jlwch18ufq" path="res://Actor/Onlooker/on_looker.tscn" id="1_etrdi"]
 [ext_resource type="Script" uid="uid://h1lvd4xosgos" path="res://DO NOT TOUCH/Script/mission.gd" id="1_uyed8"]
+[ext_resource type="PackedScene" uid="uid://drml0yoiicact" path="res://DO NOT TOUCH/playtest mission/onlooker_mission.tscn" id="2_05bhj"]
 
 [resource]
 script = ExtResource("1_uyed8")
-mission_name = "This is a mission test"
-description = "This is a test for the quest system"
+mission_name = "Eyes on me"
+description = "A bizzare creature have been sighted. The creature is described to have multiple eyes on its body"
 sector_name = "3_5"
 giver_island = "Island Name"
 objective_scene = ExtResource("1_etrdi")
 objective_id = "0000"
+scene = ExtResource("2_05bhj")
 metadata/_custom_type_script = "uid://h1lvd4xosgos"

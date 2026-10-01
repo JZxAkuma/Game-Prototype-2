@@ -5,7 +5,7 @@ enum Type { STATIC, CREATURE }
 enum State { AVAILABLE, ACCEPTED, COMPLETED, SUBMITTED }
 
 @export var mission_name: String = ""
-@export var description: String = ""
+@export_multiline var description: String = ""
 @export var type: Type = Type.CREATURE
 @export var sector_name: String = ""
 @export var giver_island: String = ""
@@ -13,4 +13,4 @@ enum State { AVAILABLE, ACCEPTED, COMPLETED, SUBMITTED }
 @export var objective_id: String = ""
 @export var appear_time: float = -1.0      
 var state: State = State.AVAILABLE
-var scene: PackedScene
+@export var scene: PackedScene

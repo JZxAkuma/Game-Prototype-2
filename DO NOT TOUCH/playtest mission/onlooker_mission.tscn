@@ -1,0 +1,2134 @@
+[gd_scene format=3 uid="uid://drml0yoiicact"]
+
+[ext_resource type="Terrain3DAssets" uid="uid://c1r0ee4blljby" path="res://DO NOT TOUCH/dd/new_terrain_3d_assets.tres" id="1_oly0u"]
+[ext_resource type="PackedScene" uid="uid://bethqdmmxvec7" path="res://DO NOT TOUCH/player.tscn" id="2_mtiiy"]
+[ext_resource type="Environment" uid="uid://4yqsg0fh12ec" path="res://Environment Template/Tier2 environment.tres" id="3_mtiiy"]
+[ext_resource type="PackedScene" uid="uid://qqjn4jaqs5td" path="res://Terrain Painting Scene/big_arch.tscn" id="4_ib8s4"]
+[ext_resource type="PackedScene" uid="uid://b4a5edm7myjp8" path="res://Terrain Painting Scene/square_thingy.tscn" id="5_0tckm"]
+[ext_resource type="PackedScene" uid="uid://cx6rxebumv84t" path="res://Terrain Painting Scene/arch.tscn" id="6_cxcur"]
+[ext_resource type="ArrayMesh" uid="uid://yed3hkof2qi2" path="res://DO NOT TOUCH/particle/small fish.tres" id="7_cxcur"]
+[ext_resource type="Script" uid="uid://nxoigd4bsral" path="res://DO NOT TOUCH/Script/multi_mesh_instance_3d.gd" id="8_1y43s"]
+[ext_resource type="PackedScene" uid="uid://cv5jlwch18ufq" path="res://Actor/Onlooker/on_looker.tscn" id="9_1y43s"]
+
+[sub_resource type="Gradient" id="Gradient_vjbwu"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_758s1"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ib8s4"]
+noise = SubResource("FastNoiseLite_758s1")
+color_ramp = SubResource("Gradient_vjbwu")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_0tckm"]
+_shader_parameters = {
+&"bias_distance": null,
+&"blend_sharpness": null,
+&"depth_blur": null,
+&"enable_macro_variation": null,
+&"enable_projection": null,
+&"flat_terrain_normals": null,
+&"macro_variation1": null,
+&"macro_variation2": null,
+&"macro_variation_slope": null,
+&"mipmap_bias": null,
+&"noise1_angle": null,
+&"noise1_offset": null,
+&"noise1_scale": null,
+&"noise2_scale": null,
+&"noise_texture": SubResource("NoiseTexture2D_ib8s4"),
+&"projection_threshold": null,
+&"world_noise_fragment_normals": null,
+&"world_noise_height": null,
+&"world_noise_lod_distance": null,
+&"world_noise_max_octaves": null,
+&"world_noise_min_octaves": null,
+&"world_noise_offset": null,
+&"world_noise_region_blend": null,
+&"world_noise_scale": null
+}
+world_background = 2
+
+[sub_resource type="MultiMesh" id="MultiMesh_sw8oa"]
+transform_format = 1
+use_custom_data = true
+mesh = ExtResource("7_cxcur")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5003"]
+size = Vector3(527.6404, 259.9137, 0.001)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhuwb"]
+size = Vector3(537.81836, 1.0439453, 541.97485)
+
+[node name="onlooker mission" type="Node3D" unique_id=603267820]
+
+[node name="Terrain3D" type="Terrain3D" parent="." unique_id=680742309]
+data_directory = "res://DO NOT TOUCH/playtest mission/onlooker dd"
+material = SubResource("Terrain3DMaterial_0tckm")
+assets = ExtResource("1_oly0u")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1089965781 instance=ExtResource("2_mtiiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.89182, 31.195305, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1404424097]
+environment = ExtResource("3_mtiiy")
+
+[node name="ScenePainterInstances" type="Node3D" parent="." unique_id=119213843]
+metadata/scene_painter_container = true
+metadata/_edit_lock_ = true
+
+[node name="Big arch" parent="ScenePainterInstances" unique_id=1349738720 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.77509576, 0.49551076, 0.44487476, 0.4021966, 0.8924374, -0.29327685, -0.5307375, -0.047354903, -0.8719479, -147.19923, 22.020771, 40.843998)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy" parent="ScenePainterInstances" unique_id=1674052970 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.09990144, 1.0477912, -0.6898121, 0.61900806, 0.64305776, 0.88712645, 1.091117, -0.26888236, -0.56643933, -123.34461, 29.524626, 116.84909)
+metadata/scene_painter_instance = true
+
+[node name="Arch" parent="ScenePainterInstances" unique_id=1821074155 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.1775682, 0.03514031, 0.056950096, -0.03125554, 1.176365, -0.0795837, -0.059171326, 0.07794634, 1.1754014, -82.95676, 8.435234, 26.156595)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy2" parent="ScenePainterInstances" unique_id=27643358 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.36488137, -0.91063726, -0.8884555, 0.35774192, 0.9604196, -0.83747643, 1.2209153, -0.009261736, 0.51091284, -161.86249, 67.48591, 166.9046)
+metadata/scene_painter_instance = true
+
+[node name="Arch2" parent="ScenePainterInstances" unique_id=2010522767 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.9631407, -0.10065948, 0.7381835, -0.16134182, 1.2060412, -0.046052817, -0.7273348, -0.13423756, -0.9672909, -52.070637, 14.459544, 121.69597)
+metadata/scene_painter_instance = true
+
+[node name="Big arch2" parent="ScenePainterInstances" unique_id=1451440319 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.41827187, 1.049466, -0.81259894, 0.38234892, 0.72060716, 1.127467, 1.2710252, -0.5621332, -0.07175194, -133.69046, 35.0043, 98.34419)
+metadata/scene_painter_instance = true
+
+[node name="Big arch3" parent="ScenePainterInstances" unique_id=1986818333 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.2758598, 0.5615493, 0.7855992, -0.60983306, 1.4778609, -0.065975524, -0.7487373, -0.24680251, 1.3924091, -149.15611, 72.14499, 136.02963)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy3" parent="ScenePainterInstances" unique_id=994152786 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.5741518, 0.5967336, -0.26371905, -0.5432989, 1.5803579, 0.33299768, 0.36119944, -0.22353998, 1.6501992, -143.85815, 76.38135, 172.77376)
+metadata/scene_painter_instance = true
+
+[node name="Big arch4" parent="ScenePainterInstances" unique_id=1072383223 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.933052, 0.027105292, 0.11718623, -0.025222901, 1.9363648, -0.03181738, -0.11760575, 0.030229846, 1.9329802, -48.461117, 16.754274, 153.46436)
+metadata/scene_painter_instance = true
+
+[node name="Big arch5" parent="ScenePainterInstances" unique_id=894405350 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.61452883, -0.8331995, -0.5980625, -0.6082677, 0.857433, -0.56953037, 0.8257788, 0.0115330685, -0.8645822, -173.889, 58.912918, 118.64851)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy4" parent="ScenePainterInstances" unique_id=1588561258 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.826478, 1.3052546, 0.01649209, -1.1980839, 0.750748, 0.6228963, 0.51822424, -0.34599918, 1.4137737, -126.01529, 40.143826, 128.49028)
+metadata/scene_painter_instance = true
+
+[node name="Big arch6" parent="ScenePainterInstances" unique_id=2111568242 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.9971823, 0.094490565, 0.48127213, 0.09678634, 1.1069212, -0.016788777, -0.4808157, 0.026851323, -1.0015084, -88.623764, 17.408451, 192.556)
+metadata/scene_painter_instance = true
+
+[node name="Arch3" parent="ScenePainterInstances" unique_id=1443515124 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.5697974, 0.6010365, -0.33653277, 0.33612517, 1.399397, 0.9313812, 0.6012645, 0.7868965, -1.3992991, -136.04439, 26.443571, 242.0091)
+metadata/scene_painter_instance = true
+
+[node name="Big arch7" parent="ScenePainterInstances" unique_id=1839403149 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.015742518, -0.08114209, -1.486141, -0.14576024, 1.4789957, -0.08229598, 1.4811999, 0.14640573, 0.0076965434, -36.483913, 6.6124425, 254.94855)
+metadata/scene_painter_instance = true
+
+[node name="Big arch8" parent="ScenePainterInstances" unique_id=2060983316 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.601961, 0.099629, 0.019578734, 0.1013307, 1.5883443, 0.20852427, -0.0064308927, 0.20934261, -1.5914531, -87.588684, 3.1104486, 300.36975)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy5" parent="ScenePainterInstances" unique_id=487817815 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.6779196, -0.064755276, 0.41765007, -0.017639251, 1.7191385, 0.19568063, -0.42227203, 0.1854961, -1.6677281, -19.547718, 14.161227, 201.76978)
+metadata/scene_painter_instance = true
+
+[node name="Arch4" parent="ScenePainterInstances" unique_id=1685896123 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.3744731, -0.040393848, -0.77399117, -0.050578758, 1.5677539, -0.1716386, 0.7733924, 0.17431682, 1.3643124, -3.6290462, 15.063599, 199.09363)
+metadata/scene_painter_instance = true
+
+[node name="Arch5" parent="ScenePainterInstances" unique_id=2146543492 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.2930855, 0.048282776, -1.1109253, -0.117814355, 1.700199, -0.06323892, 1.1057152, 0.124692254, 1.2924403, -94.4541, 0.23832835, 327.6618)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy6" parent="ScenePainterInstances" unique_id=943170106 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.26548854, -0.040200777, -1.9858618, -0.21477796, 1.9911941, -0.069022246, 1.9746225, 0.22198544, 0.25949216, -40.38826, 8.047349, 240.00903)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy7" parent="ScenePainterInstances" unique_id=822891836 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.2033997, 0.11686774, -1.2285666, -0.23181106, 1.706834, -0.06469943, 1.2121457, 0.21039088, 1.2073288, -62.651398, 5.5708437, 270.6607)
+metadata/scene_painter_instance = true
+
+[node name="Big arch9" parent="ScenePainterInstances" unique_id=2030985435 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.04557576, -0.099208936, -1.9024254, -0.21006875, 1.8916261, -0.09361323, 1.8933928, 0.20748469, -0.056179415, 23.216543, 8.959493, 267.0394)
+metadata/scene_painter_instance = true
+
+[node name="Arch6" parent="ScenePainterInstances" unique_id=1341067205 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.5832336, -0.014413311, -0.9205141, -0.031688385, 1.0893586, 0.0030205592, 0.9200814, 0.028381929, -0.5834038, -78.626434, 0.10569887, 328.35666)
+metadata/scene_painter_instance = true
+
+[node name="Arch7" parent="ScenePainterInstances" unique_id=940602800 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.4176279, -0.05037014, 0.61447406, 0.12307266, 1.5328351, -0.15828516, -0.6041264, 0.19407195, 1.4096637, 56.985035, 7.9477177, 285.83716)
+metadata/scene_painter_instance = true
+
+[node name="Big arch10" parent="ScenePainterInstances" unique_id=1086061678 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.0073885, -0.037289705, 0.6252222, 0.10982033, 1.1762908, -0.10679116, -0.6166302, 0.14857435, 1.0024059, -32.266754, 13.172068, 205.15982)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy8" parent="ScenePainterInstances" unique_id=1097979583 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.921334, -0.028342292, -0.5968714, -0.0076919203, 1.0962523, -0.06392857, 0.5974944, 0.05781645, 0.91955036, 14.685009, 0.41986606, 352.1154)
+metadata/scene_painter_instance = true
+
+[node name="Big arch11" parent="ScenePainterInstances" unique_id=653585280 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.7972678, 0.073994115, 0.34847325, -0.024741983, 1.8138739, -0.25754634, -0.3553823, 0.2479257, 1.7802575, 115.45446, 5.2932982, 302.68948)
+metadata/scene_painter_instance = true
+
+[node name="Arch8" parent="ScenePainterInstances" unique_id=424870471 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.72053987, 0.03277327, -1.4141488, -0.049712956, 1.5854791, 0.06207374, 1.4136547, 0.07245992, -0.7186088, 115.18457, 0.9195665, 351.40677)
+metadata/scene_painter_instance = true
+
+[node name="Big arch12" parent="ScenePainterInstances" unique_id=1741414549 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.0067594, -0.015204545, 0.67710257, 0.07965822, 1.2019849, 0.14543188, -0.6725724, 0.16512021, -0.9963159, 96.72965, 15.24352, 242.59874)
+metadata/scene_painter_instance = true
+
+[node name="Big arch13" parent="ScenePainterInstances" unique_id=1084067556 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.22875926, -0.03458005, -1.5251476, -0.0976316, 1.5387061, -0.04953138, 1.5224122, 0.10387255, 0.22599386, 26.098917, 1.3217058, 342.38593)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy9" parent="ScenePainterInstances" unique_id=357908916 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.097778425, 0.032444123, 1.7990595, 0.062462132, 1.8005666, -0.035866104, -1.7982675, 0.064306095, 0.09657569, 127.34291, 0.16292128, 362.7165)
+metadata/scene_painter_instance = true
+
+[node name="Big arch14" parent="ScenePainterInstances" unique_id=1479206637 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.278882, 0, -1.8397841, 0, 1.8608011, 0, 1.8397841, 0, 0.27888203, 54.326954, -0.15, 395.78687)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy10" parent="ScenePainterInstances" unique_id=222383312 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.113298886, 0.03210645, -1.1512834, -0.04368154, 1.1558884, 0.03653362, 1.1509024, 0.047031455, -0.11194979, 134.9185, 0.430794, 351.4001)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy11" parent="ScenePainterInstances" unique_id=1663103431 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.6579254, -0.014753658, -0.84621435, -0.01675569, 1.0713897, -0.031706996, 0.84617704, 0.032686636, 0.6573266, 198.36563, 0.592841, 329.05066)
+metadata/scene_painter_instance = true
+
+[node name="Arch9" parent="ScenePainterInstances" unique_id=942377140 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.7408304, 0, 0.6494047, 0, 1.8580142, 0, -0.6494047, 0, -1.7408304, 197.87312, -0.15, 380.98465)
+metadata/scene_painter_instance = true
+
+[node name="Arch10" parent="ScenePainterInstances" unique_id=46023014 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.7365766, 0.0019110829, 1.2725983, 0.20476356, 1.4510547, -0.120695725, -1.2560182, 0.23768033, 0.72662324, 101.63641, 13.926913, 252.22784)
+metadata/scene_painter_instance = true
+
+[node name="Arch11" parent="ScenePainterInstances" unique_id=1403192217 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.573061, 0, 1.0730613, 0, 1.904201, 0, -1.0730613, 0, 1.573061, 237.9236, -0.15, 382.21246)
+metadata/scene_painter_instance = true
+
+[node name="Arch12" parent="ScenePainterInstances" unique_id=2088514881 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.21484746, 0.010001384, 1.3321017, 0.0738983, 1.3471481, -0.022033012, -1.330088, 0.07646165, 0.2139486, 265.64645, 2.287227, 317.01822)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy12" parent="ScenePainterInstances" unique_id=1202497052 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.4263244, -0.023339486, -0.29149836, -0.02939912, 1.4554403, 0.027319027, 0.2909497, 0.032648217, -1.4262536, 255.88545, 4.5242457, 277.17905)
+metadata/scene_painter_instance = true
+
+[node name="Arch13" parent="ScenePainterInstances" unique_id=309138051 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.084459, 0.047021773, -1.0588428, -0.08589954, 1.5138036, -0.020751724, 1.0563997, 0.07482191, 1.0852796, 297.3328, 1.3836688, 321.4373)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy13" parent="ScenePainterInstances" unique_id=230863406 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.765278, -0.039257493, 0.8614963, 0.08964558, 1.9603528, -0.09436005, -0.8577183, 0.1240927, 1.7631915, 199.24095, 1.7502964, 308.2508)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy14" parent="ScenePainterInstances" unique_id=2069308548 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.022879234, 0.008936534, -1.4144269, -0.010741039, 1.4145722, 0.008763709, 1.4144144, 0.010597683, 0.02294599, 326.21448, -0.10715543, 355.88513)
+metadata/scene_painter_instance = true
+
+[node name="Arch14" parent="ScenePainterInstances" unique_id=1054510875 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.5105646, -0.0024595556, -0.85129565, -0.059299678, 1.7300155, 0.10022478, 0.8492313, 0.11642768, -1.507238, 259.19525, 3.003269, 306.20316)
+metadata/scene_painter_instance = true
+
+[node name="Arch15" parent="ScenePainterInstances" unique_id=426054339 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.3063412, 0.21609797, -1.612329, 0.013701216, 1.6409532, 0.21733122, 1.6266885, 0.026874632, -0.30546752, 214.57805, 6.2973027, 207.73811)
+metadata/scene_painter_instance = true
+
+[node name="Big arch15" parent="ScenePainterInstances" unique_id=1711291143 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.5816556, -0.016010271, 1.1141905, -0.014624345, 1.2566328, 0.025691627, -1.1142095, -0.024851605, 0.5813085, 238.22455, 5.011009, 230.44635)
+metadata/scene_painter_instance = true
+
+[node name="Arch16" parent="ScenePainterInstances" unique_id=1376384850 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.24469016, -0.043722644, -1.3759185, -0.07400634, 1.3958819, -0.031195909, 1.3746222, 0.06736804, -0.24660043, 221.54886, 1.7316595, 315.23398)
+metadata/scene_painter_instance = true
+
+[node name="Arch17" parent="ScenePainterInstances" unique_id=2034175782 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.5532464, 0.38429818, -0.024236592, -0.38452756, 1.5427128, -0.18172038, -0.020274589, 0.18220495, 1.5897286, -86.93174, 13.949653, -123.90217)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy15" parent="ScenePainterInstances" unique_id=214783302 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.53186494, -0.07894848, 0.90670186, 0.03423138, 1.0476931, 0.1113048, -0.90948856, 0.085601866, -0.52604604, -34.808, 11.450588, -131.7609)
+metadata/scene_painter_instance = true
+
+[node name="Big arch16" parent="ScenePainterInstances" unique_id=1285112436 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.37677047, -0.0022217776, -1.7292192, 0.3431234, 1.7346947, 0.072532535, 1.6948364, -0.3506989, 0.36972958, 15.788567, 12.493758, -238.54733)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy16" parent="ScenePainterInstances" unique_id=1315104849 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.5230691, 0.18218464, 0.4933676, -0.11232506, 1.5893577, -0.24014081, -0.5137957, 0.1925962, 1.5150125, -64.52049, 12.205028, -140.61162)
+metadata/scene_painter_instance = true
+
+[node name="Arch18" parent="ScenePainterInstances" unique_id=1759097752 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.819055, 0.32673818, -0.6220898, -0.30736548, 1.0257471, 0.13406673, 0.63188607, 0.07542926, 0.87157047, -102.19217, 24.131191, -171.52388)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy17" parent="ScenePainterInstances" unique_id=549887660 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.7104826, 0.35166493, 0.6793819, 0.3144008, 0.979492, -0.17821604, -0.6974097, 0.08331008, -0.7724589, -110.852005, 20.573362, -113.9664)
+metadata/scene_painter_instance = true
+
+[node name="Arch19" parent="ScenePainterInstances" unique_id=561322843 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.87530607, -0.079029605, 1.5259407, -0.112295985, 1.7504977, 0.15507452, -1.5238535, -0.17439272, 0.8650771, 63.318745, 22.64062, -180.97345)
+metadata/scene_painter_instance = true
+
+[node name="Big arch17" parent="ScenePainterInstances" unique_id=513377779 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.2681557, -0.106969886, 1.3788445, 0.022347018, 1.4040061, 0.11326791, -1.382807, 0.04343334, -0.26555678, -34.29098, 12.540914, -37.629734)
+metadata/scene_painter_instance = true
+
+[node name="Arch20" parent="ScenePainterInstances" unique_id=1419853728 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.5469677, -0.06528341, 1.1775194, 0.15084034, 1.9372485, -0.09076278, -1.1696415, 0.16348934, 1.545682, 62.968784, 22.763481, -91.20619)
+metadata/scene_painter_instance = true
+
+[node name="Arch21" parent="ScenePainterInstances" unique_id=1461034619 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.63044834, -0.13527767, 0.85982174, 0.12302147, 1.0648679, 0.07733483, -0.8616606, 0.053055722, 0.64014417, 40.667324, 22.470911, -118.85508)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy18" parent="ScenePainterInstances" unique_id=1876244796 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.059895486, -0.025655959, 1.0736283, 0.17120807, 1.0613164, 0.03491308, -1.0601999, 0.17283778, -0.055016123, 31.050337, 15.730214, -45.435978)
+metadata/scene_painter_instance = true
+
+[node name="Arch22" parent="ScenePainterInstances" unique_id=2043072194 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.18172197, -0.15703297, 1.3731433, 0.008925138, 1.3847996, 0.15954714, -1.3820646, 0.029590417, -0.17951864, 23.35583, 20.420216, -98.65532)
+metadata/scene_painter_instance = true
+
+[node name="Arch23" parent="ScenePainterInstances" unique_id=1202181465 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.76668864, 0.1946902, 1.004832, 0.31350732, 1.2398045, -0.0010104177, -0.9743227, 0.24573071, -0.7910213, 134.99171, 5.908127, -37.540012)
+metadata/scene_painter_instance = true
+
+[node name="Arch24" parent="ScenePainterInstances" unique_id=657609802 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.031180939, 0.14506473, -1.8110328, 0.03702562, 1.8109739, 0.14442256, 1.8164558, -0.034423724, -0.034031674, 102.6013, 3.56516, 35.575195)
+metadata/scene_painter_instance = true
+
+[node name="Big arch18" parent="ScenePainterInstances" unique_id=1883804889 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.8727046, 0.07639178, -0.7255055, 0.06846257, 2.0083132, 0.034746032, 0.7262967, 0.0076620704, -1.87394, 69.31302, 5.0740643, 41.152283)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy19" parent="ScenePainterInstances" unique_id=1743808153 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.73350024, 0.051950436, -1.7928469, -0.16643679, 1.9266458, 0.12392106, 1.7858605, 0.20089497, -0.7248206, 16.007208, 10.830482, -6.95967)
+metadata/scene_painter_instance = true
+
+[node name="Arch25" parent="ScenePainterInstances" unique_id=1199869366 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.029731836, 0.11453035, -1.945069, -0.025516655, 1.9451058, 0.114922546, 1.9482709, 0.027223008, -0.028177822, 91.97116, 4.3523507, 24.955992)
+metadata/scene_painter_instance = true
+
+[node name="Big arch19" parent="ScenePainterInstances" unique_id=607532243 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.2696515, 0.020250589, 0.047476582, 0.029870668, 1.2414805, 0.2692829, -0.04209341, 0.27017674, -1.2409319, 103.52274, 22.937403, -89.2229)
+metadata/scene_painter_instance = true
+
+[node name="Big arch20" parent="ScenePainterInstances" unique_id=765052873 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.035102, 0.015836263, -1.1514233, 0.12757531, 1.5371199, 0.13582815, 1.1444435, -0.18567163, 1.0262737, 131.01076, 6.754361, 90.768684)
+metadata/scene_painter_instance = true
+
+[node name="Arch26" parent="ScenePainterInstances" unique_id=1800699408 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.19855781, 0.084994875, -1.9711848, -0.7614433, 1.8243589, 0.15536425, 1.8201643, 0.77247, -0.1500376, 165.94145, 21.291569, -86.7554)
+metadata/scene_painter_instance = true
+
+[node name="Arch27" parent="ScenePainterInstances" unique_id=932306313 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.1211149, 0.031060843, 0.82897127, -0.08723455, 1.3815334, -0.16974238, -0.82495344, -0.18830182, -1.1086257, 200.33762, -4.682531, 38.71155)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy20" parent="ScenePainterInstances" unique_id=1833618142 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.7357612, 0.27521783, 0.26209855, 0.33620048, 1.6833602, 0.45888478, -0.17722794, 0.49785656, -1.6964778, 123.02844, 11.829035, -54.35031)
+metadata/scene_painter_instance = true
+
+[node name="Big arch21" parent="ScenePainterInstances" unique_id=685768486 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.2443149, 0.05577683, 0.5717762, 0.010014249, 1.3617442, -0.15463157, -0.57440305, 0.14456883, 1.2359287, 70.68839, 6.591186, 12.119308)
+metadata/scene_painter_instance = true
+
+[node name="Big arch22" parent="ScenePainterInstances" unique_id=1515895747 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.4662117, -0.015819766, 0.7253466, -0.1026049, 1.62359, -0.17199457, -0.71822715, -0.19964878, -1.4561746, 211.5653, 2.9211564, 87.99009)
+metadata/scene_painter_instance = true
+
+[node name="Big arch23" parent="ScenePainterInstances" unique_id=889331482 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.6763579, 0.21982914, 1.7083554, -0.09775395, 1.8372848, -0.19771768, -1.7196649, -0.01797947, 0.68314904, 116.37275, 2.0245717, 25.965574)
+metadata/scene_painter_instance = true
+
+[node name="Arch28" parent="ScenePainterInstances" unique_id=1200677857 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.4843172, 0.22748439, -0.5521678, -0.23296522, 1.5826868, 0.02579341, 0.54987776, 0.056470733, 1.5014265, 114.415565, 2.3208365, 15.332571)
+metadata/scene_painter_instance = true
+
+[node name="Big arch24" parent="ScenePainterInstances" unique_id=1269558940 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.0787656, -0.14001282, 0.7465555, -0.16614582, 1.3088356, 0.005386571, -0.7411777, -0.08960945, -1.0878005, 235.48586, -3.7760134, 32.262466)
+metadata/scene_painter_instance = true
+
+[node name="Big arch25" parent="ScenePainterInstances" unique_id=1334431699 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.551331, 0.07110781, 0.2556549, -0.10347437, 1.5583736, 0.19444363, -0.24435383, -0.20846808, 1.5407388, 141.95241, 13.5864315, 140.86028)
+metadata/scene_painter_instance = true
+
+[node name="Big arch26" parent="ScenePainterInstances" unique_id=2078042915 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.36853516, 0.012813875, -1.2922975, 0.20592473, 1.3260636, 0.07187393, 1.2758496, -0.21773073, 0.3616856, 200.078, 1.1024951, 75.329445)
+metadata/scene_painter_instance = true
+
+[node name="Big arch27" parent="ScenePainterInstances" unique_id=1503837133 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.5177165, -0.077896476, 0.7220979, -0.041717183, 1.6607276, 0.2668332, -0.7250882, -0.25859705, 1.4961053, 221.16394, -3.5721855, 45.024944)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy21" parent="ScenePainterInstances" unique_id=1960545936 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.75347, 0.091632865, 0.54178905, -0.100997455, 1.8346972, 0.016570045, -0.5401217, -0.04559028, 1.7557844, 222.80014, 5.8788958, 142.26427)
+metadata/scene_painter_instance = true
+
+[node name="Arch29" parent="ScenePainterInstances" unique_id=534877116 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.8749706, -0.03854305, 0.34741497, -0.08197863, 1.8912613, -0.23261093, -0.33979738, -0.24360374, -1.8608848, 230.92781, 1.6892668, 76.63155)
+metadata/scene_painter_instance = true
+
+[node name="Arch30" parent="ScenePainterInstances" unique_id=703035982 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.2961979, 0.090801276, 0.3279996, -0.11578452, 1.3321679, 0.08877178, -0.32003522, -0.11419987, 1.2963386, 194.24817, 6.4348364, 112.70398)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy22" parent="ScenePainterInstances" unique_id=1013357185 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.2425474, 0.07850469, 0.91108406, 0.058755092, 1.5407592, -0.052630536, -0.91257054, -0.0076907515, -1.243912, 227.11278, 5.079759, 225.25882)
+metadata/scene_painter_instance = true
+
+[node name="Arch31" parent="ScenePainterInstances" unique_id=1895408478 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.4690346, 0.24529712, 0.95589656, 0.1700309, 1.7514739, -0.18814823, -0.9721103, -0.06433965, -1.4774415, 161.31749, 14.688263, 171.0422)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy23" parent="ScenePainterInstances" unique_id=1527808108 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.99705106, -0.13338722, 1.4128503, 0.08398124, 1.7292142, 0.10398944, -1.4166455, 0.008631433, 1.0005444, 273.73065, 7.48294, 155.91382)
+metadata/scene_painter_instance = true
+
+[node name="Arch32" parent="ScenePainterInstances" unique_id=496571034 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.4193366, 0.07566648, -1.161672, 0.085993335, 1.8199798, 0.223613, 1.1609532, -0.22731522, 1.4036522, 158.19875, 10.636128, 122.32568)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy24" parent="ScenePainterInstances" unique_id=1000336745 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.084835, -0.023091823, 1.196028, 0.07499034, 1.6127305, -0.03688146, -1.1938981, 0.08031539, 1.0844538, 120.55853, 18.820961, 205.32903)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy25" parent="ScenePainterInstances" unique_id=1159234595 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.0285608, -0.005942249, 0.5520646, 0.016449274, 1.1664523, 0.043202233, -0.5518515, 0.04584432, -1.0276703, 212.41551, 3.5469, 281.15668)
+metadata/scene_painter_instance = true
+
+[node name="Arch33" parent="ScenePainterInstances" unique_id=994167991 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.6028312, 0.12018296, -1.0227208, 0.027494242, 1.8864281, 0.26476938, 1.029391, -0.23751803, 1.5853736, 150.47311, 14.094666, 148.41597)
+metadata/scene_painter_instance = true
+
+[node name="Arch34" parent="ScenePainterInstances" unique_id=1758207657 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.5613469, 0.22931601, 0.13277398, -0.23439085, 1.5653416, 0.052778386, -0.12359481, -0.07168551, 1.5772141, 146.95428, 17.199686, 175.25517)
+metadata/scene_painter_instance = true
+
+[node name="Big arch28" parent="ScenePainterInstances" unique_id=670841035 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.1580637, 0.03151697, -0.059651613, -0.04117854, 1.1426574, -0.19570754, 0.0534412, 0.19749378, 1.1418421, 112.61279, 13.637734, 253.34586)
+metadata/scene_painter_instance = true
+
+[node name="Big arch29" parent="ScenePainterInstances" unique_id=1531850278 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.4349734, 0.22495031, -0.3758388, -0.25145915, 1.4771608, -0.07596178, 0.3586443, 0.13564384, 1.4505105, 175.0305, 10.033105, 237.79301)
+metadata/scene_painter_instance = true
+
+[node name="Arch35" parent="ScenePainterInstances" unique_id=550051391 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.6694118, -0.04426744, -0.1657398, -0.062341448, 1.6670655, 0.18267673, 0.15982127, 0.18787667, -1.6599771, 47.812145, 6.655868, 294.72693)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy26" parent="ScenePainterInstances" unique_id=147910128 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.4747114, -0.115181975, 0.2216865, 0.13473208, 1.4843858, -0.12502532, -0.21037838, 0.14323817, 1.4739094, 39.28959, 12.859349, 237.9922)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy27" parent="ScenePainterInstances" unique_id=1938644160 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.1450024, -0.026092272, 0.7054702, 0.0332084, 1.3447227, -0.0041629374, -0.7051709, 0.020959994, 1.145292, 63.926292, 16.644842, 198.92291)
+metadata/scene_painter_instance = true
+
+[node name="Arch36" parent="ScenePainterInstances" unique_id=1340417850 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.540391, -0.07671752, 0.57655245, -0.023998506, 1.63915, 0.15399197, -0.58113885, 0.13566087, -1.5345932, 8.917698, 3.4663253, 310.30884)
+metadata/scene_painter_instance = true
+
+[node name="Arch37" parent="ScenePainterInstances" unique_id=206252405 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.6397259, 0.0026820619, 1.7296557, 0.09815134, 1.8411405, -0.039156932, -1.7268708, 0.10563975, 0.6385321, 77.71286, 0.9480345, 358.88416)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy28" parent="ScenePainterInstances" unique_id=1338279404 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.22256136, -0.090832636, 1.3287736, 0.1490891, 1.34043, 0.06665794, -1.3235037, 0.13572133, 0.23095638, -8.56831, 7.39048, 260.40805)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy29" parent="ScenePainterInstances" unique_id=2143417582 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.4251457, 0.11098228, 0.01789246, -0.11222621, 1.417804, 0.14461821, -0.0065179933, -0.14557502, 1.4221262, 51.399136, 14.143534, 133.46727)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy30" parent="ScenePainterInstances" unique_id=1722440609 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.8775233, 0.059087656, -1.7610123, -0.27662653, 1.9383035, 0.20288102, 1.7401534, 0.33792248, -0.8557906, 121.761856, 12.584227, 258.1488)
+metadata/scene_painter_instance = true
+
+[node name="Big arch30" parent="ScenePainterInstances" unique_id=1854859763 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.13358332, 0.16988032, 1.7714863, 0.07613502, 1.7742978, -0.17589112, -1.7779837, 0.08874062, 0.12556332, 138.59889, 18.16761, 200.6722)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy31" parent="ScenePainterInstances" unique_id=712279474 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.5177131, -0.039300572, -1.5723552, 0.031385876, 1.6552716, -0.03103894, 1.5725331, -0.020098606, 0.518274, 120.28553, 18.939638, 192.80508)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy32" parent="ScenePainterInstances" unique_id=2074918190 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.9579815, -0.000576332, -1.0339432, 0.12660734, 1.3988545, -0.1180855, 1.0261626, -0.1731279, -0.95067596, 119.800255, 16.38378, 157.30788)
+metadata/scene_painter_instance = true
+
+[node name="Big arch31" parent="ScenePainterInstances" unique_id=243270985 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.34120235, -0.06374743, -1.4586341, -0.1379516, 1.4898266, -0.09738015, 1.4534947, 0.15636434, 0.33316645, 16.74661, 14.0733795, 212.99129)
+metadata/scene_painter_instance = true
+
+[node name="Arch38" parent="ScenePainterInstances" unique_id=1940708405 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.2992847, 0.057363663, -1.0702287, 0.018147333, 1.6804535, 0.11210271, 1.0716113, -0.09800893, 1.29571, -4.183786, 17.802645, 136.26642)
+metadata/scene_painter_instance = true
+
+[node name="Arch39" parent="ScenePainterInstances" unique_id=25305362 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.3036907, 0.15889582, 0.702433, 0.057843186, 1.4710915, -0.22541751, -0.7178538, -0.17003235, -1.2938486, 60.28852, 11.931274, 121.21727)
+metadata/scene_painter_instance = true
+
+[node name="Arch40" parent="ScenePainterInstances" unique_id=1679513960 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.033628054, -0.13232341, 1.7756389, -0.14917913, 1.7699207, 0.12907207, -1.7743022, -0.14630283, -0.044505462, -35.064926, 15.451643, 118.64995)
+metadata/scene_painter_instance = true
+
+[node name="Big arch32" parent="ScenePainterInstances" unique_id=1599199914 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.0517701, 0.06497245, 0.3002475, -0.08410286, 1.0909123, 0.058543812, -0.2954601, -0.07924172, 1.0521475, 61.351227, 6.466136, 75.31033)
+metadata/scene_painter_instance = true
+
+[node name="Arch41" parent="ScenePainterInstances" unique_id=1742547464 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.83359057, -0.09273901, -1.1701229, 0.14615227, 1.4322056, -0.009392329, 1.1646578, -0.11334979, 0.8386808, -47.563965, 11.141608, 77.09805)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy33" parent="ScenePainterInstances" unique_id=1946530238 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.1234267, 0.06894612, 0.4228554, -0.10532734, 1.1947062, 0.08503422, -0.41529074, -0.11649506, 1.1223235, 29.319908, 15.012852, 120.13807)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy34" parent="ScenePainterInstances" unique_id=1080916099 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.2506061, -0.16917175, 1.457055, -0.21522966, 1.9151772, 0.03762824, -1.4509667, -0.13827726, -1.2614352, -63.449673, 10.462661, 85.61733)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy35" parent="ScenePainterInstances" unique_id=832141157 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.0253388, 0.116236284, 1.0372133, -0.13498081, 1.4565488, -0.029794011, -1.0349408, -0.07481064, 1.0314761, 39.20003, 7.07165, 59.241165)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy36" parent="ScenePainterInstances" unique_id=1672071709 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.3606765, 0.11527641, -0.3008317, -0.07487358, 1.3831164, 0.1913427, 0.31334057, -0.17008656, 1.3520788, 64.92219, 8.430881, 97.793106)
+metadata/scene_painter_instance = true
+
+[node name="Arch42" parent="ScenePainterInstances" unique_id=1178877027 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.7148973, 0.04879193, 1.7306335, 0.034379683, 1.8715996, -0.0669679, -1.7309797, 0.057323735, 0.71342415, -62.88395, 11.149831, -40.06469)
+metadata/scene_painter_instance = true
+
+[node name="Big arch33" parent="ScenePainterInstances" unique_id=1362365315 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.11626721, 0.0020303729, -1.0182327, -0.13155939, 1.016229, 0.017048527, 1.0097001, 0.1326439, -0.1150284, 16.59642, 12.944522, -25.111103)
+metadata/scene_painter_instance = true
+
+[node name="Arch43" parent="ScenePainterInstances" unique_id=1163937217 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.7853973, -0.08602801, 0.90232855, 0.11224447, 1.9989119, -0.03151684, -0.8994436, 0.078684896, 1.7871908, 89.444016, 28.050926, -130.77875)
+metadata/scene_painter_instance = true
+
+[node name="Arch44" parent="ScenePainterInstances" unique_id=1632457639 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.0979004, 0.06245416, 0.31831607, -0.08852274, 1.1384453, 0.08195788, -0.31207272, -0.10321263, 1.0966169, 123.49292, 9.398399, -253.9011)
+metadata/scene_painter_instance = true
+
+[node name="Big arch34" parent="ScenePainterInstances" unique_id=1035812930 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.9947212, 0.13942441, 0.2525267, 0.19791329, 0.9894897, 0.23328051, -0.20985523, 0.27230555, -0.97697985, 224.32962, 18.328098, -93.834)
+metadata/scene_painter_instance = true
+
+[node name="Arch45" parent="ScenePainterInstances" unique_id=2021853105 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.89003134, -0.026737748, 0.6983637, -0.115691684, 1.1208351, -0.104530975, -0.689233, -0.15361115, -0.88427603, 143.14703, 31.595327, -153.04118)
+metadata/scene_painter_instance = true
+
+[node name="Arch46" parent="ScenePainterInstances" unique_id=1546125063 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.4079973, 0.19234946, 0.253428, 0.1813775, 1.4299501, -0.07762019, -0.26139295, -0.043867722, -1.4189537, 275.29465, 11.732018, -126.25208)
+metadata/scene_painter_instance = true
+
+[node name="Big arch35" parent="ScenePainterInstances" unique_id=1304955166 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.383328, 0.355968, -0.11127839, -0.35127038, 1.3871899, 0.07075137, 0.12532052, -0.04102927, 1.4266407, 251.24051, 16.48498, -136.19046)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy37" parent="ScenePainterInstances" unique_id=1499009392 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.7539456, 0.06508243, 0.7431387, 0.34144852, 0.96951133, 0.26150623, -0.6632525, 0.4251316, -0.7101297, 178.32002, 7.1901255, -57.239017)
+metadata/scene_painter_instance = true
+
+[node name="Arch47" parent="ScenePainterInstances" unique_id=659875486 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.52392703, 0.06539435, -0.9315253, -0.09340592, 1.0664389, 0.022330254, 0.9291346, 0.07033409, 0.52752, 275.76282, 10.94659, -89.27837)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy38" parent="ScenePainterInstances" unique_id=1087425494 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.0508201, 0.24093825, -1.1668193, -0.2882228, 1.5610027, 0.06276464, 1.1560477, 0.17017794, 1.0762596, 197.15802, 30.404737, -127.02915)
+metadata/scene_painter_instance = true
+
+[node name="Big arch36" parent="ScenePainterInstances" unique_id=162210882 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.10010404, -0.027717855, 1.1306275, -0.0067306515, 1.135013, 0.028421288, -1.1309471, -0.009208253, 0.0999066, 298.12762, 10.3746605, -74.558464)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy39" parent="ScenePainterInstances" unique_id=367319051 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.8552852, 0.114414245, 1.2683296, 0.41144535, 1.4210656, -0.4056463, -1.205182, 0.566344, 0.7616131, 155.39496, 8.874576, -57.362137)
+metadata/scene_painter_instance = true
+
+[node name="Arch48" parent="ScenePainterInstances" unique_id=1676919137 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.60879564, 0.07625383, 0.85666865, 0.11828178, 1.032175, -0.1759335, -0.8518834, 0.19780934, 0.58778757, 181.76576, -4.1052876, -22.627087)
+metadata/scene_painter_instance = true
+
+[node name="Arch49" parent="ScenePainterInstances" unique_id=937594562 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.8722651, -0.12031879, -0.9549853, -0.054932717, 1.2929026, -0.11271855, 0.96096617, -0.03530533, -0.87327975, 227.29901, -5.064551, 19.784336)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy40" parent="ScenePainterInstances" unique_id=1222763115 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.6310896, 0.064639814, 0.40390462, -0.0645918, 1.6803371, -0.008075359, -0.4039123, -0.007681559, 1.63235, 188.12013, -6.73715, 0.73485285)
+metadata/scene_painter_instance = true
+
+[node name="Big arch37" parent="ScenePainterInstances" unique_id=23024224 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.41095185, 0.13042775, -1.5441014, -0.52637774, 1.49074, 0.2660122, 1.4574591, 0.57517356, -0.33930862, 213.30919, 14.650239, -79.327446)
+metadata/scene_painter_instance = true
+
+[node name="Arch50" parent="ScenePainterInstances" unique_id=330072235 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.2887287, 0.060578857, -0.12858154, 0.06505928, 1.2942183, -0.042319387, 0.12637365, -0.048516408, -1.2894576, 329.15808, 8.62882, 131.0645)
+metadata/scene_painter_instance = true
+
+[node name="Big arch38" parent="ScenePainterInstances" unique_id=1768932853 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.0892335, 0.11842052, 1.1584703, -0.20734753, 1.5806324, 0.033380713, -1.1458986, -0.17344697, 1.0951433, 178.25543, -4.8362617, 27.97728)
+metadata/scene_painter_instance = true
+
+[node name="Arch51" parent="ScenePainterInstances" unique_id=221572639 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.3550502, -0.010455512, 0.16788314, -0.017640563, 1.3464619, 0.22623947, -0.16728084, -0.22668518, 1.3360711, 204.7888, -1.7116028, 58.534313)
+metadata/scene_painter_instance = true
+
+[node name="Big arch39" parent="ScenePainterInstances" unique_id=1206411770 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.5288346, 0.057946794, -1.5559888, 0.03791344, 1.6423167, 0.07404741, 1.5566058, -0.05968765, 0.5268214, 345.2073, 6.656824, 91.547325)
+metadata/scene_painter_instance = true
+
+[node name="Arch52" parent="ScenePainterInstances" unique_id=1388383957 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.7006332, -0.16493514, -0.30874962, -0.15423737, 1.7278589, -0.07346875, 0.3142304, -0.04453342, -1.7070322, 278.4294, 3.054853, 44.959187)
+metadata/scene_painter_instance = true
+
+[node name="Arch53" parent="ScenePainterInstances" unique_id=82370495 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.67350733, -0.14075454, 1.2021055, -0.05817549, 1.377869, 0.12874053, -1.2089189, 0.012110828, -0.6759067, 256.47906, 6.0481772, 173.0905)
+metadata/scene_painter_instance = true
+
+[node name="Arch54" parent="ScenePainterInstances" unique_id=88753023 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.65868163, 0.11309038, 1.495914, -0.07789342, 1.6341292, -0.08924131, -1.4981589, -0.035241492, 0.66233456, 372.31522, 4.8163304, 88.539566)
+metadata/scene_painter_instance = true
+
+[node name="Arch55" parent="ScenePainterInstances" unique_id=1428338215 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.047990795, 0.08702179, 1.7454977, -0.027757632, 1.7459735, -0.086282335, -1.7474452, -0.02534434, 0.049307883, 345.9372, 7.1905446, 111.973724)
+metadata/scene_painter_instance = true
+
+[node name="Arch56" parent="ScenePainterInstances" unique_id=1648370301 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.4928904, 0.22113441, 1.1597332, 0.18586071, 1.8903364, -0.12119062, -1.1659061, 0.018191691, -1.5043054, 352.89072, 7.4573927, 156.0567)
+metadata/scene_painter_instance = true
+
+[node name="Big arch40" parent="ScenePainterInstances" unique_id=845404442 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.2354696, -0.11533548, 0.77185816, -0.18190984, 1.4480215, -0.07480111, -0.7589309, -0.15932396, -1.2385848, 280.36426, 6.5140758, 106.423)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy41" parent="ScenePainterInstances" unique_id=630492048 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.3341978, 0.02320104, 0.25031826, 0.03815288, 1.3549085, 0.07777381, -0.24847914, 0.08346329, -1.332131, 300.32007, 7.547686, 210.51425)
+metadata/scene_painter_instance = true
+
+[node name="Arch57" parent="ScenePainterInstances" unique_id=475790374 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.8503438, 0.08006274, -0.2101518, 0.06974853, 1.8602513, 0.09458888, 0.21379654, 0.08603414, -1.8496581, 365.55792, 0.4769656, 257.78217)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy42" parent="ScenePainterInstances" unique_id=613956705 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.6723047, 0.16867025, -0.30311564, -0.1813221, 1.6973308, -0.055874933, 0.2957212, 0.086891055, 1.6798604, 366.91586, 4.704558, 187.21446)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy43" parent="ScenePainterInstances" unique_id=1395128654 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.1614355, -0.101200275, 0.3242264, 0.09666174, 1.2058383, 0.03011724, -0.3256083, -0.0030071896, 1.1654471, 271.8606, 7.3709145, 166.08902)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy44" parent="ScenePainterInstances" unique_id=998575344 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.023276825, -0.058250844, 1.6281096, 0.0486542, 1.6275746, 0.057536088, -1.6284248, 0.047796153, 0.024991388, 263.3063, 5.457854, 252.4927)
+metadata/scene_painter_instance = true
+
+[node name="Big arch41" parent="ScenePainterInstances" unique_id=1826452989 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.2591946, 0.00081141345, -1.2060789, -0.0011494615, 1.743616, -2.7031487e-05, 1.2060788, 0.0008146168, 1.2591947, 362.26413, -0.14953278, 303.24362)
+metadata/scene_painter_instance = true
+
+[node name="Arch58" parent="ScenePainterInstances" unique_id=409756644 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.333055, 0.09672829, -0.004988567, 0.09626273, 1.3307328, 0.07937709, 0.01071135, 0.07880911, -1.3342007, 353.74423, 0.61112046, 268.14832)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy45" parent="ScenePainterInstances" unique_id=317824041 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.2121705, -0.006578995, 1.0512192, 0.059037734, 1.6015235, 0.07810001, -1.0495807, 0.097682044, -1.20967, 216.7861, 4.456696, 264.77945)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy46" parent="ScenePainterInstances" unique_id=41059985 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.83525896, -0.005761415, -1.8096666, -0.047633305, 1.9923635, -0.02832841, 1.8090488, 0.0551202, 0.8347983, 259.03928, 0.3476447, 357.52054)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy47" parent="ScenePainterInstances" unique_id=743716376 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.9002629, 0.0073403143, 1.3399014, 0.029996304, 1.6139501, 0.011312517, -1.3395858, 0.031206906, -0.9002217, 279.43112, 0.01104714, 371.6447)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy48" parent="ScenePainterInstances" unique_id=1793089967 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.5493152, 0, -1.7238, 0, 1.809208, 0, 1.7238, 0, 0.5493152, 373.23782, -0.15, 305.67294)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy49" parent="ScenePainterInstances" unique_id=528582516 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.0038176, 0.059000615, -0.68498254, 0.048376493, 1.2152574, 0.033781517, 0.6858147, 0.00063568505, -1.0049825, 453.89188, 0.557389, -328.115)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy50" parent="ScenePainterInstances" unique_id=1833143499 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.1710588, 0.017114606, 0.4093007, 0.013921807, 1.2405081, -0.012038947, -0.40942174, -0.006770762, -1.171122, 454.0443, 0.607942, -272.28436)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy51" parent="ScenePainterInstances" unique_id=1961516089 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.07961772, 0, 1.7587838, 0, 1.760585, 0, -1.7587838, 0, 0.07961772, 496.61444, -0.15, -363.5818)
+metadata/scene_painter_instance = true
+
+[node name="Big arch42" parent="ScenePainterInstances" unique_id=1876425842 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.5115178, 0.025310405, -1.2778795, 0.0010665042, 1.376425, 0.026835348, 1.2781297, 0.008980905, -0.5114401, 460.1985, 0.66812265, -178.68315)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy52" parent="ScenePainterInstances" unique_id=601726738 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.6690513, 0.031175613, 0.4700716, -0.034422696, 1.7339072, 0.007227871, -0.46984497, -0.016286343, 1.6693269, 443.12976, 0.9663773, -245.56805)
+metadata/scene_painter_instance = true
+
+[node name="Arch59" parent="ScenePainterInstances" unique_id=1362023345 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.55686325, 0.025541507, -0.92101794, -0.010454904, 1.0762715, 0.023525756, 0.9213127, -0.0032245403, 0.5569521, 472.00598, 0.419388, -232.42938)
+metadata/scene_painter_instance = true
+
+[node name="Big arch43" parent="ScenePainterInstances" unique_id=773550088 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.69037837, 0.07865092, 0.9294019, -0.07100743, 1.1573726, -0.045197275, -0.9300171, -0.029981332, 0.6933725, 405.90063, 2.8347735, -195.04753)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy53" parent="ScenePainterInstances" unique_id=2101328248 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.3900588, 0, -1.0180281, 0, 1.7229755, 0, 1.0180281, 0, -1.3900588, 545.3, -0.15, -206.1087)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy54" parent="ScenePainterInstances" unique_id=1701998000 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.033427, 0, 0.03145651, 0, 1.0339056, 0, -0.03145651, 0, 1.033427, 534.09503, -0.15, -262.83582)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy55" parent="ScenePainterInstances" unique_id=1923402398 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.19356798, 0, 1.8967234, 0, 1.906575, 0, -1.8967234, 0, -0.19356798, 474.62262, -0.15, -112.38509)
+metadata/scene_painter_instance = true
+
+[node name="Big arch44" parent="ScenePainterInstances" unique_id=436113621 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.4327894, 0, 0.84625256, 0, 1.66404, 0, -0.84625256, 0, -1.4327894, 519.07056, -0.15, -82.25066)
+metadata/scene_painter_instance = true
+
+[node name="Arch60" parent="ScenePainterInstances" unique_id=1020874560 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.6778624, 0, -0.49638614, 0, 1.749749, 0, 0.49638614, 0, -1.6778624, 541.1634, -0.15, -98.035355)
+metadata/scene_painter_instance = true
+
+[node name="Arch61" parent="ScenePainterInstances" unique_id=1762708461 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.3263551, 0, 0.16259201, 0, 1.3362837, 0, -0.16259201, 0, 1.3263551, 575.92145, -0.15, -20.518179)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy56" parent="ScenePainterInstances" unique_id=758576045 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.8831421, 0, -0.33253267, 0, 1.9122767, 0, 0.33253267, 0, -1.8831421, 532.2033, -0.15, -44.507492)
+metadata/scene_painter_instance = true
+
+[node name="Arch62" parent="ScenePainterInstances" unique_id=64135450 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.9917154, 0, 1.0335989, 0, 1.4324197, 0, -1.0335989, 0, -0.9917154, 506.14755, -0.15, -7.184253)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy57" parent="ScenePainterInstances" unique_id=652678530 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.6155982, 0, -0.4833173, 0, 1.6863431, 0, 0.4833173, 0, 1.6155982, 495.56616, -0.15, -99.425224)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy58" parent="ScenePainterInstances" unique_id=777602640 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.61387074, 0.00068330625, -0.96099573, -0.00093493384, 1.1403288, 0.0002135964, 0.96099555, 0.000672917, 0.6138711, 487.52966, -0.14940073, -131.29768)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy59" parent="ScenePainterInstances" unique_id=1259085813 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.50071096, 0, 1.4274789, 0, 1.5127484, 0, -1.4274789, 0, 0.50071096, 550.66327, -0.15, -42.284122)
+metadata/scene_painter_instance = true
+
+[node name="Big arch45" parent="ScenePainterInstances" unique_id=1955339165 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.1455375, 0, 1.6717422, 0, 1.6780653, 0, -1.6717422, 0, 0.1455375, 475.00024, -0.15, 19.620935)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy60" parent="ScenePainterInstances" unique_id=1380478570 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.3652123, 0, -0.11797213, 2.170136e-08, 1.3702999, -2.5113528e-07, 0.11797213, -2.5207117e-07, -1.3652123, 457.8059, -0.15, -59.913174)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy61" parent="ScenePainterInstances" unique_id=954974780 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.08011, 2.1535541e-08, 0.1443704, -5.4334155e-08, 1.0897157, -5.6905344e-07, -0.1443704, -5.712357e-07, -1.08011, 447.53436, -0.14999986, -26.715048)
+metadata/scene_painter_instance = true
+
+[node name="Arch63" parent="ScenePainterInstances" unique_id=687204672 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.46978724, 0.11467964, 1.8806434, 0.014984389, 1.9383875, -0.11445769, -1.8840771, -0.013178592, -0.46984136, 412.4515, 2.0471885, 79.22748)
+metadata/scene_painter_instance = true
+
+[node name="Big arch46" parent="ScenePainterInstances" unique_id=2025389841 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.41784886, 0, -1.646269, 0, 1.6984696, 0, 1.646269, 0, 0.41784886, 476.84726, -0.15, 32.283184)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy62" parent="ScenePainterInstances" unique_id=2133194929 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.6900514, 0.09843063, 0.56425047, 0.08614193, 1.7816101, -0.05277928, -0.5662568, -0.022748502, -1.6920924, 420.54, 1.2891859, 45.24856)
+metadata/scene_painter_instance = true
+
+[node name="Arch64" parent="ScenePainterInstances" unique_id=162409760 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.045875, 0, -1.3288904, 0, 1.6910955, 0, 1.3288904, 0, -1.045875, 493.44962, -0.15, 96.239105)
+metadata/scene_painter_instance = true
+
+[node name="Big arch47" parent="ScenePainterInstances" unique_id=593219172 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.32724017, 0.05796988, 0.993428, -0.005660611, 1.0458553, -0.05916456, -0.9951018, 0.013114128, 0.32702634, 430.12036, 0.6528363, 166.14929)
+metadata/scene_painter_instance = true
+
+[node name="Big arch48" parent="ScenePainterInstances" unique_id=230044654 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.036871105, 0.027575558, -1.5823432, 0.0043005557, 1.582765, 0.027683118, 1.5825777, -0.0049435236, 0.036790416, 456.0599, -0.048591338, 101.58392)
+metadata/scene_painter_instance = true
+
+[node name="Big arch49" parent="ScenePainterInstances" unique_id=43022559 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.11567332, 0.07389679, -1.1973221, -0.006639184, 1.2028966, 0.07359943, 1.199582, -0.00046819184, 0.11586276, 421.3649, 1.4958739, 100.27096)
+metadata/scene_painter_instance = true
+
+[node name="Arch65" parent="ScenePainterInstances" unique_id=1200305922 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.7495453, 0.058161147, -1.0171986, -0.0342969, 1.2635312, 0.04697347, 1.0182825, -0.000254557, 0.7503295, 435.281, 0.7618881, 83.21425)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy63" parent="ScenePainterInstances" unique_id=594298442 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.1871053, 0.03156361, -1.0320895, 0.017231775, 1.5729994, 0.02828592, 1.0324284, 0.010038231, -1.1871879, 454.9902, -0.0943189, 140.70244)
+metadata/scene_painter_instance = true
+
+[node name="Big arch50" parent="ScenePainterInstances" unique_id=977779717 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.6694614, 0.13487221, -1.0447602, -0.111605115, 1.969416, 0.075901665, 1.0475013, -0.0051236716, 1.6731799, 411.7312, 2.170801, 104.71143)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy64" parent="ScenePainterInstances" unique_id=669792817 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.95519745, 0.07667189, 1.3465197, 0.06463457, 1.6507274, -0.04814308, -1.3471512, 0.024835568, -0.9570596, 428.8891, 0.48081467, 180.61281)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy65" parent="ScenePainterInstances" unique_id=801756620 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.8844413, 0.083817884, 0.6157038, -0.07648991, 1.9824493, -0.03577038, -0.6166571, 0.010236651, 1.885965, 443.4634, 0.12925382, 147.7127)
+metadata/scene_painter_instance = true
+
+[node name="Arch66" parent="ScenePainterInstances" unique_id=20993499 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.9060919, 0, -0.40627506, 0, 1.9489088, 0, 0.40627506, 0, -1.9060919, 655.0926, -0.15, -21.539896)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy66" parent="ScenePainterInstances" unique_id=1649596085 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.5232132, 0, -1.2785453, 0, 1.3814594, 0, 1.2785453, 0, -0.5232132, 620.07605, -0.15, -91.76461)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy67" parent="ScenePainterInstances" unique_id=1566909966 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.9205695, 0, -1.7024367, 0, 1.9353912, 0, 1.7024367, 0, -0.9205695, 627.8911, -0.15, -79.6398)
+metadata/scene_painter_instance = true
+
+[node name="Big arch51" parent="ScenePainterInstances" unique_id=2074785628 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.6494853, 0, -0.30148914, 0, 1.6768117, 0, 0.30148914, 0, -1.6494853, 622.04205, -0.15, -112.36752)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy68" parent="ScenePainterInstances" unique_id=644184519 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.0258735, 0, 0.6956371, 0, 1.2394868, 0, -0.6956371, 0, 1.0258735, 634.3481, -0.15, -101.89195)
+metadata/scene_painter_instance = true
+
+[node name="Big arch52" parent="ScenePainterInstances" unique_id=2022410666 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.4051242, 0, 1.0165857, 0, 1.7343069, 0, -1.0165857, 0, 1.4051242, 610.2546, -0.15, -47.604023)
+metadata/scene_painter_instance = true
+
+[node name="Big arch53" parent="ScenePainterInstances" unique_id=360261247 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.38661405, 0, 1.8974446, 0, 1.9364314, 0, -1.8974446, 0, 0.38661405, 642.4088, -0.15, -155.01779)
+metadata/scene_painter_instance = true
+
+[node name="Arch67" parent="ScenePainterInstances" unique_id=1810811804 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.8429969, 0, 0.66393155, 0, 1.0730559, 0, -0.66393155, 0, 0.8429969, 555.26556, -0.15, -77.20326)
+metadata/scene_painter_instance = true
+
+[node name="Big arch54" parent="ScenePainterInstances" unique_id=1943172426 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.49562797, 0, -1.505424, 0, 1.5849128, 0, 1.505424, 0, 0.49562797, 634.5117, -0.15, -70.432785)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy69" parent="ScenePainterInstances" unique_id=2094632584 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.020267602, 0, -1.152258, 0, 1.1524363, 0, 1.152258, 0, -0.020267606, 701.20624, -0.15, -191.72112)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy70" parent="ScenePainterInstances" unique_id=1403433195 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.68625677, 0, -0.7684045, 0, 1.0302397, 0, 0.7684045, 0, -0.68625677, 641.63464, -0.15, -78.080864)
+metadata/scene_painter_instance = true
+
+[node name="Big arch55" parent="ScenePainterInstances" unique_id=519337015 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.36258885, 0, -1.4125028, 0, 1.4582986, 0, 1.4125028, 0, 0.36258885, 672.72534, -0.15, -229.48209)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy71" parent="ScenePainterInstances" unique_id=1866636564 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.24844655, 0, -1.7431673, 0, 1.7607833, 0, 1.7431673, 0, -0.24844655, 722.01996, -0.15, -153.69739)
+metadata/scene_painter_instance = true
+
+[node name="Big arch56" parent="ScenePainterInstances" unique_id=799874721 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.4992275, 0, 0.35661626, 0, 1.5410575, 0, -0.35661626, 0, 1.4992275, 682.987, -0.15, -215.20224)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy72" parent="ScenePainterInstances" unique_id=774324809 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.58141184, 0, -1.7170744, 0, 1.8128388, 0, 1.7170744, 0, 0.58141184, 617.8188, -0.15, -164.53555)
+metadata/scene_painter_instance = true
+
+[node name="Big arch57" parent="ScenePainterInstances" unique_id=1348514356 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.25907257, 0, -1.7705307, 0, 1.7893846, 0, 1.7705307, 0, 0.25907257, 691.53796, -0.15, -439.4128)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy73" parent="ScenePainterInstances" unique_id=32628244 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.41353142, 0, -1.9249284, 0, 1.9688468, 0, 1.9249284, 0, 0.41353142, 763.51843, -0.15, -358.44757)
+metadata/scene_painter_instance = true
+
+[node name="Arch68" parent="ScenePainterInstances" unique_id=153065766 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.2045724, 0, 1.1600375, 0, 1.6723282, 0, -1.1600375, 0, -1.2045724, 703.95184, -0.15, -451.91605)
+metadata/scene_painter_instance = true
+
+[node name="Big arch58" parent="ScenePainterInstances" unique_id=379813260 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.98043394, 0, 1.1686568, 0, 1.5254538, 0, -1.1686568, 0, -0.98043394, 763.3074, -0.15, -397.6659)
+metadata/scene_painter_instance = true
+
+[node name="Big arch59" parent="ScenePainterInstances" unique_id=298557540 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.3996018, 0, -1.2310892, 0, 1.8639919, 0, 1.2310892, 0, -1.3996018, 702.50494, -0.15, -383.4282)
+metadata/scene_painter_instance = true
+
+[node name="Big arch60" parent="ScenePainterInstances" unique_id=1346961058 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.42376012, 0, -1.7794535, 0, 1.829215, 0, 1.7794535, 0, -0.42376012, 736.23096, -0.15, -366.90262)
+metadata/scene_painter_instance = true
+
+[node name="Arch69" parent="ScenePainterInstances" unique_id=380271998 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.1547531, 0, 1.5033395, 0, 1.8956488, 0, -1.5033395, 0, 1.1547531, 726.9647, -0.15, -239.48181)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy74" parent="ScenePainterInstances" unique_id=1889873383 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.7841485, 0, -0.33838296, 0, 1.815954, 0, 0.33838296, 0, 1.7841485, 682.5989, -0.15, -333.5494)
+metadata/scene_painter_instance = true
+
+[node name="Big arch61" parent="ScenePainterInstances" unique_id=362509066 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.4942017, 0, 0.05199451, 0, 1.495106, 0, -0.05199451, 0, 1.4942017, 673.97217, -0.15, -374.56647)
+metadata/scene_painter_instance = true
+
+[node name="Arch70" parent="ScenePainterInstances" unique_id=1912640591 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.42577, 0, 0.37986785, 0, 1.4755067, 0, -0.37986785, 0, -1.42577, 741.598, -0.15, -233.17065)
+metadata/scene_painter_instance = true
+
+[node name="Arch71" parent="ScenePainterInstances" unique_id=838479045 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.030304335, 0, 1.5299726, 0, 1.5302726, 0, -1.5299726, 0, -0.030304335, 727.8658, -0.15, -323.96057)
+metadata/scene_painter_instance = true
+
+[node name="Arch72" parent="ScenePainterInstances" unique_id=1721639830 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.42398497, 0, -1.6977649, 0, 1.7499053, 0, 1.6977649, 0, 0.42398497, 762.4255, -0.15, -268.8683)
+metadata/scene_painter_instance = true
+
+[node name="Big arch62" parent="ScenePainterInstances" unique_id=1813414123 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.7244226, 0, 0.22035153, 0, 1.7384441, 0, -0.22035153, 0, 1.7244226, 677.4048, -0.15, -263.27737)
+metadata/scene_painter_instance = true
+
+[node name="Big arch63" parent="ScenePainterInstances" unique_id=1922524727 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.860997, 0, 0.28894776, 0, 1.883295, 0, -0.28894776, 0, 1.860997, 661.4495, -0.15, -204.52383)
+metadata/scene_painter_instance = true
+
+[node name="Arch73" parent="ScenePainterInstances" unique_id=1051042781 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.9691806, 0, 0.7606033, 0, 1.2320018, 0, -0.7606033, 0, 0.9691806, 722.20953, -0.15, -207.45691)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy75" parent="ScenePainterInstances" unique_id=1799876177 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.6821252, 0, 0.49833655, 0, 1.75439, 0, -0.49833655, 0, -1.6821252, 667.7963, -0.15, -119.642075)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy76" parent="ScenePainterInstances" unique_id=234651487 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.16372035, 0, -1.0532978, 0, 1.0659457, 0, 1.0532978, 0, 0.16372037, 704.2281, -0.15, -114.40829)
+metadata/scene_painter_instance = true
+
+[node name="Arch74" parent="ScenePainterInstances" unique_id=842289986 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.91703916, 0, -1.0202942, 0, 1.3718458, 0, 1.0202942, 0, 0.91703916, 659.69977, -0.15, -31.514576)
+metadata/scene_painter_instance = true
+
+[node name="Big arch64" parent="ScenePainterInstances" unique_id=1676384204 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.5156015, 0, 0.10508859, 0, 1.5192404, 0, -0.10508859, 0, 1.5156015, 569.8528, -0.15, -80.33781)
+metadata/scene_painter_instance = true
+
+[node name="Big arch65" parent="ScenePainterInstances" unique_id=1394281057 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.92419034, 0, -0.46237954, 0, 1.0334034, 0, 0.46237954, 0, -0.92419034, 605.58453, -0.15, -104.80677)
+metadata/scene_painter_instance = true
+
+[node name="Arch75" parent="ScenePainterInstances" unique_id=1739927364 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.595129, 0, -1.2172717, 0, 2.006536, 0, 1.2172717, 0, -1.595129, 636.0281, -0.15, -34.53702)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy77" parent="ScenePainterInstances" unique_id=1735053779 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.2271982, 0, 0.26306012, 0, 1.2550762, 0, -0.26306012, 0, -1.2271982, 717.28186, -0.15, -61.932457)
+metadata/scene_painter_instance = true
+
+[node name="Arch76" parent="ScenePainterInstances" unique_id=736493115 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.26499537, 0, 0.98543334, 0, 1.0204418, 0, -0.98543334, 0, -0.26499537, 619.49695, -0.15, -18.48818)
+metadata/scene_painter_instance = true
+
+[node name="Arch77" parent="ScenePainterInstances" unique_id=369260260 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.419167, 0, 1.2944621, 0, 1.9208506, 0, -1.2944621, 0, -1.419167, 700.9865, -0.15, -13.187382)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy78" parent="ScenePainterInstances" unique_id=1659397996 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.9832698, 0, 0.8546679, 0, 1.3027958, 0, -0.8546679, 0, 0.9832698, 647.74976, -0.15, -49.77357)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy79" parent="ScenePainterInstances" unique_id=129314167 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.25039822, 0, 1.1541213, 0, 1.1809721, 0, -1.1541213, 0, 0.25039822, 603.0049, -0.15, -24.23372)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy80" parent="ScenePainterInstances" unique_id=1239949184 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.83831143, 0, -0.8380855, 0, 1.1853917, 0, 0.8380855, 0, 0.83831143, 706.7276, -0.15, -44.171288)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy81" parent="ScenePainterInstances" unique_id=41211870 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.33885783, 0.06365713, -1.9241663, -0.052800808, 1.9533162, 0.055322934, 1.9244949, 0.042383056, 0.34031785, 411.97675, 0.27628535, 223.57346)
+metadata/scene_painter_instance = true
+
+[node name="Big arch66" parent="ScenePainterInstances" unique_id=1714491375 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.1412805, 0.01724237, -1.1993754, -0.015081764, 1.6555974, 0.009449838, 1.1994046, 0.004411314, 1.1413716, 452.51407, -0.12959996, 155.76083)
+metadata/scene_painter_instance = true
+
+[node name="Big arch67" parent="ScenePainterInstances" unique_id=1856138586 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.7484123, 0, 0.5657358, 0, 1.8376622, 0, -0.5657358, 0, 1.7484123, 506.86902, -0.15, 253.42543)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy82" parent="ScenePainterInstances" unique_id=181891403 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.8056984, 0, -0.7691234, 0, 1.962676, 0, 0.7691234, 0, -1.8056984, 485.11484, -0.15, 262.5365)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy83" parent="ScenePainterInstances" unique_id=52733091 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.19452064, 0, -1.2614017, 0, 1.276312, 0, 1.2614017, 0, 0.19452064, 487.6183, -0.15, 331.2671)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy84" parent="ScenePainterInstances" unique_id=2025922797 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.9662321, 0, 0.20934485, 0, 1.9773451, 0, -0.20934485, 0, 1.9662321, 426.87146, -0.15, 280.34506)
+metadata/scene_painter_instance = true
+
+[node name="Arch78" parent="ScenePainterInstances" unique_id=716319596 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.29797262, 0, 1.0146989, 0, 1.057545, 0, -1.0146989, 0, -0.29797262, 557.073, -0.15, -1.3620875)
+metadata/scene_painter_instance = true
+
+[node name="Arch79" parent="ScenePainterInstances" unique_id=896215373 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.52437663, 0, 0.98029596, 0, 1.1117333, 0, -0.98029596, 0, 0.52437663, 571.6869, -0.15, -95.09075)
+metadata/scene_painter_instance = true
+
+[node name="Big arch68" parent="ScenePainterInstances" unique_id=399806577 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.0215318, 0, -0.14809987, 0, 1.0322117, 0, 0.14809987, 0, 1.0215318, 661.1439, -0.15, -56.28158)
+metadata/scene_painter_instance = true
+
+[node name="Arch80" parent="ScenePainterInstances" unique_id=510040702 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.2921685, 0, 0.6900433, 0, 1.4648751, 0, -0.6900433, 0, 1.2921685, 528.5755, -0.15, -91.61596)
+metadata/scene_painter_instance = true
+
+[node name="Big arch69" parent="ScenePainterInstances" unique_id=2115899339 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.0899255, 0, 0.37325644, 0, 1.1520668, 0, -0.37325644, 0, 1.0899255, 523.8954, -0.15, -37.586)
+metadata/scene_painter_instance = true
+
+[node name="Big arch70" parent="ScenePainterInstances" unique_id=470030071 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.3636268, 0, 1.3423162, 0, 1.91345, 0, -1.3423162, 0, 1.3636268, 562.56287, -0.15, -32.03154)
+metadata/scene_painter_instance = true
+
+[node name="Big arch71" parent="ScenePainterInstances" unique_id=256385152 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.88381803, 0, -1.4685754, 0, 1.714015, 0, 1.4685754, 0, -0.88381803, 471.91754, -0.15, -49.568314)
+metadata/scene_painter_instance = true
+
+[node name="Arch81" parent="ScenePainterInstances" unique_id=1427839356 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.4490225, 0, -1.2366471, 0, 1.9049835, 0, 1.2366471, 0, 1.4490225, 532.8821, -0.15, -107.14465)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy85" parent="ScenePainterInstances" unique_id=1466483990 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.6226822, 0, 0.8496428, 0, 1.0533879, 0, -0.8496428, 0, 0.6226822, 594.65674, -0.15, -40.989525)
+metadata/scene_painter_instance = true
+
+[node name="Arch82" parent="ScenePainterInstances" unique_id=1434144437 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.2656158, 0, 0.90845275, 0, 1.5579056, 0, -0.90845275, 0, 1.2656158, 619.8373, -0.15, -139.56473)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy86" parent="ScenePainterInstances" unique_id=1452146021 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.6669344, 0, 1.8032178, 0, 1.9226012, 0, -1.8032178, 0, 0.6669344, 624.07245, -0.15, -29.214571)
+metadata/scene_painter_instance = true
+
+[node name="Big arch72" parent="ScenePainterInstances" unique_id=535130582 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.566306, 0, -0.42292896, 0, 1.6224005, 0, 0.42292896, 0, 1.566306, 507.31982, -0.15, -66.199936)
+metadata/scene_painter_instance = true
+
+[node name="Big arch73" parent="ScenePainterInstances" unique_id=1805603574 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.26100388, 0, -1.0466101, 0, 1.0786638, 0, 1.0466101, 0, 0.26100388, 543.78436, -0.15, -133.13779)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy87" parent="ScenePainterInstances" unique_id=1103800530 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.14641547, 0, 1.0505972, 0, 1.0607506, 0, -1.0505972, 0, 0.14641547, 548.56885, -0.15, -237.79086)
+metadata/scene_painter_instance = true
+
+[node name="Big arch74" parent="ScenePainterInstances" unique_id=656520901 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.5617092, 0, 0.21888985, 0, 1.5769744, 0, -0.21888985, 0, -1.5617092, 607.87494, -0.15, -187.04741)
+metadata/scene_painter_instance = true
+
+[node name="Big arch75" parent="ScenePainterInstances" unique_id=149591723 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.52065563, 0, -1.4815135, 0, 1.570339, 0, 1.4815135, 0, -0.52065563, 538.8185, -0.15, -232.26343)
+metadata/scene_painter_instance = true
+
+[node name="Arch83" parent="ScenePainterInstances" unique_id=1235116912 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.6002159, 0.016491486, 0.6765247, 0.01647355, 1.7373444, -0.0033851792, -0.6765251, 0.0032966847, -1.6002973, 517.7438, -0.07542501, -195.007)
+metadata/scene_painter_instance = true
+
+[node name="Big arch76" parent="ScenePainterInstances" unique_id=468358445 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.2072877, 0.022877704, 1.460953, -0.012524301, 1.4755553, -0.021329356, -1.4610785, -0.009402665, 0.20745271, 492.16763, -0.035587408, -282.7239)
+metadata/scene_painter_instance = true
+
+[node name="Big arch77" parent="ScenePainterInstances" unique_id=925899022 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.6098617, 0, 1.0689863, 0, 1.932456, 0, -1.0689863, 0, -1.6098617, 584.71344, -0.15, -320.19827)
+metadata/scene_painter_instance = true
+
+[node name="Arch84" parent="ScenePainterInstances" unique_id=627426989 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.837907, 0, -0.63661104, 0, 1.9450387, 0, 0.63661104, 0, -1.8379068, 583.02386, -0.15, -374.3997)
+metadata/scene_painter_instance = true
+
+[node name="Arch85" parent="ScenePainterInstances" unique_id=1041953115 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.31972796, 0, 1.2986947, 0, 1.3374729, 0, -1.2986947, 0, 0.31972796, 503.64188, -0.15, -331.9897)
+metadata/scene_painter_instance = true
+
+[node name="Big arch78" parent="ScenePainterInstances" unique_id=1605540778 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.1520433, 0, -1.3546107, 0, 1.7782502, 0, 1.3546107, 0, 1.1520433, 542.42645, -0.15, -340.71768)
+metadata/scene_painter_instance = true
+
+[node name="Big arch79" parent="ScenePainterInstances" unique_id=1269837800 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.5616268, 0, -0.9287055, 0, 1.0853195, 0, 0.9287055, 0, -0.5616268, 504.5516, -0.15, -371.36508)
+metadata/scene_painter_instance = true
+
+[node name="Arch86" parent="ScenePainterInstances" unique_id=399472335 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.5269057, 0.09025315, -0.7180532, 0.056655444, 1.6863004, 0.09147844, 0.721482, 0.05858767, -1.5268327, 399.64014, 3.7738218, -293.46054)
+metadata/scene_painter_instance = true
+
+[node name="Arch87" parent="ScenePainterInstances" unique_id=717923321 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.8951894, 0.021150975, -0.5761996, -0.01971629, 1.9808447, 0.007863054, 0.57625043, -0.0017877497, 1.8952913, 487.3881, -0.01208283, -304.11172)
+metadata/scene_painter_instance = true
+
+[node name="Big arch80" parent="ScenePainterInstances" unique_id=810685454 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.6032323, 0.11776093, -0.8591317, 0.09307962, 1.8187767, 0.075602606, 0.862155, 0.022625938, -1.6057724, 378.34387, 5.3174314, -309.75906)
+metadata/scene_painter_instance = true
+
+[node name="Arch88" parent="ScenePainterInstances" unique_id=548185466 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.2417561, 0.05948093, -0.37918556, 0.060688723, 1.2982953, 0.0049137394, 0.37899414, -0.013010951, -1.2431701, 447.7651, 0.7660169, -346.67566)
+metadata/scene_painter_instance = true
+
+[node name="Arch89" parent="ScenePainterInstances" unique_id=569018599 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.371341, 0.051076807, -1.2846706, 0.06803985, 1.3345274, 0.07272633, 1.2838839, -0.08549678, 0.36771438, 215.17743, 3.61768, -345.88046)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy88" parent="ScenePainterInstances" unique_id=1339114644 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.9168498, 0.053162344, 1.0035921, -0.010691851, 1.3589156, -0.062216826, -1.0049424, 0.034044303, 0.91627985, 335.47177, 6.313701, -269.89386)
+metadata/scene_painter_instance = true
+
+[node name="Arch90" parent="ScenePainterInstances" unique_id=1401307095 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.4693481, 0.03738821, 1.4389554, 0.020433076, 1.5135369, -0.03266134, -1.439296, 0.009294911, -0.46970072, 328.5075, 6.3442483, -260.6123)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy89" parent="ScenePainterInstances" unique_id=264984125 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.5477169, -0.060058482, -1.3158064, 0.09638795, 1.423039, -0.02483059, 1.3136448, -0.07937364, 0.5504401, 93.67547, 4.0371733, -308.02518)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy90" parent="ScenePainterInstances" unique_id=903222275 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.15763243, -0.01715233, -1.2005185, 0.033209573, 1.21042, -0.012933262, 1.2001816, -0.031240078, 0.15803453, 103.741005, 0.15302348, -401.98117)
+metadata/scene_painter_instance = true
+
+[node name="Arch91" parent="ScenePainterInstances" unique_id=1302569710 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.29701224, 0.114850834, 1.6854483, -0.11927109, 1.7084545, -0.09540038, -1.6851414, -0.10067828, 0.3038186, 148.45052, 7.552509, -258.07877)
+metadata/scene_painter_instance = true
+
+[node name="Big arch81" parent="ScenePainterInstances" unique_id=991565778 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.9386617, 0.061053872, -0.21387684, 0.08806462, 1.9337776, -0.24623002, 0.20424373, -0.25427747, -1.9239303, -38.9379, 14.627562, -228.61008)
+metadata/scene_painter_instance = true
+
+[node name="Big arch82" parent="ScenePainterInstances" unique_id=1569049370 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.90951914, 0, -1.1004092, 0, 1.4276292, 0, 1.1004092, 0, 0.90951914, -179.83607, -0.15, -332.752)
+metadata/scene_painter_instance = true
+
+[node name="Arch92" parent="ScenePainterInstances" unique_id=604047782 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.7443493, 0.15273754, 0.9304662, -0.280885, 1.167546, 0.033046287, -0.90011096, -0.23803297, 0.75913936, -129.82312, 29.387981, -209.35889)
+metadata/scene_painter_instance = true
+
+[node name="Big arch83" parent="ScenePainterInstances" unique_id=1051411522 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.9427836, -0.013196849, -1.5310051, 0.016697485, 1.7979671, -0.0052157813, 1.5309709, -0.011482748, 0.9428615, -278.2611, -0.080096856, -289.35214)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy91" parent="ScenePainterInstances" unique_id=1644333366 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.7150315, -0.05141189, 1.8463591, -0.17462578, 1.9728914, -0.012691391, -1.8388016, -0.16736801, -0.7167651, -207.80641, 0.41692567, -313.3211)
+metadata/scene_painter_instance = true
+
+[node name="Arch93" parent="ScenePainterInstances" unique_id=1150891320 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.4335651, -0.045315, -0.5398459, 0.04064573, 1.5318347, -0.020648105, 0.5402175, 0.0049970043, 1.4341325, -286.82828, 0.26765323, -217.14018)
+metadata/scene_painter_instance = true
+
+[node name="Arch94" parent="ScenePainterInstances" unique_id=1199613750 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.22571476, 0, 1.6659425, 0, 1.6811637, 0, -1.6659425, 0, -0.22571476, -416.2629, -0.15, -158.97406)
+metadata/scene_painter_instance = true
+
+[node name="Arch95" parent="ScenePainterInstances" unique_id=1073962435 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.93686146, 0, 1.1510171, 0, 1.4840989, 0, -1.1510171, 0, 0.93686146, -418.28375, -0.15, -179.81296)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy92" parent="ScenePainterInstances" unique_id=1779361640 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.5319879, 0, 1.6001621, 0, 1.6862769, 0, -1.6001621, 0, 0.5319879, -355.77005, -0.15, -227.22939)
+metadata/scene_painter_instance = true
+
+[node name="Arch96" parent="ScenePainterInstances" unique_id=1874828470 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.3650666, 0, -0.6859371, 0, 1.5277162, 0, 0.6859371, 0, -1.3650666, -480.64377, -0.15, -278.96283)
+metadata/scene_painter_instance = true
+
+[node name="Big arch84" parent="ScenePainterInstances" unique_id=1491964976 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.7696153, 0, -0.7619505, 0, 1.9266827, 0, 0.7619505, 0, -1.7696153, -418.39487, -0.15, -195.41806)
+metadata/scene_painter_instance = true
+
+[node name="Arch97" parent="ScenePainterInstances" unique_id=2127953765 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.6891385, 0, -1.2933092, 0, 1.4654558, 0, 1.2933092, 0, 0.6891385, -472.9256, -0.15, -183.59529)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy93" parent="ScenePainterInstances" unique_id=1419095653 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.2673137, 0, -0.7658733, 0, 1.4807585, 0, 0.7658733, 0, -1.2673137, -375.6885, -0.15, -355.4123)
+metadata/scene_painter_instance = true
+
+[node name="Arch98" parent="ScenePainterInstances" unique_id=838243834 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.979875, 0, 0.51298034, 0, 1.1060307, 0, -0.51298034, 0, -0.979875, -386.96054, -0.15, -257.0762)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy94" parent="ScenePainterInstances" unique_id=752776748 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.2568194, 0, -0.80875766, 0, 1.4945513, 0, 0.80875766, 0, 1.2568194, -398.0113, -0.15, -245.9887)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy95" parent="ScenePainterInstances" unique_id=400303945 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.2737093, 0, 0.67740226, 0, 1.4426397, 0, -0.67740226, 0, -1.2737093, -405.25253, -0.15, -404.3887)
+metadata/scene_painter_instance = true
+
+[node name="Arch99" parent="ScenePainterInstances" unique_id=955157151 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.2543981, 0, 0.16009092, 0, 1.2645725, 0, -0.16009092, 0, 1.2543981, -328.95145, -0.15, -363.01907)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy96" parent="ScenePainterInstances" unique_id=1047672552 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.2519088, 0, 1.2862993, 0, 1.7949489, 0, -1.2862993, 0, 1.2519088, -318.85068, -0.15, -394.34927)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy97" parent="ScenePainterInstances" unique_id=127720462 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.4890312, 0, -1.8270445, 0, 1.89136, 0, 1.8270445, 0, -0.4890312, -351.7684, -0.15, -434.25894)
+metadata/scene_painter_instance = true
+
+[node name="Arch100" parent="ScenePainterInstances" unique_id=574444072 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.76195943, 0, 1.0058695, 0, 1.2618858, 0, -1.0058695, 0, -0.76195943, -322.4787, -0.15, -329.72897)
+metadata/scene_painter_instance = true
+
+[node name="Arch101" parent="ScenePainterInstances" unique_id=692035896 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.6336936, 0, 1.6727258, 0, 1.7887367, 0, -1.6727258, 0, 0.6336936, -378.83417, -0.15, -490.0979)
+metadata/scene_painter_instance = true
+
+[node name="Big arch85" parent="ScenePainterInstances" unique_id=1685319031 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.9201382, 0, -1.3764482, 0, 1.6556761, 0, 1.3764482, 0, 0.9201382, -203.03654, -0.15, -484.71173)
+metadata/scene_painter_instance = true
+
+[node name="Big arch86" parent="ScenePainterInstances" unique_id=447528631 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.091066554, 0, -1.6863921, 0, 1.6888492, 0, 1.6863921, 0, 0.091066554, -311.37656, -0.15, -488.82928)
+metadata/scene_painter_instance = true
+
+[node name="Arch102" parent="ScenePainterInstances" unique_id=1030683749 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.9678022, 0, 0.08768104, 0, 1.9697547, 0, -0.08768104, 0, -1.9678022, -192.4112, -0.15, -402.97018)
+metadata/scene_painter_instance = true
+
+[node name="Big arch87" parent="ScenePainterInstances" unique_id=1714014932 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.1125827, 0, 0.99058264, 0, 1.4896624, 0, -0.99058264, 0, -1.1125827, -168.64172, -0.15, -490.60498)
+metadata/scene_painter_instance = true
+
+[node name="Arch103" parent="ScenePainterInstances" unique_id=331531433 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.0687855, 0, 1.4876461, 0, 1.8317733, 0, -1.4876461, 0, 1.0687855, -174.5712, -0.15, -350.94223)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy98" parent="ScenePainterInstances" unique_id=1798281521 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.6724197, 0, -1.6230991, 0, 1.7568719, 0, 1.6230991, 0, 0.6724197, -263.40784, -0.15, -500.5568)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy99" parent="ScenePainterInstances" unique_id=2125658359 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.2948588, 0, -0.25677836, 0, 1.3200736, 0, 0.25677836, 0, 1.2948588, -241.04356, -0.15, -350.48218)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy100" parent="ScenePainterInstances" unique_id=1001775161 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.4743606, 0, -0.80738014, 0, 1.6809525, 0, 0.80738014, 0, -1.4743606, -262.53442, -0.15, -337.3261)
+metadata/scene_painter_instance = true
+
+[node name="Big arch88" parent="ScenePainterInstances" unique_id=619246699 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.13178971, 0, 1.49175, 0, 1.4975603, 0, -1.49175, 0, -0.13178971, -233.06186, -0.15, -408.65567)
+metadata/scene_painter_instance = true
+
+[node name="Big arch89" parent="ScenePainterInstances" unique_id=1066780269 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.2834033, -0.24622816, 0.25096557, -0.25556543, 1.3056611, -0.025911825, -0.24145049, -0.073190175, -1.306553, -252.07166, 3.3238454, -232.0499)
+metadata/scene_painter_instance = true
+
+[node name="Arch104" parent="ScenePainterInstances" unique_id=93493615 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.2416569, 0, 0.8746475, 0, 1.518789, 0, -0.8746475, 0, -1.2416569, -323.31137, -0.15, -170.23141)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy101" parent="ScenePainterInstances" unique_id=453314110 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.6144599, -0.7537737, -0.73795253, 0.6604484, 1.7742732, -0.36741275, 0.8225307, 0.05485715, 1.7434632, -232.38812, 11.69533, -155.69849)
+metadata/scene_painter_instance = true
+
+[node name="Big arch90" parent="ScenePainterInstances" unique_id=266303569 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.3838308, -0.01817857, 1.0613345, -0.012204429, 1.7439624, 0.013957787, -1.06142, 0.0036479423, -1.3838798, -300.86575, -0.13724886, -136.63313)
+metadata/scene_painter_instance = true
+
+[node name="Arch105" parent="ScenePainterInstances" unique_id=637989229 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.32715037, -0.35429445, 1.2769074, 0.079931535, 1.3181262, 0.34525222, -1.3227351, -0.007974169, 0.3366791, -249.74017, 4.9877563, -73.50309)
+metadata/scene_painter_instance = true
+
+[node name="Arch106" parent="ScenePainterInstances" unique_id=993303578 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.9711504, -0.70348877, -1.1297271, -0.5480443, 1.4858426, -0.4541276, 1.2127768, 0.10811074, -1.1098639, -221.40207, 15.902462, -142.87856)
+metadata/scene_painter_instance = true
+
+[node name="Big arch91" parent="ScenePainterInstances" unique_id=515801268 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.9197199, -0.08191233, 1.136212, -0.061530672, 1.4617447, 0.055574074, -1.1374978, -0.012840229, -0.92168635, -324.5399, 0.5539211, 41.827488)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy102" parent="ScenePainterInstances" unique_id=931522144 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.05495644, -0.44009086, 1.0841836, -0.011064315, 1.0851347, 0.4410378, -1.1700476, -0.030932158, 0.046752874, -208.5245, 30.248152, 65.07432)
+metadata/scene_painter_instance = true
+
+[node name="Arch107" parent="ScenePainterInstances" unique_id=1130110875 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.094976425, -0.44814226, -1.1769158, -0.05741818, 1.1805716, -0.44490066, 1.2580403, 0.020049693, -0.10915757, -230.54529, 11.605515, -90.008865)
+metadata/scene_painter_instance = true
+
+[node name="Arch108" parent="ScenePainterInstances" unique_id=1045870270 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.0637225, 0.12471042, 0.9481488, -0.012912814, 1.4199289, -0.17227706, -0.956228, 0.11955517, 1.0570614, -73.83991, 15.72493, 199.42467)
+metadata/scene_painter_instance = true
+
+[node name="Arch109" parent="ScenePainterInstances" unique_id=940262654 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.8424184, -0.591122, 1.3976108, 0.3110839, 1.6318521, 0.5026872, -1.48525, 0.006511356, 0.8979975, -188.35045, 46.626534, 153.45465)
+metadata/scene_painter_instance = true
+
+[node name="Arch110" parent="ScenePainterInstances" unique_id=1872081048 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.2673012, 0.14128077, -0.075963534, 0.12607437, 1.2512977, 0.2239248, 0.09917646, 0.21465509, -1.2553368, -87.76994, 8.871874, 264.21143)
+metadata/scene_painter_instance = true
+
+[node name="Big arch92" parent="ScenePainterInstances" unique_id=2073686554 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.5083377, 0.040135853, -1.3240683, -0.2609315, 1.9762172, -0.23734099, 1.2987233, 0.35043558, 1.4900882, -168.54587, 2.1696687, 337.5318)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy103" parent="ScenePainterInstances" unique_id=331829063 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.359704, -0.026122687, 0.165643, -0.000435246, 1.3538254, 0.20993192, -0.16768964, 0.20830072, -1.343654, -203.02505, 1.8376168, 339.63177)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy104" parent="ScenePainterInstances" unique_id=1355995901 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.0514088, -0.6869331, -1.1811782, -0.11600754, 1.1799403, -0.6811643, 1.3614703, 0.07460138, -0.10264135, -170.83014, 63.41664, 197.6997)
+metadata/scene_painter_instance = true
+
+[node name="Big arch93" parent="ScenePainterInstances" unique_id=2003333582 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.16822991, 0.17036025, -1.1128665, -0.28394982, 1.095266, 0.12474179, 1.0894343, 0.25916287, 0.20436095, -126.281685, 8.134102, 298.9265)
+metadata/scene_painter_instance = true
+
+[node name="Big arch94" parent="ScenePainterInstances" unique_id=145948628 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.4825746, 0.16269737, 0.54427266, 0.41913983, 1.3400618, 0.74113876, -0.3834383, 0.83575976, -1.2942995, -175.73541, 34.42603, 241.0579)
+metadata/scene_painter_instance = true
+
+[node name="Big arch95" parent="ScenePainterInstances" unique_id=789459767 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.5918715, -0.005239367, -0.2817168, -0.0054825284, 1.6166062, 0.0009139915, 0.28171217, 0.0018554052, -1.5918798, -245.05519, -0.14882013, 347.86792)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy105" parent="ScenePainterInstances" unique_id=373131138 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.5219378, 0, 0.4043102, 0, 1.5747259, 0, -0.4043102, 0, -1.5219378, -156.44519, -0.15, 415.05063)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy106" parent="ScenePainterInstances" unique_id=1093466700 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.60823745, 0, 0.92119217, 0, 1.1038785, 0, -0.92119217, 0, 0.60823745, -151.83377, -0.15, 435.32666)
+metadata/scene_painter_instance = true
+
+[node name="Arch111" parent="ScenePainterInstances" unique_id=1607342942 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.38402224, 0.16828823, 1.4670502, 0.33025956, 1.487238, -0.08415365, -1.4392656, 0.29636514, -0.4107459, -123.38343, 4.561858, 313.09747)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy107" parent="ScenePainterInstances" unique_id=765188966 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.04681852, 0.057927117, -1.1564852, -0.15046592, 1.1473123, 0.06355905, 1.1481173, 0.15272261, -0.03883005, -77.25379, 3.4780219, 293.24957)
+metadata/scene_painter_instance = true
+
+[node name="Arch112" parent="ScenePainterInstances" unique_id=548171678 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.7606378, 0.207018, 0.66362476, 0.022354433, 0.9759035, -0.33005583, -0.6948055, 0.25803122, 0.7158837, -131.26906, 13.794008, 280.13632)
+metadata/scene_painter_instance = true
+
+[node name="Arch113" parent="ScenePainterInstances" unique_id=2015952813 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.97016466, -0.11868434, -0.7140807, -0.20222437, 1.1909759, 0.07679907, 0.6950558, 0.18085027, -0.97437537, -241.12514, 2.9868643, 318.81403)
+metadata/scene_painter_instance = true
+
+[node name="Big arch96" parent="ScenePainterInstances" unique_id=784951034 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.2323128, 0.08009244, 1.0251818, 0.28353044, 1.5116274, -0.45891193, -0.98844475, 0.5334556, 1.146477, -169.49464, 26.013311, 257.14648)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy108" parent="ScenePainterInstances" unique_id=918009491 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.3417971, -0.12345155, 1.1153722, 0.10098467, 1.744817, 0.071634725, -1.1176304, 0.009442141, 1.3455589, -304.78076, 0.1697965, 218.94102)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy109" parent="ScenePainterInstances" unique_id=143511492 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.3453817, -1.0416386, -0.06093132, 1.0416416, 1.3465986, -0.020736823, 0.06087842, -0.020891638, 1.7013619, -236.26077, 32.283558, 187.20717)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy110" parent="ScenePainterInstances" unique_id=44346833 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.5933838, 0, -1.0115265, 0, 1.1727276, 0, 1.0115265, 0, 0.5933838, -394.7391, -0.15, 185.98866)
+metadata/scene_painter_instance = true
+
+[node name="Arch114" parent="ScenePainterInstances" unique_id=2077230082 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.9072866, -0.304233, 0.8881598, -0.17945294, 1.2685584, 0.2512184, -0.92151076, 0.05250072, -0.9233721, -260.85062, 7.149674, 250.00261)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy111" parent="ScenePainterInstances" unique_id=785007314 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.779066, -0.05177866, 0.4920693, 0.054545358, 1.8457803, -0.002982824, -0.4917703, 0.017408717, 1.7798167, -337.62103, 0.15386604, 161.64731)
+metadata/scene_painter_instance = true
+
+[node name="Big arch97" parent="ScenePainterInstances" unique_id=1618449511 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.1425102, -0.036897283, 0.6194235, -0.030482413, 1.2996145, 0.021190325, -0.6197724, 0.0040984936, -1.1429093, -328.35675, 0.5769661, 134.95119)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy112" parent="ScenePainterInstances" unique_id=483975215 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.3609059, 0, 1.3490807, 0, 1.9162681, 0, -1.3490807, 0, 1.3609059, -359.821, -0.15, 169.75113)
+metadata/scene_painter_instance = true
+
+[node name="Arch115" parent="ScenePainterInstances" unique_id=1416839213 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.9241323, 0, -1.6404455, 0, 1.8828387, 0, 1.6404455, 0, -0.9241323, -392.97507, -0.15, 156.68251)
+metadata/scene_painter_instance = true
+
+[node name="Big arch98" parent="ScenePainterInstances" unique_id=104432266 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.9835472, 0, 0.0501395, 0, 1.9841808, 0, -0.0501395, 0, 1.9835472, -377.02963, -0.15, 327.4411)
+metadata/scene_painter_instance = true
+
+[node name="Arch116" parent="ScenePainterInstances" unique_id=889783473 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.8879974, 0, -0.68326515, 0, 1.1204422, 0, 0.68326515, 0, 0.8879974, -295.02597, -0.15, 316.3187)
+metadata/scene_painter_instance = true
+
+[node name="Big arch99" parent="ScenePainterInstances" unique_id=591502472 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.8110336, 0, 0.61597395, 0, 1.0184299, 0, -0.61597395, 0, -0.8110336, -261.30145, -0.15, 393.08823)
+metadata/scene_painter_instance = true
+
+[node name="Big arch100" parent="ScenePainterInstances" unique_id=1396298534 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.4177976, 0, -0.45443687, 0, 1.4888461, 0, 0.45443687, 0, -1.4177976, -135.33577, -0.15, 425.72784)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy113" parent="ScenePainterInstances" unique_id=1961271530 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.9353243, 0, -1.1503875, 0, 1.4826405, 0, 1.1503875, 0, 0.9353243, -231.54146, -0.15, 406.20874)
+metadata/scene_painter_instance = true
+
+[node name="Big arch101" parent="ScenePainterInstances" unique_id=691483631 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.29917285, 0.011191549, 1.0110613, 0.22517495, 1.0271744, -0.07799912, -0.98573154, 0.23803858, 0.2890429, -177.21725, 3.6163535, 331.40472)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy114" parent="ScenePainterInstances" unique_id=1385238661 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.6748168, 0, -0.9782049, 0, 1.1883866, 0, 0.9782049, 0, 0.6748168, -234.18939, -0.15, 451.13464)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy115" parent="ScenePainterInstances" unique_id=898611965 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.8149174, 0, 0.70306623, 0, 1.946337, 0, -0.70306623, 0, -1.8149174, -187.33377, -0.15, 439.894)
+metadata/scene_painter_instance = true
+
+[node name="Arch117" parent="ScenePainterInstances" unique_id=808847284 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.46654654, 0, 1.3028668, 0, 1.3838813, 0, -1.3028668, 0, 0.46654654, -187.16138, -0.15, 399.3431)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy116" parent="ScenePainterInstances" unique_id=196937707 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.6504326, 0, 0.331372, 0, 1.6833701, 0, -0.331372, 0, -1.6504326, -218.42525, -0.15, 468.6169)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy117" parent="ScenePainterInstances" unique_id=1617572996 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.20879218, 0, 1.4528909, 0, 1.4678168, 0, -1.4528909, 0, -0.20879218, -167.18698, -0.15, 425.8527)
+metadata/scene_painter_instance = true
+
+[node name="Big arch102" parent="ScenePainterInstances" unique_id=688722693 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.1957711, 0, 0.072460085, 0, 1.1979645, 0, -0.072460085, 0, -1.1957711, -195.35858, -0.15, 459.254)
+metadata/scene_painter_instance = true
+
+[node name="Big arch103" parent="ScenePainterInstances" unique_id=421573225 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.06357338, 0, -1.7555176, 0, 1.7566683, 0, 1.7555176, 0, -0.06357338, 3.8078747, -0.15, 505.92087)
+metadata/scene_painter_instance = true
+
+[node name="Arch118" parent="ScenePainterInstances" unique_id=495786123 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.717438, 0, -0.073865935, 0, 1.7190256, 0, 0.073865935, 0, 1.717438, -24.26679, -0.15, 508.9284)
+metadata/scene_painter_instance = true
+
+[node name="Big arch104" parent="ScenePainterInstances" unique_id=2020420950 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.7207556, 0, 1.7490672, 0, 1.8917518, 0, -1.7490672, 0, -0.7207556, -170.38388, -0.15, 457.9358)
+metadata/scene_painter_instance = true
+
+[node name="Big arch105" parent="ScenePainterInstances" unique_id=649886216 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.6254835, 0, 1.1079898, 0, 1.2723486, 0, -1.1079898, 0, 0.6254835, -67.488976, -0.15, 451.66348)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy118" parent="ScenePainterInstances" unique_id=1636988209 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.32832673, 0, -1.0307044, 0, 1.0817347, 0, 1.0307044, 0, -0.32832673, -56.19635, -0.15, 439.01498)
+metadata/scene_painter_instance = true
+
+[node name="Big arch106" parent="ScenePainterInstances" unique_id=100210517 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.13184033, 0, -1.8255358, 0, 1.8302903, 0, 1.8255358, 0, -0.13184033, -43.06502, -0.15, 435.72723)
+metadata/scene_painter_instance = true
+
+[node name="Big arch107" parent="ScenePainterInstances" unique_id=2134732479 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.93547964, 0, 1.3649315, 0, 1.6547387, 0, -1.3649315, 0, -0.93547964, -43.753162, -0.15, 484.5366)
+metadata/scene_painter_instance = true
+
+[node name="Big arch108" parent="ScenePainterInstances" unique_id=1796320724 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.0027615842, 0, 1.216285, 0, 1.2162881, 0, -1.216285, 0, -0.0027615842, -31.429823, -0.15, 394.9255)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy119" parent="ScenePainterInstances" unique_id=754974207 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.9450532, 0, -0.57857144, 0, 1.1080931, 0, 0.57857144, 0, -0.9450532, -88.20087, -0.15, 455.3263)
+metadata/scene_painter_instance = true
+
+[node name="Arch119" parent="ScenePainterInstances" unique_id=1164560469 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.5849577, -0.008867794, -1.0102999, 0.002463464, 1.8795507, -0.012632861, 1.0103358, 0.009328457, 1.5849322, 30.811485, -0.14491521, 373.5466)
+metadata/scene_painter_instance = true
+
+[node name="Arch120" parent="ScenePainterInstances" unique_id=1990306340 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.8543392, 0, -0.7261771, 0, 1.1212621, 0, 0.7261771, 0, -0.8543392, 35.93163, -0.15, 451.6866)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy120" parent="ScenePainterInstances" unique_id=970444804 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.75056064, 0, -1.768465, 0, 1.9211481, 0, 1.768465, 0, -0.75056064, 129.3873, -0.15, 453.2774)
+metadata/scene_painter_instance = true
+
+[node name="Arch121" parent="ScenePainterInstances" unique_id=292731334 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.1339708, 0, 1.2439879, 0, 1.2511811, 0, -1.2439879, 0, -0.1339708, 126.211334, -0.15, 391.08328)
+metadata/scene_painter_instance = true
+
+[node name="Big arch109" parent="ScenePainterInstances" unique_id=613506601 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.08007394, 0, -1.4096385, 0, 1.4119109, 0, 1.4096385, 0, -0.08007394, 179.39989, -0.15, 393.61197)
+metadata/scene_painter_instance = true
+
+[node name="Big arch110" parent="ScenePainterInstances" unique_id=499335991 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.1510673, 0.0045529553, 1.0733343, 0.04636904, 1.5725837, 0.04305645, -1.072342, 0.06311273, -1.1502706, 88.48355, 0.2798534, 371.4809)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy121" parent="ScenePainterInstances" unique_id=446602892 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.68579435, 0, -1.0526022, 0, 1.2562982, 0, 1.0526022, 0, 0.68579435, 262.04236, -0.15, 399.6717)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy122" parent="ScenePainterInstances" unique_id=223405312 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.0019640431, 0, -1.0446153, 0, 1.044617, 0, 1.0446153, 0, -0.0019640431, 103.84811, -0.15, 434.92966)
+metadata/scene_painter_instance = true
+
+[node name="Big arch111" parent="ScenePainterInstances" unique_id=2053574983 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.0480947, 0, 1.2329111, 0, 1.6182003, 0, -1.2329111, 0, -1.0480947, 189.07152, -0.15, 434.0363)
+metadata/scene_painter_instance = true
+
+[node name="Big arch112" parent="ScenePainterInstances" unique_id=1273509723 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.1474667, -0.043679077, -0.84328187, -0.06090642, 1.4233477, 0.0091518415, 0.84221286, 0.043422196, -1.1482612, 240.0667, 2.9767177, 299.7083)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy123" parent="ScenePainterInstances" unique_id=2133151803 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.4671664, 0.016376382, -0.6794571, -0.06306822, 1.6127803, -0.09731309, 0.67672193, 0.11480093, 1.4640272, 177.86642, 1.227501, 314.3796)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy124" parent="ScenePainterInstances" unique_id=1670890704 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.09589636, 0, -1.1351224, 0, 1.1391659, 0, 1.1351224, 0, -0.09589636, 333.7596, -0.15, 416.5883)
+metadata/scene_painter_instance = true
+
+[node name="Arch122" parent="ScenePainterInstances" unique_id=168517636 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.46122897, 0, -1.6438488, 0, 1.7073286, 0, 1.6438488, 0, -0.46122897, 145.39977, -0.15, 409.31512)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy125" parent="ScenePainterInstances" unique_id=1831330393 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.23754501, 0.05282444, 1.5952857, 0.13948928, 1.6073717, -0.03245408, -1.5900533, 0.13311687, -0.24117377, 166.24095, 1.0542752, 319.95334)
+metadata/scene_painter_instance = true
+
+[node name="Arch123" parent="ScenePainterInstances" unique_id=382224216 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.14242995, 0, 1.131332, 0, 1.1402625, 0, -1.131332, 0, -0.14242995, 163.368, -0.15, 436.94058)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy126" parent="ScenePainterInstances" unique_id=1647443187 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.1637794, 0, 0.30758834, 0, 1.2037412, 0, -0.30758834, 0, -1.1637794, 79.98129, -0.15, 390.7545)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy127" parent="ScenePainterInstances" unique_id=1793391394 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.3583412, 0.014860222, -1.5934739, -0.15064481, 1.626267, -0.018711053, 1.5864065, 0.1510733, 0.35816082, 92.41453, 2.9463506, 329.02344)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy128" parent="ScenePainterInstances" unique_id=629988226 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.7481577, -0.08745801, 0.43345657, -0.029909596, 1.7869339, 0.23992017, -0.441179, 0.22540493, -1.7338231, 28.54478, 6.53627, 289.22437)
+metadata/scene_painter_instance = true
+
+[node name="Arch124" parent="ScenePainterInstances" unique_id=698399806 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.6053118, 0, 1.0796407, 0, 1.2377505, 0, -1.0796407, 0, 0.6053118, -16.612843, -0.15, 380.0142)
+metadata/scene_painter_instance = true
+
+[node name="Big arch113" parent="ScenePainterInstances" unique_id=963905665 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.87315947, 0, 0.8801485, 0, 1.2397858, 0, -0.8801485, 0, 0.87315947, -9.824119, -0.15, 447.2271)
+metadata/scene_painter_instance = true
+
+[node name="Big arch114" parent="ScenePainterInstances" unique_id=1959844876 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.12231861, -0.005531019, 1.6370052, 0.016420582, 1.6414902, 0.004319211, -1.6369321, 0.016053002, 0.1223674, 47.526585, -0.12246412, 378.80844)
+metadata/scene_painter_instance = true
+
+[node name="Big arch115" parent="ScenePainterInstances" unique_id=1625801768 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.7860255, 0, -1.4141924, 0, 1.6179544, 0, 1.4141924, 0, -0.7860255, 3.796196, -0.15, 425.8882)
+metadata/scene_painter_instance = true
+
+[node name="Big arch116" parent="ScenePainterInstances" unique_id=825992308 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.5802695, 0, 0.5263505, 0, 1.6656219, 0, -0.5263505, 0, -1.5802695, -20.824118, -0.15, 443.34656)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy129" parent="ScenePainterInstances" unique_id=1756139562 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.6913995, 0.06677811, -1.5355995, -0.12855922, 1.6753919, 0.13074064, 1.531665, 0.17076674, -0.6822019, -138.11, 0.4738409, 342.04312)
+metadata/scene_painter_instance = true
+
+[node name="Arch125" parent="ScenePainterInstances" unique_id=164793701 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.4991001, 0, 0.3106157, 0, 1.530942, 0, -0.3106157, 0, -1.4991001, -80.089714, -0.15, 402.90384)
+metadata/scene_painter_instance = true
+
+[node name="Arch126" parent="ScenePainterInstances" unique_id=1937482063 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.21075319, 0, 1.3661642, 0, 1.3823247, 0, -1.3661642, 0, 0.21075319, -73.57939, -0.15, 464.50052)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy130" parent="ScenePainterInstances" unique_id=1298787797 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.218678, -0.034770366, -0.5241119, -0.0059366007, 1.3231492, -0.10158361, 0.5252305, 0.09563208, 1.2149345, -30.012682, 3.185827, 294.50687)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy131" parent="ScenePainterInstances" unique_id=1682219322 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.6314034, -0.041936517, 0.43199226, 0.06542774, 1.6848133, -0.083528936, -0.42906317, 0.097463846, 1.6298034, -35.750427, 1.3713827, 319.1565)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy132" parent="ScenePainterInstances" unique_id=1241896235 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.2487303, -1.5052674e-06, -0.05543721, -1.5332329e-06, 1.2499602, 5.9653007e-07, 0.05543721, 6.6394375e-07, -1.2487303, -93.313416, -0.14999947, 351.73758)
+metadata/scene_painter_instance = true
+
+[node name="Arch127" parent="ScenePainterInstances" unique_id=1758362486 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.4421808, -0.02458078, 1.0346531, 0.054298878, 1.7739569, -0.033541244, -1.0335196, 0.058899645, 1.4420002, -62.000427, 0.19927654, 333.17206)
+metadata/scene_painter_instance = true
+
+[node name="Arch128" parent="ScenePainterInstances" unique_id=1912075119 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.2833502, 0, -1.5126795, 0, 1.9837306, 0, 1.5126795, 0, 1.2833502, -13.957753, -0.15, 368.70728)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy133" parent="ScenePainterInstances" unique_id=1582285248 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.1717504, 0.1505877, 0.5864439, 0.203907, 1.3010131, 0.07334303, -0.5701009, 0.15582241, -1.1791084, -72.9288, 8.648495, 253.7228)
+metadata/scene_painter_instance = true
+
+[node name="Arch129" parent="ScenePainterInstances" unique_id=1520703563 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.47617152, -0.035448994, -1.3223609, -0.11952282, 1.4008276, 0.0054867193, 1.3174251, 0.11427675, -0.47745767, -50.75362, 3.1947627, 287.76953)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy134" parent="ScenePainterInstances" unique_id=1243292566 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.9671629, -0.008476848, 0.74061334, 0.06783884, 1.2119751, 0.10246229, -0.7375486, 0.12259189, -0.9617574, 107.51768, 17.16473, 227.66817)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy135" parent="ScenePainterInstances" unique_id=1423263627 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.9550248, -0.07718343, 0.5979765, 0.13163848, 1.1198038, -0.065701135, -0.5883914, 0.12525195, 0.95588344, 14.6425, 12.3923235, 227.3746)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy136" parent="ScenePainterInstances" unique_id=1345065299 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.0854601, -0.013287252, 0.37368974, 0.027972046, 1.1470066, -0.040466655, -0.37287816, 0.04736491, 1.0847869, -22.4569, 0.14507143, 349.59933)
+metadata/scene_painter_instance = true
+
+[node name="Big arch117" parent="ScenePainterInstances" unique_id=339402404 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.5792054, -0.038378637, -0.16351588, -0.039196737, 1.5876173, 0.005926717, 0.1633217, 0.009929269, -1.5796605, 104.420555, 18.361061, 207.0324)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy137" parent="ScenePainterInstances" unique_id=1840862770 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.6275362, 0.1448756, -0.15861073, 0.12621686, 1.6257474, 0.18982737, 0.1738264, 0.17600052, -1.6229074, 188.50278, 5.7088523, 262.9015)
+metadata/scene_painter_instance = true
+
+[node name="Arch130" parent="ScenePainterInstances" unique_id=1142730462 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.9685489, 0.09835522, -1.2028794, -0.06042616, 1.5364418, 0.1742841, 1.2053802, 0.15605293, -0.9578026, 187.7133, 4.257129, 276.90903)
+metadata/scene_painter_instance = true
+
+[node name="Big arch118" parent="ScenePainterInstances" unique_id=1933553858 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.24295348, 0.078091145, -1.342138, -0.20585024, 1.345634, 0.11555753, 1.328555, 0.22277708, -0.22753258, 126.15954, 7.2607737, 287.50024)
+metadata/scene_painter_instance = true
+
+[node name="Arch131" parent="ScenePainterInstances" unique_id=1947422607 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.8305855, 0.013266501, -0.6551012, 0.0004746122, 1.0577203, 0.020818222, 0.6552353, 0.016050655, -0.83043057, 145.89427, -0.08606029, 361.74066)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy138" parent="ScenePainterInstances" unique_id=126960472 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.6411189, -0.0898697, 0.23902845, -0.06682666, 1.6515831, 0.16214295, -0.24646574, 0.1505974, -1.6355604, 18.043137, 5.157936, 296.34555)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy139" parent="ScenePainterInstances" unique_id=598105619 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.6199448, -0.080386735, 1.1405729, 0.13967289, 1.9770168, -0.059037376, -1.1348392, 0.12857643, 1.6208634, -10.262193, 2.231535, 316.3584)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy140" parent="ScenePainterInstances" unique_id=932994819 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.03599643, -0.057516534, -1.6362517, -0.10964575, 1.6330575, -0.05499213, 1.6335868, 0.10834285, -0.039746203, -38.979004, 2.1870806, 304.8931)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy141" parent="ScenePainterInstances" unique_id=205893236 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.387846, 0, -0.8199957, 0, 1.6119893, 0, 0.8199957, 0, 1.387846, -59.190765, -0.15, 408.50427)
+metadata/scene_painter_instance = true
+
+[node name="Big arch119" parent="ScenePainterInstances" unique_id=1633534829 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.3835428, 0, -1.2974567, 0, 1.3529594, 0, 1.2974569, 0, 0.3835428, -167.80771, -0.15, 400.97232)
+metadata/scene_painter_instance = true
+
+[node name="Arch132" parent="ScenePainterInstances" unique_id=1827016814 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.3600218, 0.18180722, 1.2359171, 0.19974838, 1.2612923, -0.24372658, -1.2331446, 0.2573872, 0.3213517, -106.56885, 5.47496, 298.30124)
+metadata/scene_painter_instance = true
+
+[node name="Arch133" parent="ScenePainterInstances" unique_id=178527604 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.37276354, 0.11245827, 1.6328894, 0.22926904, 1.6546026, -0.16629227, -1.6206204, 0.25994337, 0.3520602, -127.01193, 1.2005062, 332.58875)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy142" parent="ScenePainterInstances" unique_id=1998616325 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.9502677, 0.25058827, 0.576852, 0.34871104, 1.0797472, 0.10539411, -0.52340555, 0.2644103, -0.977085, -112.736496, 12.941846, 266.5823)
+metadata/scene_painter_instance = true
+
+[node name="Big arch120" parent="ScenePainterInstances" unique_id=2041084972 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.038057398, 0, 1.1982269, 0, 1.1988312, 0, -1.1982269, 0, 0.038057398, -137.26933, -0.15, 355.9266)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy143" parent="ScenePainterInstances" unique_id=1304084109 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.0581027, 0, 1.156846, 0, 1.567761, 0, -1.156846, 0, 1.0581027, -143.88841, -0.15, 418.4856)
+metadata/scene_painter_instance = true
+
+[node name="Arch134" parent="ScenePainterInstances" unique_id=1403491943 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.70438254, -0.08140942, 1.6393863, 0.20507108, 1.7743493, 1.4571289e-07, -1.6285455, 0.18821971, 0.7090714, 25.68693, 10.707216, 252.44736)
+metadata/scene_painter_instance = true
+
+[node name="Arch135" parent="ScenePainterInstances" unique_id=951264353 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.08739085, -0.02047216, 1.5832114, 0.060367435, 1.5845113, 0.01715678, -1.5821927, 0.059325147, 0.08810172, -37.03724, 0.09562448, 347.6047)
+metadata/scene_painter_instance = true
+
+[node name="Arch136" parent="ScenePainterInstances" unique_id=158937919 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.303835, -0.071065344, 1.818238, 0.16943425, 1.8342972, 0.100006156, -1.8117208, 0.18346365, -0.2955753, 34.519855, 5.361111, 302.53696)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy144" parent="ScenePainterInstances" unique_id=2071001544 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.36939114, 0.033388454, 1.4385568, 0.24516943, 1.4620243, -0.09688749, -1.4179043, 0.26149657, 0.35801876, 89.07678, 7.669134, 291.99942)
+metadata/scene_painter_instance = true
+
+[node name="Arch137" parent="ScenePainterInstances" unique_id=1032398286 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.0354047, 0.011259037, -1.4370018, -0.044870313, 1.7705393, -0.018458126, 1.4363453, 0.047194082, 1.0353013, 36.593304, 16.518757, 183.97768)
+metadata/scene_painter_instance = true
+
+[node name="Arch138" parent="ScenePainterInstances" unique_id=1729923764 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.8411281, -0.059080552, 1.4280123, 0.08439815, 1.6520122, 0.11806023, -1.4267398, 0.13255472, -0.8348944, -14.15114, 16.342594, 181.72263)
+metadata/scene_painter_instance = true
+
+[node name="Arch139" parent="ScenePainterInstances" unique_id=530023908 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.570952, 0.09025274, -0.6903413, -0.046807066, 1.6862696, 0.3269717, 0.6946408, 0.31773552, -1.5391963, 134.76219, 8.601609, 276.60123)
+metadata/scene_painter_instance = true
+
+[node name="Big arch121" parent="ScenePainterInstances" unique_id=2000968211 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.7937087, 0.2046838, -0.3789373, 0.16301382, 1.8249542, 0.21412313, 0.39864194, 0.17471908, -1.7926065, 191.56383, 7.4716887, 242.81834)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy145" parent="ScenePainterInstances" unique_id=1331880770 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.419636, 0.02927162, -0.27681866, 0.04890116, 1.4425004, -0.09825034, 0.27403298, -0.10577157, -1.4165345, 59.43283, 15.660157, 154.04227)
+metadata/scene_painter_instance = true
+
+[node name="Arch140" parent="ScenePainterInstances" unique_id=1082124993 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.1816002, -0.029305274, -0.7845605, -0.11813976, 1.408158, 0.12532817, 0.7761681, 0.1697214, -1.1753004, 59.58457, 6.547367, 297.63773)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy146" parent="ScenePainterInstances" unique_id=181462257 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.71250534, 0.02177725, -1.0062912, 0.06587326, 1.231268, -0.019995622, 1.0043689, -0.06530592, -0.71255755, 75.167366, 16.046625, 162.1183)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy147" parent="ScenePainterInstances" unique_id=526450704 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.76231, 0.26398858, -0.13092603, 0.2624024, 1.7671299, 0.031068953, 0.13407677, 0.011415996, -1.7817017, 162.3373, 14.7425, 187.31664)
+metadata/scene_painter_instance = true
+
+[node name="Big arch122" parent="ScenePainterInstances" unique_id=1535065816 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.4142274, -0.03320561, -1.1998706, -0.049659092, 1.8510318, -0.10975673, 1.1993023, 0.11580136, 1.4103527, -9.20921, 1.1069651, 333.69357)
+metadata/scene_painter_instance = true
+
+[node name="Big arch123" parent="ScenePainterInstances" unique_id=1976953657 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.08226755, -0.034501445, 1.1643335, 0.07788579, 1.1644586, 0.040008277, -1.1622378, 0.08047676, -0.079734795, 1.1638399, 16.794182, 181.45279)
+metadata/scene_painter_instance = true
+
+[node name="Arch141" parent="ScenePainterInstances" unique_id=589308284 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.4652398, -0.10955728, 1.7002456, 0.2049878, 1.7532911, 0.05688433, -1.6913952, 0.18235414, 0.4745683, 37.831627, 13.994851, 226.49696)
+metadata/scene_painter_instance = true
+
+[node name="Arch142" parent="ScenePainterInstances" unique_id=1229095965 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.61229724, 0.010929468, -1.2230448, -0.39054585, 1.2978877, -0.18392204, 1.1590651, 0.43154824, 0.58412325, -176.79482, 23.029348, 265.98734)
+metadata/scene_painter_instance = true
+
+[node name="Arch143" parent="ScenePainterInstances" unique_id=706763556 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.5607191, 1.073179, 1.0481684, 1.2840532, 0.92191654, -0.25700867, -0.7756143, 0.75042176, -1.1832438, -124.936424, 39.460705, 213.58144)
+metadata/scene_painter_instance = true
+
+[node name="Big arch124" parent="ScenePainterInstances" unique_id=1194023798 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.5545963, 0.001381556, -0.394817, -0.012594555, 1.6032964, -0.043980893, 0.39461848, 0.045727815, 1.5539746, -188.81746, -0.10187989, 360.77774)
+metadata/scene_painter_instance = true
+
+[node name="Big arch125" parent="ScenePainterInstances" unique_id=1334028951 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.10662029, 0.07802765, -1.4852122, -0.021369454, 1.4887898, 0.07974967, 1.4871069, 0.026987946, -0.10533846, -78.44105, 16.7765, 184.38179)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy148" parent="ScenePainterInstances" unique_id=937161443 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.5310299, 0.72855175, -0.7050991, 0.5095471, 0.87990856, 0.52542144, 0.8765353, -0.070130825, -0.73260677, -102.88031, 22.4075, 171.82442)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy149" parent="ScenePainterInstances" unique_id=35810122 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.20287584, -0.078007974, 1.2592041, 0.13243441, 1.2696513, 0.0573181, -1.2546479, 0.121404245, 0.20966278, -17.932531, 8.863395, 241.96861)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy150" parent="ScenePainterInstances" unique_id=936945135 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.012272201, -0.010658189, 1.3619728, -0.17750147, 1.3503996, 0.012167019, -1.3503987, -0.17759848, 0.010778106, 105.64738, 8.739968, 105.890274)
+metadata/scene_painter_instance = true
+
+[node name="Big arch126" parent="ScenePainterInstances" unique_id=1179616280 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.7627225, 0.12880774, -0.96616787, 0.21821776, 1.2182369, -0.00985465, 0.94997513, -0.17642187, -0.7734597, 47.002186, 10.871104, 100.92034)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy151" parent="ScenePainterInstances" unique_id=436398699 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.25992167, 0.031396378, 1.4389027, -0.15884118, 1.453873, -0.0030301376, -1.4304532, -0.15573688, 0.2617935, 4.8572106, 16.037098, 120.6164)
+metadata/scene_painter_instance = true
+
+[node name="Arch144" parent="ScenePainterInstances" unique_id=647522394 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.1125436, -0.21670006, -0.4354593, -0.21428011, 1.1942474, -0.046841413, 0.4366552, 0.033928823, -1.1324831, 259.29883, -0.71188706, 18.550402)
+metadata/scene_painter_instance = true
+
+[node name="Arch145" parent="ScenePainterInstances" unique_id=1631789595 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.21744855, 0.20191532, -1.2209314, -0.13906498, 1.2277976, 0.2278184, 1.2296765, 0.17455797, -0.190138, 155.84619, -2.0688295, -14.1008625)
+metadata/scene_painter_instance = true
+
+[node name="Big arch127" parent="ScenePainterInstances" unique_id=1464159538 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.4333891, -0.25139204, -1.289482, -0.1844036, 1.9280441, -0.17090032, 1.3007524, -0.003693519, -1.4451973, 237.37093, -4.0276365, 17.370724)
+metadata/scene_painter_instance = true
+
+[node name="Arch146" parent="ScenePainterInstances" unique_id=386132581 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.44836536, -0.03701429, -1.1357129, -0.0066735432, 1.2208197, -0.04242267, 1.1362962, 0.02177524, 0.44788602, 270.24942, 6.0558805, 238.4628)
+metadata/scene_painter_instance = true
+
+[node name="Arch147" parent="ScenePainterInstances" unique_id=998829842 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.657618, -0.14033793, 0.010001634, -0.14018656, 1.6574961, 0.02337742, -0.011937167, 0.022450846, -1.6633838, 270.5766, 7.2537694, 180.25098)
+metadata/scene_painter_instance = true
+
+[node name="Big arch128" parent="ScenePainterInstances" unique_id=149682848 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.37493062, -0.14470333, -1.3773438, 0.07489916, 1.4269551, -0.12952696, 1.3828975, -0.038053457, 0.3804402, 272.6573, 7.0662584, 125.82936)
+metadata/scene_painter_instance = true
+
+[node name="Big arch129" parent="ScenePainterInstances" unique_id=1298496380 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.5327427, 0.17570327, -1.8919942, -0.3416629, 1.9417824, 0.08412239, 1.8691657, 0.30485815, 0.55462587, 166.10202, 5.683179, 279.3701)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy152" parent="ScenePainterInstances" unique_id=182272993 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.53486925, 0.22978641, -1.2524016, -0.14623863, 1.360507, 0.18716642, 1.2648816, 0.060126573, 0.5512311, 160.07416, 14.685509, 202.69008)
+metadata/scene_painter_instance = true
+
+[node name="Big arch130" parent="ScenePainterInstances" unique_id=99711373 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.1898954, -0.011625051, 1.2230725, 0.07081528, 1.7028327, 0.08507942, -1.221076, 0.11008255, -1.1869068, 262.40817, 4.097666, 289.19196)
+metadata/scene_painter_instance = true
+
+[node name="Arch148" parent="ScenePainterInstances" unique_id=1321765536 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.5388042, 0.06666611, 0.265389, 0.027529012, 1.5458752, -0.22870477, -0.27224594, -0.22049795, -1.5231732, 136.22702, 15.592873, 153.07613)
+metadata/scene_painter_instance = true
+
+[node name="Big arch131" parent="ScenePainterInstances" unique_id=1257542055 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.2755777, -0.027194008, 0.44359648, 0.04167865, 1.3496301, -0.037111435, -0.4424706, 0.048732474, 1.2753277, 281.5239, 6.6670356, 225.15488)
+metadata/scene_painter_instance = true
+
+[node name="Arch149" parent="ScenePainterInstances" unique_id=788124940 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.3153064, -0.024137715, 0.5980485, -0.017858773, 1.4416854, 0.097464934, -0.5982689, -0.09610264, 1.3119123, 122.86637, 18.32011, 176.36285)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy153" parent="ScenePainterInstances" unique_id=2127195899 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-1.6784127, -0.069261834, 0.9375519, -0.00040736285, 1.9185897, 0.14100695, -0.94010675, 0.12282475, -1.6739126, 313.90033, 8.546724, -7.8579783)
+metadata/scene_painter_instance = true
+
+[node name="Arch150" parent="ScenePainterInstances" unique_id=1903548193 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.70030445, 0.048049305, -1.1247474, -0.08404791, 1.323144, 0.0041938527, 1.1226315, 0.06908621, 0.70193833, 345.122, 6.0752015, 32.339108)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy154" parent="ScenePainterInstances" unique_id=807096095 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.06374692, -0.1264022, -1.5047508, 0.019969631, 1.5058888, -0.1273438, 1.5099186, -0.025252882, -0.06184454, 272.6852, 7.276948, 136.27382)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy155" parent="ScenePainterInstances" unique_id=644144734 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.8764059, 0, 0.9912444, 0, 1.3231224, 0, -0.9912444, 0, -0.8764059, 509.49918, -0.15, -140.61752)
+metadata/scene_painter_instance = true
+
+[node name="Big arch132" parent="ScenePainterInstances" unique_id=341611165 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.29893073, 0.054345246, 1.7094215, 0.032811135, 1.7351987, -0.04942699, -1.7099704, 0.023794785, -0.2997832, 439.3545, 0.64022136, -127.928734)
+metadata/scene_painter_instance = true
+
+[node name="Big arch133" parent="ScenePainterInstances" unique_id=1150232494 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.9013538, 0.07960872, -0.29059124, 0.082368664, 1.9232777, -0.01205224, 0.289821, -0.024337282, -1.9029816, 407.36453, 1.8840854, -239.87195)
+metadata/scene_painter_instance = true
+
+[node name="Arch151" parent="ScenePainterInstances" unique_id=1090133041 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.947044, 0.18938541, 1.6174544, -0.29371208, 1.8602551, -0.04584179, -1.6017987, -0.22913185, 0.964706, 168.21642, -3.0435832, 35.4999)
+metadata/scene_painter_instance = true
+
+[node name="Big arch134" parent="ScenePainterInstances" unique_id=597890363 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.27566808, 0.044737905, -1.6664006, 0.0381164, 1.6884214, 0.051634587, 1.6665653, -0.046016414, 0.2744599, -11.461331, 10.052098, 45.88165)
+metadata/scene_painter_instance = true
+
+[node name="Arch152" parent="ScenePainterInstances" unique_id=1863796420 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.21867217, 0.030589707, -1.6784198, 0.21118778, 1.678651, 0.05810843, 1.6653612, -0.21688971, 0.21301802, 135.78754, 11.74941, 125.97552)
+metadata/scene_painter_instance = true
+
+[node name="Arch153" parent="ScenePainterInstances" unique_id=2033494159 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.7407989, 0.0027164037, 1.7694565, 0.023516832, 1.918085, -0.012790106, -1.7693022, 0.026631733, 0.7406935, -22.191317, 10.426582, 14.578603)
+metadata/scene_painter_instance = true
+
+[node name="Arch154" parent="ScenePainterInstances" unique_id=1674054497 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.7011275, -0.007600335, -1.8666645, -0.017595928, 1.9938774, -0.014727405, 1.8665972, 0.02165059, 0.70101404, -34.475056, 10.265971, 20.465567)
+metadata/scene_painter_instance = true
+
+[node name="Arch155" parent="ScenePainterInstances" unique_id=365947612 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.2987871, 0.04069367, 0.8987541, -0.023345796, 1.5793325, -0.037771866, -0.899372, 0.017769776, 1.2988752, -16.247211, 10.179398, 23.620913)
+metadata/scene_painter_instance = true
+
+[node name="Arch156" parent="ScenePainterInstances" unique_id=97456792 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.2571751, 0.033264928, -1.1453902, -0.026031941, 1.1734107, 0.039923683, 1.1455773, 0.034132194, -0.25622585, -8.471351, 10.578773, 4.0410757)
+metadata/scene_painter_instance = true
+
+[node name="Big arch135" parent="ScenePainterInstances" unique_id=1864044606 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.2795198, 0.0003603692, 0.8292463, 0.03120932, 1.5236768, 0.047493562, -0.82865894, 0.056828953, -1.2786381, -16.364983, 10.965687, -3.6712377)
+metadata/scene_painter_instance = true
+
+[node name="Arch157" parent="ScenePainterInstances" unique_id=1640210358 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.93244064, -0.04400346, -0.9693074, -0.12633324, 1.3383892, 0.06076967, 0.9620463, 0.13310422, -0.9314983, -0.34598988, 12.96584, -27.49458)
+metadata/scene_painter_instance = true
+
+[node name="Arch158" parent="ScenePainterInstances" unique_id=1968169687 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.28916997, -0.0074666287, -1.0274991, -0.06391171, 1.0652149, -0.025727428, 1.0255367, 0.068489835, 0.28811997, -7.9379797, 11.590012, -13.00316)
+metadata/scene_painter_instance = true
+
+[node name="Arch159" parent="ScenePainterInstances" unique_id=1750545632 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.8212421, -0.008555864, 0.9290861, 0.069304414, 1.2371026, -0.049867533, -0.92653704, 0.084951, 0.81977135, -12.0825815, 12.399053, -23.879625)
+metadata/scene_painter_instance = true
+
+[node name="Big arch136" parent="ScenePainterInstances" unique_id=1497619693 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.1510345, -0.030917805, -0.891662, -0.07727511, 1.4465312, -0.14991097, 0.88884497, 0.16579755, 1.1416492, 10.295029, 13.795293, -32.933872)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy156" parent="ScenePainterInstances" unique_id=1547287743 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.24908628, -0.096377835, -1.687047, -0.10842375, 1.7008514, -0.11317484, 1.6863158, 0.123594336, 0.24191758, -4.8894415, 13.535315, -36.665485)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy157" parent="ScenePainterInstances" unique_id=1403650459 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.96597093, -0.08891557, -0.85003024, -0.12683134, 1.2835004, 0.009872824, 0.84520483, 0.09098176, -0.97000426, 3.7058804, 14.487359, -44.18045)
+metadata/scene_painter_instance = true
+
+[node name="Arch160" parent="ScenePainterInstances" unique_id=1698801988 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.504678, 0.060388368, -0.38528565, 0.0013616483, 1.5364523, 0.23550056, 0.38998708, 0.22763047, -1.4873608, 58.973133, 8.650515, -0.11386986)
+metadata/scene_painter_instance = true
+
+[node name="Big arch137" parent="ScenePainterInstances" unique_id=1276969840 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.06477539, 0.042243678, 1.4197518, 0.1740011, 1.4102869, -0.04990076, -1.4096819, 0.1760169, 0.0590787, 46.984184, 8.282598, 5.141916)
+metadata/scene_painter_instance = true
+
+[node name="Big arch138" parent="ScenePainterInstances" unique_id=1158767158 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.3731836, 0.022098983, -0.6227453, -0.105338946, 1.4935519, -0.17927676, 0.6141691, 0.2067561, 1.3616099, 47.84498, 9.969759, -7.6373954)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy158" parent="ScenePainterInstances" unique_id=632956536 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.2300577, -0.0041667656, 1.2190257, 0.13989066, 1.7208179, -0.1352747, -1.2109797, 0.19455405, 1.2226038, 9.081628, 11.983542, -17.012613)
+metadata/scene_painter_instance = true
+
+[node name="Big arch139" parent="ScenePainterInstances" unique_id=250166127 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.2539185, 0.042521648, -0.20953068, 0.011998736, 1.2586354, 0.18361901, 0.21346481, 0.17903021, -1.2411302, 26.216208, 11.645192, -15.853022)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy159" parent="ScenePainterInstances" unique_id=274865335 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.6570422, -0.03745889, 1.0874261, 0.018277517, 1.2697511, 0.05478309, -1.0879174, 0.04395551, -0.655825, -44.5873, 11.169067, -18.73831)
+metadata/scene_painter_instance = true
+
+[node name="Arch161" parent="ScenePainterInstances" unique_id=1072033486 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.0346221, -0.032335926, 1.1419849, 0.0135017065, 1.5402327, 0.055844888, -1.1423627, 0.04749037, -1.0336198, -35.97651, 11.247907, -13.015913)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy160" parent="ScenePainterInstances" unique_id=1607420179 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.2253844, -0.020224003, -1.5244445, -0.027145175, 1.5407151, -0.02445319, 1.5243368, 0.030427102, 0.22496484, -44.872684, 10.921837, -6.5055485)
+metadata/scene_painter_instance = true
+
+[node name="Arch162" parent="ScenePainterInstances" unique_id=51875190 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.9501445, 0.08090921, -0.75321794, 0.11116969, 1.2100389, -0.010254621, 0.7493496, -0.07692564, -0.953528, 17.167402, 8.775641, 56.44968)
+metadata/scene_painter_instance = true
+
+[node name="Big arch140" parent="ScenePainterInstances" unique_id=1551192061 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.23714383, 0.09957104, -1.0345937, 0.04168822, 1.0612383, 0.09257983, 1.0385377, -0.019863004, -0.23995954, 15.257605, 8.387623, 44.17703)
+metadata/scene_painter_instance = true
+
+[node name="Arch163" parent="ScenePainterInstances" unique_id=753979487 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.20018843, 0.10690492, -1.8145872, 0.091022946, 1.8238577, 0.09740928, 1.8154532, -0.07965602, -0.20497681, 4.364164, 9.564856, 56.570248)
+metadata/scene_painter_instance = true
+
+[node name="Big arch141" parent="ScenePainterInstances" unique_id=676606752 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.1363752, 0.06515389, -0.58033794, -0.05005195, 1.2758663, 0.04523201, 0.581835, -0.017495804, 1.1373423, -0.6891888, 9.5335455, 40.22432)
+metadata/scene_painter_instance = true
+
+[node name="Arch164" parent="ScenePainterInstances" unique_id=1147327607 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.1411715, 0.07900954, 0.29686555, -0.07077134, 1.178938, -0.04171963, -0.29893658, 0.022507828, 1.1431423, 7.0967894, 9.021682, 31.60455)
+metadata/scene_painter_instance = true
+
+[node name="Arch165" parent="ScenePainterInstances" unique_id=179902852 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.0463319, 0.06890122, -1.148589, 0.029410895, 1.5535573, 0.06640186, 1.1502779, 0.022952747, -1.0464935, -4.2655463, 9.690832, 29.044592)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy161" parent="ScenePainterInstances" unique_id=446899558 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.9166189, 0.025889479, -0.8308691, -0.016031094, 1.2360374, 0.056199905, 0.8311178, 0.05239427, -0.91526055, -11.209573, 10.297046, 14.178105)
+metadata/scene_painter_instance = true
+
+[node name="Arch166" parent="ScenePainterInstances" unique_id=969873346 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.2175393, -0.003532105, 0.0032778457, 0.0036968044, 1.2159162, -0.06292602, -0.0030909018, 0.06293548, 1.2159173, -25.974144, 11.198445, -8.221825)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy162" parent="ScenePainterInstances" unique_id=226680925 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.9714043, -0.0453593, 0.92567265, 0.029266438, 1.3388131, 0.09631607, -0.9263212, 0.08986571, -0.9676812, -28.563211, 11.845547, -20.20625)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy163" parent="ScenePainterInstances" unique_id=981702151 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.6326486, 0.037143875, 0.86549115, 0.12302558, 1.8178846, -0.31009084, -0.8575075, 0.33152968, 1.6033607, 55.016003, 14.349549, -35.94006)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy164" parent="ScenePainterInstances" unique_id=1222371199 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.0841986, -0.008787009, 1.1430815, 0.19505467, 1.5537704, -0.17306288, -1.126351, 0.26061442, 1.0703331, 41.426598, 12.980666, -28.104216)
+metadata/scene_painter_instance = true
+
+[node name="Arch167" parent="ScenePainterInstances" unique_id=1171836059 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.12668046, -0.028241523, 1.5344849, 0.2865281, 1.5121971, 0.051485855, -1.5077609, 0.28974396, -0.11914165, 44.8406, 15.143354, -40.229366)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy165" parent="ScenePainterInstances" unique_id=1530880524 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.9766365, 0.0039753937, 0.32981524, 0.04138039, 1.9850012, -0.27192542, -0.3272332, 0.27502722, 1.9578469, 24.704258, 14.081314, -34.288647)
+metadata/scene_painter_instance = true
+
+[node name="Arch168" parent="ScenePainterInstances" unique_id=1873506399 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.7711711, -0.07476251, 0.18607475, 0.095653825, 1.7686619, -0.19986421, -0.17624867, 0.20858072, 1.7614456, 20.74175, 15.782324, -47.98956)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy166" parent="ScenePainterInstances" unique_id=1182511265 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.5844498, -0.10731706, -1.0529463, -0.12417352, 1.2014617, -0.053529914, 1.0510918, 0.08226522, -0.5918049, 6.9457264, 15.565412, -55.20061)
+metadata/scene_painter_instance = true
+
+[node name="Big arch142" parent="ScenePainterInstances" unique_id=1124728625 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(0.13593517, 0.07568914, -1.3082669, -0.090328254, 1.3126996, 0.06656005, 1.3073378, 0.082828656, 0.14063065, 46.414856, 7.027646, 18.725016)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy167" parent="ScenePainterInstances" unique_id=1150452031 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.1103616, 0.05617639, -0.16930023, -0.06054441, 1.1226989, -0.024554163, 0.16778776, 0.033357855, 1.1115106, 44.409313, 6.604409, 29.925076)
+metadata/scene_painter_instance = true
+
+[node name="Arch169" parent="ScenePainterInstances" unique_id=1011973809 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.16416346, 0.07454157, 1.1781747, 0.060164467, 1.1874377, -0.08351075, -1.1789963, 0.070974395, 0.15978749, 36.295994, 7.595943, 18.456646)
+metadata/scene_painter_instance = true
+
+[node name="Arch170" parent="ScenePainterInstances" unique_id=1488597819 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.027795574, 0.060398627, 1.1626133, 0.049033243, 1.1618519, -0.061531354, -1.1631482, 0.050421935, 0.0251889, 17.598907, 8.901338, 15.861926)
+metadata/scene_painter_instance = true
+
+[node name="Arch171" parent="ScenePainterInstances" unique_id=725317928 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.043042112, 0.07817342, 1.0915034, 0.033685304, 1.0919244, -0.07687523, -1.0937806, 0.030551882, -0.045320034, 26.644505, 8.100451, 22.09589)
+metadata/scene_painter_instance = true
+
+[node name="Arch172" parent="ScenePainterInstances" unique_id=125216507 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.09015432, 0.08700628, 1.4191135, 0.11576349, 1.4176916, -0.0795648, -1.4170575, 0.11027989, -0.09678501, 27.3347, 8.637539, 11.331265)
+metadata/scene_painter_instance = true
+
+[node name="Arch173" parent="ScenePainterInstances" unique_id=1342811045 instance=ExtResource("6_cxcur")]
+transform = Transform3D(1.68258, -0.04473772, -0.19115952, 0.03860408, 1.6926178, -0.05633724, 0.19249195, 0.051601328, 1.6822315, -54.256092, 10.676307, -10.095672)
+metadata/scene_painter_instance = true
+
+[node name="Arch174" parent="ScenePainterInstances" unique_id=491268053 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.8789919, 0.028315995, -0.9516486, -0.040174056, 1.2929568, 0.07557836, 0.9512217, 0.0807728, -0.8761943, 7.060035, 10.014399, 4.087607)
+metadata/scene_painter_instance = true
+
+[node name="Arch175" parent="ScenePainterInstances" unique_id=769737792 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.8441013, 0.092982404, 0.21823205, 0.10008907, 1.8557825, 0.05507555, -0.21506542, 0.06637327, -1.8456223, 1.3434639, 9.886743, 12.942487)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy168" parent="ScenePainterInstances" unique_id=355452666 instance=ExtResource("5_0tckm")]
+transform = Transform3D(1.347262, 0.033963393, 0.6145103, 0.016270595, 1.4764395, -0.117273286, -0.61523306, 0.11342065, 1.3425778, 0.01619932, 10.98219, -5.505741)
+metadata/scene_painter_instance = true
+
+[node name="Big arch143" parent="ScenePainterInstances" unique_id=2001471725 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.7473457, 0.0014047129, -0.915174, -0.022825062, 1.9718187, 0.046606563, 0.9148904, 0.0518766, -1.7467245, -38.620583, 10.544648, 9.050239)
+metadata/scene_painter_instance = true
+
+[node name="Arch176" parent="ScenePainterInstances" unique_id=2051894388 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.28043184, 0, 1.2335558, 0, 1.2650304, 0, -1.2335558, 0, 0.28043184, -487.47388, -0.15, -364.26047)
+metadata/scene_painter_instance = true
+
+[node name="Arch177" parent="ScenePainterInstances" unique_id=331527648 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.66967136, 0, -1.3954548, 0, 1.5478222, 0, 1.3954548, 0, -0.66967136, -476.85785, -0.15, -368.24722)
+metadata/scene_painter_instance = true
+
+[node name="Arch178" parent="ScenePainterInstances" unique_id=1355322456 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.1812154, 0, -1.4277754, 0, 1.8530548, 0, 1.4277754, 0, -1.1812154, -480.06885, -0.15, -355.73276)
+metadata/scene_painter_instance = true
+
+[node name="Big arch144" parent="ScenePainterInstances" unique_id=157588845 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-1.8250599, 0.17613144, -0.47699592, 0.1460501, 1.8839674, 0.13684756, 0.48704907, 0.09505575, -1.8284252, -63.67662, 10.482293, -121.83531)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy169" parent="ScenePainterInstances" unique_id=1675177529 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.914496, 0.05699551, 1.3923756, -0.02723404, 1.664368, -0.086016245, -1.3932755, -0.06994283, -0.91222405, -56.17011, 9.894663, -111.533714)
+metadata/scene_painter_instance = true
+
+[node name="Arch179" parent="ScenePainterInstances" unique_id=959262038 instance=ExtResource("6_cxcur")]
+transform = Transform3D(0.9226948, 0.01751469, 1.5275551, 0.042625356, 1.7835768, -0.046197344, -1.5270606, 0.06036846, 0.92170405, -52.95893, 9.746372, -121.50554)
+metadata/scene_painter_instance = true
+
+[node name="Arch180" parent="ScenePainterInstances" unique_id=1785624969 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.6833718, 0.2329106, 0.09344198, 0.24118651, 1.6766058, 0.16595666, -0.06933844, 0.17738435, -1.6912855, -70.71192, 11.940093, -130.56055)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy170" parent="ScenePainterInstances" unique_id=1686152603 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.114569545, 0.025953796, -1.1561029, -0.10465956, 1.1572279, 0.015607316, 1.1516483, 0.10258465, 0.11643107, -55.408367, 10.648954, -133.22766)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy171" parent="ScenePainterInstances" unique_id=1796201012 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.10663091, 0, 1.8704084, 0, 1.8734454, 0, -1.8704084, 0, 0.10663091, -488.31653, -0.15, -445.6319)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy172" parent="ScenePainterInstances" unique_id=1861933762 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.470513, 0, -1.5518494, 0, 1.6216099, 0, 1.5518494, 0, -0.470513, -478.90848, -0.15, -437.2433)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy173" parent="ScenePainterInstances" unique_id=2068420059 instance=ExtResource("5_0tckm")]
+transform = Transform3D(0.41396073, 0, -1.3253793, 0, 1.3885221, 0, 1.3253793, 0, 0.41396073, -469.97043, -0.15, -449.37027)
+metadata/scene_painter_instance = true
+
+[node name="Big arch145" parent="ScenePainterInstances" unique_id=344455600 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.5411592, 0.31772298, -1.1265829, 0.15234926, 1.2497158, 0.27926767, 1.1605717, -0.015901288, -0.5619704, -110.38222, 27.24344, -191.77551)
+metadata/scene_painter_instance = true
+
+[node name="Square thingy174" parent="ScenePainterInstances" unique_id=1344582004 instance=ExtResource("5_0tckm")]
+transform = Transform3D(-0.66196805, 0.26121357, -0.7548152, 0.16814461, 1.0039523, 0.19996892, 0.7808367, 0.005258302, -0.682969, -98.89236, 24.204212, -193.7644)
+metadata/scene_painter_instance = true
+
+[node name="Big arch146" parent="ScenePainterInstances" unique_id=311681859 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(1.492266, 0.47637713, 1.2146896, -0.43748644, 1.9212512, -0.21601726, -1.2292321, -0.10546415, 1.5514927, -104.798515, 25.517864, -202.13914)
+metadata/scene_painter_instance = true
+
+[node name="Big arch147" parent="ScenePainterInstances" unique_id=82225652 instance=ExtResource("4_ib8s4")]
+transform = Transform3D(-0.32693803, 0.10047804, 1.3067654, -0.2707172, 1.3125881, -0.16865616, -1.2823588, -0.30271584, -0.29755577, -141.4946, 31.198393, -206.75201)
+metadata/scene_painter_instance = true
+
+[node name="Arch181" parent="ScenePainterInstances" unique_id=632831395 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-0.15422258, 0.1645413, 1.7092913, -0.45964825, 1.6495914, -0.20026669, -1.6545314, -0.47361314, -0.103690445, -130.68527, 26.558767, -221.304)
+metadata/scene_painter_instance = true
+
+[node name="Arch182" parent="ScenePainterInstances" unique_id=34515845 instance=ExtResource("6_cxcur")]
+transform = Transform3D(-1.331381, 0.06747481, -0.077488475, 0.08585614, 1.283794, -0.35725912, 0.056444988, -0.36118212, -1.2843263, -145.054, 28.901058, -216.74261)
+metadata/scene_painter_instance = true
+
+[node name="tropical fish 3 wander" type="MultiMeshInstance3D" parent="." unique_id=958713948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.690704, 0)
+multimesh = SubResource("MultiMesh_sw8oa")
+script = ExtResource("8_1y43s")
+wander_strength = 10.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=831974603]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1161880627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.631241, 129.45686, -257.05692)
+shape = SubResource("BoxShape3D_n5003")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=1970780903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.631241, 129.45686, 258.07224)
+shape = SubResource("BoxShape3D_n5003")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" unique_id=169801644]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -259.54587, 129.45686, -2.4222412)
+shape = SubResource("BoxShape3D_n5003")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=988744876]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 257.0634, 129.45686, -2.4222412)
+shape = SubResource("BoxShape3D_n5003")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=1664642994]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.432099, 255.63925, -3.7847714)
+shape = SubResource("BoxShape3D_nhuwb")
+
+[node name="OnLooker" parent="." unique_id=1705718784 instance=ExtResource("9_1y43s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0039520264, 51.25072, -13.726528)
