@@ -1,0 +1,50 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://dvewjo747r0qu"]
+
+[ext_resource type="Shader" uid="uid://5bughoqq4daa" path="res://DO NOT TOUCH/fishswim.gdshader" id="1_75n20"]
+[ext_resource type="Texture2D" uid="uid://ddd2jx2xl0j1y" path="res://DO NOT TOUCH/particle/tropical fish/tex map 2.png" id="2_3qlwq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sbf20"]
+render_priority = 0
+shader = ExtResource("1_75n20")
+shader_parameter/texture_albedo = ExtResource("2_3qlwq")
+shader_parameter/time_scale = 1.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.2
+shader_parameter/twist = 0.3
+shader_parameter/mask_black = 0.0
+shader_parameter/mask_white = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wmeio"]
+_surfaces = [{
+"aabb": AABB(-0.5000019, -0.9184774, -3.5653472, 1.0000019, 1.8369548, 5.059341),
+"format": 34359742465,
+"index_count": 108,
+"index_data": PackedByteArray("CwAAAAYABgADAAsAAAALAAcABwALAAMABgAAAAwABwAMAAAADQADAAYAAwANAAcADAAOAAYABgAOAA0ADwAOAAwADQAOAA8ADAAHABAAEAAHAA0AEAARAAwADAARAA8ADQAIABAADwAIAA0AAQARABAADwARAAEAEgAQAAgAEAASAAEACAAPAAIAAQACAA8ACAATABIAAgATAAgAAQASAAoAEgATAAUABQATAAIABQAKABIABAACAAEAAgAEAAUACgAJAAEAAQAJAAQACQAKAAUABQAEAAkA"),
+"lods": [1.5718238, PackedByteArray("BgADAAAABwAAAAMAAgAGAAAAAwAGAAIAAwAIAAcAAgAIAAMAAQAHAAgABwABAAAACAACAAEAAAABAAIABAACAAEAAQAJAAQAAgAEAAUAAQACAAUABQAEAAkACgAJAAEACQAKAAUABQAKAAEA"), 2.3577359, PackedByteArray("AAABAAIAAwABAAAAAgADAAAAAQADAAIABAACAAEAAQACAAUAAgAEAAUABQAEAAEA")],
+"name": "lambert2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AJcVPvj2ir4wO78/AJkZPpiZGb4+qyvAAJoZvpiZGb4+qyvAApcVvvz2ij4xO78/ABKMvVYha7+mLmTAABKMvVYhaz+mLmTAAJcVvvj2ir4wO78/AAAAPwIAAD8AAAA/IAAAvwIAAD9IB7W/ABGMPVYha7+mLmTAABGMPVYhaz+mLmTA/pYVPvz2ij4xO78/AAAAPwAAAL8AAAA/IAAAvwIAAD8AAAA/IAAAvwAAAL8AAAA/IAAAvwAAAL9IB7W/AAAAPwIAAD9IB7W/AAAAPwAAAL9IB7W/AJkZPqiZGT4+qyvAAJoZvqiZGT4+qyvA")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Fish_Small_2"
+_surfaces = [{
+"aabb": AABB(-0.5000019, -0.9184774, -3.5653472, 1.0000019, 1.8369548, 5.059341),
+"attribute_data": PackedByteArray("AJoKPShGUT+Eoco+LEJJP4Shyj4sQkk/AJoKPQpwLT+cz/E+0/17P5zP8T5iuAI/AJoKPShGUT+Ut/U92VgeP/5dkj7ZWB4/nM/xPtP9ez+cz/E+YrgCPwCaCj0KcC0/lLf1PVpdYD+Ut/U92VgeP5S39T1aXWA//l2SPlpdYD/+XZI+2VgeP/5dkj5aXWA/hKHKPgV0NT+Eoco+BXQ1Pw=="),
+"format": 34359742487,
+"index_count": 108,
+"index_data": PackedByteArray("CwAAAAYABgADAAsAAAALAAcABwALAAMABgAAAAwABwAMAAAADQADAAYAAwANAAcADAAOAAYABgAOAA0ADwAOAAwADQAOAA8ADAAHABAAEAAHAA0AEAARAAwADAARAA8ADQAIABAADwAIAA0AAQARABAADwARAAEAEgAQAAgAEAASAAEACAAPAAIAAQACAA8ACAATABIAAgATAAgAAQASAAoAEgATAAUABQATAAIABQAKABIABAACAAEAAgAEAAUACgAJAAEAAQAJAAQACQAKAAUABQAEAAkA"),
+"lods": [1.5718238, PackedByteArray("BgADAAAABwAAAAMAAgAGAAAAAwAGAAIAAwAIAAcAAgAIAAMAAQAHAAgABwABAAAACAACAAEAAAABAAIABAACAAEAAQAJAAQAAgAEAAUAAQACAAUABQAEAAkACgAJAAEACQAKAAUABQAKAAEA"), 2.3577359, PackedByteArray("AAABAAIAAwABAAAAAgADAAAAAQADAAIABAACAAEAAQACAAUAAgAEAAUABQAEAAEA")],
+"material": SubResource("ShaderMaterial_sbf20"),
+"name": "lambert2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AJcVPvj2ir4wO78/AJkZPpiZGb4+qyvAAJoZvpiZGb4+qyvAApcVvvz2ij4xO78/ABKMvVYha7+mLmTAABKMvVYhaz+mLmTAAJcVvvj2ir4wO78/AAAAPwIAAD8AAAA/IAAAvwIAAD9IB7W/ABGMPVYha7+mLmTAABGMPVYhaz+mLmTA/pYVPvz2ij4xO78/AAAAPwAAAL8AAAA/IAAAvwIAAD8AAAA/IAAAvwAAAL8AAAA/IAAAvwAAAL9IB7W/AAAAPwIAAD9IB7W/AAAAPwAAAL9IB7W/AJkZPqiZGT4+qyvAAJoZvqiZGT4+qyvAhbCcVMvzkJUg2yFLnQE69d4kIUth/sQKeU9iqzMMkRW0HnROCvshC7QeirEK+950eU+cVDMMbmqpvee5Wf5GiKU7WcTq/mN4SuF0TvQE3fRK4Yqx9AQgi4WwYqvL823qqb0XRln+uPdVQue5pQG4d1VCF0alAUYIpTulO+r+nAdZxFnEFAGbh1nEpTsUAWL4INvdtJ0Bw4reJN20Yf47dQ==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wmeio")

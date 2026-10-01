@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bv4sk3i6kohxh"]
+
+[ext_resource type="ArrayMesh" uid="uid://yed3hkof2qi2" path="res://DO NOT TOUCH/particle/small fish.tres" id="1_3xm2p"]
+[ext_resource type="Script" uid="uid://mhhluh1jofk3" path="res://DO NOT TOUCH/fish_school.gd" id="2_m76g4"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_wqax2"]
+transform_format = 1
+use_custom_data = true
+mesh = ExtResource("1_3xm2p")
+
+[node name="weid fish school" type="MultiMeshInstance3D" unique_id=945258243]
+multimesh = SubResource("MultiMesh_wqax2")
+script = ExtResource("2_m76g4")

@@ -23,7 +23,15 @@
 [ext_resource type="Shader" uid="uid://5bughoqq4daa" path="res://DO NOT TOUCH/fishswim.gdshader" id="21_0dhdg"]
 [ext_resource type="ArrayMesh" uid="uid://yed3hkof2qi2" path="res://DO NOT TOUCH/particle/small fish.tres" id="21_arfae"]
 [ext_resource type="Texture2D" uid="uid://csw15usw28eme" path="res://EnvironmentalAssets/Assets1/AssetPack1A2_standardSurface1_BaseColor.png" id="22_qsm1l"]
-[ext_resource type="Script" uid="uid://mhhluh1jofk3" path="res://DO NOT TOUCH/fish_school.gd" id="24_674hc"]
+[ext_resource type="ArrayMesh" uid="uid://c8m7qgqf4iyg4" path="res://DO NOT TOUCH/particle/tropicla fish 1.tres" id="24_hhkpt"]
+[ext_resource type="ArrayMesh" uid="uid://dvewjo747r0qu" path="res://DO NOT TOUCH/particle/tropical fish 2.tres" id="24_pugai"]
+[ext_resource type="ArrayMesh" uid="uid://bo0f5sk6yfggl" path="res://DO NOT TOUCH/particle/tropicla fish 3.tres" id="24_r7dxf"]
+[ext_resource type="PackedScene" uid="uid://chbvmrlf38m5i" path="res://DO NOT TOUCH/particle/tropical_fish_3_school.tscn" id="24_ys6au"]
+[ext_resource type="PackedScene" uid="uid://bbhu17pgwfd26" path="res://DO NOT TOUCH/particle/tropical_fish_2_school.tscn" id="25_8lcxt"]
+[ext_resource type="PackedScene" uid="uid://qxg3uf3a2j01" path="res://DO NOT TOUCH/particle/tropical fish/tropical fish.fbx" id="25_ntpb0"]
+[ext_resource type="Texture2D" uid="uid://ddd2jx2xl0j1y" path="res://DO NOT TOUCH/particle/tropical fish/tex map 2.png" id="26_hhkpt"]
+[ext_resource type="PackedScene" uid="uid://bk8074ty1iys6" path="res://DO NOT TOUCH/particle/tropical_fish_1_school.tscn" id="26_v2ybh"]
+[ext_resource type="PackedScene" uid="uid://bv4sk3i6kohxh" path="res://DO NOT TOUCH/particle/weid_fish_school.tscn" id="27_112dn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -96,10 +104,41 @@ shader_parameter/twist = 0.3
 shader_parameter/mask_black = 0.0
 shader_parameter/mask_white = 1.0
 
-[sub_resource type="MultiMesh" id="MultiMesh_wqax2"]
-transform_format = 1
-use_custom_data = true
-mesh = ExtResource("21_arfae")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pugai"]
+render_priority = 0
+shader = ExtResource("21_0dhdg")
+shader_parameter/texture_albedo = ExtResource("26_hhkpt")
+shader_parameter/time_scale = 1.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.2
+shader_parameter/twist = 0.3
+shader_parameter/mask_black = 0.0
+shader_parameter/mask_white = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r7dxf"]
+render_priority = 0
+shader = ExtResource("21_0dhdg")
+shader_parameter/texture_albedo = ExtResource("26_hhkpt")
+shader_parameter/time_scale = 1.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.2
+shader_parameter/twist = 0.3
+shader_parameter/mask_black = 0.0
+shader_parameter/mask_white = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmsor"]
+render_priority = 0
+shader = ExtResource("21_0dhdg")
+shader_parameter/texture_albedo = ExtResource("26_hhkpt")
+shader_parameter/time_scale = 1.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.2
+shader_parameter/twist = 0.3
+shader_parameter/mask_black = 0.0
+shader_parameter/mask_white = 1.0
 
 [node name="World" type="Node3D" unique_id=544101125]
 
@@ -372,13 +411,31 @@ transform = Transform3D(0.10776234, 0, 0, 0, 0.10776234, 0, 0, 0, 0.10776234, 0,
 material_override = SubResource("ShaderMaterial_rnapg")
 mesh = ExtResource("21_arfae")
 
-[node name="weid fish school" type="MultiMeshInstance3D" parent="." unique_id=1885432877]
-multimesh = SubResource("MultiMesh_wqax2")
-script = ExtResource("24_674hc")
+[node name="tropical fish 3 school" parent="." unique_id=1994873159 instance=ExtResource("24_ys6au")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.449112, 0, -10.582132)
 
-[node name="weid fish school2" type="MultiMeshInstance3D" parent="." unique_id=1946947321]
-multimesh = SubResource("MultiMesh_wqax2")
-script = ExtResource("24_674hc")
+[node name="tropical fish 2 school" parent="." unique_id=985729451 instance=ExtResource("25_8lcxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01793003, 0, -5.291066)
+
+[node name="tropical fish 1 school" parent="." unique_id=1860335631 instance=ExtResource("26_v2ybh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.076279, 0, 0)
+
+[node name="weid fish school" parent="." unique_id=945258243 instance=ExtResource("27_112dn")]
+
+[node name="tropical fish" parent="." unique_id=580937181 instance=ExtResource("25_ntpb0")]
+transform = Transform3D(13.048193, 0, 0, 0, 13.048193, 0, 0, 0, 13.048193, 1.8264246, 0, -2.246057)
+
+[node name="Fish_Small_1" parent="tropical fish" index="0" unique_id=705674973]
+material_override = SubResource("ShaderMaterial_pugai")
+mesh = ExtResource("24_hhkpt")
+
+[node name="Fish_Small_2" parent="tropical fish" index="1" unique_id=800663905]
+material_override = SubResource("ShaderMaterial_r7dxf")
+mesh = ExtResource("24_pugai")
+
+[node name="Fish_Small_3" parent="tropical fish" index="2" unique_id=451956887]
+material_override = SubResource("ShaderMaterial_cmsor")
+mesh = ExtResource("24_r7dxf")
 
 [editable path="AssetPack1A2Meshes"]
 [editable path="caped ship"]
@@ -386,3 +443,4 @@ script = ExtResource("24_674hc")
 [editable path="whalefall"]
 [editable path="tropical corals"]
 [editable path="DecorSet1_Spongebob"]
+[editable path="tropical fish"]

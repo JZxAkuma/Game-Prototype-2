@@ -13,7 +13,7 @@ var directions: Array[Vector3] = []
 
 func _ready() -> void:
 	home_position = self.global_position
-	#multimesh.use_custom_data = true 
+	multimesh.use_custom_data = true 
 	multimesh.instance_count = fish_count
 	
 
@@ -27,7 +27,7 @@ func _ready() -> void:
 		directions.append(Vector3.FORWARD)
 
 		
-		#multimesh.set_instance_custom_data(i, Color(randf(), 0, 0, 0))
+		multimesh.set_instance_custom_data(i, Color(randf(), 0, 0, 0))
 
 
 func _physics_process(delta: float) -> void:

@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bvww427axpm6y"]
+
+[ext_resource type="Shader" path="res://DO NOT TOUCH/particle/tropical fish/fishswim.gdshader" id="1_8rcck"]
+[ext_resource type="Texture2D" path="res://DO NOT TOUCH/particle/tropical fish/tex map 2.png" id="2_atgfw"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8rcck")
+shader_parameter/texture_albedo = ExtResource("2_atgfw")
+shader_parameter/time_scale = 1.0
+shader_parameter/side_to_side = 0.1
+shader_parameter/pivot = 0.5
+shader_parameter/wave = 0.2
+shader_parameter/twist = 0.3
+shader_parameter/mask_black = 0.0
+shader_parameter/mask_white = 1.0

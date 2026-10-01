@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://chbvmrlf38m5i"]
+
+[ext_resource type="ArrayMesh" uid="uid://bo0f5sk6yfggl" path="res://DO NOT TOUCH/particle/tropicla fish 3.tres" id="1_u2a2p"]
+[ext_resource type="Script" uid="uid://mhhluh1jofk3" path="res://DO NOT TOUCH/fish_school.gd" id="2_s2xje"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_comv2"]
+transform_format = 1
+use_custom_data = true
+mesh = ExtResource("1_u2a2p")
+
+[node name="tropical fish 3 school" type="MultiMeshInstance3D" unique_id=1994873159]
+multimesh = SubResource("MultiMesh_comv2")
+script = ExtResource("2_s2xje")
