@@ -13,7 +13,7 @@ var directions: Array[Vector3] = []
 
 func _ready() -> void:
 	home_position = Vector3.ZERO
-	multimesh.use_custom_data = true 
+	#multimesh.use_custom_data = true 
 	multimesh.instance_count = fish_count
 	
 

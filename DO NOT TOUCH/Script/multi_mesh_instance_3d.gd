@@ -18,7 +18,7 @@ var wander_timers: Array[float] = []
 
 func _ready() -> void:
 	home_position = Vector3.ZERO
-	multimesh.use_custom_data = true
+	#multimesh.use_custom_data = true
 	multimesh.instance_count = fish_count
 
 	for i in range(fish_count):

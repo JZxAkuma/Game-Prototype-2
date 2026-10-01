@@ -9,6 +9,7 @@ signal accept_pressed(mission: Mission)
 @onready var sector_label: Label = $VBoxContainer/Sector
 @onready var accept_button: Button = $VBoxContainer/acceptbutton
 
+
 var mission: Mission
 
 

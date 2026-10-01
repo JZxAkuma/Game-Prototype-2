@@ -948,6 +948,17 @@ mesh = SubResource("ArrayMesh_8ip6a")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0h4x")
 
 [node name="MobyTrinket" parent="Sub_mesh/Node3D" unique_id=316308045 instance=ExtResource("7_mwdc5")]
+transform = Transform3D(1.0000001, 0, 7.1054274e-15, 0, 1.0000001, 0, -7.1054274e-15, 0, 1.0000001, -0.0010221412, -0.0021617413, -0.0017956495)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sub_mesh" unique_id=271177266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21210705, -0.1927883, 0.1706037)
+light_color = Color(0, 0.5145369, 0.91035986, 1)
+omni_range = 0.415
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Sub_mesh" unique_id=698852198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25758055, -0.1927883, 0.17060366)
+light_color = Color(0, 0.5145369, 0.91035986, 1)
+omni_range = 0.415
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=727832365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42409325, -7.655178)

@@ -9,10 +9,14 @@
 [ext_resource type="Environment" uid="uid://do2yni1fg8i4n" path="res://Environment Template/Tier1 environment.tres" id="6_tqwsh"]
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="7_7ejro"]
 [ext_resource type="Texture2D" uid="uid://cuxl6ll86yr6j" path="res://EnvironmentalAssets/2dSprites/ThalassophotoLogo.png" id="8_fma4u"]
+[ext_resource type="Shader" uid="uid://dddm6lop7ye38" path="res://DO NOT TOUCH/Shader/main_menu.gdshader" id="9_dll4s"]
+[ext_resource type="Shader" uid="uid://bq07ld04dchxd" path="res://DO NOT TOUCH/Shader/blur.gdshader" id="9_xrxd3"]
 [ext_resource type="PackedScene" uid="uid://bk8074ty1iys6" path="res://DO NOT TOUCH/particle/tropical_fish_1_school.tscn" id="10_tre5t"]
 [ext_resource type="PackedScene" uid="uid://bbhu17pgwfd26" path="res://DO NOT TOUCH/particle/tropical_fish_2_school.tscn" id="11_x3hnn"]
 [ext_resource type="PackedScene" uid="uid://chbvmrlf38m5i" path="res://DO NOT TOUCH/particle/tropical_fish_3_school.tscn" id="12_pkpgk"]
+[ext_resource type="ArrayMesh" uid="uid://c8m7qgqf4iyg4" path="res://DO NOT TOUCH/particle/tropicla fish 1.tres" id="13_ay1k8"]
 [ext_resource type="ArrayMesh" uid="uid://dvewjo747r0qu" path="res://DO NOT TOUCH/particle/tropical fish 2.tres" id="13_pkpgk"]
+[ext_resource type="ArrayMesh" uid="uid://bo0f5sk6yfggl" path="res://DO NOT TOUCH/particle/tropicla fish 3.tres" id="13_w67wv"]
 [ext_resource type="Script" uid="uid://nxoigd4bsral" path="res://DO NOT TOUCH/Script/multi_mesh_instance_3d.gd" id="14_ay1k8"]
 
 [sub_resource type="Gradient" id="Gradient_8dmm7"]
@@ -78,6 +82,25 @@ size = Vector2(0.04, 0.04)
 shader = ExtResource("7_7ejro")
 shader_parameter/pixel_size = 4.0
 shader_parameter/color_levels = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aygv5"]
+shader = ExtResource("9_xrxd3")
+shader_parameter/blur_radius = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dll4s"]
+shader = ExtResource("9_dll4s")
+shader_parameter/pixel_size = 15.5850006927875
+shader_parameter/color_levels = 16.0
+
+[sub_resource type="MultiMesh" id="MultiMesh_2gnrd"]
+transform_format = 1
+use_custom_data = true
+mesh = ExtResource("13_w67wv")
+
+[sub_resource type="MultiMesh" id="MultiMesh_aygv5"]
+transform_format = 1
+use_custom_data = true
+mesh = ExtResource("13_ay1k8")
 
 [sub_resource type="MultiMesh" id="MultiMesh_n5003"]
 transform_format = 1
@@ -479,6 +502,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
+[node name="blur" type="CanvasLayer" parent="." unique_id=969494206]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="blur" unique_id=1015641341]
+material = SubResource("ShaderMaterial_aygv5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=215934209]
 layer = 0
 
@@ -512,6 +547,7 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=1562516658]
+material = SubResource("ShaderMaterial_dll4s")
 custom_minimum_size = Vector2(750, 375)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -548,17 +584,27 @@ separation_distance = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.60712, 68.89401, -107.50581)
 visible = false
 fish_count = 90
-school_radius = 200.0
 
 [node name="tropical fish 3 school2" parent="." unique_id=1994873159 instance=ExtResource("12_pkpgk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.36351, 96.84651, -123.6597)
 fish_count = 90
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="." unique_id=1953825275]
+[node name="tropical fish 3 wander" type="MultiMeshInstance3D" parent="." unique_id=2086798250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.268063, 53.2222, -112.43193)
+multimesh = SubResource("MultiMesh_2gnrd")
+script = ExtResource("14_ay1k8")
+wander_strength = 10.0
+
+[node name="tropical fish 1 wander" type="MultiMeshInstance3D" parent="." unique_id=944536970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.268063, 53.2222, -112.43193)
+multimesh = SubResource("MultiMesh_aygv5")
+script = ExtResource("14_ay1k8")
+wander_strength = 10.0
+
+[node name="tropical fish 2 wander" type="MultiMeshInstance3D" parent="." unique_id=1953825275]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.268063, 53.2222, -112.43193)
 multimesh = SubResource("MultiMesh_n5003")
 script = ExtResource("14_ay1k8")
-fish_count = 90
 wander_strength = 10.0
 
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/start button" to="." method="_on_start_button_pressed"]
