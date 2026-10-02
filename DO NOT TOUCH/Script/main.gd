@@ -21,7 +21,7 @@ func _ready():
 	GameEvents.sector_selected.connect(_on_sector_selected)
 	GameEvents.surface.connect(_on_surface)
 
-func _physics_process(delta: float) -> void:
+#func _physics_process(delta: float) -> void:
 	#if Input.is_action_just_pressed("ui_cancel"):
 		#if state != states.diving:
 			#WorldChanger.goto_scene(mainmenu)
@@ -41,9 +41,8 @@ func _on_surface() -> void:
 	_surface()
 
 func _surface()->void:
-	if state == states.diving:
-		WorldChanger.goto_scene(overworld)
-		state = states.overworld
+	WorldChanger.goto_scene(overworld)
+	state = states.overworld
 		
 func _dive(sector:Node)->void:
 	var scene = sector._get_underwater_scene()

@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://dddm6lop7ye38" path="res://DO NOT TOUCH/Shader/main_menu.gdshader" id="4_767l7"]
 [ext_resource type="Texture2D" uid="uid://qd5xemtoy0ul" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Metallic.png" id="4_mwdc5"]
 [ext_resource type="Texture2D" uid="uid://c7nbwxx10dswr" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Normal.png" id="5_y7syf"]
+[ext_resource type="Script" uid="uid://cqqlckedjtiwr" path="res://DO NOT TOUCH/Script/radar.gd" id="6_767l7"]
 [ext_resource type="Texture2D" uid="uid://dojqnaertypo2" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Roughness.png" id="6_dsoe5"]
 [ext_resource type="PackedScene" uid="uid://c4vjqy42fr2ik" path="res://EnvironmentalAssets/SubmarineFinal/moby_trinket.tscn" id="7_mwdc5"]
 
@@ -905,6 +906,27 @@ text = "Retake"
 [node name="Button2" type="Button" parent="PhotoReviewUI/Control/VBoxContainer/HBoxContainer" unique_id=24706913]
 layout_mode = 2
 text = "Submit"
+
+[node name="radarUI" type="CanvasLayer" parent="." unique_id=1671196174]
+
+[node name="radar" type="Control" parent="radarUI" unique_id=919704594]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("6_767l7")
+player_path = NodePath("../..")
+
+[node name="ColorRect" type="ColorRect" parent="radarUI/radar" unique_id=879047948]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.29954746, 0.29954746, 0.29954743, 1)
 
 [node name="Sub_mesh" type="Node3D" parent="." unique_id=1357711974]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

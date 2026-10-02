@@ -18,7 +18,7 @@ var state = states.driving
 @export var turn_response: float = 4.0
 @export var pitch_limit_deg: float = 80.0
 @export var handling: float = 0.8
-#@export var overworld: PackedScene
+@export var overworld: PackedScene
 
 @onready var main_camera = $Camera3D
 @onready var viewfinder_viewport = $PhotoUI/SubViewportContainer/SubViewport
@@ -100,8 +100,8 @@ func _physics_process(delta: float) -> void:
 	
 	#if Input.is_action_just_pressed("change scene test"):
 		#WorldChanger.goto_scene("res://Underwater Template/tier_3.tscn")
-	#if Input.is_action_just_pressed("ui_cancel"):
-		#WorldChanger.goto_scene(overworld)
+	if Input.is_action_just_pressed("ui_cancel"):
+		GameEvents.emit_signal("surface")
 	_debug_display()
 	match state:
 		states.driving:
@@ -174,7 +174,7 @@ func _on_submit_pressed() -> void:
 	pending_mission = null
 	photo_review_ui.hide_review()
 
-	#WorldChanger.goto_scene(overworld)
+	GameEvents.emit_signal("surface")
 
 func _check_creatures_in_frame() -> String:
 	var creatures = get_tree().get_nodes_in_group("photographable")
