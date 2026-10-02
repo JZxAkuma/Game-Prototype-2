@@ -864,7 +864,8 @@ layout_mode = 2
 text = "W to increase throttle
 S to decrease throttle
 E to open camera
-Esc to surface"
+Esc to surface
+Mouse 1 to Take Photo"
 
 [node name="PhotoReviewUI" type="CanvasLayer" parent="." unique_id=195338775]
 
