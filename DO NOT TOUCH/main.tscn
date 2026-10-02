@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cp7hs413aydko" path="res://DO NOT TOUCH/main_menu.tscn" id="6_nir6d"]
 [ext_resource type="Resource" uid="uid://cag7etcf2klv6" path="res://Missions/mission 2.tres" id="7_l4pnx"]
 [ext_resource type="Resource" uid="uid://ko07ry50cdu4" path="res://Missions/whalefall mission.tres" id="8_ppxj5"]
+[ext_resource type="AudioStream" uid="uid://bk6hylvwej8qf" path="res://music/Game_Prototype_2_Imminent_Depth.wav" id="11_6qmul"]
 
 [node name="Main" type="Node3D" unique_id=389891087]
 script = ExtResource("1_wcydr")
@@ -29,3 +30,7 @@ script = ExtResource("1_tjysi")
 script = ExtResource("4_b73pl")
 
 [node name="Ui" type="CanvasLayer" parent="." unique_id=882385790]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=656363020]
+stream = ExtResource("11_6qmul")
+autoplay = true

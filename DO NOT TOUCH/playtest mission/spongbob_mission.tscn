@@ -12,6 +12,8 @@
 [ext_resource type="ArrayMesh" uid="uid://c8m7qgqf4iyg4" path="res://DO NOT TOUCH/particle/tropicla fish 1.tres" id="10_joysc"]
 [ext_resource type="ArrayMesh" uid="uid://dvewjo747r0qu" path="res://DO NOT TOUCH/particle/tropical fish 2.tres" id="11_pjefc"]
 [ext_resource type="PackedScene" uid="uid://bhr3dq7atplxq" path="res://Actor/spongebob/spongebob.tscn" id="12_c36l5"]
+[ext_resource type="PackedScene" uid="uid://bbhu17pgwfd26" path="res://DO NOT TOUCH/particle/tropical_fish_2_school.tscn" id="13_pjefc"]
+[ext_resource type="PackedScene" uid="uid://bk8074ty1iys6" path="res://DO NOT TOUCH/particle/tropical_fish_1_school.tscn" id="14_y5ord"]
 
 [sub_resource type="Gradient" id="Gradient_p135u"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -4427,3 +4429,9 @@ shape = SubResource("BoxShape3D_joysc")
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" unique_id=131295929]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.432099, 255.63925, -3.7847714)
 shape = SubResource("BoxShape3D_pjefc")
+
+[node name="tropical fish 2 school" parent="." unique_id=985729451 instance=ExtResource("13_pjefc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.127548, 101.37006, 0)
+
+[node name="tropical fish 1 school" parent="." unique_id=1860335631 instance=ExtResource("14_y5ord")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.53693, 101.37006, 0)
