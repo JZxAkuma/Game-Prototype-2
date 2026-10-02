@@ -59,7 +59,7 @@ light_color = Color(1, 0.56078434, 0, 1)
 omni_range = 1.9212486
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1119691803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.867134, 0, 49.845535)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 50)
 mesh = SubResource("PlaneMesh_n5003")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=635706044]
