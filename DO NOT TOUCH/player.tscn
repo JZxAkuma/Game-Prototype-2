@@ -26,6 +26,21 @@ shader = ExtResource("4_767l7")
 shader_parameter/pixel_size = 4.0
 shader_parameter/color_levels = 16.0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_p6wkf"]
+viewport_path = NodePath("Radar viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4x24i"]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = SubResource("ViewportTexture_p6wkf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_aygv5"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_4x24i")
+size = Vector2(0.15, 0.15)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mpxc"]
 resource_name = "standardSurface1"
 vertex_color_use_as_albedo = true
@@ -759,6 +774,30 @@ size = Vector2(0.04, 0.04)
 [node name="Player" type="CharacterBody3D" unique_id=1089965781]
 script = ExtResource("1_bdb3e")
 
+[node name="Radar viewport" type="SubViewport" parent="." unique_id=1331109547]
+transparent_bg = true
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="radar" type="Control" parent="Radar viewport" unique_id=1765878513]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+script = ExtResource("6_767l7")
+player_path = NodePath("../..")
+
+[node name="ColorRect" type="ColorRect" parent="Radar viewport/radar" unique_id=410240967]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=285315915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.18219519)
 shape = SubResource("SphereShape3D_aygv5")
@@ -910,27 +949,12 @@ text = "Submit"
 
 [node name="radarUI" type="CanvasLayer" parent="." unique_id=1671196174]
 
-[node name="radar" type="Control" parent="radarUI" unique_id=919704594]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-grow_vertical = 0
-script = ExtResource("6_767l7")
-player_path = NodePath("../..")
-
-[node name="ColorRect" type="ColorRect" parent="radarUI/radar" unique_id=879047948]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.29954746, 0.29954746, 0.29954743, 1)
-
 [node name="Sub_mesh" type="Node3D" parent="." unique_id=1357711974]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sub_mesh" unique_id=957203301]
+transform = Transform3D(-0.5426326, 0.19408445, -0.21892709, -1.7082053e-08, 0.6592989, 0.24206033, 0.3268685, 0.32219857, -0.36343962, 0.29592106, -0.23347083, 0.2795316)
+mesh = SubResource("QuadMesh_aygv5")
 
 [node name="polySurface1" type="MeshInstance3D" parent="Sub_mesh" unique_id=365548295]
 visible = false
@@ -1046,7 +1070,7 @@ mesh = SubResource("ArrayMesh_8ip6a")
 surface_material_override/0 = SubResource("StandardMaterial3D_m0h4x")
 
 [node name="MobyTrinket" parent="Sub_mesh/Node3D" unique_id=316308045 instance=ExtResource("7_mwdc5")]
-transform = Transform3D(1.0000001, 0, 7.1054274e-15, 0, 1.0000001, 0, -7.1054274e-15, 0, 1.0000001, -0.0010221412, -0.0021617413, -0.0017956495)
+transform = Transform3D(1.0000883, 0, 2.1316282e-14, 0, 1.0000883, 0, -2.1316282e-14, 0, 1.0000883, -0.0010221413, -0.0021617413, -0.0017956495)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sub_mesh" unique_id=271177266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21210705, -0.1927883, 0.1706037)

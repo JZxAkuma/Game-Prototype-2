@@ -155,6 +155,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.035736084, 0.46429443, -2.
 shape = SubResource("BoxShape3D_aygv5")
 
 [node name="QuestObjective" parent="." unique_id=1233120073 instance=ExtResource("3_ky8tx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.8258886)
 creature_id = "0002"
 
 [editable path="whalefall"]
