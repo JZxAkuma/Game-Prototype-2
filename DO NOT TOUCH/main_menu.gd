@@ -19,3 +19,11 @@ func _on_world_scene_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_quit_button_2_pressed() -> void:
+	_open_photos_folder()
+
+func _open_photos_folder() -> void:
+	var real_path = ProjectSettings.globalize_path(PhotoManager.PHOTOS_DIR)
+	OS.shell_open(real_path)

@@ -575,6 +575,13 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 27
 text = "Quit"
 
+[node name="quit button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=124882624]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 27
+text = "Open photo in folder"
+
 [node name="tropical fish 1 school" parent="." unique_id=1860335631 instance=ExtResource("10_tre5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.04978, 85.96336, -55.982735)
 fish_count = 90
@@ -610,3 +617,4 @@ wander_strength = 10.0
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/start button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/world scene button" to="." method="_on_world_scene_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/quit button2" to="." method="_on_quit_button_2_pressed"]
