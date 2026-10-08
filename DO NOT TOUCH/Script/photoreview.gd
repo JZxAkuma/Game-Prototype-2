@@ -3,7 +3,7 @@ extends Control
 signal retry_pressed
 signal submit_pressed
 
-@onready var photo_display: TextureRect = $VBoxContainer/TextureRect
+@onready var photo_display: TextureRect = $VBoxContainer/TextureRect2/TextureRect/TextureRect3
 @onready var retry_button: Button = $VBoxContainer/HBoxContainer/Button
 @onready var submit_button: Button = $VBoxContainer/HBoxContainer/Button2
 

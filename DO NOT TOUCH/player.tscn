@@ -1005,29 +1005,6 @@ Mouse 1 to Take Photo"
 
 [node name="PhotoReviewUI" type="CanvasLayer" parent="." unique_id=195338775]
 
-[node name="Control(ImageFrame)" type="Control" parent="PhotoReviewUI" unique_id=1747294176]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 663.0
-offset_top = 78.0
-offset_right = 1295.0
-offset_bottom = 1061.0
-
-[node name="TextureRect" type="TextureRect" parent="PhotoReviewUI/Control(ImageFrame)" unique_id=1269909670]
-custom_maximum_size = Vector2(850, 600)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -149.0
-offset_top = -7.0
-offset_right = 98.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_1x67i")
-
 [node name="Control" type="Control" parent="PhotoReviewUI" unique_id=458942144]
 layout_mode = 3
 anchors_preset = 15
@@ -1051,8 +1028,36 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="PhotoReviewUI/Control/VBoxContainer" unique_id=1177090459]
+[node name="TextureRect2" type="TextureRect" parent="PhotoReviewUI/Control/VBoxContainer" unique_id=1269909670]
+custom_maximum_size = Vector2(850, 600)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_1x67i")
+
+[node name="TextureRect" type="TextureRect" parent="PhotoReviewUI/Control/VBoxContainer/TextureRect2" unique_id=798325632]
+custom_maximum_size = Vector2(850, 600)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_087d7")
+
+[node name="TextureRect3" type="TextureRect" parent="PhotoReviewUI/Control/VBoxContainer/TextureRect2/TextureRect" unique_id=1177090459]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -313.0
+offset_top = -269.5
+offset_right = 327.0
+offset_bottom = 210.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_pkf55")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PhotoReviewUI/Control/VBoxContainer" unique_id=1963339247]
@@ -1066,29 +1071,6 @@ text = "Retake"
 [node name="Button2" type="Button" parent="PhotoReviewUI/Control/VBoxContainer/HBoxContainer" unique_id=24706913]
 layout_mode = 2
 text = "Submit"
-
-[node name="Control(ImageGrunge)" type="Control" parent="PhotoReviewUI" unique_id=1515149363]
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 3
-anchors_preset = 0
-offset_left = 663.0
-offset_top = 78.0
-offset_right = 1295.0
-offset_bottom = 1061.0
-
-[node name="TextureRect" type="TextureRect" parent="PhotoReviewUI/Control(ImageGrunge)" unique_id=798325632]
-custom_maximum_size = Vector2(850, 600)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -149.0
-offset_top = -7.0
-offset_right = 98.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("9_087d7")
 
 [node name="radarUI" type="CanvasLayer" parent="." unique_id=1671196174]
 
