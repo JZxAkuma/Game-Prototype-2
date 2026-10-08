@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://dm7oltdhhghtm" path="res://DO NOT TOUCH/sfx/401551__giocosound__sfx_car_engine_outside_rpmhigh.wav" id="17_1x67i"]
 [ext_resource type="Texture2D" uid="uid://dsjgsskjlujgq" path="res://EnvironmentalAssets/PhotoTablet/CameraTablet_standardSurface1_BaseColor.png" id="17_iyedr"]
 [ext_resource type="Texture2D" uid="uid://dy87311b5f8f0" path="res://EnvironmentalAssets/PhotoTablet/CameraTablet_standardSurface1_Roughness.png" id="18_swuw5"]
+[ext_resource type="Texture2D" uid="uid://dnxqj1wubtifq" path="res://DO NOT TOUCH/cheatsheet.png" id="19_xwruq"]
 [ext_resource type="AudioStream" uid="uid://dbdpm3h13xtbw" path="res://DO NOT TOUCH/sfx/255597__akemov__underwater-ambience.wav" id="20_087d7"]
 [ext_resource type="AudioStream" uid="uid://ckctyxd44jdkc" path="res://DO NOT TOUCH/sfx/539957__samsterbirdies__sonar-ping.wav" id="21_ue10g"]
 [ext_resource type="AudioStream" uid="uid://dwh50c5udoal4" path="res://DO NOT TOUCH/sfx/871470__kurumik__1968-praktica-super-tl-camera-shutter-03.wav" id="24_swuw5"]
@@ -931,6 +932,13 @@ shadow_mesh = SubResource("ArrayMesh_225uq")
 [sub_resource type="QuadMesh" id="QuadMesh_n5003"]
 size = Vector2(1.007, 0.755)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttwwx"]
+albedo_texture = ExtResource("19_xwruq")
+
+[sub_resource type="QuadMesh" id="QuadMesh_a4xb3"]
+material = SubResource("StandardMaterial3D_ttwwx")
+size = Vector2(0.61, 0.595)
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fu28x"]
 emission_shape_scale = Vector3(10.285, 6.535, 9.895)
 emission_shape = 3
@@ -1332,6 +1340,10 @@ mesh = SubResource("QuadMesh_n5003")
 
 [node name="Camera mount" type="Marker3D" parent="Sub_mesh" unique_id=1745428718]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.7513086e-08, 0, 0.8866464)
+
+[node name="cheatsheet" type="MeshInstance3D" parent="Sub_mesh" unique_id=2023998739]
+transform = Transform3D(0.0074266945, 0, -0.19655854, 0, 0.4211197, 0, 0.28405735, 0, 0.005139033, 0.45084137, 0, 0.2740103)
+mesh = SubResource("QuadMesh_a4xb3")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=727832365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42409325, -7.655178)

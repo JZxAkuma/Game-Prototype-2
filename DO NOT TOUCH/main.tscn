@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crnm1wsykjfox" path="res://DO NOT TOUCH/overworld.tscn" id="3_b73pl"]
 [ext_resource type="PackedScene" uid="uid://un0mhjmil311" path="res://DO NOT TOUCH/world.tscn" id="3_wt2uh"]
 [ext_resource type="Script" uid="uid://bgvobehrjm0gl" path="res://DO NOT TOUCH/Script/day_night_cycle.gd" id="4_b73pl"]
+[ext_resource type="PackedScene" uid="uid://b470n1x62ocfr" path="res://DO NOT TOUCH/handbook_menu.tscn" id="5_m0c4x"]
 [ext_resource type="PackedScene" uid="uid://cp7hs413aydko" path="res://DO NOT TOUCH/main_menu.tscn" id="6_nir6d"]
 [ext_resource type="Resource" uid="uid://cag7etcf2klv6" path="res://Missions/mission 2.tres" id="7_l4pnx"]
 [ext_resource type="Resource" uid="uid://ko07ry50cdu4" path="res://Missions/whalefall mission.tres" id="8_ppxj5"]
@@ -17,6 +18,7 @@ script = ExtResource("1_wcydr")
 overworld = ExtResource("3_b73pl")
 worldtscn = ExtResource("3_wt2uh")
 mainmenu = ExtResource("6_nir6d")
+tutorial = ExtResource("5_m0c4x")
 missions = Array[ExtResource("3_0bfyh")]([ExtResource("3_11upd"), ExtResource("7_l4pnx"), ExtResource("8_ppxj5")])
 
 [node name="World changer" type="Node" parent="." unique_id=766273552]
@@ -33,3 +35,5 @@ script = ExtResource("4_b73pl")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=656363020]
 stream = ExtResource("11_6qmul")
+volume_db = -3.649
+autoplay = true

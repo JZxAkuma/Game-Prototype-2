@@ -27,3 +27,7 @@ func _on_quit_button_2_pressed() -> void:
 func _open_photos_folder() -> void:
 	var real_path = ProjectSettings.globalize_path(PhotoManager.PHOTOS_DIR)
 	OS.shell_open(real_path)
+
+
+func _on_tutorial_pressed() -> void:
+	$"../.."._to_tutorial()

@@ -1,3 +1,67 @@
 [gd_scene format=3 uid="uid://b470n1x62ocfr"]
 
+[ext_resource type="Script" uid="uid://ja4uy4d25njq" path="res://DO NOT TOUCH/handbook_menu.gd" id="1_0tmcj"]
+[ext_resource type="Texture2D" uid="uid://dnxqj1wubtifq" path="res://DO NOT TOUCH/cheatsheet.png" id="1_h0jdh"]
+[ext_resource type="PackedScene" uid="uid://cp7hs413aydko" path="res://DO NOT TOUCH/main_menu.tscn" id="2_u2w2e"]
+[ext_resource type="FontFile" uid="uid://d1gy5ude4f2bc" path="res://UI Assets/PixelifySans-VariableFont_wght.ttf" id="3_u2w2e"]
+[ext_resource type="Texture2D" uid="uid://clhhsylm17pvw" path="res://UI Assets/ButtonUnfocused.png" id="4_r655p"]
+[ext_resource type="Texture2D" uid="uid://kb2nquogkyxc" path="res://UI Assets/ButtonFocused.png" id="5_gmat1"]
+[ext_resource type="Texture2D" uid="uid://cqmndvxktq3y3" path="res://UI Assets/ButtonHover.png" id="6_2j0up"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uckp5"]
+texture = ExtResource("4_r655p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jfj5b"]
+texture = ExtResource("5_gmat1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_he5kw"]
+texture = ExtResource("6_2j0up")
+
 [node name="Handbook menu" type="Node3D" unique_id=1944184999]
+script = ExtResource("1_0tmcj")
+main_menu = ExtResource("2_u2w2e")
+
+[node name="Control" type="Control" parent="." unique_id=1449533831]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=608593705]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -488.0
+offset_right = 1034.0
+offset_bottom = 1560.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.46021527, 0.46021527)
+texture = ExtResource("1_h0jdh")
+stretch_mode = 2
+
+[node name="tutorial" type="Button" parent="Control" unique_id=177631221 groups=["ui_buttons"]]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+offset_right = 350.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_u2w2e")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_uckp5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jfj5b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_he5kw")
+text = "Back"
+
+[connection signal="pressed" from="Control/tutorial" to="." method="_on_tutorial_pressed"]

@@ -605,18 +605,6 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_s53v0")
 theme_override_styles/hover = SubResource("StyleBoxTexture_3l610")
 text = "To World.tscn"
 
-[node name="quit button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=479138284 groups=["ui_buttons"]]
-custom_minimum_size = Vector2(350, 70)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("12_mxm58")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_ufvhm")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_s53v0")
-theme_override_styles/hover = SubResource("StyleBoxTexture_3l610")
-text = "Quit"
-
 [node name="quit button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=124882624 groups=["ui_buttons"]]
 custom_minimum_size = Vector2(350, 70)
 layout_mode = 2
@@ -628,6 +616,30 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ufvhm")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_s53v0")
 theme_override_styles/hover = SubResource("StyleBoxTexture_3l610")
 text = "Open photo folder"
+
+[node name="tutorial" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=1730168683 groups=["ui_buttons"]]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("12_mxm58")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_ufvhm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s53v0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3l610")
+text = "Tutorial"
+
+[node name="quit button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=479138284 groups=["ui_buttons"]]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("12_mxm58")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_ufvhm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s53v0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3l610")
+text = "Quit"
 
 [node name="UIClickSound" type="AudioStreamPlayer3D" parent="CanvasLayer/Control" unique_id=110728314]
 stream = ExtResource("16_s53v0")
@@ -676,5 +688,6 @@ autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/start button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/world scene button" to="." method="_on_world_scene_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/quit button2" to="." method="_on_quit_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]

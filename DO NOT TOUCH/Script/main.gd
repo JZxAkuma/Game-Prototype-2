@@ -3,7 +3,7 @@ extends Node3D
 @export var overworld : PackedScene
 @export var worldtscn : PackedScene
 @export var mainmenu : PackedScene
-
+@export var tutorial : PackedScene
 @export var missions:Array[Mission]
 
 enum states{
@@ -56,3 +56,7 @@ func _to_overworld() -> void:
 
 func _to_wrld_scn() -> void:
 	WorldChanger.goto_scene(worldtscn)
+
+func _to_tutorial() -> void:
+	WorldChanger.goto_scene(tutorial)
+	
