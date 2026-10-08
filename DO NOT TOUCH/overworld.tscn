@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cmtdntuvuddi4" path="res://DO NOT TOUCH/mission_card.tscn" id="2_cxe7l"]
 [ext_resource type="PackedScene" uid="uid://cp7hs413aydko" path="res://DO NOT TOUCH/main_menu.tscn" id="3_7og18"]
 [ext_resource type="PackedScene" uid="uid://ccjihror4sq8y" path="res://DO NOT TOUCH/island.tscn" id="4_rwgfh"]
+[ext_resource type="Shader" uid="uid://dbeuok0uhhyy0" path="res://DO NOT TOUCH/Shader/overworldwater.gdshader" id="5_cxe7l"]
 [ext_resource type="Script" uid="uid://bg2qasgq82kfk" path="res://DO NOT TOUCH/Script/overworld_ui.gd" id="5_r1dg4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jt3qg"]
@@ -17,8 +18,21 @@ size = Vector3(0.5, 0.5, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_aygv5"]
 size = Vector3(1, 1, 1.9931641)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a7q5d"]
+render_priority = 0
+shader = ExtResource("5_cxe7l")
+shader_parameter/water_color = Color(0.05736751, 0.4314936, 0.5873522, 1)
+shader_parameter/normal_speed = 0.025
+shader_parameter/normal_tiling = 2.0
+shader_parameter/wave_height = 0.4
+shader_parameter/wave_length = 8.0
+shader_parameter/wave_speed = 1.0
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_n5003"]
+material = SubResource("ShaderMaterial_a7q5d")
 size = Vector2(100, 100)
+subdivide_width = 50
+subdivide_depth = 50
 
 [sub_resource type="Environment" id="Environment_jt3qg"]
 background_color = Color(0.63229096, 0.75375175, 1, 1)
