@@ -10,9 +10,11 @@
 [ext_resource type="Shader" uid="uid://dddm6lop7ye38" path="res://DO NOT TOUCH/Shader/main_menu.gdshader" id="4_767l7"]
 [ext_resource type="Texture2D" uid="uid://qd5xemtoy0ul" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Metallic.png" id="4_mwdc5"]
 [ext_resource type="Texture2D" uid="uid://c7nbwxx10dswr" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Normal.png" id="5_y7syf"]
+[ext_resource type="Texture2D" uid="uid://bujpy3466drrh" path="res://UI Assets/PhotoUIBG.png" id="6_1x67i"]
 [ext_resource type="Script" uid="uid://cqqlckedjtiwr" path="res://DO NOT TOUCH/Script/radar.gd" id="6_767l7"]
 [ext_resource type="Texture2D" uid="uid://dojqnaertypo2" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Roughness.png" id="6_dsoe5"]
 [ext_resource type="PackedScene" uid="uid://c4vjqy42fr2ik" path="res://EnvironmentalAssets/SubmarineFinal/moby_trinket.tscn" id="7_mwdc5"]
+[ext_resource type="Texture2D" uid="uid://ftqqiwbdshwe" path="res://UI Assets/PhotoUIOverlay.png" id="9_087d7"]
 [ext_resource type="Material" uid="uid://dlenw5mkx2d1u" path="res://DO NOT TOUCH/throttle lever tex/throttle lever.tres" id="14_u7gwp"]
 [ext_resource type="AudioStream" uid="uid://db0iv612nloxs" path="res://DO NOT TOUCH/sfx/274906__hantorio__mercedes_180d_636_low_rpm_loop.wav" id="15_rxjv1"]
 [ext_resource type="AudioStream" uid="uid://chf2b1qulgcn3" path="res://DO NOT TOUCH/sfx/401555__giocosound__sfx_car_engine_outside_rpmmed.wav" id="16_vxse6"]
@@ -1003,6 +1005,29 @@ Mouse 1 to Take Photo"
 
 [node name="PhotoReviewUI" type="CanvasLayer" parent="." unique_id=195338775]
 
+[node name="Control(ImageFrame)" type="Control" parent="PhotoReviewUI" unique_id=1747294176]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 663.0
+offset_top = 78.0
+offset_right = 1295.0
+offset_bottom = 1061.0
+
+[node name="TextureRect" type="TextureRect" parent="PhotoReviewUI/Control(ImageFrame)" unique_id=1269909670]
+custom_maximum_size = Vector2(850, 600)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -7.0
+offset_right = 98.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_1x67i")
+
 [node name="Control" type="Control" parent="PhotoReviewUI" unique_id=458942144]
 layout_mode = 3
 anchors_preset = 15
@@ -1041,6 +1066,29 @@ text = "Retake"
 [node name="Button2" type="Button" parent="PhotoReviewUI/Control/VBoxContainer/HBoxContainer" unique_id=24706913]
 layout_mode = 2
 text = "Submit"
+
+[node name="Control(ImageGrunge)" type="Control" parent="PhotoReviewUI" unique_id=1515149363]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 663.0
+offset_top = 78.0
+offset_right = 1295.0
+offset_bottom = 1061.0
+
+[node name="TextureRect" type="TextureRect" parent="PhotoReviewUI/Control(ImageGrunge)" unique_id=798325632]
+custom_maximum_size = Vector2(850, 600)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -7.0
+offset_right = 98.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_087d7")
 
 [node name="radarUI" type="CanvasLayer" parent="." unique_id=1671196174]
 
