@@ -1,8 +1,6 @@
 extends Node3D
 
 @onready var sun = $DirectionalLight3D
-@onready var player_light = $"Player Boat/OmniLight3D"
-@onready var player_boat = $"Player Boat"
 var day_night_cycle: Node
 
 @onready var camera = $Camera3D
@@ -63,7 +61,6 @@ func _process(delta: float) -> void:
 func _on_time_changed(hour: float) -> void:
 	_update_sun_rotation(hour)
 	_update_sun_appearance(hour)
-	_update_player_light(hour)
 
 
 func _update_sun_rotation(hour: float) -> void:
@@ -100,9 +97,6 @@ func _update_sun_appearance(hour: float) -> void:
 	sun.light_color = _get_sun_color(hour)
 
 
-func _update_player_light(hour: float) -> void:
-	var is_night = hour < 6.0 or hour >= 19.0
-	player_light.visible = is_night
 
 func _focus(target:Area3D,marker:Marker3D,sector:String,depth:String) -> void:
 	if !target:

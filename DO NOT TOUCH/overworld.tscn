@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://crnm1wsykjfox"]
 
-[ext_resource type="Script" uid="uid://51mbsxxsg40p" path="res://DO NOT TOUCH/Script/player_boat.gd" id="1_4v3sy"]
 [ext_resource type="Script" uid="uid://cx0o2sesi3fh2" path="res://DO NOT TOUCH/Script/overworld.gd" id="1_by16b"]
 [ext_resource type="PackedScene" uid="uid://cmtdntuvuddi4" path="res://DO NOT TOUCH/mission_card.tscn" id="2_cxe7l"]
 [ext_resource type="PackedScene" uid="uid://cp7hs413aydko" path="res://DO NOT TOUCH/main_menu.tscn" id="3_7og18"]
@@ -9,16 +8,7 @@
 [ext_resource type="Script" uid="uid://bg2qasgq82kfk" path="res://DO NOT TOUCH/Script/overworld_ui.gd" id="5_r1dg4"]
 [ext_resource type="Texture2D" uid="uid://dyv15fg2nlo8r" path="res://EnvironmentalAssets/Water/Layer1/TileMap_standardSurface1_Normal.png" id="6_qiusu"]
 [ext_resource type="Texture2D" uid="uid://blgjcjdgagt8q" path="res://EnvironmentalAssets/Water/Layer3/TileMap_standardSurface1_Normal.png" id="7_dgnga"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jt3qg"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_aygv5"]
-material = SubResource("StandardMaterial3D_jt3qg")
-size = Vector3(0.5, 0.5, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_aygv5"]
-size = Vector3(1, 1, 1.9931641)
+[ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="9_dgnga"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a7q5d"]
 render_priority = 0
@@ -32,7 +22,7 @@ shader_parameter/normal_2_scale = 7.75200036496012
 shader_parameter/normal_1_speed = 0.025
 shader_parameter/normal_2_speed = 0.018
 shader_parameter/wave_height = 1.0
-shader_parameter/wave_scale = 11.189000528217619
+shader_parameter/wave_scale = 11.18900052821762
 shader_parameter/wave_speed = 1.0
 shader_parameter/roughness = 0.0
 shader_parameter/specular = 1.0
@@ -53,11 +43,10 @@ glow_bloom = 0.1
 fog_enabled = true
 fog_light_color = Color(0.20798859, 0.5911284, 0.7838838, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5003"]
-albedo_color = Color(1, 0, 1, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_aygv5"]
-material = SubResource("StandardMaterial3D_n5003")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3qym"]
+shader = ExtResource("9_dgnga")
+shader_parameter/pixel_size = 4.0
+shader_parameter/color_levels = 16.0
 
 [node name="Overworld" type="Node3D" unique_id=24951533]
 script = ExtResource("1_by16b")
@@ -67,22 +56,6 @@ main_menu = ExtResource("3_7og18")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=777651671]
 transform = Transform3D(1, 0, 0, 0, 0.24704406, 0.9690043, 0, -0.9690043, 0.24704406, 51.614113, 82.38916, 75.63558)
 fov = 70.0
-
-[node name="Player Boat" type="CharacterBody3D" parent="." unique_id=677552127]
-script = ExtResource("1_4v3sy")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player Boat" unique_id=12109153]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0025634766)
-mesh = SubResource("BoxMesh_aygv5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player Boat" unique_id=613612362]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0014648438)
-shape = SubResource("BoxShape3D_aygv5")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Player Boat" unique_id=1171193604]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76518583, 0)
-light_color = Color(1, 0.56078434, 0, 1)
-omni_range = 1.9212486
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1119691803]
 transform = Transform3D(3.8706224, 0, 0, 0, 1, 0, 0, 0, 1.7915721, 50, 0, 50)
@@ -101,10 +74,6 @@ light_angular_distance = 0.5
 light_specular = 16.0
 shadow_enabled = true
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1145930764]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5235, 7.6293945e-06, 41.960712)
-mesh = SubResource("SphereMesh_aygv5")
-
 [node name="Island" parent="." unique_id=150471320 instance=ExtResource("4_rwgfh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.289194, 0, 19.12141)
 island_name = "Island 1"
@@ -116,6 +85,18 @@ island_name = "Island 2"
 [node name="Island3" parent="." unique_id=1374050627 instance=ExtResource("4_rwgfh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.675621, 0, 79.374626)
 island_name = "Island 3"
+
+[node name="PixelShader" type="CanvasLayer" parent="." unique_id=323853251]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="PixelShader" unique_id=1216260626]
+material = SubResource("ShaderMaterial_m3qym")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=906038561]
 script = ExtResource("5_r1dg4")
