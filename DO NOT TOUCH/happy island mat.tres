@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dfy8nctl6qkfl"]
+
+[ext_resource type="Texture2D" uid="uid://cvjjdu54bhhf4" path="res://EnvironmentalAssets/Islands/Islands_standardSurface1_BaseColor.png" id="1_nj2dg"]
+[ext_resource type="Texture2D" uid="uid://bso13mxxyb68j" path="res://EnvironmentalAssets/Islands/Islands_standardSurface1_Normal.png" id="2_vk7uj"]
+[ext_resource type="Texture2D" uid="uid://dqmq3kgtmk716" path="res://EnvironmentalAssets/Islands/Islands_standardSurface1_Roughness.png" id="3_18k8a"]
+
+[resource]
+albedo_texture = ExtResource("1_nj2dg")
+roughness_texture = ExtResource("3_18k8a")
+normal_enabled = true
+normal_texture = ExtResource("2_vk7uj")
