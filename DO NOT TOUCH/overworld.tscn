@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dyv15fg2nlo8r" path="res://EnvironmentalAssets/Water/Layer1/TileMap_standardSurface1_Normal.png" id="6_qiusu"]
 [ext_resource type="Texture2D" uid="uid://blgjcjdgagt8q" path="res://EnvironmentalAssets/Water/Layer3/TileMap_standardSurface1_Normal.png" id="7_dgnga"]
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="9_dgnga"]
+[ext_resource type="Shader" uid="uid://b8efu2xu77cn0" path="res://EnvironmentalAssets/WaterRipples.gdshader" id="10_m3qym"]
+[ext_resource type="Texture2D" uid="uid://bjfh7qba7cqx2" path="res://EnvironmentalAssets/2dSprites/CloudScroller.png" id="11_tweyt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a7q5d"]
 render_priority = 0
@@ -47,6 +49,15 @@ fog_light_color = Color(0.20798859, 0.5911284, 0.7838838, 1)
 shader = ExtResource("9_dgnga")
 shader_parameter/pixel_size = 4.0
 shader_parameter/color_levels = 16.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1w13i"]
+size = Vector2(300, 100)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jgps"]
+render_priority = 0
+shader = ExtResource("10_m3qym")
+shader_parameter/water_texture = ExtResource("11_tweyt")
+shader_parameter/scroll_speed = 0.03
 
 [node name="Overworld" type="Node3D" unique_id=24951533]
 script = ExtResource("1_by16b")
@@ -159,6 +170,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=70098191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.7030195, 51.61925, 25.925896, 62.4168)
+mesh = SubResource("PlaneMesh_1w13i")
+surface_material_override/0 = SubResource("ShaderMaterial_6jgps")
 
 [connection signal="pressed" from="ui/Control/VBoxContainer/Back Button" to="ui" method="_on_back_button_pressed"]
 [connection signal="pressed" from="ui/Control/VBoxContainer/Dive Button" to="ui" method="_on_dive_button_pressed"]
