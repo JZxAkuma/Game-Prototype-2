@@ -29,6 +29,7 @@ var state = states.driving
 
 @onready var sub_mesh = $Sub_mesh
 @onready var photo_review_ui = $PhotoReviewUI/Control
+@onready var latest_photo_screen = $"Latest photo"
 
 var freelook_sens = 0.005
 
@@ -156,6 +157,8 @@ func _finalize_photo(img: Image, objective_id: String) -> void:
 	var entry = PhotoManager.save_photo(img, objective_id)
 	var photo_tex = ImageTexture.create_from_image(img)
 	photos.append({"texture": photo_tex, "objective_id": objective_id, "filename": entry["filename"]})
+	
+	latest_photo_screen._load_latest_photo()
 
 
 func _on_retry_pressed() -> void:
