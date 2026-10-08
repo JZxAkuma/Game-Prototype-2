@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dlenw5mkx2d1u"]
+
+[ext_resource type="Texture2D" uid="uid://cv1dlviru8mlo" path="res://DO NOT TOUCH/throttle lever tex/throttle input_openPBR_shader1_BaseColor.png" id="1_k8qwa"]
+
+[resource]
+albedo_texture = ExtResource("1_k8qwa")

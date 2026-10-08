@@ -33,6 +33,8 @@ var state = states.driving
 
 @onready var steering_wheel: Node3D = $"Sub_mesh/Node3D/steering wheel/SteeringWheelTop"
 
+@onready var throttle_lever = $"Sub_mesh/throttle input/lever"
+
 var freelook_sens = 0.005
 
 var freelook_active = false
@@ -271,6 +273,8 @@ func _throttle_input_handler() -> void:
 	throttle_power = 100 * (mnk_throttle_step/mnk_max_throttle_step)
 	throttle_power = clamp(throttle_power, -100, 100)
 
+	throttle_lever.position.z = remap(mnk_throttle_step, -1, mnk_max_throttle_step, 0.009, -0.02)
+	
 func _propeller(delta: float) -> void:
 	var forward = -global_transform.basis.z
 	
