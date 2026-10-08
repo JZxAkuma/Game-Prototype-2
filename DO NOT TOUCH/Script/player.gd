@@ -21,8 +21,8 @@ var state = states.driving
 @export var overworld: PackedScene
 
 @onready var main_camera = $Camera3D
-@onready var viewfinder_viewport = $PhotoUI/SubViewportContainer/SubViewport
-@onready var viewfinder_camera = $PhotoUI/SubViewportContainer/SubViewport/ViewFinderCamera
+@onready var viewfinder_viewport = $SubViewport
+@onready var viewfinder_camera = $SubViewport/ViewFinderCamera
 @onready var photo_ui = $PhotoUI
 @onready var gallery_ui = $GalleryUI
 @onready var gallery_grid = $GalleryUI/PhotoGrid
@@ -32,8 +32,12 @@ var state = states.driving
 @onready var latest_photo_screen = $"Latest photo"
 
 @onready var steering_wheel: Node3D = $"Sub_mesh/Node3D/steering wheel/SteeringWheelTop"
+@onready var camera_mount: Marker3D = $"Sub_mesh/Camera mount"
 
 @onready var throttle_lever = $"Sub_mesh/throttle input/lever"
+
+@onready var tablet: Node3D = $Sub_mesh/tablet
+@onready var tablet_screen = $Sub_mesh/tablet/MeshInstance3D
 
 var freelook_sens = 0.005
 
@@ -78,14 +82,28 @@ var pending_mission: Mission = null
 @onready var mid_player = $Audio/Mid
 @onready var high_player = $Audio/High
 
+@export var tablet_hidden_offset: Vector3 = Vector3(0, -0.3, 0) 
+@export var tablet_tween_time: float = 0.35
+
+var tablet_shown_pos: Vector3
+var tablet_tween: Tween
+
 var engine_rpm: float = 0.0
 
 func _debug_display():
 	$"Debug/Debug Display/VBoxContainer/Speed".text = "Velocity: " + str(velocity) + " target: "
 	$"Debug/Debug Display/VBoxContainer/Throttle".text = "Throttle Power: " + str(throttle_power) + "\n" + "fps: " + str(Engine.get_frames_per_second()) + "\n" + "Global Pos: " + str(global_position) 
 
+@export var screen_uv_scale: Vector3 = Vector3(1, 1, 1)
+@export var screen_uv_offset: Vector3 = Vector3(0, 0, 0)
+
+@onready var click_sound = $Audio/Click
 
 func _ready() -> void:
+	_setup_screen_material()
+	tablet_shown_pos = tablet.position 
+	tablet.position = tablet_shown_pos + tablet_hidden_offset
+	tablet.hide()
 	for p in [idle_player, mid_player, high_player]:
 		if not p.playing:
 			p.play()
@@ -132,6 +150,22 @@ func _physics_process(delta: float) -> void:
 			_throttle_input_handler()
 			_propeller(delta)
 
+func _setup_screen_material() -> void:
+	var mat = StandardMaterial3D.new()
+	mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	mat.albedo_texture = viewfinder_viewport.get_texture()
+	tablet_screen.material_override = mat
+
+func _fit_viewport_to_screen() -> void:
+	var s = tablet_screen.mesh.get_aabb().size
+	var dims = [s.x, s.y, s.z]
+	dims.sort()                   
+	var ratio = dims[2] / dims[1]    
+	var height = 480
+	viewfinder_viewport.size = Vector2i(int(height * ratio), height)
+
+
+
 func _update_engine_sound(delta: float) -> void:
 	var target = abs(throttle_power) / 100.0
 	engine_rpm = lerp(engine_rpm, target, 1.0 - exp(-engine_response * delta))
@@ -155,7 +189,7 @@ func _camera_control():
 		main_camera.rotation.x = freelook_pitch
 		
 	if camera_equipped:
-		viewfinder_camera.global_transform = main_camera.global_transform
+		viewfinder_camera.global_transform = camera_mount.global_transform
 	if Input.is_action_just_pressed("camera equip"):
 		_toggle_camera()
 	if Input.is_action_just_pressed("take picture") and camera_equipped:
@@ -165,9 +199,26 @@ func _camera_control():
 
 func _toggle_camera() -> void:
 	camera_equipped = !camera_equipped
-	photo_ui.visible = camera_equipped
 
+	if tablet_tween:
+		tablet_tween.kill() 
+	tablet_tween = create_tween()
+	tablet_tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	if camera_equipped:
+		tablet.show()
+		tablet_tween.tween_property(tablet, "position", tablet_shown_pos, tablet_tween_time)
+	else:
+		tablet_tween.tween_property(tablet, "position", tablet_shown_pos + tablet_hidden_offset, tablet_tween_time)
+		tablet_tween.tween_callback(tablet.hide)   
+	viewfinder_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS if camera_equipped else SubViewport.UPDATE_DISABLED
+	
 func _take_picture() -> void:
+	if pending_photo != null:
+		return 
+
+	click_sound.play()   
+
 	var img: Image = viewfinder_viewport.get_texture().get_image()
 	var captured_id = _check_creatures_in_frame()
 
@@ -192,7 +243,6 @@ func _finalize_photo(img: Image, objective_id: String) -> void:
 	var entry = PhotoManager.save_photo(img, objective_id)
 	var photo_tex = ImageTexture.create_from_image(img)
 	photos.append({"texture": photo_tex, "objective_id": objective_id, "filename": entry["filename"]})
-	
 	latest_photo_screen._load_latest_photo()
 
 

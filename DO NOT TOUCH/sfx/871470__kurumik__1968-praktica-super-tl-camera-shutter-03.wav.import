@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dwh50c5udoal4"
+path="res://.godot/imported/871470__kurumik__1968-praktica-super-tl-camera-shutter-03.wav-e60c85443ba62c614ac2b667e1f1d1ae.sample"
+
+[deps]
+
+source_file="res://DO NOT TOUCH/sfx/871470__kurumik__1968-praktica-super-tl-camera-shutter-03.wav"
+dest_files=["res://.godot/imported/871470__kurumik__1968-praktica-super-tl-camera-shutter-03.wav-e60c85443ba62c614ac2b667e1f1d1ae.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

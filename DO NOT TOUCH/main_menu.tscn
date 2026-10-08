@@ -668,7 +668,6 @@ wander_strength = 10.0
 [node name="MenuThemeFreesound" type="AudioStreamPlayer" parent="." unique_id=889533360]
 stream = ExtResource("25_dev3l")
 volume_db = -3.367
-autoplay = true
 
 [node name="SeaGurgle" type="AudioStreamPlayer" parent="." unique_id=1203966439]
 stream = ExtResource("23_3l610")
