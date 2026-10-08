@@ -11,6 +11,7 @@
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="9_dgnga"]
 [ext_resource type="Shader" uid="uid://b8efu2xu77cn0" path="res://EnvironmentalAssets/WaterRipples.gdshader" id="10_m3qym"]
 [ext_resource type="Texture2D" uid="uid://bjfh7qba7cqx2" path="res://EnvironmentalAssets/2dSprites/CloudScroller.png" id="11_tweyt"]
+[ext_resource type="AudioStream" uid="uid://jmniqbd7euy0" path="res://DO NOT TOUCH/sfx/578524__samsterbirdies__calm-ocean-waves.mp3" id="12_tweyt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a7q5d"]
 render_priority = 0
@@ -175,6 +176,11 @@ mouse_filter = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.7030195, 51.61925, 25.925896, 62.4168)
 mesh = SubResource("PlaneMesh_1w13i")
 surface_material_override/0 = SubResource("ShaderMaterial_6jgps")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1676511785]
+stream = ExtResource("12_tweyt")
+volume_db = 5.0
+autoplay = true
 
 [connection signal="pressed" from="ui/Control/VBoxContainer/Back Button" to="ui" method="_on_back_button_pressed"]
 [connection signal="pressed" from="ui/Control/VBoxContainer/Dive Button" to="ui" method="_on_dive_button_pressed"]

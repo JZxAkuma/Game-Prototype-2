@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jmniqbd7euy0"
+path="res://.godot/imported/578524__samsterbirdies__calm-ocean-waves.mp3-b7caf03a31630879a9ebf528f604d5f7.mp3str"
+
+[deps]
+
+source_file="res://DO NOT TOUCH/sfx/578524__samsterbirdies__calm-ocean-waves.mp3"
+dest_files=["res://.godot/imported/578524__samsterbirdies__calm-ocean-waves.mp3-b7caf03a31630879a9ebf528f604d5f7.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

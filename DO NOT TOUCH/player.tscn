@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://db0iv612nloxs" path="res://DO NOT TOUCH/sfx/274906__hantorio__mercedes_180d_636_low_rpm_loop.wav" id="15_rxjv1"]
 [ext_resource type="AudioStream" uid="uid://chf2b1qulgcn3" path="res://DO NOT TOUCH/sfx/401555__giocosound__sfx_car_engine_outside_rpmmed.wav" id="16_vxse6"]
 [ext_resource type="AudioStream" uid="uid://dm7oltdhhghtm" path="res://DO NOT TOUCH/sfx/401551__giocosound__sfx_car_engine_outside_rpmhigh.wav" id="17_1x67i"]
+[ext_resource type="AudioStream" uid="uid://dbdpm3h13xtbw" path="res://DO NOT TOUCH/sfx/255597__akemov__underwater-ambience.wav" id="20_087d7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aygv5"]
 radius = 1.056446
@@ -1257,3 +1258,8 @@ bus = &"Engine"
 [node name="High" type="AudioStreamPlayer" parent="Audio" unique_id=16683076]
 stream = ExtResource("17_1x67i")
 bus = &"Engine"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=492623498]
+stream = ExtResource("20_087d7")
+volume_db = 35.419
+autoplay = true
