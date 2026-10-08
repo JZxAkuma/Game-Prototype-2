@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://bk8074ty1iys6" path="res://DO NOT TOUCH/particle/tropical_fish_1_school.tscn" id="26_v2ybh"]
 [ext_resource type="PackedScene" uid="uid://bv4sk3i6kohxh" path="res://DO NOT TOUCH/particle/weid_fish_school.tscn" id="27_112dn"]
 [ext_resource type="PackedScene" uid="uid://dofiksymauko3" path="res://EnvironmentalAssets/Islands/islands.tscn" id="33_8lcxt"]
+[ext_resource type="PackedScene" uid="uid://dbygi2oumbp0q" path="res://EnvironmentalAssets/PhotoTablet/CameraTablet.fbx" id="34_v2ybh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sxw3t"]
 albedo_color = Color(1, 0, 0, 1)
@@ -440,6 +441,9 @@ mesh = ExtResource("24_r7dxf")
 
 [node name="Islands" parent="." unique_id=1468409568 instance=ExtResource("33_8lcxt")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.2192135, -22.640015, -5.08955)
+
+[node name="CameraTablet" parent="." unique_id=1964670983 instance=ExtResource("34_v2ybh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20532608, -2.829739, 3.4673061)
 
 [editable path="AssetPack1A2Meshes"]
 [editable path="caped ship"]
