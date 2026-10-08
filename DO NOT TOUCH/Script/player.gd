@@ -31,6 +31,8 @@ var state = states.driving
 @onready var photo_review_ui = $PhotoReviewUI/Control
 @onready var latest_photo_screen = $"Latest photo"
 
+@onready var steering_wheel: Node3D = $"Sub_mesh/Node3D/steering wheel/SteeringWheelTop"
+
 var freelook_sens = 0.005
 
 var freelook_active = false
@@ -235,7 +237,10 @@ func _update_stick() -> void:
 		var rescaled_mag = (mag - deadzone) / (1.0 - deadzone)
 		rescaled_mag = clamp(rescaled_mag, 0.0, 1.0)
 		stick_input = raw.normalized() * rescaled_mag
-
+	
+	steering_wheel.rotation.y = -(stick_input.x * 1.5)
+	steering_wheel.position.y = stick_input.y * 0.1
+	
 func _sub_pitch_yaw(delta: float) -> void:
 	var speed_fraction = clamp(velocity.length() / max_speed, 0.0, 1.0)
 	var turn_penalty = clamp(speed_fraction * handling, 0.0, 1.0)
