@@ -13,11 +13,15 @@
 [ext_resource type="Shader" uid="uid://bq07ld04dchxd" path="res://DO NOT TOUCH/Shader/blur.gdshader" id="9_xrxd3"]
 [ext_resource type="PackedScene" uid="uid://bk8074ty1iys6" path="res://DO NOT TOUCH/particle/tropical_fish_1_school.tscn" id="10_tre5t"]
 [ext_resource type="PackedScene" uid="uid://bbhu17pgwfd26" path="res://DO NOT TOUCH/particle/tropical_fish_2_school.tscn" id="11_x3hnn"]
+[ext_resource type="FontFile" uid="uid://d1gy5ude4f2bc" path="res://UI Assets/PixelifySans-VariableFont_wght.ttf" id="12_mxm58"]
 [ext_resource type="PackedScene" uid="uid://chbvmrlf38m5i" path="res://DO NOT TOUCH/particle/tropical_fish_3_school.tscn" id="12_pkpgk"]
+[ext_resource type="Texture2D" uid="uid://clhhsylm17pvw" path="res://UI Assets/ButtonUnfocused.png" id="12_roiix"]
 [ext_resource type="ArrayMesh" uid="uid://c8m7qgqf4iyg4" path="res://DO NOT TOUCH/particle/tropicla fish 1.tres" id="13_ay1k8"]
 [ext_resource type="ArrayMesh" uid="uid://dvewjo747r0qu" path="res://DO NOT TOUCH/particle/tropical fish 2.tres" id="13_pkpgk"]
+[ext_resource type="Texture2D" uid="uid://kb2nquogkyxc" path="res://UI Assets/ButtonFocused.png" id="13_ufvhm"]
 [ext_resource type="ArrayMesh" uid="uid://bo0f5sk6yfggl" path="res://DO NOT TOUCH/particle/tropicla fish 3.tres" id="13_w67wv"]
 [ext_resource type="Script" uid="uid://nxoigd4bsral" path="res://DO NOT TOUCH/Script/multi_mesh_instance_3d.gd" id="14_ay1k8"]
+[ext_resource type="Texture2D" uid="uid://cqmndvxktq3y3" path="res://UI Assets/ButtonHover.png" id="14_ufvhm"]
 
 [sub_resource type="Gradient" id="Gradient_8dmm7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -91,6 +95,24 @@ shader_parameter/blur_radius = 3.0
 shader = ExtResource("9_dll4s")
 shader_parameter/pixel_size = 15.5850006927875
 shader_parameter/color_levels = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8lcxt"]
+texture = ExtResource("12_roiix")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v2ybh"]
+texture = ExtResource("13_ufvhm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxm58"]
+texture = ExtResource("14_ufvhm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufvhm"]
+texture = ExtResource("12_roiix")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s53v0"]
+texture = ExtResource("13_ufvhm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3l610"]
+texture = ExtResource("14_ufvhm")
 
 [sub_resource type="MultiMesh" id="MultiMesh_2gnrd"]
 transform_format = 1
@@ -555,31 +577,51 @@ texture = ExtResource("8_fma4u")
 expand_mode = 1
 
 [node name="start button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=916844296]
+custom_minimum_size = Vector2(350, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 27
+theme_override_fonts/font = ExtResource("12_mxm58")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_8lcxt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_v2ybh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mxm58")
 text = "Start"
 
 [node name="world scene button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=1994015409]
+custom_minimum_size = Vector2(350, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 27
+theme_override_fonts/font = ExtResource("12_mxm58")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_ufvhm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s53v0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3l610")
 text = "To World.tscn"
 
 [node name="quit button" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=479138284]
+custom_minimum_size = Vector2(350, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 27
+theme_override_fonts/font = ExtResource("12_mxm58")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_ufvhm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s53v0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3l610")
 text = "Quit"
 
 [node name="quit button2" type="Button" parent="CanvasLayer/Control/HBoxContainer/VBoxContainer" unique_id=124882624]
+custom_minimum_size = Vector2(350, 70)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 27
+theme_override_fonts/font = ExtResource("12_mxm58")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_ufvhm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_s53v0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3l610")
 text = "Open photo folder"
 
 [node name="tropical fish 1 school" parent="." unique_id=1860335631 instance=ExtResource("10_tre5t")]
