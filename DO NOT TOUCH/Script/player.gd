@@ -70,12 +70,25 @@ var current_pitch: float = 0.0
 var pending_photo: Image = null
 var pending_mission: Mission = null
 
+@export var engine_response: float = 1.5
+@export var engine_pitch_min: float = 0.9
+@export var engine_pitch_max: float = 1.3
+
+@onready var idle_player = $Audio/Idle
+@onready var mid_player = $Audio/Mid
+@onready var high_player = $Audio/High
+
+var engine_rpm: float = 0.0
+
 func _debug_display():
 	$"Debug/Debug Display/VBoxContainer/Speed".text = "Velocity: " + str(velocity) + " target: "
 	$"Debug/Debug Display/VBoxContainer/Throttle".text = "Throttle Power: " + str(throttle_power) + "\n" + "fps: " + str(Engine.get_frames_per_second()) + "\n" + "Global Pos: " + str(global_position) 
 
 
 func _ready() -> void:
+	for p in [idle_player, mid_player, high_player]:
+		if not p.playing:
+			p.play()
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED  
 	current_yaw = rotation.y
 	current_pitch = rotation.x
@@ -110,6 +123,7 @@ func _physics_process(delta: float) -> void:
 	_debug_display()
 	match state:
 		states.driving:
+			_update_engine_sound(delta)
 			_handle_shake()
 			_camera_control()
 			if not freelook_active:
@@ -117,6 +131,23 @@ func _physics_process(delta: float) -> void:
 			_sub_pitch_yaw(delta)
 			_throttle_input_handler()
 			_propeller(delta)
+
+func _update_engine_sound(delta: float) -> void:
+	var target = abs(throttle_power) / 100.0
+	engine_rpm = lerp(engine_rpm, target, 1.0 - exp(-engine_response * delta))
+
+	var idle_w = clamp(1.0 - engine_rpm * 2.0, 0.0, 1.0)
+	var mid_w = 1.0 - abs(engine_rpm * 2.0 - 1.0)
+	var high_w = clamp(engine_rpm * 2.0 - 1.0, 0.0, 1.0)
+
+	idle_player.volume_db = linear_to_db(max(idle_w, 0.0001))
+	mid_player.volume_db = linear_to_db(max(mid_w, 0.0001))
+	high_player.volume_db = linear_to_db(max(high_w, 0.0001))
+
+	var pitch = lerp(engine_pitch_min, engine_pitch_max, engine_rpm)
+	idle_player.pitch_scale = pitch
+	mid_player.pitch_scale = pitch
+	high_player.pitch_scale = pitch
 
 func _camera_control():
 	if freelook_active:

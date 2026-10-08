@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dojqnaertypo2" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Roughness.png" id="6_dsoe5"]
 [ext_resource type="PackedScene" uid="uid://c4vjqy42fr2ik" path="res://EnvironmentalAssets/SubmarineFinal/moby_trinket.tscn" id="7_mwdc5"]
 [ext_resource type="Material" uid="uid://dlenw5mkx2d1u" path="res://DO NOT TOUCH/throttle lever tex/throttle lever.tres" id="14_u7gwp"]
+[ext_resource type="AudioStream" uid="uid://db0iv612nloxs" path="res://DO NOT TOUCH/sfx/274906__hantorio__mercedes_180d_636_low_rpm_loop.wav" id="15_rxjv1"]
+[ext_resource type="AudioStream" uid="uid://chf2b1qulgcn3" path="res://DO NOT TOUCH/sfx/401555__giocosound__sfx_car_engine_outside_rpmmed.wav" id="16_vxse6"]
+[ext_resource type="AudioStream" uid="uid://dm7oltdhhghtm" path="res://DO NOT TOUCH/sfx/401551__giocosound__sfx_car_engine_outside_rpmhigh.wav" id="17_1x67i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aygv5"]
 radius = 1.056446
@@ -1174,11 +1177,13 @@ transform = Transform3D(1.0000883, 0, 2.842171e-14, 0, 1.0000883, 0, -2.842171e-
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sub_mesh" unique_id=271177266]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21210705, -0.11406931, 0.1706037)
+visible = false
 light_color = Color(0, 0.5145369, 0.91035986, 1)
 omni_range = 0.415
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Sub_mesh" unique_id=698852198]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.30729562, -0.2374745, 0.24885389)
+visible = false
 light_energy = 0.04
 omni_range = 0.415
 
@@ -1195,9 +1200,30 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -1.16415266e-10, -4.
 material_override = ExtResource("14_u7gwp")
 mesh = SubResource("ArrayMesh_0csra")
 
+[node name="AreaLight3D" type="AreaLight3D" parent="Sub_mesh" unique_id=1276661952]
+transform = Transform3D(1, 3.885835e-08, -8.04874e-08, 7.681717e-08, 0.08665923, 0.99623805, 4.568714e-08, -0.99623805, 0.08665923, -0.044268753, -0.038533673, 0.10938933)
+area_range = 0.794
+area_attenuation = 0.63
+area_size = Vector2(0.5768916, 0.305)
+
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=727832365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42409325, -7.655178)
 amount = 30
 lifetime = 5.05
 process_material = SubResource("ParticleProcessMaterial_fu28x")
 draw_pass_1 = SubResource("QuadMesh_aypgk")
+
+[node name="Audio" type="Node3D" parent="." unique_id=182527833]
+
+[node name="Idle" type="AudioStreamPlayer" parent="Audio" unique_id=59004642]
+stream = ExtResource("15_rxjv1")
+volume_db = -0.912
+bus = &"Engine"
+
+[node name="Mid" type="AudioStreamPlayer" parent="Audio" unique_id=1525493951]
+stream = ExtResource("16_vxse6")
+bus = &"Engine"
+
+[node name="High" type="AudioStreamPlayer" parent="Audio" unique_id=16683076]
+stream = ExtResource("17_1x67i")
+bus = &"Engine"
