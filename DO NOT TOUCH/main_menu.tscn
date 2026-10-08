@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cqmndvxktq3y3" path="res://UI Assets/ButtonHover.png" id="14_ufvhm"]
 [ext_resource type="AudioStream" uid="uid://csc10o725cksy" path="res://DO NOT TOUCH/sfx/320181__dland__hint.wav" id="16_s53v0"]
 [ext_resource type="AudioStream" uid="uid://dbdpm3h13xtbw" path="res://DO NOT TOUCH/sfx/255597__akemov__underwater-ambience.wav" id="23_3l610"]
+[ext_resource type="AudioStream" uid="uid://edqirsmygx7n" path="res://DO NOT TOUCH/sfx/270366__foolboymedia__dramatic-scroller.wav" id="25_dev3l"]
 
 [sub_resource type="Gradient" id="Gradient_8dmm7"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -664,10 +665,15 @@ multimesh = SubResource("MultiMesh_n5003")
 script = ExtResource("14_ay1k8")
 wander_strength = 10.0
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="." unique_id=1203966439]
-stream = ExtResource("23_3l610")
+[node name="MenuThemeFreesound" type="AudioStreamPlayer" parent="." unique_id=889533360]
+stream = ExtResource("25_dev3l")
+volume_db = -3.367
 autoplay = true
-bus = &"SFx"
+
+[node name="SeaGurgle" type="AudioStreamPlayer" parent="." unique_id=1203966439]
+stream = ExtResource("23_3l610")
+volume_db = -2.862
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/start button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/world scene button" to="." method="_on_world_scene_button_pressed"]
