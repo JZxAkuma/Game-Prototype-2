@@ -657,10 +657,10 @@ multimesh = SubResource("MultiMesh_n5003")
 script = ExtResource("14_ay1k8")
 wander_strength = 10.0
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1879895827]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="." unique_id=1203966439]
 stream = ExtResource("23_3l610")
-volume_db = 37.818
 autoplay = true
+bus = &"SFx"
 
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/start button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/world scene button" to="." method="_on_world_scene_button_pressed"]

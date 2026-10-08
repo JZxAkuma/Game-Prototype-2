@@ -177,10 +177,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.7030195, 51.61925, 25.925896, 
 mesh = SubResource("PlaneMesh_1w13i")
 surface_material_override/0 = SubResource("ShaderMaterial_6jgps")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1676511785]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="." unique_id=171389775]
 stream = ExtResource("12_tweyt")
 volume_db = 5.0
 autoplay = true
+bus = &"SFx"
 
 [connection signal="pressed" from="ui/Control/VBoxContainer/Back Button" to="ui" method="_on_back_button_pressed"]
 [connection signal="pressed" from="ui/Control/VBoxContainer/Dive Button" to="ui" method="_on_dive_button_pressed"]
