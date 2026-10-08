@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dofiksymauko3"]
+
+[ext_resource type="PackedScene" uid="uid://btds0prp64gve" path="res://EnvironmentalAssets/Islands/Islands.fbx" id="1_k001x"]
+[ext_resource type="Texture2D" uid="uid://cvjjdu54bhhf4" path="res://EnvironmentalAssets/Islands/Islands_standardSurface1_BaseColor.png" id="2_8k0kd"]
+[ext_resource type="Texture2D" uid="uid://bso13mxxyb68j" path="res://EnvironmentalAssets/Islands/Islands_standardSurface1_Normal.png" id="3_kiy5w"]
+[ext_resource type="Texture2D" uid="uid://dqmq3kgtmk716" path="res://EnvironmentalAssets/Islands/Islands_standardSurface1_Roughness.png" id="4_ntej7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k001x"]
+albedo_texture = ExtResource("2_8k0kd")
+roughness_texture = ExtResource("4_ntej7")
+normal_enabled = true
+normal_texture = ExtResource("3_kiy5w")
+
+[node name="Islands" unique_id=1468409568 instance=ExtResource("1_k001x")]
+
+[node name="SpookyIsland" parent="." index="1" unique_id=418863064]
+surface_material_override/0 = SubResource("StandardMaterial3D_k001x")
+
+[node name="HappyIsland" parent="." index="2" unique_id=2140395698]
+surface_material_override/0 = SubResource("StandardMaterial3D_k001x")
+
+[node name="ResearchIsland" parent="." index="3" unique_id=1848794752]
+surface_material_override/0 = SubResource("StandardMaterial3D_k001x")
