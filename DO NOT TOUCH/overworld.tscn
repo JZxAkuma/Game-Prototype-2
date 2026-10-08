@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ccjihror4sq8y" path="res://DO NOT TOUCH/island.tscn" id="4_rwgfh"]
 [ext_resource type="Shader" uid="uid://dbeuok0uhhyy0" path="res://DO NOT TOUCH/Shader/overworldwater.gdshader" id="5_cxe7l"]
 [ext_resource type="Script" uid="uid://bg2qasgq82kfk" path="res://DO NOT TOUCH/Script/overworld_ui.gd" id="5_r1dg4"]
+[ext_resource type="Texture2D" uid="uid://dyv15fg2nlo8r" path="res://EnvironmentalAssets/Water/Layer1/TileMap_standardSurface1_Normal.png" id="6_qiusu"]
+[ext_resource type="Texture2D" uid="uid://blgjcjdgagt8q" path="res://EnvironmentalAssets/Water/Layer3/TileMap_standardSurface1_Normal.png" id="7_dgnga"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jt3qg"]
 albedo_color = Color(1, 1, 0, 1)
@@ -21,12 +23,22 @@ size = Vector3(1, 1, 1.9931641)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a7q5d"]
 render_priority = 0
 shader = ExtResource("5_cxe7l")
-shader_parameter/water_color = Color(0.05736751, 0.4314936, 0.5873522, 1)
-shader_parameter/normal_speed = 0.025
-shader_parameter/normal_tiling = 2.0
-shader_parameter/wave_height = 0.4
-shader_parameter/wave_length = 8.0
+shader_parameter/water_normal_1 = ExtResource("6_qiusu")
+shader_parameter/water_normal_2 = ExtResource("7_dgnga")
+shader_parameter/normal_1_strength = 0.76800003648
+shader_parameter/normal_2_strength = 0.74000003515
+shader_parameter/normal_1_scale = 3.51000016346512
+shader_parameter/normal_2_scale = 7.75200036496012
+shader_parameter/normal_1_speed = 0.025
+shader_parameter/normal_2_speed = 0.018
+shader_parameter/wave_height = 1.0
+shader_parameter/wave_scale = 11.189000528217619
 shader_parameter/wave_speed = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/specular = 1.0
+shader_parameter/water_color_1 = Color(0.20756552, 0.30747205, 0.33373016, 1)
+shader_parameter/water_color_2 = Color(0, 0, 0, 1)
+shader_parameter/color_variation = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n5003"]
 material = SubResource("ShaderMaterial_a7q5d")
@@ -73,7 +85,7 @@ light_color = Color(1, 0.56078434, 0, 1)
 omni_range = 1.9212486
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1119691803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 50)
+transform = Transform3D(3.8706224, 0, 0, 0, 1, 0, 0, 0, 1.7915721, 50, 0, 50)
 mesh = SubResource("PlaneMesh_n5003")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=635706044]
