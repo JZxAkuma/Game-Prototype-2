@@ -40,7 +40,7 @@ var freelook_yaw = 0.0
 var freelook_pitch = 0.0
 
 var shake_threshold: float = 0.5
-var max_shake_strength: float = 0.01
+var max_shake_strength: float = 0.001
 
 var sub_mesh_base_pos: Vector3
 var camera_equipped = false
