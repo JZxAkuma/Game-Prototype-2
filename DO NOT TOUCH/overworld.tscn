@@ -179,9 +179,8 @@ surface_material_override/0 = SubResource("ShaderMaterial_6jgps")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="." unique_id=171389775]
 stream = ExtResource("12_tweyt")
-volume_db = 5.0
+volume_db = -5.0
 autoplay = true
-bus = &"SFx"
 
 [connection signal="pressed" from="ui/Control/VBoxContainer/Back Button" to="ui" method="_on_back_button_pressed"]
 [connection signal="pressed" from="ui/Control/VBoxContainer/Dive Button" to="ui" method="_on_dive_button_pressed"]
