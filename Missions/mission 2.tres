@@ -7,6 +7,7 @@
 script = ExtResource("1_s54vo")
 mission_name = "Who live in pineapple under the sea"
 description = "Go look for pineapple under the sea"
+type = 0
 giver_island = "Island 2"
 objective_id = "0001"
 scene = ExtResource("1_4vor2")
