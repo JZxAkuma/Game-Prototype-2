@@ -99,7 +99,7 @@ transform = Transform3D(0.28527287, 0, 0.045883495, 0, 0.28893927, 0, -0.0458834
 metadata/scene_painter_instance = true
 
 [node name="Big arch" parent="ScenePainterInstances" unique_id=1349738720 instance=ExtResource("5_x0go4")]
-transform = Transform3D(-0.180108, 0, 0.32077652, 0, 0.36788106, 0, -0.32077652, 0, -0.180108, 9.705177, -0.15, 2.9172688)
+transform = Transform3D(-0.180108, 0, 0.8067399, 0, 0.8120124, 0, -0.32077652, 0, -0.45296428, 9.705177, -0.15, 2.9172688)
 metadata/scene_painter_instance = true
 
 [node name="Big arch2" parent="ScenePainterInstances" unique_id=781233161 instance=ExtResource("5_x0go4")]
@@ -111,11 +111,11 @@ transform = Transform3D(-0.40042117, 0, -0.042572677, 0, 0.40267795, 0, 0.042572
 metadata/scene_painter_instance = true
 
 [node name="Big arch3" parent="ScenePainterInstances" unique_id=1174324974 instance=ExtResource("5_x0go4")]
-transform = Transform3D(-0.37124118, 0, 0.16703998, 0, 0.40709013, 0, -0.16703998, 0, -0.37124118, 9.49168, -0.15, -4.045594)
+transform = Transform3D(-0.37124115, 0, 0.3241096, 0, 0.5471566, 0, -0.16703996, 0, -0.7203236, 9.49168, -0.15, -4.045594)
 metadata/scene_painter_instance = true
 
 [node name="Square thingy4" parent="ScenePainterInstances" unique_id=1708640285 instance=ExtResource("3_wve4h")]
-transform = Transform3D(-0.10969801, 0, -0.32725936, 0, 0.34515554, 0, 0.32725936, 0, -0.10969801, -7.973199, -0.15, -7.626116)
+transform = Transform3D(-0.19940394, 0, -0.5789457, 0, 0.7168078, 0, 0.5948768, 0, -0.1940638, -7.973199, -0.15, -7.626116)
 metadata/scene_painter_instance = true
 
 [node name="Square thingy5" parent="ScenePainterInstances" unique_id=1037819706 instance=ExtResource("3_wve4h")]

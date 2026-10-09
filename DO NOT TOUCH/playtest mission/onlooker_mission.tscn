@@ -9,6 +9,9 @@
 [ext_resource type="ArrayMesh" uid="uid://yed3hkof2qi2" path="res://DO NOT TOUCH/particle/small fish.tres" id="7_cxcur"]
 [ext_resource type="Script" uid="uid://nxoigd4bsral" path="res://DO NOT TOUCH/Script/multi_mesh_instance_3d.gd" id="8_1y43s"]
 [ext_resource type="PackedScene" uid="uid://cv5jlwch18ufq" path="res://Actor/Onlooker/on_looker.tscn" id="9_1y43s"]
+[ext_resource type="PackedScene" uid="uid://beoiy8xrxt2n5" path="res://Terrain Painting Scene/Vertebrae.tscn" id="10_23o35"]
+[ext_resource type="PackedScene" uid="uid://bg5go5rjkf3ql" path="res://Terrain Painting Scene/Brain.tscn" id="11_ftr1m"]
+[ext_resource type="PackedScene" uid="uid://l233lb87n8gx" path="res://Terrain Painting Scene/BoneTree.tscn" id="12_4a1hg"]
 
 [sub_resource type="Gradient" id="Gradient_vjbwu"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -123,7 +126,7 @@ transform = Transform3D(1.5741518, 0.5967336, -0.26371905, -0.5432989, 1.5803579
 metadata/scene_painter_instance = true
 
 [node name="Big arch4" parent="ScenePainterInstances" unique_id=1072383223 instance=ExtResource("4_ib8s4")]
-transform = Transform3D(1.933052, 0.027105292, 0.11718623, -0.025222901, 1.9363648, -0.03181738, -0.11760575, 0.030229846, 1.9329802, -48.461117, 16.754274, 153.46436)
+transform = Transform3D(2.6086276, 0.12102709, 0.4780083, -0.034037966, 8.6460085, -0.12978463, -0.15870738, 0.13497846, 7.8847194, -48.461117, 16.754274, 153.46436)
 metadata/scene_painter_instance = true
 
 [node name="Big arch5" parent="ScenePainterInstances" unique_id=894405350 instance=ExtResource("4_ib8s4")]
@@ -151,7 +154,7 @@ transform = Transform3D(-1.601961, 0.099629, 0.019578734, 0.1013307, 1.5883443, 
 metadata/scene_painter_instance = true
 
 [node name="Square thingy5" parent="ScenePainterInstances" unique_id=487817815 instance=ExtResource("5_0tckm")]
-transform = Transform3D(-1.6779196, -0.064755276, 0.41765007, -0.017639251, 1.7191385, 0.19568063, -0.42227203, 0.1854961, -1.6677281, -19.547718, 14.161227, 201.76978)
+transform = Transform3D(-8.186845, -0.38549682, 1.5050695, -0.08606479, 10.234263, 0.7051668, -2.0603344, 1.1042833, -6.0099277, -24.957767, 1.089813, 223.81291)
 metadata/scene_painter_instance = true
 
 [node name="Arch4" parent="ScenePainterInstances" unique_id=1685896123 instance=ExtResource("6_cxcur")]
@@ -295,7 +298,7 @@ transform = Transform3D(-0.7104826, 0.35166493, 0.6793819, 0.3144008, 0.979492, 
 metadata/scene_painter_instance = true
 
 [node name="Arch19" parent="ScenePainterInstances" unique_id=561322843 instance=ExtResource("6_cxcur")]
-transform = Transform3D(0.87530607, -0.079029605, 1.5259407, -0.112295985, 1.7504977, 0.15507452, -1.5238535, -0.17439272, 0.8650771, 63.318745, 22.64062, -180.97345)
+transform = Transform3D(5.9695706, -0.58808666, 10.301375, -0.76585644, 13.026059, 1.0468826, -10.392652, -1.2977166, 5.8399935, 63.318745, 22.64062, -180.97345)
 metadata/scene_painter_instance = true
 
 [node name="Big arch17" parent="ScenePainterInstances" unique_id=513377779 instance=ExtResource("4_ib8s4")]
@@ -519,7 +522,7 @@ transform = Transform3D(-1.2506061, -0.16917175, 1.457055, -0.21522966, 1.915177
 metadata/scene_painter_instance = true
 
 [node name="Square thingy35" parent="ScenePainterInstances" unique_id=832141157 instance=ExtResource("5_0tckm")]
-transform = Transform3D(1.0253388, 0.116236284, 1.0372133, -0.13498081, 1.4565488, -0.029794011, -1.0349408, -0.07481064, 1.0314761, 39.20003, 7.07165, 59.241165)
+transform = Transform3D(3.2427104, 0.45895728, 3.0053847, -0.4268869, 5.7511616, -0.08632985, -3.2730777, -0.2953887, 2.988761, 39.20003, 7.07165, 59.241165)
 metadata/scene_painter_instance = true
 
 [node name="Square thingy36" parent="ScenePainterInstances" unique_id=1672071709 instance=ExtResource("5_0tckm")]
@@ -2031,7 +2034,7 @@ transform = Transform3D(1.347262, 0.033963393, 0.6145103, 0.016270595, 1.4764395
 metadata/scene_painter_instance = true
 
 [node name="Big arch143" parent="ScenePainterInstances" unique_id=2001471725 instance=ExtResource("4_ib8s4")]
-transform = Transform3D(-1.7473457, 0.0014047129, -0.915174, -0.022825062, 1.9718187, 0.046606563, 0.9148904, 0.0518766, -1.7467245, -38.620583, 10.544648, 9.050239)
+transform = Transform3D(-7.82939, 0.007132205, -2.8531947, -0.10227302, 10.011595, 0.14530307, 4.09938, 0.26339513, -5.4456806, -38.600418, 38.847893, 9.794868)
 metadata/scene_painter_instance = true
 
 [node name="Arch176" parent="ScenePainterInstances" unique_id=2051894388 instance=ExtResource("6_cxcur")]
@@ -2132,3 +2135,18 @@ shape = SubResource("BoxShape3D_nhuwb")
 
 [node name="OnLooker" parent="." unique_id=1705718784 instance=ExtResource("9_1y43s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0039520264, 51.25072, -13.726528)
+
+[node name="StaticBody3D2" parent="." unique_id=1091387230 instance=ExtResource("10_23o35")]
+transform = Transform3D(-17.01215, -2.4388947, -0.8152827, 3.422967, -12.121307, -4.051956, 0, -4.1231194, 12.394353, 25.400288, 81.93638, 133.80655)
+
+[node name="StaticBody3D3" parent="." unique_id=501715721 instance=ExtResource("11_ftr1m")]
+transform = Transform3D(4.8159475, 0, 0, 0, 5.999051, 0, 0, 0, 5.360125, -35.425976, 17.831638, -61.40728)
+
+[node name="StaticBody3D4" parent="." unique_id=1413559144 instance=ExtResource("11_ftr1m")]
+transform = Transform3D(11.494608, 0, 0, 0, 9.450795, 0, 0, 0, 5.9572024, -27.533987, 0, 60.15113)
+
+[node name="StaticBody3D5" parent="." unique_id=1109405010 instance=ExtResource("12_4a1hg")]
+transform = Transform3D(16.850609, 0, 3.5145586, 0, 13.581022, 0, -5.8199043, 0, 10.175845, -30.421858, 1.9612658, -88.08165)
+
+[node name="StaticBody3D6" parent="." unique_id=92209003 instance=ExtResource("12_4a1hg")]
+transform = Transform3D(13.423014, 0, 14.82438, 0, 23.68861, 0, -7.1790867, 0, 27.71771, 236.9491, -9.295913, 0)
