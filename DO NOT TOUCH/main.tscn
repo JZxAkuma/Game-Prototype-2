@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://cag7etcf2klv6" path="res://Missions/mission 2.tres" id="7_l4pnx"]
 [ext_resource type="Resource" uid="uid://ko07ry50cdu4" path="res://Missions/whalefall mission.tres" id="8_ppxj5"]
 [ext_resource type="AudioStream" uid="uid://bk6hylvwej8qf" path="res://music/Game_Prototype_2_Imminent_Depth.wav" id="11_6qmul"]
+[ext_resource type="AudioStream" uid="uid://dbdpm3h13xtbw" path="res://DO NOT TOUCH/sfx/255597__akemov__underwater-ambience.wav" id="13_dykey"]
 
 [node name="Main" type="Node3D" unique_id=389891087]
 script = ExtResource("1_wcydr")
@@ -36,4 +37,9 @@ script = ExtResource("4_b73pl")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=656363020]
 stream = ExtResource("11_6qmul")
 volume_db = -3.649
+autoplay = true
+
+[node name="UnderwaterAmbience" type="AudioStreamPlayer" parent="." unique_id=2034756055]
+stream = ExtResource("13_dykey")
+volume_db = 6.982
 autoplay = true
