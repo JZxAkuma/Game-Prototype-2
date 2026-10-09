@@ -18,7 +18,7 @@ func setup(m: Mission) -> void:
 	name_label.text = m.mission_name
 	desc_label.text = m.description
 	type_label.text = "Type: " + Mission.Type.keys()[m.type]
-	sector_label.text = "Sector: " + m.sector_name
+	sector_label.text = "" 
 
 
 func _ready() -> void:
