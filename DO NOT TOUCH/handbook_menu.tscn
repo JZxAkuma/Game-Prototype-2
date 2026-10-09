@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ja4uy4d25njq" path="res://DO NOT TOUCH/handbook_menu.gd" id="1_0tmcj"]
 [ext_resource type="Texture2D" uid="uid://dnxqj1wubtifq" path="res://DO NOT TOUCH/cheatsheet.png" id="1_h0jdh"]
 [ext_resource type="PackedScene" uid="uid://cp7hs413aydko" path="res://DO NOT TOUCH/main_menu.tscn" id="2_u2w2e"]
+[ext_resource type="Texture2D" uid="uid://cpdfu7usvdvst" path="res://UI Assets/TIPSBackground.png" id="3_r655p"]
 [ext_resource type="FontFile" uid="uid://d1gy5ude4f2bc" path="res://UI Assets/PixelifySans-VariableFont_wght.ttf" id="3_u2w2e"]
 [ext_resource type="Texture2D" uid="uid://clhhsylm17pvw" path="res://UI Assets/ButtonUnfocused.png" id="4_r655p"]
 [ext_resource type="Texture2D" uid="uid://kb2nquogkyxc" path="res://UI Assets/ButtonFocused.png" id="5_gmat1"]
@@ -28,6 +29,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=940143146]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_r655p")
 
 [node name="TextureRect" type="TextureRect" parent="Control" unique_id=608593705]
 layout_mode = 1
