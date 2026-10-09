@@ -15,8 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://bujpy3466drrh" path="res://UI Assets/PhotoUIBG.png" id="6_1x67i"]
 [ext_resource type="Script" uid="uid://cqqlckedjtiwr" path="res://DO NOT TOUCH/Script/radar.gd" id="6_767l7"]
 [ext_resource type="Texture2D" uid="uid://dojqnaertypo2" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Roughness.png" id="6_dsoe5"]
+[ext_resource type="FontFile" uid="uid://d1gy5ude4f2bc" path="res://UI Assets/PixelifySans-VariableFont_wght.ttf" id="6_rbygy"]
 [ext_resource type="PackedScene" uid="uid://c4vjqy42fr2ik" path="res://EnvironmentalAssets/SubmarineFinal/moby_trinket.tscn" id="7_mwdc5"]
+[ext_resource type="Texture2D" uid="uid://clhhsylm17pvw" path="res://UI Assets/ButtonUnfocused.png" id="7_rd446"]
+[ext_resource type="Texture2D" uid="uid://kb2nquogkyxc" path="res://UI Assets/ButtonFocused.png" id="8_ddwty"]
 [ext_resource type="Texture2D" uid="uid://ftqqiwbdshwe" path="res://UI Assets/PhotoUIOverlay.png" id="9_087d7"]
+[ext_resource type="Texture2D" uid="uid://cqmndvxktq3y3" path="res://UI Assets/ButtonHover.png" id="9_kdybi"]
 [ext_resource type="Material" uid="uid://dlenw5mkx2d1u" path="res://DO NOT TOUCH/throttle lever tex/throttle lever.tres" id="14_u7gwp"]
 [ext_resource type="AudioStream" uid="uid://db0iv612nloxs" path="res://DO NOT TOUCH/sfx/274906__hantorio__mercedes_180d_636_low_rpm_loop.wav" id="15_rxjv1"]
 [ext_resource type="Material" uid="uid://n153qf6qn1yn" path="res://DO NOT TOUCH/Shader/highlight.tres" id="16_8ip6a"]
@@ -28,10 +32,20 @@
 [ext_resource type="Texture2D" uid="uid://dnxqj1wubtifq" path="res://DO NOT TOUCH/cheatsheet.png" id="19_xwruq"]
 [ext_resource type="AudioStream" uid="uid://dbdpm3h13xtbw" path="res://DO NOT TOUCH/sfx/255597__akemov__underwater-ambience.wav" id="20_087d7"]
 [ext_resource type="AudioStream" uid="uid://ckctyxd44jdkc" path="res://DO NOT TOUCH/sfx/539957__samsterbirdies__sonar-ping.wav" id="21_ue10g"]
+[ext_resource type="Script" uid="uid://bvqfjxkac2w4f" path="res://DO NOT TOUCH/cheat_sheet.gd" id="23_225uq"]
 [ext_resource type="AudioStream" uid="uid://dwh50c5udoal4" path="res://DO NOT TOUCH/sfx/871470__kurumik__1968-praktica-super-tl-camera-shutter-03.wav" id="24_swuw5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aygv5"]
 radius = 1.056446
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rpyam"]
+texture = ExtResource("7_rd446")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xv5w"]
+texture = ExtResource("8_ddwty")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3q4ax"]
+texture = ExtResource("9_kdybi")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_767l7"]
 shader = ExtResource("3_m0h4x")
@@ -511,6 +525,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_dbfee")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trwll"]
+resource_name = "standardSurface1"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6651851, 0.6651851, 0.6651851, 1)
+roughness = 0.5
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_85vmo"]
 _surfaces = [{
 "aabb": AABB(-0.99999905, -1, -0.9510574, 1.999999, 3.0132332, 1.9021186),
@@ -535,7 +558,7 @@ _surfaces = [{
 "index_count": 210,
 "index_data": PackedByteArray("EQAkAAIAAgAkAAEAAgAFABEAAQADAAIAEQAFAAoABAADAAEACgAlABEAAQAmAAQAAAAlAAoABwAEACYACgAMAAAAJgASAAcAJwAAAAwABwASAAYADAALACcABgAIAAcAJwALAAkACQAIAAYACQAoACcABgAoAAkAKQAqABMAKQAVACoAKQATACsAKQAsABUAKQArAC0AKQAuACwAKQAtABYAKQAUAC4AKQAWAC8AKQAvABQAMAAxABgAGAAXADAAMgAOADMAMwA0ADIAGQA1ADYANgA3ABkAOAAaADkAOQA6ADgAOwAbABAAEAA8ADsAPQA+AD8APwBAAD0AQQBCAEMAQwBEAEEARQANAA8ADwBGAEUARwBIAEkASQBKAEcASwBMAE0ATQBOAEsATwBQABwAHAAdAE8AUABPAB4AUQAdABwAHgBSAFAAHABTAFEAHwBSAB4AVABRAFMAHgBVAB8AUwAgAFQAVgAfAFUAVAAgAFcAVQBYAFYAVwAiAFQAIwBWAFgAIgBXAFkAWAAhACMAWQBaACIAIwAhAFoAWgBZACMA"),
 "lods": [0.6362049, PackedByteArray("EQABAAIAAQADAAIAAgAFABEABAADAAEAEQAFAAoAAQASAAQABwAEABIABwASAAYABgAIAAcACQAIAAYAAAARAAoACQAGAAAACgAMAAAAAAALAAkADAALAAAAEwAUABUAEwAWABQAFwAOABgADgAXABkAGAANABcAGQAaAA4AGAAPAA0AEAAaABkADwAQAA0AGQAbABAAGwANABAAHAAdAB4AHwAcAB4AHAAgAB0AHgAhAB8AIgAdACAAIAAhACIAIQAgACMAIwAfACEA"), 2.378118, PackedByteArray("AAABAAIAAQADAAIABAADAAEAAgAFAAAAAQAGAAQABwAEAAYABgAIAAcACQAIAAYACQAGAAAAAAAFAAoAAAALAAkACgAMAAAADAALAAAADQAOAA8ADQAQAA4ADwAQAA0A")],
-"material": SubResource("StandardMaterial3D_okoq0"),
+"material": SubResource("StandardMaterial3D_trwll"),
 "name": "standardSurface1",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -545,8 +568,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_85vmo")
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8ip6a"]
-data = PackedVector3Array(0.80899996, 1, -0.58779997, 0.309, 1, -0.9511, 0.309, -1, -0.9511, 0.309, -1, -0.9511, 0.309, 1, -0.9511, -0.309, 1, -0.9511, 0.309, -1, -0.9511, 0.80899996, -1, -0.58779997, 0.80899996, 1, -0.58779997, -0.309, 1, -0.9511, -0.309, -1, -0.9511, 0.309, -1, -0.9511, 0.80899996, 1, -0.58779997, 0.80899996, -1, -0.58779997, 1, -1, 0, -0.80899996, -1, -0.58779997, -0.309, -1, -0.9511, -0.309, 1, -0.9511, 1, -1, 0, 1, 1, 0, 0.80899996, 1, -0.58779997, -0.309, 1, -0.9511, -0.80899996, 1, -0.58779997, -0.80899996, -1, -0.58779997, 0.80899996, 1, 0.58779997, 1, 1, 0, 1, -1, 0, -1, -1, 0, -0.80899996, -1, -0.58779997, -0.80899996, 1, -0.58779997, 1, -1, 0, 0.80899996, -1, 0.58779997, 0.80899996, 1, 0.58779997, -0.80899996, 1, -0.58779997, -1, 1, 0, -1, -1, 0, 0.309, 1, 0.9511, 0.80899996, 1, 0.58779997, 0.80899996, -1, 0.58779997, -1, -1, 0, -1, 1, 0, -0.80899996, 1, 0.58779997, 0.80899996, -1, 0.58779997, 0.309, -1, 0.9511, 0.309, 1, 0.9511, -0.80899996, 1, 0.58779997, -0.80899996, -1, 0.58779997, -1, -1, 0, 0.309, 1, 0.9511, 0.309, -1, 0.9511, -0.309, -1, 0.9511, -0.309, -1, 0.9511, -0.80899996, -1, 0.58779997, -0.80899996, 1, 0.58779997, -0.309, -1, 0.9511, -0.309, 1, 0.9511, 0.309, 1, 0.9511, -0.80899996, 1, 0.58779997, -0.309, 1, 0.9511, -0.309, -1, 0.9511, 0, 2.0132, 0, 0.22399999, 2.0132, -0.6893, 0.58629996, 2.0132, -0.426, 0, 2.0132, 0, -0.22399999, 2.0132, -0.6893, 0.22399999, 2.0132, -0.6893, 0, 2.0132, 0, 0.58629996, 2.0132, -0.426, 0.7247, 2.0132, 0, 0, 2.0132, 0, -0.58629996, 2.0132, -0.426, -0.22399999, 2.0132, -0.6893, 0, 2.0132, 0, 0.7247, 2.0132, 0, 0.58629996, 2.0132, 0.426, 0, 2.0132, 0, -0.7248, 2.0132, 0, -0.58629996, 2.0132, -0.426, 0, 2.0132, 0, 0.58629996, 2.0132, 0.426, 0.22399999, 2.0132, 0.6893, 0, 2.0132, 0, -0.58629996, 2.0132, 0.426, -0.7248, 2.0132, 0, 0, 2.0132, 0, 0.22399999, 2.0132, 0.6893, -0.22399999, 2.0132, 0.6893, 0, 2.0132, 0, -0.22399999, 2.0132, 0.6893, -0.58629996, 2.0132, 0.426, 0.22399999, 1, -0.6893, 0.309, 1, -0.9511, 0.80899996, 1, -0.58779997, 0.80899996, 1, -0.58779997, 0.58629996, 1, -0.426, 0.22399999, 1, -0.6893, -0.22399999, 1, -0.6893, -0.309, 1, -0.9511, 0.309, 1, -0.9511, 0.309, 1, -0.9511, 0.22399999, 1, -0.6893, -0.22399999, 1, -0.6893, -0.58629996, 1, -0.426, -0.80899996, 1, -0.58779997, -0.309, 1, -0.9511, -0.309, 1, -0.9511, -0.22399999, 1, -0.6893, -0.58629996, 1, -0.426, -0.7247, 1, 0, -1, 1, 0, -0.80899996, 1, -0.58779997, -0.80899996, 1, -0.58779997, -0.58629996, 1, -0.426, -0.7247, 1, 0, -0.7247, 1, 0, -0.58629996, 1, 0.426, -0.80899996, 1, 0.58779997, -0.80899996, 1, 0.58779997, -1, 1, 0, -0.7247, 1, 0, -0.58629996, 1, 0.426, -0.22399999, 1, 0.6893, -0.309, 1, 0.9511, -0.309, 1, 0.9511, -0.80899996, 1, 0.58779997, -0.58629996, 1, 0.426, -0.22399999, 1, 0.6893, 0.22399999, 1, 0.6893, 0.309, 1, 0.9511, 0.309, 1, 0.9511, -0.309, 1, 0.9511, -0.22399999, 1, 0.6893, 0.22399999, 1, 0.6893, 0.58629996, 1, 0.426, 0.80899996, 1, 0.58779997, 0.80899996, 1, 0.58779997, 0.309, 1, 0.9511, 0.22399999, 1, 0.6893, 0.58629996, 1, 0.426, 0.7248, 1, 0, 1, 1, 0, 1, 1, 0, 0.80899996, 1, 0.58779997, 0.58629996, 1, 0.426, 0.58629996, 1, -0.426, 0.80899996, 1, -0.58779997, 1, 1, 0, 1, 1, 0, 0.7248, 1, 0, 0.58629996, 1, -0.426, 0.22399999, 2.0132, -0.6893, 0.22399999, 1, -0.6893, 0.58629996, 1, -0.426, 0.58629996, 1, -0.426, 0.58629996, 2.0132, -0.426, 0.22399999, 2.0132, -0.6893, 0.22399999, 1, -0.6893, 0.22399999, 2.0132, -0.6893, -0.22399999, 2.0132, -0.6893, 0.7247, 2.0132, 0, 0.58629996, 2.0132, -0.426, 0.58629996, 1, -0.426, -0.22399999, 2.0132, -0.6893, -0.22399999, 1, -0.6893, 0.22399999, 1, -0.6893, 0.58629996, 1, -0.426, 0.7248, 1, 0, 0.7247, 2.0132, 0, -0.58629996, 1, -0.426, -0.22399999, 1, -0.6893, -0.22399999, 2.0132, -0.6893, 0.58629996, 2.0132, 0.426, 0.7247, 2.0132, 0, 0.7248, 1, 0, -0.22399999, 2.0132, -0.6893, -0.58629996, 2.0132, -0.426, -0.58629996, 1, -0.426, 0.7248, 1, 0, 0.58629996, 1, 0.426, 0.58629996, 2.0132, 0.426, -0.7247, 1, 0, -0.58629996, 1, -0.426, -0.58629996, 2.0132, -0.426, 0.58629996, 2.0132, 0.426, 0.58629996, 1, 0.426, 0.22399999, 1, 0.6893, -0.58629996, 2.0132, -0.426, -0.7248, 2.0132, 0, -0.7247, 1, 0, 0.22399999, 1, 0.6893, 0.22399999, 2.0132, 0.6893, 0.58629996, 2.0132, 0.426, -0.58629996, 1, 0.426, -0.7247, 1, 0, -0.7248, 2.0132, 0, 0.22399999, 2.0132, 0.6893, 0.22399999, 1, 0.6893, -0.22399999, 1, 0.6893, -0.7248, 2.0132, 0, -0.58629996, 2.0132, 0.426, -0.58629996, 1, 0.426, -0.22399999, 1, 0.6893, -0.22399999, 2.0132, 0.6893, 0.22399999, 2.0132, 0.6893, -0.58629996, 1, 0.426, -0.58629996, 2.0132, 0.426, -0.22399999, 2.0132, 0.6893, -0.22399999, 2.0132, 0.6893, -0.22399999, 1, 0.6893, -0.58629996, 1, 0.426)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_225uq"]
+transparency = 1
+blend_mode = 4
+depth_draw_mode = 1
+albedo_texture = ExtResource("3_guilt")
+metallic = 1.0
+metallic_texture = ExtResource("4_mwdc5")
+roughness_texture = ExtResource("6_dsoe5")
+normal_enabled = true
+normal_texture = ExtResource("5_y7syf")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j54na"]
+points = PackedVector3Array(-0.99999905, -1, -0.00018423796, -0.8091221, -1, -0.5878004, -0.8091221, -1, 0.58761805, -0.99999905, 0.99977696, -0.00018423796, -0.30912232, -1, -0.9510574, -0.8091221, 0.99977696, -0.5878004, -0.30912232, -1, 0.9508751, -0.8091221, 0.99977696, 0.58761805, -0.7249404, 2.0129385, -0.00018423796, 0.30892754, -1, -0.9510574, -0.30912232, 0.99977696, -0.9510574, -0.58633435, 2.0129385, -0.42600113, -0.22396183, 2.0129385, -0.6894602, 0.30892754, -1, 0.9508751, -0.30912232, 0.99977696, 0.9508751, -0.22396183, 2.0129385, 0.68909174, -0.58633435, 2.0129385, 0.42581886, 0.8089273, -1, -0.5878004, 0.30892754, 0.99977696, -0.9510574, 0.22376704, 2.0129385, -0.6894602, 0.8089273, -1, 0.58761805, 0.30892754, 0.99977696, 0.9508751, 0.22376704, 2.0129385, 0.68909174, 1.0000001, -1, -0.00018423796, 0.8089273, 0.99977696, -0.5878004, 0.5861397, 2.0129385, -0.42600113, 0.8089273, 0.99977696, 0.58761805, 0.5863354, 2.0129385, 0.42581886, 1.0000001, 0.99977696, -0.00018423796, 0.72474563, 2.0129385, -0.00018423796)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tmudt"]
 _surfaces = [{
@@ -946,6 +980,9 @@ albedo_texture = ExtResource("19_xwruq")
 material = SubResource("StandardMaterial3D_ttwwx")
 size = Vector2(0.61, 0.595)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rbygy"]
+points = PackedVector3Array(-0.30984128, -0.30234125, -0.00484127, 0.30984128, 0.29797623, 0.00484127, 0.30984128, 0.29797623, -0.00484127, -0.30984128, 0.29797623, 0.00484127, 0.30984128, -0.30234125, 0.00484127, 0.30984128, -0.30234125, -0.00484127, -0.30984128, 0.29797623, -0.00484127, -0.30984128, -0.30234125, 0.00484127)
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fu28x"]
 emission_shape_scale = Vector3(10.285, 6.535, 9.895)
 emission_shape = 3
@@ -1053,6 +1090,55 @@ spot_angle = 23.906246
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1939847290]
 target_position = Vector3(0, 0, -0.455)
+collision_mask = 16
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Tutorial" type="CanvasLayer" parent="." unique_id=644176994]
+
+[node name="Control" type="Control" parent="Tutorial" unique_id=1421392608]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="tutorial" type="Button" parent="Tutorial/Control" unique_id=935693205 groups=["ui_buttons"]]
+custom_minimum_size = Vector2(350, 70)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+offset_right = 350.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("6_rbygy")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_rpyam")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1xv5w")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3q4ax")
+text = "Back"
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/Control" unique_id=1034537842]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -488.0
+offset_right = 1034.0
+offset_bottom = 1560.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.46021527, 0.46021527)
+texture = ExtResource("19_xwruq")
+stretch_mode = 2
 
 [node name="PixelShader" type="CanvasLayer" parent="." unique_id=685292025]
 layer = 0
@@ -1295,24 +1381,27 @@ surface_material_override/0 = SubResource("StandardMaterial3D_m0h4x")
 [node name="Radio" type="Node3D" parent="Sub_mesh/Node3D" unique_id=122641161]
 transform = Transform3D(0.117259, 0.029840471, 0.19629408, 0.029840471, 0.2227323, -0.051685207, -0.19629408, 0.051685207, 0.10940186, 0.6958643, 2.1894321, 1.7894944)
 
-[node name="RadioButton" type="Area3D" parent="Sub_mesh/Node3D/Radio" unique_id=1839543305]
-transform = Transform3D(0.1814163, -1.8626451e-09, 3.7252903e-09, 0, 2.3283064e-09, 0.18141633, 7.450581e-09, -0.05735965, 3.7252903e-09, 1.3882002, -2.3841858e-07, -0.5445342)
+[node name="RadioButton" type="Area3D" parent="Sub_mesh/Node3D/Radio" unique_id=1334243013]
+transform = Transform3D(0.1814163, 2.3557014e-09, 3.2567525e-16, 0, -2.50727e-09, 0.18141633, 7.4505797e-09, -0.05735965, -7.92996e-09, 0, 0, 0)
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("16_eyfgb")
 
-[node name="RadioButton" type="MeshInstance3D" parent="Sub_mesh/Node3D/Radio/RadioButton" unique_id=1491238586]
-transform = Transform3D(1, 1.4901161e-08, -2.9802322e-08, 2.3841858e-07, 1.0000001, 5.9604645e-08, 2.9802322e-08, -2.2351742e-08, 0.9999999, -2.861023e-06, 0, 4.7683716e-07)
+[node name="RadioButton" type="MeshInstance3D" parent="Sub_mesh/Node3D/Radio/RadioButton" unique_id=1492045549]
+transform = Transform3D(0.99999976, -7.4505806e-08, 0, 1.1920929e-07, 1.0000001, -2.9802322e-08, 0, -2.6077032e-08, 0.9999997, 7.707942, 11.659889, 0.20024204)
 mesh = SubResource("ArrayMesh_ue10g")
-surface_material_override/0 = SubResource("StandardMaterial3D_m0h4x")
+surface_material_override/0 = SubResource("StandardMaterial3D_225uq")
 
-[node name="RadioButton2" type="MeshInstance3D" parent="Sub_mesh/Node3D/Radio/RadioButton" unique_id=516855832]
-transform = Transform3D(1.2959286, 1.4901161e-08, -4.4703484e-08, 1.1920929e-07, 1.295929, 1.1920929e-07, 4.4703484e-08, -4.4703484e-08, 1.2959285, -2.861023e-06, 0, 0)
+[node name="RadioButton2" type="MeshInstance3D" parent="Sub_mesh/Node3D/Radio/RadioButton" unique_id=137656247]
+transform = Transform3D(1.2959285, -8.940697e-08, 1.4901161e-08, -4.7683716e-07, 1.295929, -3.5762787e-07, -2.9802322e-08, -3.7252903e-09, 1.2959281, 7.707947, 11.659889, 0.20024252)
+layers = 16
 material_override = ExtResource("16_8ip6a")
 mesh = SubResource("ArrayMesh_ue10g")
-surface_material_override/0 = SubResource("StandardMaterial3D_m0h4x")
+surface_material_override/0 = SubResource("StandardMaterial3D_225uq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sub_mesh/Node3D/Radio/RadioButton" unique_id=1046310492]
-transform = Transform3D(1.2959286, 2.9802322e-08, -5.9604645e-08, 1.1920929e-07, 1.2959291, 8.940697e-08, 4.4703484e-08, -6.3329935e-08, 1.2959284, -1.0339136, 5.474121, -0.2631135)
-shape = SubResource("ConcavePolygonShape3D_8ip6a")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sub_mesh/Node3D/Radio/RadioButton" unique_id=273598215]
+transform = Transform3D(1.2959285, -8.940697e-08, 1.4901161e-08, -4.7683716e-07, 1.295929, -3.5762787e-07, -2.9802322e-08, -3.7252903e-09, 1.2959281, 7.707947, 11.659889, 0.20024252)
+shape = SubResource("ConvexPolygonShape3D_j54na")
 
 [node name="RadioBody" type="MeshInstance3D" parent="Sub_mesh/Node3D/Radio" unique_id=526987670]
 transform = Transform3D(1.9412724, 0, 0, 0, 1, 0, 0, 0, 1, 1.7767185, 0, 0)
@@ -1406,9 +1495,23 @@ mesh = SubResource("QuadMesh_n5003")
 [node name="Camera mount" type="Marker3D" parent="Sub_mesh" unique_id=1745428718]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.7513086e-08, 0, 0.8866464)
 
-[node name="cheatsheet" type="MeshInstance3D" parent="Sub_mesh" unique_id=2023998739]
+[node name="Cheat sheet" type="Area3D" parent="Sub_mesh" unique_id=1854751041]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("23_225uq")
+
+[node name="cheatsheet" type="MeshInstance3D" parent="Sub_mesh/Cheat sheet" unique_id=2023998739]
 transform = Transform3D(0.0074266945, 0, -0.19655854, 0, 0.4211197, 0, 0.28405735, 0, 0.005139033, 0.45084137, 0, 0.2740103)
 mesh = SubResource("QuadMesh_a4xb3")
+
+[node name="cheatsheet2" type="MeshInstance3D" parent="Sub_mesh/Cheat sheet" unique_id=399898770]
+transform = Transform3D(0.007426694, 0, -0.19655854, 0, 0.4211197, 0, 0.28405735, 0, 0.005139033, 0.44440493, 0, 0.2740103)
+material_override = ExtResource("16_8ip6a")
+mesh = SubResource("QuadMesh_a4xb3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sub_mesh/Cheat sheet" unique_id=2059649133]
+transform = Transform3D(0.007426694, 0, -0.19655854, 0, 0.4211197, 0, 0.28405735, 0, 0.005139033, 0.33525583, 0, 0.26261386)
+shape = SubResource("ConvexPolygonShape3D_rbygy")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=727832365]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.42409325, -7.655178)
@@ -1453,3 +1556,5 @@ render_target_update_mode = 4
 
 [node name="ViewFinderCamera" type="Camera3D" parent="SubViewport" unique_id=1458681821]
 fov = 26.8
+
+[connection signal="pressed" from="Tutorial/Control/tutorial" to="Sub_mesh/Cheat sheet" method="_on_tutorial_pressed"]

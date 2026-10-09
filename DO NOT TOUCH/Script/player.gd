@@ -77,6 +77,8 @@ var current_pitch: float = 0.0
 var pending_photo: Image = null
 var pending_mission: Mission = null
 
+var ui_locked: bool = false
+
 @export var engine_response: float = 1.5
 @export var engine_pitch_min: float = 0.9
 @export var engine_pitch_max: float = 1.3
@@ -101,7 +103,8 @@ func _debug_display():
 @export var screen_uv_offset: Vector3 = Vector3(0, 0, 0)
 
 @onready var click_sound = $Audio/Click
-
+@onready var interact_ray: RayCast3D = $Camera3D/RayCast3D
+var hovered: Node = null
 func _ready() -> void:
 	MusicPlayer.start()
 	crosshair.hide()
@@ -124,6 +127,8 @@ func _ready() -> void:
 	sub_mesh_base_pos = sub_mesh.position
 
 func _unhandled_input(event: InputEvent) -> void:
+	if ui_locked:
+		return
 	if event.is_action_pressed("toggle freelook"):
 		_toggle_freelook()
 
@@ -149,11 +154,32 @@ func _physics_process(delta: float) -> void:
 			_update_engine_sound(delta)
 			_handle_shake()
 			_camera_control()
+			_update_interact()
 			if not freelook_active:
 				_update_stick()
 			_sub_pitch_yaw(delta)
 			_throttle_input_handler()
 			_propeller(delta)
+
+func _update_interact() -> void:
+	if ui_locked:
+		return
+	var target: Node = null
+
+	if freelook_active and interact_ray.is_colliding():
+		var c = interact_ray.get_collider()
+		if c and c.has_method("interact"):
+			target = c
+
+	if target != hovered:
+		if is_instance_valid(hovered) and hovered.has_method("hover_exit"):
+			hovered.hover_exit()
+		hovered = target
+		if hovered and hovered.has_method("hover_enter"):
+			hovered.hover_enter()
+
+	if hovered and Input.is_action_just_pressed("interact"):
+		hovered.interact()
 
 func _setup_screen_material() -> void:
 	var mat = StandardMaterial3D.new()

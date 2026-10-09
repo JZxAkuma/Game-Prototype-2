@@ -1,25 +1,56 @@
 extends Area3D
+
+@export var hold_time: float = 0.5 
+
 @onready var mesh: MeshInstance3D = $RadioButton2
 
+var pressing: bool = false
+var press_timer: float = 0.0
+var hold_fired: bool = false
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	mesh.hide()
-	input_event.connect(_on_input_event)
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exit)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		pass
-
-func _on_mouse_entered() -> void:
+func hover_enter() -> void:
 	mesh.show()
 
-func _on_mouse_exit() -> void:
+
+func hover_exit() -> void:
 	mesh.hide()
+	_reset()  
+
+func interact() -> void:
+	pressing = true
+	press_timer = 0.0
+	hold_fired = false
+
+
+func _process(delta: float) -> void:
+	if not pressing:
+		return
+
+	if Input.is_action_pressed("interact"):
+		press_timer += delta
+		if not hold_fired and press_timer >= hold_time:
+			hold_fired = true
+			MusicPlayer.stop()
+	else:
+		# released
+		if not hold_fired:
+			_short_click()
+		_reset()
+
+
+func _short_click() -> void:
+	if MusicPlayer.running and not MusicPlayer.paused:
+		MusicPlayer.next_song()
+	else:
+		MusicPlayer.start() 
+
+
+func _reset() -> void:
+	pressing = false
+	press_timer = 0.0
+	hold_fired = false
