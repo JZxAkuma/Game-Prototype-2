@@ -3,7 +3,7 @@ extends Control
 @export var tracked_group: String = "photographable"
 @export var radar_range: float = 50.0
 @export var blip_color: Color = Color(0.2, 1.0, 0.3)
-@export var blip_size: float = 6.0
+@export var blip_size: float = 15.0
 @export var blink_speed: float = 4.0
 
 @export var player_dot_color: Color = Color(1.0, 1.0, 1.0)

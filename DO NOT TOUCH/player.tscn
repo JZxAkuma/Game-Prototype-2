@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cqgl3kc6nio8q" path="res://DO NOT TOUCH/photo_1790840928.png" id="3_pkf55"]
 [ext_resource type="Shader" uid="uid://dddm6lop7ye38" path="res://DO NOT TOUCH/Shader/main_menu.gdshader" id="4_767l7"]
 [ext_resource type="Texture2D" uid="uid://qd5xemtoy0ul" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Metallic.png" id="4_mwdc5"]
+[ext_resource type="Texture2D" uid="uid://ddq61mddycrw0" path="res://UI Assets/PlayerRadar.png" id="4_trwll"]
 [ext_resource type="Texture2D" uid="uid://c7nbwxx10dswr" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_Normal.png" id="5_y7syf"]
 [ext_resource type="Texture2D" uid="uid://bujpy3466drrh" path="res://UI Assets/PhotoUIBG.png" id="6_1x67i"]
 [ext_resource type="Script" uid="uid://cqqlckedjtiwr" path="res://DO NOT TOUCH/Script/radar.gd" id="6_767l7"]
@@ -1012,6 +1013,7 @@ script = ExtResource("6_767l7")
 player_path = NodePath("../..")
 
 [node name="ColorRect" type="ColorRect" parent="Radar viewport/radar" unique_id=410240967]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1019,6 +1021,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Radar viewport/radar" unique_id=1866294228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_trwll")
 
 [node name="Latest photo" type="SubViewport" parent="." unique_id=1426581162]
 script = ExtResource("3_cuvwe")
