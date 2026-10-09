@@ -644,6 +644,7 @@ text = "Quit"
 [node name="UIClickSound" type="AudioStreamPlayer3D" parent="CanvasLayer/Control" unique_id=110728314]
 stream = ExtResource("16_s53v0")
 volume_db = 10.0
+bus = &"SFx"
 
 [node name="tropical fish 1 school" parent="." unique_id=1860335631 instance=ExtResource("10_tre5t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.04978, 85.96336, -55.982735)
@@ -680,11 +681,13 @@ wander_strength = 10.0
 [node name="MenuThemeFreesound" type="AudioStreamPlayer" parent="." unique_id=889533360]
 stream = ExtResource("25_dev3l")
 volume_db = -3.367
+bus = &"BGM"
 
 [node name="SeaGurgle" type="AudioStreamPlayer" parent="." unique_id=1203966439]
 stream = ExtResource("23_3l610")
 volume_db = -2.862
 autoplay = true
+bus = &"SFx"
 
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/start button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/VBoxContainer/world scene button" to="." method="_on_world_scene_button_pressed"]

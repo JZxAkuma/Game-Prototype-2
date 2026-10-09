@@ -26,4 +26,5 @@ func _ready() -> void:
 
 
 func _on_accept_pressed() -> void:
+	accept_button.hide()
 	accept_pressed.emit(mission)
