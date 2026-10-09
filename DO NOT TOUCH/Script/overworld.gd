@@ -44,6 +44,7 @@ var color_keyframes = [
 
 
 func _ready() -> void:
+	MusicPlayer.stop()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	ui.hide()
 	default_cam_pos = camera.global_position

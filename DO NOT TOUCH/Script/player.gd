@@ -103,6 +103,7 @@ func _debug_display():
 @onready var click_sound = $Audio/Click
 
 func _ready() -> void:
+	MusicPlayer.start()
 	crosshair.hide()
 	_setup_screen_material()
 	tablet_shown_pos = tablet.position 

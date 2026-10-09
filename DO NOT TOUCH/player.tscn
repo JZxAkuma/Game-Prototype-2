@@ -1048,7 +1048,6 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="PhotoUI" type="CanvasLayer" parent="." unique_id=331502082]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PhotoUI" unique_id=1198273289]
 anchors_preset = 15
@@ -1122,7 +1121,6 @@ Esc to surface
 Mouse 1 to Take Photo"
 
 [node name="PhotoReviewUI" type="CanvasLayer" parent="." unique_id=195338775]
-visible = false
 
 [node name="Control" type="Control" parent="PhotoReviewUI" unique_id=458942144]
 layout_mode = 3

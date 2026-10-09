@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bgph2hykhannf"]
+
+[ext_resource type="Script" uid="uid://hvu0welks45t" path="res://music_player.gd" id="1_0usil"]
+[ext_resource type="AudioStream" uid="uid://4grsdjbrhkds" path="res://music/Game_Prototype_2_Candid_Coral.wav" id="2_s20pi"]
+[ext_resource type="AudioStream" uid="uid://cvw8ekarr0uf8" path="res://music/Game_Prototype_2_Descendant.wav" id="3_5xolt"]
+[ext_resource type="AudioStream" uid="uid://bk6hylvwej8qf" path="res://music/Game_Prototype_2_Imminent_Depth.wav" id="4_pugx3"]
+
+[node name="Music player" type="Node" unique_id=2038453318]
+script = ExtResource("1_0usil")
+songs = Array[AudioStream]([ExtResource("2_s20pi"), ExtResource("3_5xolt"), ExtResource("4_pugx3")])
+
+[node name="Player" type="AudioStreamPlayer" parent="." unique_id=1324311376]

@@ -27,6 +27,7 @@ GameEvents="*uid://d1o8opem3cgo2"
 Transition="*uid://n6qu63kabjeb"
 QuestManager="*uid://cbkt8coowmxjy"
 PhotoManager="*uid://cxxfaxv5tudq0"
+MusicPlayer="*uid://bgph2hykhannf"
 
 [display]
 

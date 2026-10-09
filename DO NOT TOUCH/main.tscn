@@ -37,7 +37,6 @@ script = ExtResource("4_b73pl")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=656363020]
 stream = ExtResource("11_6qmul")
 volume_db = -3.649
-autoplay = true
 
 [node name="UnderwaterAmbience" type="AudioStreamPlayer" parent="." unique_id=2034756055]
 stream = ExtResource("13_dykey")

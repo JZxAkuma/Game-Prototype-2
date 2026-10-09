@@ -53,6 +53,7 @@ func _dive(sector:Node)->void:
 func _to_overworld() -> void:
 	WorldChanger.goto_scene(overworld)
 	state = states.overworld
+	MusicPlayer.pause()
 
 func _to_wrld_scn() -> void:
 	WorldChanger.goto_scene(worldtscn)
