@@ -39,6 +39,9 @@ var state = states.driving
 @onready var tablet: Node3D = $Sub_mesh/tablet
 @onready var tablet_screen = $Sub_mesh/tablet/MeshInstance3D
 
+@onready var crosshair: CanvasLayer = $crosshair
+
+
 var freelook_sens = 0.005
 
 var freelook_active = false
@@ -100,6 +103,7 @@ func _debug_display():
 @onready var click_sound = $Audio/Click
 
 func _ready() -> void:
+	crosshair.hide()
 	_setup_screen_material()
 	tablet_shown_pos = tablet.position 
 	tablet.position = tablet_shown_pos + tablet_hidden_offset
@@ -397,8 +401,10 @@ func _toggle_freelook():
 	freelook_active = !freelook_active
 	
 	if freelook_active:
+		crosshair.show()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
+		crosshair.hide()
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 		var center = get_viewport().get_visible_rect().size / 2.0
 		Input.warp_mouse(center)

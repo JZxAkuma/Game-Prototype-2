@@ -21,7 +21,7 @@ var day_night_cycle: Node
 
 var default_cam_pos
 var default_cam_fov
-var zoom_cam_fov = 25
+var zoom_cam_fov = 35
 
 var focusing = false
 var focusing_on = null

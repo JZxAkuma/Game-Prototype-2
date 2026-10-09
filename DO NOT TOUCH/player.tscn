@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://rtndhytpyadp" path="res://DO NOT TOUCH/Script/player.gd" id="1_bdb3e"]
 [ext_resource type="Script" uid="uid://cad44brc5qf1r" path="res://DO NOT TOUCH/Script/photoreview.gd" id="2_dsoe5"]
 [ext_resource type="Material" uid="uid://domwpsbch6xxu" path="res://Materials/Subs/sub screen.tres" id="2_fu28x"]
+[ext_resource type="Texture2D" uid="uid://ck23kxqp0ynho" path="res://UI Assets/CursorFree.png" id="2_x451n"]
 [ext_resource type="Script" uid="uid://codd4aqtms515" path="res://DO NOT TOUCH/latest_photo.gd" id="3_cuvwe"]
 [ext_resource type="Texture2D" uid="uid://d2imu7gaxae8v" path="res://EnvironmentalAssets/SubmarineFinal/SubmarineTextured_standardSurface1_BaseColor.png" id="3_guilt"]
 [ext_resource type="Shader" uid="uid://yco8p8a5gjbo" path="res://EnvironmentalAssets/Pixelation.gdshader" id="3_m0h4x"]
@@ -960,6 +961,36 @@ size = Vector2(0.04, 0.04)
 [node name="Player" type="CharacterBody3D" unique_id=1089965781]
 script = ExtResource("1_bdb3e")
 
+[node name="crosshair" type="CanvasLayer" parent="." unique_id=1446611537]
+
+[node name="Control" type="Control" parent="crosshair" unique_id=124265426]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="crosshair/Control" unique_id=394291599]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x451n")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Radar viewport" type="SubViewport" parent="." unique_id=1331109547]
 transparent_bg = true
 size = Vector2i(256, 256)
@@ -1017,6 +1048,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="PhotoUI" type="CanvasLayer" parent="." unique_id=331502082]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="PhotoUI" unique_id=1198273289]
 anchors_preset = 15
@@ -1090,6 +1122,7 @@ Esc to surface
 Mouse 1 to Take Photo"
 
 [node name="PhotoReviewUI" type="CanvasLayer" parent="." unique_id=195338775]
+visible = false
 
 [node name="Control" type="Control" parent="PhotoReviewUI" unique_id=458942144]
 layout_mode = 3

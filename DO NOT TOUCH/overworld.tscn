@@ -114,7 +114,7 @@ light_specular = 16.0
 shadow_enabled = true
 
 [node name="Island" type="Area3D" parent="." unique_id=150471320 groups=["island"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.289194, 0, 19.12141)
+transform = Transform3D(1.4134502, 0, 0, 0, 1.4134502, 0, 0, 0, 1.4134502, 20.289194, 0, 19.12141)
 script = ExtResource("7_btup8")
 island_name = "Island 1"
 
@@ -140,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017006874, 0, 19.522161)
 [node name="boatend" type="Marker3D" parent="Island" unique_id=1667024825]
 
 [node name="Island2" type="Area3D" parent="." unique_id=826368841 groups=["island"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.18459, 0, 16.284977)
+transform = Transform3D(1.3649068, 0, 0, 0, 1.3649068, 0, 0, 0, 1.3649068, 80.18459, 0, 16.284977)
 script = ExtResource("7_btup8")
 island_name = "Island 2"
 
@@ -165,7 +165,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017006874, 0, 19.522161)
 [node name="boatend" type="Marker3D" parent="Island2" unique_id=2069000573]
 
 [node name="Island3" type="Area3D" parent="." unique_id=1374050627 groups=["island"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.675621, 0, 79.374626)
+transform = Transform3D(1.5791683, 0, 0, 0, 1.5791683, 0, 0, 0, 1.5791683, 21.675621, 0, 79.374626)
 script = ExtResource("7_btup8")
 island_name = "Island 3"
 
