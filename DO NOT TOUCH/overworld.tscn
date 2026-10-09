@@ -183,7 +183,7 @@ transform = Transform3D(1.1498289, 0, 0, 0, 1.1498289, 0, 0, 0, 1.1498289, 0, 0,
 shape = SubResource("ConvexPolygonShape3D_7gxji")
 
 [node name="CameraMarker" type="Marker3D" parent="Island3" unique_id=465210078]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.017006874, 0, 19.522161)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.017006874, 0, 17.192959)
 
 [node name="boatstart" type="Marker3D" parent="Island3" unique_id=984551491]
 
