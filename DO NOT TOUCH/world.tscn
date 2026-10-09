@@ -445,6 +445,9 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.2192135, -22.640015, -5.08
 [node name="CameraTablet" parent="." unique_id=1964670983 instance=ExtResource("34_v2ybh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20532608, -2.829739, 3.4673061)
 
+[node name="LarvaeRig2" parent="." unique_id=1258943821 instance=ExtResource("8_net3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.3007345, -11.61016)
+
 [editable path="AssetPack1A2Meshes"]
 [editable path="caped ship"]
 [editable path="chest"]
