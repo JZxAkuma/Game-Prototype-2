@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bhr3dq7atplxq" path="res://Actor/spongebob/spongebob.tscn" id="12_c36l5"]
 [ext_resource type="PackedScene" uid="uid://bbhu17pgwfd26" path="res://DO NOT TOUCH/particle/tropical_fish_2_school.tscn" id="13_pjefc"]
 [ext_resource type="PackedScene" uid="uid://bk8074ty1iys6" path="res://DO NOT TOUCH/particle/tropical_fish_1_school.tscn" id="14_y5ord"]
+[ext_resource type="PackedScene" uid="uid://cx6rxebumv84t" path="res://Terrain Painting Scene/arch.tscn" id="15_y5ord"]
 
 [sub_resource type="Gradient" id="Gradient_p135u"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -201,7 +202,7 @@ transform = Transform3D(1.1046422, 0.09513765, 0.3667617, -0.1407234, 1.1525642,
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 24" parent="ScenePainterInstances" unique_id=356659953 instance=ExtResource("3_qgack")]
-transform = Transform3D(1.4422654, 0.11743144, -0.056648884, -0.115387686, 1.4425805, 0.05268644, 0.06070353, -0.047958717, 1.4460787, 23.574734, 19.636354, -142.14658)
+transform = Transform3D(2.5665102, 0.38279694, -0.091939345, -0.20533231, 4.70245, 0.08550843, 0.10802189, -0.15633337, 2.3469398, 23.574734, 19.636354, -142.14658)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 25" parent="ScenePainterInstances" unique_id=1907560246 instance=ExtResource("2_xsj54")]
@@ -209,7 +210,7 @@ transform = Transform3D(-0.20645091, 0.04502751, -1.0557514, 0.06510375, 1.07421
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 26" parent="ScenePainterInstances" unique_id=1372986644 instance=ExtResource("2_xsj54")]
-transform = Transform3D(-0.46757007, 0.12354332, -1.1905316, 0.34423304, 1.2380261, -0.0067223944, 1.146356, -0.32136992, -0.4835696, -21.955353, 19.772982, -176.42854)
+transform = Transform3D(-1.0694971, 0.4627913, -3.721511, 0.787382, 4.637626, -0.02101369, 2.6221192, -1.2038466, -1.5116016, -21.955353, 19.772982, -176.42854)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 27" parent="ScenePainterInstances" unique_id=32245831 instance=ExtResource("5_g5yjt")]
@@ -845,7 +846,7 @@ transform = Transform3D(0.57390976, 0.20270656, 0.9562854, -0.1988411, 1.1099385
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 185" parent="ScenePainterInstances" unique_id=539524140 instance=ExtResource("5_g5yjt")]
-transform = Transform3D(0.9459258, -0.39481857, 0.15449916, 0.40005767, 0.95626837, -0.0056462246, -0.14037648, 0.06477896, 1.0250002, -121.24705, 19.009945, 203.30997)
+transform = Transform3D(1.5961723, -1.158228, 0.423311, 0.6750646, 2.8052807, -0.015470046, -0.23687382, 0.19003364, 2.80839, -121.24705, 19.009945, 203.30997)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 186" parent="ScenePainterInstances" unique_id=2069032470 instance=ExtResource("4_yv851")]
@@ -1189,7 +1190,7 @@ transform = Transform3D(0.81501967, -0.10807099, -0.89375937, -0.044708658, 1.19
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 271" parent="ScenePainterInstances" unique_id=363358386 instance=ExtResource("5_g5yjt")]
-transform = Transform3D(0.13381144, 0.397236, -1.1931562, 0.08654312, 1.1941383, 0.40726867, 1.2545631, -0.12474396, 0.099167325, 11.1002445, 24.833193, -59.346428)
+transform = Transform3D(0.13381144, 0.8336036, -1.1931561, 0.08654312, 2.5059109, 0.40726864, 1.2545631, -0.26177642, 0.09916732, 11.1002445, 24.833193, -59.346428)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 272" parent="ScenePainterInstances" unique_id=153696024 instance=ExtResource("2_xsj54")]
@@ -1285,7 +1286,7 @@ transform = Transform3D(0.41542834, -0.021453302, -1.2694381, 0.17721473, 1.3235
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 295" parent="ScenePainterInstances" unique_id=1875593560 instance=ExtResource("2_xsj54")]
-transform = Transform3D(1.0817429, 0.31015298, 0.14873122, -0.32156116, 1.0861051, 0.07387674, -0.12212398, -0.112536564, 1.1229002, -31.37328, 33.73977, -103.79681)
+transform = Transform3D(1.8494924, 0.7279922, 0.14873122, -0.549784, 2.5493097, 0.07387674, -0.20879951, -0.2641462, 1.1229002, -31.37328, 33.73977, -103.79681)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 296" parent="ScenePainterInstances" unique_id=1704365779 instance=ExtResource("5_g5yjt")]
@@ -1509,7 +1510,7 @@ transform = Transform3D(0.20103656, -0.10297409, 1.036717, -0.23260722, 1.024752
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 351" parent="ScenePainterInstances" unique_id=1244203301 instance=ExtResource("2_xsj54")]
-transform = Transform3D(-0.6567523, -0.13910817, 0.89918315, 0.09331613, 1.0928055, 0.2372195, -0.905082, 0.21361157, -0.62801397, -19.230797, 29.174652, 22.750374)
+transform = Transform3D(-1.4153001, -0.25923914, 1.6951416, 0.20109612, 2.03653, 0.4472066, -1.9504502, 0.39808217, -1.183933, -19.230797, 29.174652, 22.750374)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 352" parent="ScenePainterInstances" unique_id=728216188 instance=ExtResource("5_g5yjt")]
@@ -1593,7 +1594,7 @@ transform = Transform3D(1.4562129, -0.3088365, 0.17129262, 0.30454758, 1.466142,
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 372" parent="ScenePainterInstances" unique_id=2035753141 instance=ExtResource("5_g5yjt")]
-transform = Transform3D(-0.28772724, -0.2932045, -1.3842794, -0.15827924, 1.4104118, -0.2658407, 1.4061102, 0.09876609, -0.31318453, 172.88792, 40.664223, -19.24363)
+transform = Transform3D(-0.8563374, -0.96647954, -4.407527, -0.47107264, 4.6490903, -0.8464333, 4.1848826, 0.32555914, -0.9971753, 172.88792, 40.664223, -19.24363)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 373" parent="ScenePainterInstances" unique_id=81045453 instance=ExtResource("5_g5yjt")]
@@ -1673,7 +1674,7 @@ transform = Transform3D(0.67317075, 0.30966228, 0.95582813, -0.42170125, 1.13136
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 392" parent="ScenePainterInstances" unique_id=1698320376 instance=ExtResource("2_xsj54")]
-transform = Transform3D(1.0230613, -0.053925753, 0.8865976, 0.07514254, 1.352757, -0.004429271, -0.8850519, 0.052516975, 1.024472, -116.05615, 39.77647, -75.70715)
+transform = Transform3D(2.3007991, -0.12703659, 1.7508949, 0.16899075, 3.1867824, -0.008747133, -1.9904249, 0.12371784, 2.0231757, -116.05615, 39.77647, -75.70715)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 393" parent="ScenePainterInstances" unique_id=82033750 instance=ExtResource("3_qgack")]
@@ -1777,7 +1778,7 @@ transform = Transform3D(-1.3045958, -0.21761282, 0.27277526, -0.20888646, 1.3326
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 418" parent="ScenePainterInstances" unique_id=948532104 instance=ExtResource("4_yv851")]
-transform = Transform3D(-0.45966622, -0.31857944, -1.2469633, 0.13934928, 1.304005, -0.38452074, 1.2794499, -0.25647923, -0.4061153, 130.01018, 38.937824, 46.754456)
+transform = Transform3D(-1.4565091, -1.5793996, -3.000107, 0.44154537, 6.464777, -0.92513037, 4.054095, -1.2715298, -0.97708535, 130.01018, 38.937824, 46.754456)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 419" parent="ScenePainterInstances" unique_id=1169812396 instance=ExtResource("2_xsj54")]
@@ -1921,7 +1922,7 @@ transform = Transform3D(-0.1802055, -0.19287151, 1.0405542, -0.01915086, 1.05595
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 454" parent="ScenePainterInstances" unique_id=1524094111 instance=ExtResource("2_xsj54")]
-transform = Transform3D(0.3287594, -0.20456368, -1.1826503, 0.17421469, 1.2213625, -0.1628306, 1.1875005, -0.12254906, 0.35130504, 105.185776, 25.946287, -40.10531)
+transform = Transform3D(0.6307317, -0.49565944, -2.3926353, 0.33423448, 2.9593709, -0.3294247, 2.2782443, -0.29693735, 0.7107298, 105.185776, 25.946287, -40.10531)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 455" parent="ScenePainterInstances" unique_id=1187612965 instance=ExtResource("2_xsj54")]
@@ -1949,7 +1950,7 @@ transform = Transform3D(1.0148654, -0.17313924, 0.38604513, 0.114944376, 1.07834
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 461" parent="ScenePainterInstances" unique_id=527585703 instance=ExtResource("4_yv851")]
-transform = Transform3D(-1.0584942, -0.09989266, 0.6458613, -0.12087159, 1.2380921, -0.0066044577, -0.6422659, -0.06837408, -1.0631768, 133.36227, 25.534449, -96.59515)
+transform = Transform3D(-2.0727336, -0.28518632, 1.2885439, -0.23668964, 3.5346632, -0.013176411, -1.2576792, -0.19520305, -2.121121, 133.36227, 25.534449, -96.59515)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 462" parent="ScenePainterInstances" unique_id=1019069145 instance=ExtResource("2_xsj54")]
@@ -2145,7 +2146,7 @@ transform = Transform3D(-1.1909359, -0.31034958, 0.05302642, -0.3131279, 1.14586
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 510" parent="ScenePainterInstances" unique_id=583964554 instance=ExtResource("5_g5yjt")]
-transform = Transform3D(-1.0137029, -0.35330716, -0.89579576, -0.25343955, 1.3526903, -0.2467112, 0.9290019, -0.01649428, -1.044774, 53.53923, 16.897327, 43.5577)
+transform = Transform3D(-2.3679268, -0.95847964, -2.6420982, -0.592014, 3.6696854, -0.72766054, 2.1700726, -0.044746988, -3.0815012, 53.53923, 16.897327, 43.5577)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 511" parent="ScenePainterInstances" unique_id=1582481020 instance=ExtResource("3_qgack")]
@@ -2289,7 +2290,7 @@ transform = Transform3D(0.011099852, 0.071047515, -1.0220337, -0.23592094, 0.994
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 546" parent="ScenePainterInstances" unique_id=1053865896 instance=ExtResource("5_g5yjt")]
-transform = Transform3D(-1.4085951, 0.19557951, -0.40876305, 0.13022009, 1.4531791, 0.24656014, 0.4340292, 0.1987406, -1.4005712, -14.81234, 14.652681, 105.179565)
+transform = Transform3D(-1.8287333, 0.37066296, -0.79020536, 0.16906051, 2.75407, 0.4766408, 0.56348604, 0.37665385, -2.7075315, -14.81234, 14.652681, 105.179565)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 547" parent="ScenePainterInstances" unique_id=1910325802 instance=ExtResource("4_yv851")]
@@ -2365,7 +2366,7 @@ transform = Transform3D(-1.0524518, 0.039560046, 0.49617076, 0.10361398, 1.15252
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 565" parent="ScenePainterInstances" unique_id=1981555551 instance=ExtResource("5_g5yjt")]
-transform = Transform3D(-0.9493523, -0.20182447, -0.8363224, -0.46802306, 1.1661762, 0.24985087, 0.7218883, 0.49065048, -0.937858, -158.36276, 29.91275, 145.74461)
+transform = Transform3D(-2.9173837, -0.61646485, -3.2043068, -1.4382466, 3.562039, 0.9572849, 2.2183807, 1.4986724, -3.5933328, -158.36276, 29.91275, 145.74461)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 566" parent="ScenePainterInstances" unique_id=13378312 instance=ExtResource("5_g5yjt")]
@@ -2477,7 +2478,7 @@ transform = Transform3D(0.7546806, 0.25083625, 1.0633385, 0.16560072, 1.2511694,
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 593" parent="ScenePainterInstances" unique_id=1593644945 instance=ExtResource("4_yv851")]
-transform = Transform3D(0.29289317, -0.2966456, -1.1637719, -0.2031936, 1.1683712, -0.34895688, 1.1836704, 0.27397072, 0.22806601, -141.94803, 12.305876, 200.19522)
+transform = Transform3D(0.58891785, -1.2738587, -2.8360655, -0.40855968, 5.017232, -0.85039395, 2.3799963, 1.1764879, 0.55578774, -141.94803, 12.305876, 200.19522)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 594" parent="ScenePainterInstances" unique_id=468259837 instance=ExtResource("4_yv851")]
@@ -2621,7 +2622,7 @@ transform = Transform3D(0.36767063, 0.071911365, 1.1994661, 0.33735245, 1.197733
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 629" parent="ScenePainterInstances" unique_id=1373186543 instance=ExtResource("2_xsj54")]
-transform = Transform3D(-0.8092832, -0.24938083, -1.1276557, -0.10986931, 1.3873358, -0.22795929, 1.1496638, -0.042963937, -0.8155763, -150.91795, 9.2221, 243.6928)
+transform = Transform3D(-1.3772782, -0.626885, -2.5242476, -0.18698102, 3.4874372, -0.5102849, 1.9565548, -0.10800128, -1.8256605, -150.91795, 9.2221, 243.6928)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 630" parent="ScenePainterInstances" unique_id=10312888 instance=ExtResource("4_yv851")]
@@ -3501,7 +3502,7 @@ transform = Transform3D(-1.010189, -0.43944755, -0.5862938, -0.3793034, 1.167998
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 849" parent="ScenePainterInstances" unique_id=422565565 instance=ExtResource("5_g5yjt")]
-transform = Transform3D(1.103337, 0.062616386, 0.58357686, -0.0744888, 1.2474928, 0.006978965, -0.58218056, -0.04094478, 1.1050905, -56.493114, 30.414574, 203.68074)
+transform = Transform3D(3.1039615, 0.19431785, 1.9419807, -0.2095555, 3.871353, 0.023224046, -1.6378187, -0.12706421, 3.6774325, -56.493114, 30.414574, 203.68074)
 metadata/scene_painter_instance = true
 
 [node name="Tropical coral 850" parent="ScenePainterInstances" unique_id=435126424 instance=ExtResource("4_yv851")]
@@ -4435,3 +4436,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.127548, 101.37006, 0)
 
 [node name="tropical fish 1 school" parent="." unique_id=1860335631 instance=ExtResource("14_y5ord")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.53693, 101.37006, 0)
+
+[node name="Arch" parent="." unique_id=1821074155 instance=ExtResource("15_y5ord")]
+transform = Transform3D(8.597499, 0, -6.57539, 0, 8.018221, 0, 8.706125, 0, 6.4933486, 64.67255, 27.198982, -120.29336)
+
+[node name="Arch3" parent="." unique_id=2084672344 instance=ExtResource("15_y5ord")]
+transform = Transform3D(13.179462, 0, 6.5080204, 0, 10.951173, 0, -9.554386, 0, 8.977261, -96.14727, 27.198982, -152.98984)
+
+[node name="Arch4" parent="." unique_id=1480048036 instance=ExtResource("15_y5ord")]
+transform = Transform3D(15.512481, 0, -3.3610353, 0, 10.951173, 0, 4.9343147, 0, 10.566409, -171.89307, 27.198982, 6.9297485)
+
+[node name="Arch5" parent="." unique_id=2028234344 instance=ExtResource("15_y5ord")]
+transform = Transform3D(18.574266, 0, -3.3610353, 0, 14.71249, 0, 5.908227, 0, 10.566409, -186.63098, 47.302345, 53.26274)
+
+[node name="Arch6" parent="." unique_id=1114037989 instance=ExtResource("15_y5ord")]
+transform = Transform3D(13.652578, 0, 7.9136343, 0, 14.71249, 0, -13.911062, 0, 7.766592, 51.844513, 17.257557, 129.11862)
+
+[node name="Arch2" parent="." unique_id=1401805770 instance=ExtResource("15_y5ord")]
+transform = Transform3D(6.031099, 0, -6.57539, 0, 6.2414274, 0, 6.1073, 0, 6.4933486, 97.06917, 15.265205, -152.28577)
